@@ -9,7 +9,7 @@ import JsonLd from '@/components/JsonLd';
 import { breadcrumbLd, pageMeta } from '@/lib/seo';
 import { listPublished, type Post } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
-import { SITE_URL } from '@/lib/site';
+import { SITE, SITE_URL } from '@/lib/site';
 
 // Rebuilt at most every 5 minutes; publishing from /admin revalidates
 // immediately, so this is only a safety net.
@@ -98,10 +98,15 @@ export default async function BlogIndex() {
                 is the free audit. We will tell you what is wrong with your
                 account whether or not you hire us.
               </p>
-              <Link href="/free-email-audit" className="btn btn-flame mt-8">
-                Get your free audit
+              <a
+                href={SITE.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-flame mt-8"
+              >
+                Book your free audit
                 <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
-              </Link>
+              </a>
             </div>
           ) : (
             <>

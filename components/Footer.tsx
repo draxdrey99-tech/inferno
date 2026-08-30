@@ -41,13 +41,24 @@ export default function Footer() {
                 </h2>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((l) => (
-                    <li key={l.href}>
-                      <Link
-                        href={l.href}
-                        className="text-[0.9375rem] text-bone/75 transition-colors hover:text-flame"
-                      >
-                        {l.label}
-                      </Link>
+                    <li key={l.label}>
+                      {'external' in l && l.external ? (
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[0.9375rem] text-bone/75 transition-colors hover:text-flame"
+                        >
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={l.href}
+                          className="text-[0.9375rem] text-bone/75 transition-colors hover:text-flame"
+                        >
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

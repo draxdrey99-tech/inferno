@@ -20,6 +20,8 @@ export const SITE = {
     'Inferno Emails is an email marketing agency for ecommerce brands. We build Klaviyo flows, design campaigns that look like your brand, and fix deliverability so the revenue actually lands.',
   email: 'hello@infernoemails.com',
   instagram: 'https://www.instagram.com/infernoemails/',
+  /** Booking link for the free audit call. Every audit CTA points here. */
+  calendly: 'https://calendly.com/infernoemails/new-meeting',
   linkedin: 'https://www.linkedin.com/company/infernoemails/',
   founded: '2022',
   locale: 'en_US',
@@ -29,36 +31,51 @@ export const SITE = {
  * Navigation
  * ------------------------------------------------------------------ */
 
+/**
+ * The marketing site is a single page. Nav entries are in-page anchors,
+ * written absolute (`/#services`) rather than bare (`#services`) so they
+ * still resolve when the visitor is on /blog. The blog is the one route
+ * that gets a page of its own.
+ */
 export const NAV = [
-  { label: 'Services', href: '/services' },
-  { label: 'Work', href: '/work' },
-  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Work', href: '/#work' },
+  { label: 'About', href: '/#about' },
   { label: 'Blog', href: '/blog' },
+] as const;
+
+/** Section ids the nav scroll-spy watches, in document order. */
+export const NAV_SECTIONS = [
+  'services',
+  'work',
+  'about',
+  'faq',
+  'contact',
 ] as const;
 
 export const FOOTER_NAV = [
   {
-    title: 'Services',
+    title: 'What we do',
     links: [
-      { label: 'Klaviyo email marketing', href: '/services/klaviyo-email-marketing' },
-      { label: 'Email design', href: '/services/email-design' },
-      { label: 'Email deliverability', href: '/services/email-deliverability' },
-      { label: 'Retention strategy', href: '/services/retention-strategy' },
+      { label: 'Klaviyo email marketing', href: '/#services' },
+      { label: 'Email design', href: '/#services' },
+      { label: 'Email deliverability', href: '/#services' },
+      { label: 'Retention strategy', href: '/#services' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
-      { label: 'Work', href: '/work' },
+      { label: 'About', href: '/#about' },
+      { label: 'Work', href: '/#work' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact', href: '/#contact' },
     ],
   },
   {
     title: 'Start here',
     links: [
-      { label: 'Free email audit', href: '/free-email-audit' },
+      { label: 'Book a free audit', href: SITE.calendly, external: true },
       { label: 'Privacy policy', href: '/privacy' },
       { label: 'Terms of service', href: '/terms' },
     ],
@@ -494,5 +511,109 @@ export const HOME_FAQS = [
   {
     q: 'What happens on the free email audit?',
     a: 'You send us access or screenshots, we review your flows, list health, authentication records and last ninety days of performance, and we send back what we found and what we would do about it. No obligation, and the findings are yours to keep.',
+  },
+] as const;
+
+/* ------------------------------------------------------------------ *
+ * Beliefs. Statements of how the team works, not biography. No invented
+ * headcount, awards or founder story — see CONTENT.md for the details
+ * only the client can supply.
+ * ------------------------------------------------------------------ */
+
+export const BELIEFS = [
+  {
+    index: '01',
+    title: 'Attributed revenue, or it did not happen',
+    body:
+      'Opens are a diagnostic. Clicks are a diagnostic. The number that decides whether we earned our fee is how much revenue the channel attributed this month, and whether it is bigger than last month. We report on that first, every time.',
+  },
+  {
+    index: '02',
+    title: 'Templates are a tax on your brand',
+    body:
+      'A layout that has been sold to four hundred other stores does not stop looking like a layout that has been sold to four hundred other stores. We draw every email for the brand it belongs to. It costs us more time. It is the whole job.',
+  },
+  {
+    index: '03',
+    title: 'The boring part decides the exciting part',
+    body:
+      'Authentication records, list hygiene, sunset flows, send-time discipline. None of it is fun to talk about on a sales call, and all of it determines whether your best campaign of the year gets seen at all.',
+  },
+  {
+    index: '04',
+    title: 'We tell you when the answer is no',
+    body:
+      'If your list is too small to justify the spend, or the problem is your offer rather than your email, we will say so on the audit call. Selling you a retainer you should not buy is a bad month for you and a bad year for us.',
+  },
+] as const;
+
+export const GOOD_FIT = [
+  'Ecommerce brands with consistent monthly revenue and an existing list',
+  'Klaviyo already installed, and visibly under-used',
+  'A brand with a real point of view that templates are flattening',
+  'Teams who want one partner owning the channel, not four suppliers',
+  'Founders who will look at an attributed-revenue number honestly',
+] as const;
+
+export const BAD_FIT = [
+  'Pre-revenue stores with no list to email yet',
+  'Anyone looking for a one-off template pack and no strategy',
+  'Brands whose core problem is the product or the offer, not the channel',
+  'Businesses that want to buy or scrape a list, which we will not send to',
+  'Anyone who needs a guaranteed revenue figure promised before the audit',
+] as const;
+
+/* ------------------------------------------------------------------ *
+ * The free audit: what the call actually covers.
+ * ------------------------------------------------------------------ */
+
+export const AUDIT_CHECKS = [
+  {
+    index: '01',
+    title: 'Flow coverage',
+    body:
+      'Which of the money flows exist, which are half-built, and which are quietly switched off. Welcome, abandoned cart, browse abandonment, post-purchase, winback.',
+  },
+  {
+    index: '02',
+    title: 'List health',
+    body:
+      'Engagement decay, share of your list that has not opened in six months, suppression hygiene, and whether unengaged contacts are dragging your reputation down.',
+  },
+  {
+    index: '03',
+    title: 'Deliverability',
+    body:
+      'SPF, DKIM and DMARC records checked and verified. Complaint and bounce rates against the thresholds Gmail and Outlook actually enforce.',
+  },
+  {
+    index: '04',
+    title: 'Last ninety days',
+    body:
+      'What the channel earned, split between flows and campaigns, revenue per recipient, and the gap between what it did and what it should be doing.',
+  },
+] as const;
+
+/**
+ * Audit-specific questions. Rendered after HOME_FAQS in one FAQ block and
+ * emitted as a single FAQPage. Kept free of overlap with HOME_FAQS, which
+ * already answers "what happens on the free email audit?".
+ */
+export const AUDIT_FAQS = [
+  {
+    q: 'Is the audit actually free?',
+    a: 'Yes. There is no fee and no obligation. We send you the findings whether or not you hire us. If the report is useful and you fix it yourself, that is a fine outcome for us.',
+  },
+  {
+    q: 'What access do you need?',
+    a: 'Read-only access to your Klaviyo account is fastest and most useful. If you would rather not grant access, screenshots of your flow list, your last 90 days of performance and your list growth will get us most of the way there.',
+  },
+  {
+    q: 'Will this turn into a sales call?',
+    a: 'You get the findings in writing either way. If we think we can help we will say what we would do and what it costs. If we do not think we can help, we will tell you that instead.',
+  },
+  {
+    q: 'What if I am not on Klaviyo?',
+    a: 'We can still audit Mailchimp, Omnisend, Shopify Email and most other ESPs. The flow and deliverability questions are the same everywhere; only the interface changes.',
   },
 ] as const;

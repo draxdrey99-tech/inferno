@@ -126,7 +126,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
           disabled={status === 'sending'}
           className="btn btn-flame disabled:opacity-60"
         >
-          {status === 'sending' ? 'Sending…' : 'Get your free audit'}
+          {status === 'sending' ? 'Sending…' : 'Send my details'}
           {status !== 'sending' && (
             <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
           )}

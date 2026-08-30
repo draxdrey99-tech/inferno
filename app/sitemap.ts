@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { listPublished } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
-import { SERVICES, SITE_URL } from '@/lib/site';
+import { SITE_URL } from '@/lib/site';
 
 export const revalidate = 3600;
 
@@ -12,24 +12,14 @@ export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
+  // The marketing site is one page, so there are only four URLs to declare
+  // besides the blog: the home page, the blog index and the two legal pages.
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1.0, lastModified: now },
-    { url: `${SITE_URL}/services`, changeFrequency: 'monthly', priority: 0.9, lastModified: now },
-    { url: `${SITE_URL}/work`, changeFrequency: 'monthly', priority: 0.8, lastModified: now },
-    { url: `${SITE_URL}/about`, changeFrequency: 'yearly', priority: 0.6, lastModified: now },
-    { url: `${SITE_URL}/free-email-audit`, changeFrequency: 'monthly', priority: 0.9, lastModified: now },
-    { url: `${SITE_URL}/contact`, changeFrequency: 'yearly', priority: 0.7, lastModified: now },
     { url: `${SITE_URL}/blog`, changeFrequency: 'daily', priority: 0.8, lastModified: now },
     { url: `${SITE_URL}/privacy`, changeFrequency: 'yearly', priority: 0.2, lastModified: now },
     { url: `${SITE_URL}/terms`, changeFrequency: 'yearly', priority: 0.2, lastModified: now },
   ];
-
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({
-    url: `${SITE_URL}/services/${s.slug}`,
-    changeFrequency: 'monthly',
-    priority: 0.85,
-    lastModified: now,
-  }));
 
   let postRoutes: MetadataRoute.Sitemap = [];
   if (dbConfigured()) {
@@ -46,5 +36,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  return [...staticRoutes, ...serviceRoutes, ...postRoutes];
+  return [...staticRoutes, ...postRoutes];
 }

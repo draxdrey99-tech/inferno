@@ -25,10 +25,22 @@ const nextConfig: NextConfig = {
       // Legacy WordPress URLs -> new structure.
       { source: '/infernomedia/:path*', destination: '/', permanent: true },
       { source: '/home', destination: '/', permanent: true },
-      { source: '/audit', destination: '/free-email-audit', permanent: true },
-      { source: '/contact-us', destination: '/contact', permanent: true },
-      { source: '/our-work', destination: '/work', permanent: true },
-      { source: '/portfolio', destination: '/work', permanent: true },
+
+      // The marketing site collapsed to a single page. These routes were
+      // real pages until then, so anything already linking to them (ads,
+      // Google's index, the old site's backlinks) lands on the matching
+      // section instead of a 404. Fragments survive a 308 because the
+      // browser, not the server, resolves them.
+      { source: '/services', destination: '/#services', permanent: true },
+      { source: '/services/:slug', destination: '/#services', permanent: true },
+      { source: '/work', destination: '/#work', permanent: true },
+      { source: '/our-work', destination: '/#work', permanent: true },
+      { source: '/portfolio', destination: '/#work', permanent: true },
+      { source: '/about', destination: '/#about', permanent: true },
+      { source: '/contact', destination: '/#contact', permanent: true },
+      { source: '/contact-us', destination: '/#contact', permanent: true },
+      { source: '/free-email-audit', destination: '/#contact', permanent: true },
+      { source: '/audit', destination: '/#contact', permanent: true },
     ];
   },
 

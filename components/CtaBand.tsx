@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
+import { SITE } from '@/lib/site';
 
 /**
- * Closing conversion band, repeated at the foot of every marketing page.
+ * Closing conversion band, repeated at the foot of the site and the blog.
  * One label per intent across the whole site: the audit is always
- * "Get your free audit", the secondary is always "Contact".
+ * "Book your free audit" and always goes to Calendly; the secondary is
+ * always the contact form, which lives in the #contact section.
  */
 export default function CtaBand({
   title,
@@ -30,12 +32,17 @@ export default function CtaBand({
               'We review your flows, list health, authentication records and last ninety days of performance, then send back what we found. Free, and the findings are yours either way.'}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/free-email-audit" className="btn btn-flame">
-              Get your free audit
+            <a
+              href={SITE.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-flame"
+            >
+              Book your free audit
               <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
-            </Link>
-            <Link href="/contact" className="btn btn-ghost">
-              Contact
+            </a>
+            <Link href="/#contact" className="btn btn-ghost">
+              Send a message instead
             </Link>
           </div>
         </div>

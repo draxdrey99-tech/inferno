@@ -44,12 +44,10 @@ Everything else works.
 ```
 app/
   layout.tsx              Root shell, fonts, global metadata, Organization JSON-LD
-  page.tsx                Home
-  services/               Services index + 4 keyword-targeted sub-pages
-  work/                   Portfolio + Klaviyo proof screenshots
-  about/  contact/        Company pages
-  free-email-audit/       Lead-magnet landing page (main conversion target)
+  page.tsx                The whole marketing site: one page, anchored
+                          sections (#services #work #about #faq #contact)
   blog/                   Blog index + [slug] post pages (ISR, 5 min)
+  privacy/  terms/        Legal pages (footer only, not in the nav)
   admin/                  Password-gated CMS (noindex)
   api/                    Lead capture, admin auth, posts CRUD, image upload
   sitemap.ts robots.ts    Generated, includes every published post
@@ -126,9 +124,12 @@ refuses to insert an image without it.
 
 ## Where the leads go
 
-Both forms (`/free-email-audit` and `/contact`) POST to `/api/lead`, which
+The contact form in the `#contact` section POSTs to `/api/lead`, which
 validates, rejects bots via a honeypot field, and inserts into the `leads`
-table. Read them with:
+table. It is the fallback path: the primary CTA everywhere is the Calendly
+booking link in `SITE.calendly`, which does not touch the database, so
+booked calls show up in Calendly rather than the `leads` table. Read the
+form submissions with:
 
 ```sql
 SELECT created_at, name, email, company, website, source, message

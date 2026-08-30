@@ -22,6 +22,16 @@ again.
 - `www → apex` 301 redirect, plus redirects from the old WordPress URL shapes
   (`/infernomedia/*`, `/our-work`, `/contact-us`, `/audit`) so no old link
   lands on a 404.
+- The marketing site collapsed from six pages to one anchored page. The old
+  routes (`/services`, `/services/*`, `/work`, `/about`, `/contact`,
+  `/free-email-audit`) all 308 to their section on `/`, so existing backlinks
+  and ad destinations still land somewhere real. The tradeoff is deliberate
+  and worth knowing: those four service URLs each targeted a distinct
+  high-intent keyword and can no longer rank independently. Their copy now
+  lives in the `#services` section of the home page, which means the home
+  page has to carry all four keywords at once. If keyword-level ranking
+  matters more than the single-page flow, the service pages are the first
+  thing to bring back.
 
 **On-page**
 - Exactly one `<h1>` per page. Body H1s pasted into the CMS are demoted to H2
@@ -102,19 +112,20 @@ that stopped in March signals an agency that might not exist in June.
 "email marketing agency" first — they search the problem. Ranking for the
 problem is how you reach them before your competitors do.
 
-Start with these. Each is a post, and each has a natural internal link to a
-service page:
+Start with these. The blog is now the only place the site can rank on
+long-tail terms page by page, so it carries more weight than it used to.
+Each post links back to the relevant section of the home page:
 
 | Post | Links to |
 |---|---|
-| Why your Shopify emails are going to spam (and how to fix it) | `/services/email-deliverability` |
-| Klaviyo welcome flow: what to send, in what order | `/services/klaviyo-email-marketing` |
-| Abandoned cart emails: 8 examples worth stealing from | `/work` |
-| How many emails should an ecommerce brand send per week? | `/services/retention-strategy` |
-| SPF, DKIM and DMARC explained for people who sell things | `/services/email-deliverability` |
-| Email design for dark mode: what breaks and what to do | `/services/email-design` |
-| Klaviyo flows vs campaigns: where the revenue really comes from | `/services/klaviyo-email-marketing` |
-| What a good email marketing benchmark actually looks like | `/free-email-audit` |
+| Why your Shopify emails are going to spam (and how to fix it) | `/#services` |
+| Klaviyo welcome flow: what to send, in what order | `/#services` |
+| Abandoned cart emails: 8 examples worth stealing from | `/#work` |
+| How many emails should an ecommerce brand send per week? | `/#services` |
+| SPF, DKIM and DMARC explained for people who sell things | `/#services` |
+| Email design for dark mode: what breaks and what to do | `/#work` |
+| Klaviyo flows vs campaigns: where the revenue really comes from | `/#services` |
+| What a good email marketing benchmark actually looks like | `/#contact` |
 
 Rules for each one:
 - **One post, one primary keyword.** Two posts targeting the same phrase
