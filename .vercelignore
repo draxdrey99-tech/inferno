@@ -1,0 +1,3 @@
+# The archived WordPress export. Kept in git as the only copy of the old
+# site; excluded from deployments because nothing serves it.
+_legacy

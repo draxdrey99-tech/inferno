@@ -1,0 +1,358 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Inferno Emails design tokens
+ *
+ * Palette comes straight off the wordmark: charcoal body, flame-red
+ * accent. One accent, used identically on every section. Red is a
+ * scalpel (a rule, a hover, one word in a headline), never a wash.
+ *
+ * SHAPE LOCK. Exactly three radii, no exceptions:
+ *   interactive (buttons, pills) .... 9999px
+ *   containers  (cards, panels) ..... 0.75rem  (rounded-xl)
+ *   inputs      (fields, small) ..... 0.5rem   (rounded-lg)
+ *
+ * THEME LOCK. The page is dark, top to bottom. No section inverts to a
+ * light background mid-scroll.
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #0b0b0c;
+  --color-ink-raised: #121214;
+  --color-ink-soft: #191a1d;
+
+  --color-flame: #f51717;
+  --color-ember: #e23125;
+
+  --color-bone: #ecebe8;
+  --color-mute: #8d8a85;
+
+  --font-display: var(--font-archivo), 'Archivo', system-ui, sans-serif;
+  --font-sans: var(--font-geist), 'Geist', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --rule: rgba(255, 255, 255, 0.09);
+    --rule-strong: rgba(255, 255, 255, 0.16);
+  }
+
+  * {
+    border-color: var(--rule);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-flame);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-flame);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    background: var(--color-flame);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* ---- layout shell ------------------------------------------------ */
+  .shell {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .shell { padding-inline: 2.5rem; }
+  }
+
+  /* Rationed to at most one per three sections. No leading dot, no
+     section numbering: the headline carries the section on its own. */
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-mute);
+  }
+
+  /* ---- type scale --------------------------------------------------- *
+   * Sized so a headline of 7-9 words lands on two lines at desktop.
+   * A four-line hero headline is a font-size error, not a copy problem. */
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.35rem, 4.6vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+  }
+  .display-lg {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+  }
+  .display-md {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  /* Emphasis stays inside the display family: italic of the same face,
+     picked out in the accent colour. Dropping a serif word into a
+     grotesk headline is a different-font-for-decoration tell. */
+  .accent {
+    font-style: italic;
+    color: var(--color-flame);
+    /* Italic descenders (y, g, p) clip at tight leading, so the wrapping
+       line gets extra room rather than the glyph getting cut. */
+    line-height: 1.1;
+    padding-bottom: 0.06em;
+  }
+
+  .lede {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--color-mute);
+    max-width: 58ch;
+  }
+
+  /* ---- buttons ------------------------------------------------------ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.9rem 1.5rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition: transform 0.16s ease, background-color 0.18s ease,
+      color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-flame { background: var(--color-flame); color: #fff; }
+  .btn-flame:hover { background: #ff2d2d; }
+
+  .btn-ghost {
+    border: 1px solid var(--rule-strong);
+    color: var(--color-bone);
+  }
+  .btn-ghost:hover { border-color: var(--color-flame); color: #fff; }
+
+  .btn .arr { transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.3, 1); }
+  .btn:hover .arr { transform: translateX(3px); }
+
+  /* ---- scroll reveal ------------------------------------------------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---- logo marquee -------------------------------------------------- */
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 42s linear infinite;
+  }
+  .marquee-wrap:hover .marquee { animation-play-state: paused; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---- portfolio card ------------------------------------------------ *
+   * The assets are full-length email screenshots (600 x ~2200). Rather
+   * than crop them to a thumbnail the card shows the top of the email and
+   * pans down the whole creative on hover: the artefact is the interaction.
+   * Justification for the motion is legibility, not decoration.          */
+  .email-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: var(--color-ink-soft);
+    border: 1px solid var(--rule);
+    transition: border-color 0.25s ease;
+  }
+  .email-card:hover,
+  .email-card:focus-within { border-color: var(--rule-strong); }
+  .email-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 6s linear;
+  }
+  .email-card .viewport { height: 26rem; overflow: hidden; }
+  @media (min-width: 768px) {
+    .email-card .viewport { height: 32rem; }
+  }
+  .email-card:hover img,
+  .email-card:focus-within img {
+    transform: translateY(calc(-100% + 26rem));
+  }
+  @media (min-width: 768px) {
+    .email-card:hover img,
+    .email-card:focus-within img {
+      transform: translateY(calc(-100% + 32rem));
+    }
+  }
+
+  /* ---- prose (blog body) --------------------------------------------- */
+  .prose-inferno {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #d6d3ce;
+  }
+  .prose-inferno > * + * { margin-top: 1.35em; }
+  .prose-inferno h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    margin-top: 2.4em;
+    margin-bottom: 0.7em;
+    color: var(--color-bone);
+    scroll-margin-top: 6rem;
+  }
+  .prose-inferno h3 {
+    font-size: clamp(1.2rem, 1.9vw, 1.45rem);
+    margin-top: 1.9em;
+    margin-bottom: 0.55em;
+    color: var(--color-bone);
+    scroll-margin-top: 6rem;
+  }
+  .prose-inferno a {
+    color: #ff5a5a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .prose-inferno a:hover { color: #fff; }
+  .prose-inferno strong { color: var(--color-bone); font-weight: 650; }
+  .prose-inferno ul, .prose-inferno ol { padding-left: 1.3em; }
+  .prose-inferno ul { list-style: disc; }
+  .prose-inferno ol { list-style: decimal; }
+  .prose-inferno li::marker { color: var(--color-flame); }
+  .prose-inferno li + li { margin-top: 0.5em; }
+  .prose-inferno blockquote {
+    border-left: 2px solid var(--color-flame);
+    padding-left: 1.25rem;
+    font-style: italic;
+    font-size: 1.15em;
+    line-height: 1.5;
+    color: var(--color-bone);
+  }
+  .prose-inferno img {
+    border-radius: 0.75rem;
+    border: 1px solid var(--rule);
+    margin-block: 2em;
+  }
+  .prose-inferno figure figcaption {
+    font-size: 0.8125rem;
+    color: var(--color-mute);
+    margin-top: 0.6rem;
+  }
+  .prose-inferno code {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.875em;
+    background: var(--color-ink-soft);
+    border: 1px solid var(--rule);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+  }
+  .prose-inferno pre {
+    background: var(--color-ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 0.75rem;
+    padding: 1.1rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+  }
+  .prose-inferno pre code { background: none; border: none; padding: 0; }
+  .prose-inferno table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-inferno th, .prose-inferno td {
+    border: 1px solid var(--rule);
+    padding: 0.65rem 0.85rem;
+    text-align: left;
+  }
+  .prose-inferno th { background: var(--color-ink-soft); color: var(--color-bone); }
+  .prose-inferno hr { border-top: 1px solid var(--rule); }
+}
+
+/* Every animation on the page collapses to static here. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .marquee { animation: none; }
+  .email-card img { transition: none; }
+  .email-card:hover img, .email-card:focus-within img { transform: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * TipTap (admin editor only)
+ * ------------------------------------------------------------------ */
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  color: var(--color-mute);
+  opacity: 0.65;
+}
+.tiptap:focus { outline: none; }
