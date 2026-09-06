@@ -51,3 +51,9 @@ There are 36 baseline and 72 final full-page screenshots at 320, 375, 768, 1024,
 Chrome DevTools trace: 389 frames in a 6.5-second desktop scroll sample, median 16.7ms, p95 16.8ms, no frames over 33.4ms. FAQ Event Timing samples were 32ms. This is a lab interaction sample, not a field INP measurement; production INP remains unmeasured. The trace is saved in verification/scroll-trace.json.
 
 The production build was checked locally at http://localhost:3210. No deployment was performed. Database credentials are absent, so published blog content, authenticated CMS publishing, live lead delivery and calendar-provider completion could not be verified. Existing CMS, RSS and Article metadata logic remain; the empty-blog state is captured. No fabricated posts or real bookings were created. Final production verification requires the configured deployment and real-user performance data.
+
+## Mobile CRO and audit-popup follow-up measurement
+
+Latest local production Lighthouse (cro-popup-summary.json): mobile Performance 96, Accessibility 100, Best Practices 100, SEO 100; LCP 2.757s, CLS 0, TBT 35.5ms. Desktop: 100 in all four categories; LCP 0.645s, CLS 0, TBT 0. Mobile remains above the original 2.5s LCP target; no field conversion or INP improvement is claimed. The previous Phase 5 table is retained as historical comparison.
+
+Build/typecheck and lint pass after the popup and hero changes. All 112 existing site checks, 206 content checks, 28 details checks, 24 mobile-revenue checks, 21 mobile-CRO checks and 30 popup checks pass. The popup uses explicit mobile entry, engaged desktop exit intent, session suppression and accessible dismissal. CRO/mobile detail captures and popup captures are in docs/screenshots; full six-width home captures from final-details were refreshed. The original content and routes remain available.

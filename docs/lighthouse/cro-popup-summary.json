@@ -1,0 +1,28 @@
+[
+  {
+    "phase": "cro-popup",
+    "mode": "mobile",
+    "scores": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 2756.707,
+    "cls": 0,
+    "tbt": 35.5
+  },
+  {
+    "phase": "cro-popup",
+    "mode": "desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 644.6950000000002,
+    "cls": 0,
+    "tbt": 0
+  }
+]

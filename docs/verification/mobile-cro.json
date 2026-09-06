@@ -1,0 +1,109 @@
+[
+  {
+    "width": 320,
+    "check": "one visible hero primary CTA",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "CTA and proof above fold",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "art initially collapsed",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "mobile accessibility",
+    "pass": true,
+    "violations": []
+  },
+  {
+    "width": 320,
+    "check": "keyboard opens work",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "one visible hero primary CTA",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "CTA and proof above fold",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "art initially collapsed",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "mobile accessibility",
+    "pass": true,
+    "violations": []
+  },
+  {
+    "width": 375,
+    "check": "keyboard opens work",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "width": 430,
+    "check": "one visible hero primary CTA",
+    "pass": true
+  },
+  {
+    "width": 430,
+    "check": "CTA and proof above fold",
+    "pass": true
+  },
+  {
+    "width": 430,
+    "check": "art initially collapsed",
+    "pass": true
+  },
+  {
+    "width": 430,
+    "check": "mobile accessibility",
+    "pass": true,
+    "violations": []
+  },
+  {
+    "width": 430,
+    "check": "keyboard opens work",
+    "pass": true
+  },
+  {
+    "width": 430,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "no overflow",
+    "pass": true
+  },
+  {
+    "check": "no-JS work remains accessible",
+    "pass": true
+  }
+]

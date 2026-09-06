@@ -21,6 +21,6 @@ for(let i=0;i<3;i++){
  results.push({check:`dashboard ${i} loaded`,pass:await scene.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0)});
 }
 await page.locator('#work').scrollIntoViewIfNeeded();await page.waitForTimeout(500);await page.locator('#work').screenshot({path:'docs/screenshots/final-work.png'});
-await page.setViewportSize({width:320,height:812});await page.goto(base);const logos=page.getByRole('region',{name:'Client logos'});await logos.scrollIntoViewIfNeeded();await logos.evaluate(el=>el.scrollLeft=el.scrollWidth);results.push({check:'mobile logos can scroll',pass:await logos.evaluate(el=>el.scrollLeft>0)});
+await page.setViewportSize({width:320,height:812});await page.goto(base);await page.locator('.hero-mobile-work summary').click();const logos=page.getByRole('region',{name:'Client logos'});await logos.scrollIntoViewIfNeeded();await logos.evaluate(el=>el.scrollLeft=el.scrollWidth);results.push({check:'mobile logos can scroll',pass:await logos.evaluate(el=>el.scrollLeft>0)});
 await page.emulateMedia({reducedMotion:'reduce'});await page.goto(base);await page.screenshot({path:'docs/screenshots/final-reduced-320.png'});
 await browser.close();await fs.writeFile('docs/verification/details.json',JSON.stringify(results,null,2));console.log(results.filter(r=>!r.pass));console.log(`${results.length} details checked`);if(results.some(r=>!r.pass))process.exitCode=1;

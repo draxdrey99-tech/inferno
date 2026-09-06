@@ -19,6 +19,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 
 import Hero from '@/components/Hero';
+import AuditPopup from '@/components/AuditPopup';
 import ProofScenes from '@/components/ProofScenes';
 import GalleryControls from '@/components/GalleryControls';
 import EmailCard from '@/components/EmailCard';
@@ -479,6 +480,8 @@ export default function HomePage() {
               Book your free audit
               <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
             </a>
+
+            <AuditPopup bookingUrl={SITE.calendly} checks={AUDIT_CHECKS.map(check => check.title)} />
 
             <ul className="mt-10 space-y-3 border-t border-white/9 pt-9">
               {[

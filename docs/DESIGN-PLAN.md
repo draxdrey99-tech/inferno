@@ -81,3 +81,9 @@ Generic dark grid? Replace repeating boxes with open service rows, a horizontal 
 ## Gallery reference study
 
 Reviewed the current [Framer trending gallery](https://www.framer.com/community/gallery/), and its listed [Midu](https://midu.design/), [Bureau Dimanche](https://www.bureaudimanche.com/) and [Pilea](https://pilea.agency/) sites on 6 September 2026. Extracted principles: large statement before project evidence, project-specific art as identity, and separation of confident display moments from longer service detail. Browser text retrieval confirms content structure, not timing or 60fps behavior; choreography here is our own implementation, not an unverified claim about their motion. No source artwork or copy is reused.
+
+## Mobile CRO and popup revision
+
+Mobile hero now prioritizes a short ecommerce eyebrow, the original outcome H1, one-sentence subhead, one dated proof point, a full-width booking action and its adjacent risk reversal. A native “See client work” disclosure retains supporting copy, previews, names and extra stats. This reduces initial visual competition while preserving the entire inventory. The main proof section retains its on-entry mobile revenue animation.
+
+The optional audit popup uses a two-panel desktop layout: an off-white audit-scope sheet on the left and a concise booking offer on charcoal to the right. On mobile, only the compact offer panel is visible. Desktop exit intent requires 20 seconds and scrolling past the hero; mobile uses explicit entry from the contact section. The popup is dismissible, once-per-session automatically, and adds no fields or intermediary steps to the existing primary booking links.

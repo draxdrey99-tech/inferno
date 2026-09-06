@@ -1,0 +1,153 @@
+[
+  {
+    "width": 320,
+    "check": "manual popup opens",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "scroll locked",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "popup fits viewport",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "popup axe",
+    "pass": true,
+    "violations": []
+  },
+  {
+    "width": 320,
+    "check": "focus stays in dialog",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "Escape dismisses and restores focus/scroll",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "neutral dismissal works",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "backdrop dismissal works",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "manual popup opens",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "scroll locked",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "popup fits viewport",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "popup axe",
+    "pass": true,
+    "violations": []
+  },
+  {
+    "width": 375,
+    "check": "focus stays in dialog",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "Escape dismisses and restores focus/scroll",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "neutral dismissal works",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "backdrop dismissal works",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "manual popup opens",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "scroll locked",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "popup fits viewport",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "popup axe",
+    "pass": true,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "check": "focus stays in dialog",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "Escape dismisses and restores focus/scroll",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "neutral dismissal works",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "backdrop dismissal works",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "no immediate exit popup",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "no automatic mobile popup",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "no immediate exit popup",
+    "pass": true
+  },
+  {
+    "width": 1440,
+    "check": "engaged desktop exit popup",
+    "pass": true
+  },
+  {
+    "check": "once per session",
+    "pass": true
+  },
+  {
+    "check": "suppression survives navigation",
+    "pass": true
+  }
+]
