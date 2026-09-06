@@ -13,9 +13,9 @@ An email agency should look like the people who made the emails. The hero is a d
 | Stock | #F2EFED | Warm white proof panels and primary text |
 | Ledger | #BDB6B2 | Secondary text on dark |
 | Flame | #F51717 | Original logo red and decorative brand marks |
-| Readable red | #FF5252 | Small red text and focus accents on charcoal |
+| Coral | #ED8C83 | Muted red highlights and focus accents on charcoal |
 
-User revision: match the logo's flame red throughout. The earlier lime and olive direction is superseded. Buttons use a slightly deeper flame shade (#E21B1B) with white labels for 4.76:1 contrast; red body accents use #FF5252 for 5.62:1 against charcoal. The wordmark artwork remains the original. Neutral charcoal and warm white let the red brand marks and actual email designs carry the identity.
+User revision: match the logo's flame red throughout. The earlier lime and olive direction is superseded. Following the user's visual feedback, buttons now use a quieter crimson (#B83A45) with white labels for 5.63:1 contrast; muted coral (#ED8C83) highlights provide 7.41:1 against charcoal. The wordmark artwork remains the original. Neutral charcoal and warm white let the red brand marks and actual email designs carry the identity.
 
 ## Type
 
@@ -62,7 +62,7 @@ Footer     [wordmark + positioning] [services] [company] [legal]
 Inner      [breadcrumb] [H1 / intro] [scope] [proof] [FAQ] [related / CTA]
 ```
 
-On phones: H1, subhead, primary CTA, adjacent risk reversal and short proof appear before the art; the art is compact. Proof flows naturally with no pinning. Work is a native horizontally scrollable rail with buttons and keyboard access; no content depends on scroll animation.
+On phones: H1, subhead, primary CTA, adjacent risk reversal and short proof appear before the art; the art is compact. Proof flows naturally with no pinning; each amount plays a 1.1-second native digit-reel animation once when it enters view. Reduced-motion and no-JS visitors see the exact static amounts. Work is a native horizontally scrollable rail with buttons and keyboard access; no content depends on scroll animation.
 
 ## Motion choreography
 

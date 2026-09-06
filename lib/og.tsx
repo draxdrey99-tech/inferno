@@ -48,7 +48,7 @@ export function OgCard({
           left: 0,
           width: '100%',
           height: 10,
-          background: '#f51717',
+          background: '#b83a45',
           display: 'flex',
         }}
       />
@@ -58,7 +58,7 @@ export function OgCard({
           style={{
             width: 14,
             height: 14,
-            background: '#f51717',
+            background: '#b83a45',
             display: 'flex',
           }}
         />

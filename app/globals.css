@@ -5,7 +5,7 @@
 /* Proof desk system. docs/DESIGN-PLAN.md supersedes the old theme locks. */
 @theme {
  --color-ink:#171717; --color-ink-raised:#242222; --color-ink-soft:#302b2b;
- --color-flame:#ff5252; --color-ember:#f51717;
+ --color-flame:#ed8c83; --color-ember:#f51717;
  --color-bone:#f2efed; --color-mute:#bdb6b2;
  --font-display:var(--font-archivo),'Archivo',sans-serif;
  --font-sans:var(--font-archivo),'Archivo',sans-serif;
@@ -35,8 +35,8 @@
  .eyebrow {display:block;font-size:.8125rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--color-mute);}
  .btn {display:inline-flex;align-items:center;justify-content:center;gap:.65rem;font-size:.875rem;font-weight:650;padding:1rem 1.5rem;border-radius:4px;white-space:nowrap;min-height:44px;transition:transform .35s var(--ease);}
  .btn:active {transform:scale(.98);}
- .btn-flame {background:#e21b1b;color:#fff;}
- .btn-flame:hover {background:#c81515;color:#fff;}
+ .btn-flame {background:#b83a45;color:#fff;}
+ .btn-flame:hover {background:#a3303b;color:#fff;}
  .btn-ghost {color:var(--color-bone);border:1px solid var(--rule-strong);}
  .btn-ghost:hover {background:var(--color-ink-soft);}
  .btn .arr {display:none;}
@@ -83,7 +83,7 @@
     scroll-margin-top: 6rem;
   }
   .prose-inferno a {
-    color: #ff5252;
+    color: #ed8c83;
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;

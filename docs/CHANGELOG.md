@@ -47,3 +47,11 @@ Verification: production build, lint and TypeScript pass; 112 responsive/accessi
 Copy changes beyond Phase 2: home metadata title is now “Ecommerce Email Marketing Agency | Inferno Emails”; the closing CTA retains its existing “Book your free audit” label. The user’s pre-existing closing-band markup is preserved. Original service copy, proof figures/windows, client assets and testimonials remain. No existing content, routes or image assets were deleted. Pre-existing root screenshots and .playwright-mcp files remain outside these commits.
 
 Local validation only: database credentials are absent, so the existing CMS returns its empty-blog state. Authenticated publishing, real lead delivery, live post content and Calendly booking completion have not been exercised. Form outcomes are tested with intercepted success/error responses. No real submissions, bookings or deployment were made. Production field INP still requires real-user measurement after deployment.
+
+## Follow-up: quieter red and mobile proof motion
+
+The user found the first red revision too bright and pointed out that revenue animation was missing on mobile. Changed CTA fill from #E21B1B to muted crimson #B83A45 (hover #A3303B), and accents from #FF5252 to coral #ED8C83. The logo keeps its original #F51717 pixels. Social cards use crimson rules. White button contrast is 5.63:1; coral on charcoal is 7.41:1.
+
+Added native IntersectionObserver + Web Animations digit reels on touch/small screens. Each amount animates once when at least 65% visible, settles to exact original cents, and retains all reporting windows. No GSAP or Lenis is imported for this mobile behavior. Reduced-motion/no-JS views retain static correct figures; switching reduced motion on cancels active reels. Route cleanup disconnects observers and cancels animations. Desktop pinned proof remains unchanged.
+
+Mobile regression checks exercise actual animation start, exact ending digits, no replay, reduced-motion/no-JS completeness, and runtime preference changes at 320, 375 and 768 pixels. Palette previews are saved as crimson-* under docs/screenshots. Prior Phase 5 screenshots and Lighthouse results describe the preceding revision; this follow-up does not claim a new performance score. No content or routes removed.

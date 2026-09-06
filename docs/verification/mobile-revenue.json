@@ -1,0 +1,139 @@
+[
+  {
+    "width": 320,
+    "scene": 0,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "scene": 0,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "scene": 1,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "scene": 1,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "scene": 2,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "scene": 2,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 320,
+    "check": "does not replay",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "scene": 0,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "scene": 0,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "scene": 1,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "scene": 1,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "scene": 2,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "scene": 2,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 375,
+    "check": "does not replay",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "scene": 0,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "scene": 0,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "scene": 1,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "scene": 1,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "scene": 2,
+    "check": "animation starts on entry",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "scene": 2,
+    "check": "exact final digits",
+    "pass": true
+  },
+  {
+    "width": 768,
+    "check": "does not replay",
+    "pass": true
+  },
+  {
+    "mode": "reduced",
+    "check": "complete static figures",
+    "pass": true
+  },
+  {
+    "mode": "no-js",
+    "check": "complete static figures",
+    "pass": true
+  },
+  {
+    "check": "motion preference change cancels active reels",
+    "pass": true
+  }
+]
