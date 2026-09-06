@@ -8,11 +8,15 @@ import { NAV, NAV_SECTIONS, SITE } from '@/lib/site';
 import Wordmark from './Wordmark';
 
 export default function Nav() {
+  const pathname = usePathname();
+  return <Navigation key={pathname} pathname={pathname} />;
+}
+
+function Navigation({pathname}:{pathname:string}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [section, setSection] = useState('');
   const sentinel = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
   const onHome = pathname === '/';
 
   /**
@@ -38,7 +42,6 @@ export default function Nav() {
    */
   useEffect(() => {
     if (!onHome) {
-      setSection('');
       return;
     }
     const nodes = NAV_SECTIONS.map((id) => document.getElementById(id)).filter(
@@ -58,15 +61,6 @@ export default function Nav() {
     nodes.forEach((n) => io.observe(n));
     return () => io.disconnect();
   }, [onHome]);
-
-  useEffect(() => setOpen(false), [pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
@@ -88,9 +82,9 @@ export default function Nav() {
       <div ref={sentinel} aria-hidden className="absolute top-0 h-px w-full" />
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled || open
-            ? 'border-b border-white/8 bg-ink/92 backdrop-blur-md'
+            ? 'border-b border-white/10 bg-ink/80 shadow-[0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl'
             : 'border-b border-transparent'
         }`}
       >
@@ -111,7 +105,7 @@ export default function Nav() {
                   >
                     {item.label}
                     {active && (
-                      <span className="absolute -bottom-1.5 left-0 h-px w-full bg-flame" />
+                      <span className="absolute -bottom-1.5 left-0 h-px w-full bg-flame shadow-[0_0_8px_rgba(245,23,23,0.85)]" />
                     )}
                   </Link>
                 </li>
@@ -120,6 +114,7 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-3">
+            {scrolled && <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-flame mobile-audit">Book your free audit</a>}
             <a
               href={SITE.calendly}
               target="_blank"

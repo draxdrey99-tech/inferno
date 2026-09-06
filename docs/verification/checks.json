@@ -1,0 +1,244 @@
+[
+  {
+    "name": "/ 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/ 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/ 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/ 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/ 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/ 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/ single h1",
+    "pass": true
+  },
+  {
+    "name": "/ axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/ no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/blog 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/blog 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/blog 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/blog 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/blog 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/blog 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/blog single h1",
+    "pass": true
+  },
+  {
+    "name": "/blog axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/blog no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/privacy 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/privacy 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/privacy 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/privacy 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/privacy 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/privacy 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/privacy single h1",
+    "pass": true
+  },
+  {
+    "name": "/privacy axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/privacy no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/terms 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/terms 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/terms 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/terms 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/terms 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/terms 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/terms single h1",
+    "pass": true
+  },
+  {
+    "name": "/terms axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/terms no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/missing-page 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/missing-page 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/missing-page 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/missing-page 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/missing-page 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/missing-page 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/missing-page single h1",
+    "pass": true
+  },
+  {
+    "name": "/missing-page axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/missing-page no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "no-js body copy visible",
+    "pass": true
+  },
+  {
+    "name": "no-js FAQ opens",
+    "pass": true
+  },
+  {
+    "name": "no-js hero visible",
+    "pass": true
+  },
+  {
+    "name": "reduced body copy visible",
+    "pass": true
+  },
+  {
+    "name": "reduced FAQ opens",
+    "pass": true
+  },
+  {
+    "name": "reduced hero visible",
+    "pass": true
+  },
+  {
+    "name": "mobile proof above fold",
+    "pass": true
+  },
+  {
+    "name": "menu opens",
+    "pass": true
+  },
+  {
+    "name": "Escape closes menu",
+    "pass": true
+  },
+  {
+    "name": "keyboard FAQ",
+    "pass": true
+  },
+  {
+    "name": "gallery next advances",
+    "pass": true
+  },
+  {
+    "name": "form error feedback",
+    "pass": true
+  },
+  {
+    "name": "form confirmation",
+    "pass": true
+  }
+]

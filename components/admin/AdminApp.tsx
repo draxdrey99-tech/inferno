@@ -163,6 +163,8 @@ export default function AdminApp({ authed }: { authed: boolean }) {
   }, []);
 
   useEffect(() => {
+    // Starts the authenticated remote query; load owns its async loading state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (isAuthed) load();
   }, [isAuthed, load]);
 

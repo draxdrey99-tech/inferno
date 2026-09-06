@@ -18,7 +18,7 @@ import {
   withHeadingIds,
 } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
-import { SITE, SITE_URL } from '@/lib/site';
+import { SITE } from '@/lib/site';
 
 export const revalidate = 300;
 export const dynamicParams = true;

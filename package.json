@@ -9,10 +9,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint app components lib scripts",
     "db:migrate": "node scripts/migrate.mjs",
     "seo:check": "node scripts/seo-check.mjs",
-    "taste:check": "node scripts/taste-check.mjs"
+    "taste:check": "node scripts/taste-check.mjs",
+    "typecheck": "tsc --noEmit",
+    "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
@@ -34,6 +36,7 @@
     "sanitize-html": "^2.17.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^24.10.1",

@@ -76,9 +76,10 @@ export default function Editor({
     if (!editor) return;
     if (value !== editor.getHTML()) {
       editor.commands.setContent(value || '', { emitUpdate: false });
+      // Synchronize the source pane with the external TipTap instance on post load.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSource(value || '');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, editor]);
 
   const setLink = useCallback(() => {

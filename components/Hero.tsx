@@ -18,7 +18,7 @@ export default function Hero(){
    <div className="hero-art" aria-label="Client email creative and a separate, unattributed account result">
     <div className="hero-art-label">Made for their inbox.</div>
     <div className="hero-desk" data-tilt>
-     {[WORK[1],WORK[2],WORK[0]].map((item,i)=><figure className={`hero-sheet sheet-${i}`} key={item.slug}><div className="sheet-window"><Image src={item.image} alt={item.alt} width={item.width} height={item.height} sizes="(max-width: 768px) 160px, 270px" loading="lazy" /></div><figcaption>{item.client} / {item.type}</figcaption></figure>)}
+     {[WORK[1],WORK[2],WORK[0]].map((item,i)=><figure className={`hero-sheet sheet-${i}`} key={item.slug}><div className="sheet-window"><Image src={`/images/hero-${item.slug}.webp`} alt={item.alt} width={480} height={620} sizes="(max-width: 768px) 160px, 270px" priority={i===2} loading={i===2?undefined:'eager'} /></div><figcaption>{item.client} / {item.type}</figcaption></figure>)}
     </div>
     <figure className="hero-receipt"><div><span>From the accounts</span><strong>$477,929.14</strong><small>Attributed to email · 4 Sep - 4 Nov 2023</small></div><Image src={PROOF[0].image} alt={PROOF[0].alt} width={PROOF[0].width} height={PROOF[0].height} sizes="130px" loading="lazy"/><figcaption>Unattributed account. Client creative shown separately above.</figcaption></figure>
    </div>

@@ -1,5 +1,4 @@
 
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
   ArrowRight,
@@ -14,7 +13,6 @@ import {
   Rocket,
   ShieldCheck,
   ChartLineUp,
-  TrendUp,
   UsersThree,
   X,
 } from '@phosphor-icons/react/dist/ssr';
@@ -35,7 +33,6 @@ import {
   GOOD_FIT,
   HOME_FAQS,
   PROCESS,
-  PROOF,
   SERVICES,
   SITE,
   SITE_URL,

@@ -18,6 +18,7 @@ export default function RevealObserver() {
       const animation = document.querySelector('main')?.animate([{transform:'translateY(8px)'},{transform:'none'}],{duration:250,easing:'cubic-bezier(.16,1,.3,1)'});
       return () => animation?.cancel();
     }
+    if (!matchMedia('(min-width: 1024px) and (pointer: fine)').matches) return;
     const timer = window.setTimeout(() => {
       import('./motion').then(({mountMotion}) => {if(!stopped) dispose=mountMotion();}).catch(() => {/* static layout is complete */});
     }, 150);

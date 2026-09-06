@@ -59,7 +59,8 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate={false} className="grid gap-5">
+    <form id="audit-form" onSubmit={onSubmit} noValidate={false} className="grid gap-5">
+      <noscript><style>{'#audit-form > :not(noscript) { display: none; }'}</style><p>To send the details without JavaScript, <a className="underline" href="mailto:hello@infernoemails.com">email hello@infernoemails.com</a>. We will come back within one business day.</p></noscript>
       {/* Honeypot: bots fill it, humans never see it. */}
       <div className="absolute left-[-9999px]" aria-hidden="true">
         <label htmlFor="company_website">Leave this field empty</label>

@@ -22,6 +22,7 @@ export default function Wordmark({
         width={466}
         height={284}
         priority={priority}
+        sizes="70px"
         className="h-9 w-auto md:h-10"
       />
     </Link>

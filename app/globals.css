@@ -158,8 +158,8 @@
 /* Art and receipts are the two expressive moments. */
 .hero {padding-top:7.5rem;overflow:clip;}
 .hero-grid {display:grid;grid-template-columns:1.12fr 1fr;gap:4rem;align-items:center;padding-bottom:4rem;}
-.hero-copy h1 {max-width:12ch;margin-top:1.75rem;}
-.hero-mask {display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em;}
+.hero-copy h1 {max-width:14ch;margin-top:1.75rem;font-size:clamp(2.5rem,5.2vw,4.75rem);}
+.hero-mask {display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em;margin-right:.17em;}
 .hero-word {display:inline-block;}
 .hero-subhead {margin-top:1.75rem;max-width:48ch;}
 .hero-actions {display:flex;align-items:center;gap:1.75rem;margin-top:2rem;}
@@ -214,6 +214,7 @@
 .gallery-controls span {margin-right:auto;color:var(--color-mute);font-size:.75rem;}
 .gallery-controls button {width:44px;height:44px;border:1px solid var(--rule-strong);font-size:1.25rem;cursor:pointer;}
 .gallery-controls button:hover {background:var(--color-flame);color:var(--color-ink);}
+.mobile-audit {display:none;}
 #about .card {padding-inline:0;}
 #contact {border-top:1px solid var(--rule-strong);}
 #contact .card {padding:2rem;background:var(--color-ink);border:1px solid var(--rule);}
@@ -223,6 +224,8 @@
  .proof-panel{gap:2rem;grid-template-columns:1fr 1.2fr}.proof-heading{gap:2rem}.proof-section{padding-block:4rem}
 }
 @media(max-width:767px){
+ .hero-mask {display:inline;margin-right:0;overflow:visible}.hero-word{display:inline}
+ .mobile-audit {display:inline-flex;font-size:.7rem;padding:.6rem .7rem;}
  .hero {padding-top:5.5rem}.hero-grid{gap:2rem}.hero-copy h1{font-size:2.625rem;margin-top:1rem;max-width:13ch;}
  .hero-subhead{margin-top:1rem;line-height:1.6;font-size:.9375rem}.hero-actions{margin-top:1.25rem;gap:1.25rem}.hero-actions .btn{padding:.9rem 1.1rem;font-size:.8125rem}
  .hero-risk{font-size:.6875rem}.hero-evidence{margin-top:1.1rem;padding-top:1rem}.hero-evidence strong{font-size:2rem}
