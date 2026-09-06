@@ -17,7 +17,7 @@ import { SITE, SITE_URL } from '@/lib/site';
 const archivo = Archivo({
   subsets: ['latin'],
   weight: ['600', '700', '800'],
-  style: ['normal', 'italic'],
+  style: ['normal'],
   variable: '--font-archivo',
   display: 'swap',
 });
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0b0b0c',
+  themeColor: '#171916',
   colorScheme: 'dark',
 };
 

@@ -34,6 +34,7 @@ export default function Marquee() {
 
   return (
     <div className="marquee-wrap relative overflow-hidden py-10 md:py-12">
+      <label className="marquee-pause"><input type="checkbox" /> Pause logos</label>
       <div className="marquee">
         {row(false)}
         {row(true)}

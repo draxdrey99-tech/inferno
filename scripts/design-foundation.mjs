@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+import fs from 'node:fs';
+let css=fs.readFileSync('app/globals.css','utf8');
+const prose=css.slice(css.indexOf('  .prose-inferno {'),css.indexOf('/* Every animation'));
+const admin=css.slice(css.indexOf('.tiptap p'));
+const foundation=`@import 'tailwindcss';
 
 /* Proof desk system. docs/DESIGN-PLAN.md supersedes the old theme locks. */
 @theme {
@@ -44,8 +48,6 @@
  .reveal {opacity:1;transform:none;}
  .marquee {display:flex;width:max-content;animation:marquee 38s linear infinite;}
  .marquee-wrap:hover .marquee,.marquee-wrap:focus-within .marquee {animation-play-state:paused;}
- .marquee-wrap:has(input:checked) .marquee {animation-play-state:paused;}
- .marquee-pause {position:relative;z-index:1;display:flex;align-items:center;justify-content:flex-end;gap:.5rem;margin:0 1.25rem 1rem;font-size:.75rem;color:var(--color-mute);}
  @keyframes marquee {from{transform:translateX(0)}to{transform:translateX(-50%)}}
  .email-card {position:relative;overflow:hidden;background:var(--color-ink-soft);border:1px solid var(--rule);border-radius:2px;}
  .email-card img {width:100%;height:auto;display:block;transition:transform 6s var(--ease-travel);}
@@ -59,98 +61,7 @@
  .faq-item[open] summary::after {content:'−';}
  .faq-item h3 {font-size:1.125rem;line-height:1.4;}
  .faq-item p {max-width:65ch;padding:0 0 1.5rem;color:var(--color-mute);line-height:1.75;}
-  .prose-inferno {
-    font-size: 1.0625rem;
-    line-height: 1.75;
-    color: #d6d3ce;
-  }
-  .prose-inferno > * + * { margin-top: 1.35em; }
-  .prose-inferno h2 {
-    font-size: clamp(1.5rem, 2.6vw, 2rem);
-    margin-top: 2.4em;
-    margin-bottom: 0.7em;
-    color: var(--color-bone);
-    scroll-margin-top: 6rem;
-  }
-  .prose-inferno h3 {
-    font-size: clamp(1.2rem, 1.9vw, 1.45rem);
-    margin-top: 1.9em;
-    margin-bottom: 0.55em;
-    color: var(--color-bone);
-    scroll-margin-top: 6rem;
-  }
-  .prose-inferno a {
-    color: #ff6a4d;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-  }
-  .prose-inferno a:hover { color: #fff; }
-  .prose-inferno strong { color: var(--color-bone); font-weight: 650; }
-  .prose-inferno ul, .prose-inferno ol { padding-left: 1.3em; }
-  .prose-inferno ul { list-style: disc; }
-  .prose-inferno ol { list-style: decimal; }
-  .prose-inferno li::marker { color: var(--color-flame); }
-  .prose-inferno li + li { margin-top: 0.5em; }
-  .prose-inferno blockquote {
-    border-left: 2px solid var(--color-flame);
-    padding-left: 1.25rem;
-    font-style: italic;
-    font-size: 1.15em;
-    line-height: 1.5;
-    color: var(--color-bone);
-  }
-  .prose-inferno img {
-    border-radius: 0.75rem;
-    border: 1px solid var(--rule);
-    margin-block: 2em;
-  }
-  .prose-inferno figure figcaption {
-    font-size: 0.8125rem;
-    color: var(--color-mute);
-    margin-top: 0.6rem;
-  }
-  .prose-inferno code {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.875em;
-    background: var(--color-ink-soft);
-    border: 1px solid var(--rule);
-    padding: 0.15em 0.4em;
-    border-radius: 3px;
-  }
-  .prose-inferno pre {
-    background: var(--color-ink-soft);
-    border: 1px solid var(--rule);
-    border-radius: 0.75rem;
-    padding: 1.1rem;
-    overflow-x: auto;
-    font-size: 0.875rem;
-  }
-  .prose-inferno pre code { background: none; border: none; padding: 0; }
-  .prose-inferno table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9375rem;
-    display: block;
-    overflow-x: auto;
-  }
-  .prose-inferno th, .prose-inferno td {
-    border: 1px solid var(--rule);
-    padding: 0.65rem 0.85rem;
-    text-align: left;
-  }
-  .prose-inferno th { background: var(--color-ink-soft); color: var(--color-bone); }
-  .prose-inferno hr { border-top: 1px solid var(--rule); }
-}
-
-
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.email-card:hover img,.email-card:focus-within img{transform:none}}
-.tiptap p.is-editor-empty:first-child::before {
-  content: attr(data-placeholder);
-  float: left;
-  height: 0;
-  pointer-events: none;
-  color: var(--color-mute);
-  opacity: 0.65;
-}
-.tiptap:focus { outline: none; }
+`;
+fs.writeFileSync('app/globals.css',foundation+prose+`\n@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.email-card:hover img,.email-card:focus-within img{transform:none}}\n`+admin);
+let layout=fs.readFileSync('app/layout.tsx','utf8').replace("style: ['normal', 'italic']","style: ['normal']").replace("themeColor: '#0b0b0c'","themeColor: '#171916'");
+fs.writeFileSync('app/layout.tsx',layout);
