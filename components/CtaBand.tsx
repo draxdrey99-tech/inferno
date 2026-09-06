@@ -16,7 +16,9 @@ export default function CtaBand({
   body?: string;
 }) {
   return (
-    <section className="bg-ink-raised">
+    <section className="relative isolate overflow-hidden bg-ink-raised">
+      <div className="orb orb-flame -bottom-32 left-[8%] h-72 w-72 opacity-25" aria-hidden />
+      <div className="orb orb-ember -top-24 right-[10%] h-64 w-64 opacity-20" aria-hidden />
       <div className="shell py-20 md:py-28">
         <div className="reveal max-w-3xl">
           <h2 className="display-lg">

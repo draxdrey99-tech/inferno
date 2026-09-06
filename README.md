@@ -1,5 +1,9 @@
 # Inferno Emails
 
+The September 2026 redesign is documented in [docs/DESIGN-PLAN.md](docs/DESIGN-PLAN.md), [docs/AUDIT.md](docs/AUDIT.md), and [docs/CHANGELOG.md](docs/CHANGELOG.md). These supersede the historical design rules below. The marketing home retains its anchored sections; `/services` now has five real service pages alongside the existing blog and legal pages. A locally hosted Archivo variable font serves display and body roles. The committed font subset makes builds independent of a font download; `scripts/optimize_font.py` documents regeneration.
+
+Verification: `npm run build`, `npm run typecheck`, `npm run lint`, then run the production server and `node scripts/verify.mjs http://localhost:3210 --services`, `node scripts/content-check.mjs http://localhost:3210`, `npm run seo:check -- http://localhost:3210`, and `npm run taste:check -- http://localhost:3210`. Screenshot and Lighthouse tooling is in `scripts/capture.mjs` and `scripts/lighthouse.mjs`. Measurement evidence is in `docs/`.
+
 Marketing site and blog CMS for Inferno Emails, built on Next.js 16 (App
 Router) and deployed on Vercel.
 

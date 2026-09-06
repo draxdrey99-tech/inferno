@@ -8,18 +8,18 @@ An email agency should look like the people who made the emails. The hero is a d
 
 | Name | Hex | Role |
 |---|---|---|
-| Carbon | #171916 | Main background and paper-panel text |
-| Moss black | #222820 | Raised areas |
-| Stock | #F1EEDF | Proof panels and primary text |
-| Ledger | #B7BCAB | Secondary text on dark |
-| Signal | #D6F276 | Primary CTA and readable accent on dark |
-| Ember | #F66B45 | Brand accent, large numerals/rules only |
+| Carbon | #171717 | Neutral charcoal background and paper-panel text |
+| Warm black | #242222 | Raised surfaces |
+| Stock | #F2EFED | Warm white proof panels and primary text |
+| Ledger | #BDB6B2 | Secondary text on dark |
+| Flame | #F51717 | Original logo red and decorative brand marks |
+| Readable red | #FF5252 | Small red text and focus accents on charcoal |
 
-Flame stays in the brand wordmark; acid green directs action. This is a deliberate change from the old single-red theme. Body contrast will be verified by axe/Lighthouse, including alpha utilities.
+User revision: match the logo's flame red throughout. The earlier lime and olive direction is superseded. Buttons use a slightly deeper flame shade (#E21B1B) with white labels for 4.76:1 contrast; red body accents use #FF5252 for 5.62:1 against charcoal. The wordmark artwork remains the original. Neutral charcoal and warm white let the red brand marks and actual email designs carry the identity.
 
 ## Type
 
-Keep Archivo's broad industrial forms for headlines; remove the unused italic face. Keep Geist as the quiet reading face. Both are already hosted by next/font, so this is a choice for a proof-led document aesthetic without adding a font dependency. No isolated italic/gradient word.
+Original plan: Archivo display with Geist body. Phase 5 performance testing revised this to one Archivo variable family: its broad industrial forms at 800 for display, 700 for section headings, and its open 400/600 forms for reading and controls. A committed Latin subset covering weights 400–800 reduces the font to 28,964 bytes and eliminates the second family/request. This preserves the editorial character and reduces the critical font payload. Final repeated mobile LCP is recorded in AUDIT.md; the latest 2.87s measurement remains above the 2.5s target. No isolated italic/gradient word. The original font license is retained in docs/licenses.
 
 | Role | Mobile | Desktop | Treatment |
 |---|---|---|---|
@@ -27,9 +27,9 @@ Keep Archivo's broad industrial forms for headlines; remove the unused italic fa
 | Section | 34px | 64px | Archivo 700, -0.05em, 1.04 |
 | Revenue | 44px | 82px | Archivo 700, tabular numbers |
 | Subhead | 24px | 32px | Archivo 700 |
-| Lead | 16px | 18px | Geist, 1.65 |
-| Body | 15px | 16px | Geist, 1.7 |
-| Caption | 12px | 13px | Geist, sentence case |
+| Lead | 16px | 18px | Archivo 400, 1.65 |
+| Body | 15px | 16px | Archivo 400, 1.7 |
+| Caption | 12px | 13px | Archivo 400, sentence case |
 
 ## Section layouts
 
@@ -69,14 +69,14 @@ On phones: H1, subhead, primary CTA, adjacent risk reversal and short proof appe
 Three named eases only: `settle = cubic-bezier(.16,1,.3,1)`, `travel = cubic-bezier(.65,0,.35,1)`, `linear`. Lenis only on wide, fine-pointer devices with normal motion and adequate cores/memory; native scrolling otherwise. GSAP/ScrollTrigger dynamically imported after first paint on homepage.
 
 - Hero: 650ms word entrance through static clipping masks; animate transforms inside masks rather than clip-path values (brief's compositor-only rule takes priority). H1 is server-visible first; never wait for a preloader. Art sheets move at separate scroll velocities and settle in Z. CSS perspective provides real 3D without WebGL cost.
-- Proof: each complete ledger panel pins and scrubs on desktop. Screenshot scales 0.96 to 1; revenue readout scrubs to exact cents from inventory. Original full value remains accessible; visual counter uses fixed width. Counting text is only updated when displayed value changes; no animated layout styles.
-- Work: horizontal desktop timeline, native accessible rail fallback. Masked images reveal via transform. Hover/focus provides access to the full email, with original image links for touch and no-JS use.
+- Proof: each complete ledger panel pins and scrubs on desktop. Screenshot scales 0.96 to 1; revenue readout scrubs to exact cents from inventory. Original full value remains accessible; fixed-width digit reels animate only transforms. The server-rendered transform already displays the exact value without JavaScript.
+- Work: native accessible horizontal rail on every device. Masked images reveal via transform. Hover/focus provides access to the full email, with original image links for touch and no-JS use.
 - CTAs: pointer magnetic translation capped at 5px; no movement on touch. Proof/art tilt capped at 4 degrees. Easing 350ms settle. Clean up listeners and timelines on navigation.
 - Inner routes: brief 250ms content entrance, with server content visible. No global cursor, no preloader, no fade-up on every section. Every transition collapses in reduced-motion mode; JS initialization never conceals the page.
 
 ## Critique and revision
 
-Generic dark grid? Replace repeating boxes with open service rows, a horizontal creative rail and warm dashboard ledgers. Arbitrary green? It has one job: audit action; orange belongs to the artwork/brand, never random glows. Type novelty? Keep useful broad Archivo, remove the template's tiny headline and italic accent. Impressive motion? Spend it on comparing actual receipts and creative; avoid pinning long body copy. Anonymous proof plus named email? Separate captions and explicitly label accounts as unattributed. Minimal hero at expense of content? Move old hero claim to a clearly qualified agency aim and keep every other paragraph, stat and asset. Old theme/shape/hero limits in DESIGN.md conflict with the explicit brief; this plan supersedes them.
+Generic dark grid? Replace repeating boxes with open service rows, a horizontal creative rail and warm dashboard ledgers. Brand color? Use the original flame red, with neutral surfaces and contrast-tested red shades for controls and small text; the initial lime direction was rejected by the user. Type novelty? Keep useful broad Archivo, remove the template's tiny headline and italic accent. Impressive motion? Spend it on comparing actual receipts and creative; avoid pinning long body copy. Anonymous proof plus named email? Separate captions and explicitly label accounts as unattributed. Minimal hero at expense of content? Move old hero claim to a clearly qualified agency aim and keep every other paragraph, stat and asset. Old theme/shape/hero limits in DESIGN.md conflict with the explicit brief; this plan supersedes them.
 
 ## Gallery reference study
 

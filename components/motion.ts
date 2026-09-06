@@ -9,10 +9,6 @@ export function mountMotion() {
   CustomEase.create('settle', '.16,1,.3,1');
   const cleanups: (() => void)[] = [];
   const mm = gsap.matchMedia();
-  mm.add('(prefers-reduced-motion: no-preference)', () => {
-    const words = document.querySelectorAll('.hero-word');
-    if (performance.now() < 350) gsap.fromTo(words, {yPercent:105}, {yPercent:0,duration:.55,stagger:.01,ease:'settle',clearProps:'transform'});
-  });
   mm.add('(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
     const device = navigator as Navigator & {deviceMemory?:number;connection?:{saveData?:boolean}};
     if (device.connection?.saveData || (device.deviceMemory && device.deviceMemory < 4) || navigator.hardwareConcurrency < 4) return;
@@ -25,15 +21,11 @@ export function mountMotion() {
     document.querySelectorAll<HTMLElement>('.proof-scene').forEach(scene=>{
       const panel=scene.querySelector('.proof-panel');
       const picture=scene.querySelector('.proof-picture');
-      const counter=scene.querySelector<HTMLElement>('[data-revenue]');
       const timeline=gsap.timeline({scrollTrigger:{trigger:scene,start:'top 100px',end:'+=380',pin:panel,scrub:.7,invalidateOnRefresh:true}});
       timeline.fromTo(picture,{scale:.96},{scale:1,ease:'none'},0);
-      if(counter){
-        const value=Number(counter.dataset.revenue);
-        const state={value:value*.7};
-        const format=new Intl.NumberFormat('en-US',{style:'currency',currency:counter.dataset.currency||'USD'});
-        timeline.to(state,{value,duration:1,ease:'none',onUpdate:()=>{const text=format.format(state.value);if(counter.textContent!==text)counter.textContent=text;}},0);
-      }
+      scene.querySelectorAll<HTMLElement>('.revenue-strip').forEach(strip=>{
+        timeline.fromTo(strip,{y:0,yPercent:0},{y:0,yPercent:-Number(strip.dataset.digit)*10,duration:1,ease:'none'},0);
+      });
     });
     // Native horizontal rail remains scrollable. The scrub is only a small
     // image-scale handoff, so keyboard focus and scroll position never disagree.

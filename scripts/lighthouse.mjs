@@ -4,12 +4,13 @@ import { chromium } from '@playwright/test';
 import fs from 'node:fs/promises';
 const phase=process.argv[2]||'before';
 const base=process.argv[3]||'http://localhost:3210';
+const devtools=process.argv.includes('--devtools');
 await fs.mkdir('docs/lighthouse',{recursive:true});
 const scores=[];
 for(const desktop of [false,true]){
  const chrome=await launch({chromePath:chromium.executablePath(),chromeFlags:['--headless','--no-sandbox','--disable-dev-shm-usage']});
  try{
-  const result=await lighthouse(base,{port:chrome.port,output:['json','html'],logLevel:'error',onlyCategories:['performance','accessibility','best-practices','seo'],...(desktop?{formFactor:'desktop',screenEmulation:{mobile:false,width:1350,height:940,deviceScaleFactor:1,disabled:false},throttling:{rttMs:40,throughputKbps:10240,cpuSlowdownMultiplier:1}}:{})});
+  const result=await lighthouse(base,{port:chrome.port,output:['json','html'],logLevel:'error',onlyCategories:['performance','accessibility','best-practices','seo'],...(devtools?{throttlingMethod:'devtools'}:{}),...(desktop?{formFactor:'desktop',screenEmulation:{mobile:false,width:1350,height:940,deviceScaleFactor:1,disabled:false},throttling:{rttMs:40,throughputKbps:10240,cpuSlowdownMultiplier:1}}:{})});
   const mode=desktop?'desktop':'mobile';
   await fs.writeFile(`docs/lighthouse/${phase}-${mode}.json`,result.report[0]);
   await fs.writeFile(`docs/lighthouse/${phase}-${mode}.html`,result.report[1]);

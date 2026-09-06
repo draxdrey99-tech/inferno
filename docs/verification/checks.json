@@ -190,6 +190,234 @@
     "detail": []
   },
   {
+    "name": "/services 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services single h1",
+    "pass": true
+  },
+  {
+    "name": "/services axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/klaviyo-email-marketing 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing single h1",
+    "pass": true
+  },
+  {
+    "name": "/services/klaviyo-email-marketing axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/klaviyo-email-marketing no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/email-design 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design single h1",
+    "pass": true
+  },
+  {
+    "name": "/services/email-design axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/email-design no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/email-deliverability 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability single h1",
+    "pass": true
+  },
+  {
+    "name": "/services/email-deliverability axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/email-deliverability no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/retention-strategy 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy single h1",
+    "pass": true
+  },
+  {
+    "name": "/services/retention-strategy axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/retention-strategy no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/email-flows 320 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows 375 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows 768 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows 1024 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows 1440 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows 1920 no overflow",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows single h1",
+    "pass": true
+  },
+  {
+    "name": "/services/email-flows axe",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "/services/email-flows no runtime errors",
+    "pass": true,
+    "detail": []
+  },
+  {
     "name": "no-js body copy visible",
     "pass": true
   },

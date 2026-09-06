@@ -1,0 +1,4 @@
+import fs from 'node:fs';
+const font=fs.readFileSync('node_modules/@fontsource/archivo/files/archivo-latin-800-normal.woff2').toString('base64');
+const css=`@font-face{font-family:'Inferno Display';src:url(data:font/woff2;base64,${font}) format('woff2');font-weight:800;font-style:normal;font-display:swap}`;
+fs.writeFileSync('lib/hero-font.ts','// Archivo 800 Latin, SIL OFL. Source: @fontsource/archivo. Regenerate: node scripts/critical-font.mjs\nexport const HERO_FONT_CSS = '+JSON.stringify(css)+';\n');

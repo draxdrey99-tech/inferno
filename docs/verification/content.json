@@ -1,0 +1,1217 @@
+[
+  {
+    "label": "HOME_FAQS.0.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What does Inferno Emails do?"
+  },
+  {
+    "label": "HOME_FAQS.0.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "We run email and retention marketing for ecommerce brands. That means building and managing Klaviyo flows and campaigns, designing every email from scratch in your brand, fixing deliverability so those emails reach the inbox, and building the lifecycle that turns first-time buyers into repeat customers."
+  },
+  {
+    "label": "HOME_FAQS.1.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What size brand do you work with?"
+  },
+  {
+    "label": "HOME_FAQS.1.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Mostly ecommerce brands doing consistent monthly revenue who have Klaviyo installed but are not getting much out of it. If you are pre-revenue or have no list yet, we are probably the wrong spend for you right now, and we will say so."
+  },
+  {
+    "label": "HOME_FAQS.2.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "How much does email marketing management cost?"
+  },
+  {
+    "label": "HOME_FAQS.2.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "It depends on scope: flow build only, full management, or design support alongside your in-house team. We quote after the audit, because quoting before it would be a guess. The audit itself is free."
+  },
+  {
+    "label": "HOME_FAQS.3.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "How long until we see results?"
+  },
+  {
+    "label": "HOME_FAQS.3.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Campaigns can start earning in the first few weeks. Flows compound over months as more people enter them. Deliverability repair, where it is needed, typically takes four to eight weeks. Anyone promising a fixed number by a fixed date has not looked at your account."
+  },
+  {
+    "label": "HOME_FAQS.4.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Do you only work in Klaviyo?"
+  },
+  {
+    "label": "HOME_FAQS.4.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Klaviyo is where we do our best work and where most ecommerce brands already are. We have worked in Mailchimp, Omnisend and Shopify Email too, and we can migrate you if it makes sense."
+  },
+  {
+    "label": "HOME_FAQS.5.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What happens on the free email audit?"
+  },
+  {
+    "label": "HOME_FAQS.5.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "You send us access or screenshots, we review your flows, list health, authentication records and last ninety days of performance, and we send back what we found and what we would do about it. No obligation, and the findings are yours to keep."
+  },
+  {
+    "label": "AUDIT_FAQS.0.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Is the audit actually free?"
+  },
+  {
+    "label": "AUDIT_FAQS.0.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Yes. There is no fee and no obligation. We send you the findings whether or not you hire us. If the report is useful and you fix it yourself, that is a fine outcome for us."
+  },
+  {
+    "label": "AUDIT_FAQS.1.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What access do you need?"
+  },
+  {
+    "label": "AUDIT_FAQS.1.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Read-only access to your Klaviyo account is fastest and most useful. If you would rather not grant access, screenshots of your flow list, your last 90 days of performance and your list growth will get us most of the way there."
+  },
+  {
+    "label": "AUDIT_FAQS.2.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Will this turn into a sales call?"
+  },
+  {
+    "label": "AUDIT_FAQS.2.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "You get the findings in writing either way. If we think we can help we will say what we would do and what it costs. If we do not think we can help, we will tell you that instead."
+  },
+  {
+    "label": "AUDIT_FAQS.3.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What if I am not on Klaviyo?"
+  },
+  {
+    "label": "AUDIT_FAQS.3.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "We can still audit Mailchimp, Omnisend, Shopify Email and most other ESPs. The flow and deliverability questions are the same everywhere; only the interface changes."
+  },
+  {
+    "label": "PROCESS.0.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Audit"
+  },
+  {
+    "label": "PROCESS.0.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "We go into your account before we pitch you anything. Flow coverage, list health, authentication records, segment quality, what your last ninety days actually earned. You get the findings whether or not you hire us."
+  },
+  {
+    "label": "PROCESS.1.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Build"
+  },
+  {
+    "label": "PROCESS.1.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Core flows first, because they compound while everything else is still being approved. Then the campaign calendar, designed in your brand, with a reason behind each send rather than a slot to fill."
+  },
+  {
+    "label": "PROCESS.2.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Compound"
+  },
+  {
+    "label": "PROCESS.2.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Test, cut what loses, scale what wins. Monthly reporting against attributed revenue and repeat rate. The account should be worth more every quarter than it was the last one."
+  },
+  {
+    "label": "BELIEFS.0.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Attributed revenue, or it did not happen"
+  },
+  {
+    "label": "BELIEFS.0.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Opens are a diagnostic. Clicks are a diagnostic. The number that decides whether we earned our fee is how much revenue the channel attributed this month, and whether it is bigger than last month. We report on that first, every time."
+  },
+  {
+    "label": "BELIEFS.1.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Templates are a tax on your brand"
+  },
+  {
+    "label": "BELIEFS.1.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "A layout that has been sold to four hundred other stores does not stop looking like a layout that has been sold to four hundred other stores. We draw every email for the brand it belongs to. It costs us more time. It is the whole job."
+  },
+  {
+    "label": "BELIEFS.2.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "The boring part decides the exciting part"
+  },
+  {
+    "label": "BELIEFS.2.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Authentication records, list hygiene, sunset flows, send-time discipline. None of it is fun to talk about on a sales call, and all of it determines whether your best campaign of the year gets seen at all."
+  },
+  {
+    "label": "BELIEFS.3.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "We tell you when the answer is no"
+  },
+  {
+    "label": "BELIEFS.3.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "If your list is too small to justify the spend, or the problem is your offer rather than your email, we will say so on the audit call. Selling you a retainer you should not buy is a bad month for you and a bad year for us."
+  },
+  {
+    "label": "AUDIT_CHECKS.0.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Flow coverage"
+  },
+  {
+    "label": "AUDIT_CHECKS.0.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Which of the money flows exist, which are half-built, and which are quietly switched off. Welcome, abandoned cart, browse abandonment, post-purchase, winback."
+  },
+  {
+    "label": "AUDIT_CHECKS.1.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "List health"
+  },
+  {
+    "label": "AUDIT_CHECKS.1.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Engagement decay, share of your list that has not opened in six months, suppression hygiene, and whether unengaged contacts are dragging your reputation down."
+  },
+  {
+    "label": "AUDIT_CHECKS.2.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Deliverability"
+  },
+  {
+    "label": "AUDIT_CHECKS.2.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "SPF, DKIM and DMARC records checked and verified. Complaint and bounce rates against the thresholds Gmail and Outlook actually enforce."
+  },
+  {
+    "label": "AUDIT_CHECKS.3.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Last ninety days"
+  },
+  {
+    "label": "AUDIT_CHECKS.3.body",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What the channel earned, split between flows and campaigns, revenue per recipient, and the gap between what it did and what it should be doing."
+  },
+  {
+    "label": "TESTIMONIALS.0.quote",
+    "kind": "copy",
+    "pass": true,
+    "expected": "I never thought email marketing could bring us that big a share of revenue."
+  },
+  {
+    "label": "TESTIMONIALS.0.author",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Girafon Bleu"
+  },
+  {
+    "label": "TESTIMONIALS.0.role",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Apparel, France"
+  },
+  {
+    "label": "TESTIMONIALS.1.quote",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Their email design made me reconsider and revamp our whole site."
+  },
+  {
+    "label": "TESTIMONIALS.1.author",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Bondi Coffee"
+  },
+  {
+    "label": "TESTIMONIALS.1.role",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Coffee, Australia"
+  },
+  {
+    "label": "TESTIMONIALS.2.quote",
+    "kind": "copy",
+    "pass": true,
+    "expected": "They understood our vision from day one and led an amazing jump in revenue."
+  },
+  {
+    "label": "TESTIMONIALS.2.author",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Kuchenkompane"
+  },
+  {
+    "label": "TESTIMONIALS.2.role",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Bakery, Germany"
+  },
+  {
+    "label": "GOOD_FIT.0",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Ecommerce brands with consistent monthly revenue and an existing list"
+  },
+  {
+    "label": "GOOD_FIT.1",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Klaviyo already installed, and visibly under-used"
+  },
+  {
+    "label": "GOOD_FIT.2",
+    "kind": "copy",
+    "pass": true,
+    "expected": "A brand with a real point of view that templates are flattening"
+  },
+  {
+    "label": "GOOD_FIT.3",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Teams who want one partner owning the channel, not four suppliers"
+  },
+  {
+    "label": "GOOD_FIT.4",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Founders who will look at an attributed-revenue number honestly"
+  },
+  {
+    "label": "BAD_FIT.0",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Pre-revenue stores with no list to email yet"
+  },
+  {
+    "label": "BAD_FIT.1",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Anyone looking for a one-off template pack and no strategy"
+  },
+  {
+    "label": "BAD_FIT.2",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Brands whose core problem is the product or the offer, not the channel"
+  },
+  {
+    "label": "BAD_FIT.3",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Businesses that want to buy or scrape a list, which we will not send to"
+  },
+  {
+    "label": "BAD_FIT.4",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Anyone who needs a guaranteed revenue figure promised before the audit"
+  },
+  {
+    "label": "klaviyo-email-marketing.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Klaviyo email marketing"
+  },
+  {
+    "label": "klaviyo-email-marketing.summary",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Flows and campaigns built in Klaviyo, mapped to how people actually buy from you, not a template pack dropped into your account."
+  },
+  {
+    "label": "klaviyo-email-marketing.intro",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Most stores have Klaviyo installed and three half-finished flows in it. The money is in the gap between installed and actually running. We take the account over, map every point where someone hesitates, and build a flow for each one, then keep a campaign calendar moving on top of it."
+  },
+  {
+    "label": "klaviyo-email-marketing.outcome",
+    "kind": "copy",
+    "pass": true,
+    "expected": "A Klaviyo account where flows earn while you sleep and campaigns have a reason to exist."
+  },
+  {
+    "label": "klaviyo-email-marketing.deliverables.0",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Full Klaviyo account audit and clean-up"
+  },
+  {
+    "label": "klaviyo-email-marketing.deliverables.1",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Core flow build: welcome, abandoned cart, browse abandonment, post-purchase, winback"
+  },
+  {
+    "label": "klaviyo-email-marketing.deliverables.2",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Segmentation by engagement, purchase history and lifecycle stage"
+  },
+  {
+    "label": "klaviyo-email-marketing.deliverables.3",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Weekly campaign calendar, written and designed"
+  },
+  {
+    "label": "klaviyo-email-marketing.deliverables.4",
+    "kind": "copy",
+    "pass": true,
+    "expected": "A/B tests on subject lines, offers and send times"
+  },
+  {
+    "label": "klaviyo-email-marketing.deliverables.5",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Monthly reporting against attributed revenue, not opens"
+  },
+  {
+    "label": "klaviyo-email-marketing.faq.0.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Do you work with platforms other than Klaviyo?"
+  },
+  {
+    "label": "klaviyo-email-marketing.faq.0.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Klaviyo is where we do our best work and where most of our clients already are. We have worked in Mailchimp, Omnisend and Shopify Email, and we will migrate you to Klaviyo if it makes sense, but we will tell you honestly if your current setup is fine."
+  },
+  {
+    "label": "klaviyo-email-marketing.faq.1.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "How long before flows are live?"
+  },
+  {
+    "label": "klaviyo-email-marketing.faq.1.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "The core flow set is typically live within the first two to three weeks, depending on how fast brand assets and approvals come back. Campaigns usually start in week one, because those do not need to wait on the full build."
+  },
+  {
+    "label": "klaviyo-email-marketing.faq.2.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Do I need a big list for this to work?"
+  },
+  {
+    "label": "klaviyo-email-marketing.faq.2.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "No. Flows are triggered by behaviour, so they work on a small list from day one. If your list is small we will also work on capture: pop-ups, sign-up incentives and segmentation, so the list grows while the flows run."
+  },
+  {
+    "label": "email-design.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Email design"
+  },
+  {
+    "label": "email-design.summary",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Emails designed to look like your brand rather than like an email. Every campaign in our portfolio was built from scratch."
+  },
+  {
+    "label": "email-design.intro",
+    "kind": "copy",
+    "pass": true,
+    "expected": "A template with your logo dropped in the corner still looks like a template, and customers can tell. We design each email around the brand it belongs to: your type, your colour, your photography, your tone. The portfolio on this site is the whole argument. Look at the Girafon Bleu welcome email next to the Bondi Coffee one and you would not guess the same team made both."
+  },
+  {
+    "label": "email-design.outcome",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Emails people screenshot and forward, instead of ones they scroll past on the way to the delete button."
+  },
+  {
+    "label": "email-design.deliverables.0",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Custom design for every campaign and flow email"
+  },
+  {
+    "label": "email-design.deliverables.1",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Brand-matched type, colour and layout system"
+  },
+  {
+    "label": "email-design.deliverables.2",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Mobile-first layouts, because most of your list reads on a phone"
+  },
+  {
+    "label": "email-design.deliverables.3",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Dark-mode safe colour and image handling"
+  },
+  {
+    "label": "email-design.deliverables.4",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Bulletproof buttons and live text where it matters for accessibility"
+  },
+  {
+    "label": "email-design.deliverables.5",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Tested across Gmail, Apple Mail, Outlook and mobile clients"
+  },
+  {
+    "label": "email-design.faq.0.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Do you use templates?"
+  },
+  {
+    "label": "email-design.faq.0.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "We build a reusable design system for your brand so production stays fast, but the layouts are drawn for you. We do not buy or resell template packs."
+  },
+  {
+    "label": "email-design.faq.1.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Can you match our existing brand guidelines?"
+  },
+  {
+    "label": "email-design.faq.1.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Yes. Send them over and we will work inside them. If you do not have guidelines, we will infer a system from your site and product photography and document it as we go."
+  },
+  {
+    "label": "email-design.faq.2.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Will the emails work in dark mode?"
+  },
+  {
+    "label": "email-design.faq.2.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Yes. We handle dark mode explicitly: logos get transparent or inverted variants, background colours are chosen so they do not invert badly, and we test in the clients that force dark mode rather than hoping for the best."
+  },
+  {
+    "label": "email-deliverability.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Email deliverability"
+  },
+  {
+    "label": "email-deliverability.summary",
+    "kind": "copy",
+    "pass": true,
+    "expected": "The best offer in the world earns nothing from the spam folder. Authentication, reputation and list hygiene, handled."
+  },
+  {
+    "label": "email-deliverability.intro",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Deliverability is the least glamorous part of email and the one that quietly decides whether any of the rest of it matters. If Gmail has decided you are promotional noise, your best campaign of the year lands in a tab nobody opens. We fix the technical foundation first, then keep it clean."
+  },
+  {
+    "label": "email-deliverability.outcome",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Emails that reach the inbox, so campaign performance reflects the offer rather than the filter."
+  },
+  {
+    "label": "email-deliverability.deliverables.0",
+    "kind": "copy",
+    "pass": true,
+    "expected": "SPF, DKIM and DMARC configured and verified"
+  },
+  {
+    "label": "email-deliverability.deliverables.1",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Dedicated or shared sending decision, made on your actual volume"
+  },
+  {
+    "label": "email-deliverability.deliverables.2",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Sender reputation diagnosis and warm-up plan where needed"
+  },
+  {
+    "label": "email-deliverability.deliverables.3",
+    "kind": "copy",
+    "pass": true,
+    "expected": "List hygiene: suppression of hard bounces, spam traps and long-dead contacts"
+  },
+  {
+    "label": "email-deliverability.deliverables.4",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Sunset and re-engagement flows so dead weight stops dragging you down"
+  },
+  {
+    "label": "email-deliverability.deliverables.5",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Ongoing inbox placement and complaint-rate monitoring"
+  },
+  {
+    "label": "email-deliverability.faq.0.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "How do I know if I have a deliverability problem?"
+  },
+  {
+    "label": "email-deliverability.faq.0.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "The usual signs are open rates falling steadily over months, a widening gap between delivered and opened, complaint rates above 0.1%, or revenue dropping while send volume stays flat. Our free audit checks your authentication records and flags these."
+  },
+  {
+    "label": "email-deliverability.faq.1.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "How long does it take to fix a damaged sender reputation?"
+  },
+  {
+    "label": "email-deliverability.faq.1.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Authentication problems are fixed in days. Reputation repair is slower: typically four to eight weeks of disciplined sending to engaged segments while the damaged history ages out. Anyone promising a fix in a week is guessing."
+  },
+  {
+    "label": "email-deliverability.faq.2.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Will cleaning my list hurt my revenue?"
+  },
+  {
+    "label": "email-deliverability.faq.2.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Suppressing unengaged contacts almost always raises revenue, not lowers it. Those contacts were not buying; they were dragging your reputation down and taking the engaged ones with them into the promotions tab."
+  },
+  {
+    "label": "retention-strategy.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Retention strategy"
+  },
+  {
+    "label": "retention-strategy.summary",
+    "kind": "copy",
+    "pass": true,
+    "expected": "One-time buyers are fine. Repeat buyers are the business. We build the lifecycle that turns the first into the second."
+  },
+  {
+    "label": "retention-strategy.intro",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Paid acquisition gets more expensive every year. The customers you already paid for are the cheapest revenue in your business, and most stores do almost nothing with them after the shipping confirmation. Retention strategy is the plan for that second, third and fourth purchase."
+  },
+  {
+    "label": "retention-strategy.outcome",
+    "kind": "copy",
+    "pass": true,
+    "expected": "A larger share of revenue coming from people who already trust you, which is the cheapest growth available."
+  },
+  {
+    "label": "retention-strategy.deliverables.0",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Lifecycle map: every stage from first click to loyal repeat buyer"
+  },
+  {
+    "label": "retention-strategy.deliverables.1",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Post-purchase sequences that set up the next order rather than ending the conversation"
+  },
+  {
+    "label": "retention-strategy.deliverables.2",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Replenishment timing modelled on your actual repurchase intervals"
+  },
+  {
+    "label": "retention-strategy.deliverables.3",
+    "kind": "copy",
+    "pass": true,
+    "expected": "VIP and high-LTV segmentation with treatment that matches"
+  },
+  {
+    "label": "retention-strategy.deliverables.4",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Winback sequences that catch people before they are gone for good"
+  },
+  {
+    "label": "retention-strategy.deliverables.5",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Reporting on repeat rate and revenue per recipient, not vanity metrics"
+  },
+  {
+    "label": "retention-strategy.faq.0.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Is retention worth it if we are still small?"
+  },
+  {
+    "label": "retention-strategy.faq.0.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Yes, and arguably more so. Small brands feel rising ad costs hardest, and a repeat purchase costs you an email instead of a click. The systems are also cheaper to build before your catalogue and data get complicated."
+  },
+  {
+    "label": "retention-strategy.faq.1.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "How is this different from just sending more emails?"
+  },
+  {
+    "label": "retention-strategy.faq.1.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Sending more emails without a lifecycle plan burns your list and your reputation. Retention strategy decides who hears from you, when, and about what, so volume goes to the people ready for it."
+  },
+  {
+    "label": "retention-strategy.faq.2.q",
+    "kind": "copy",
+    "pass": true,
+    "expected": "What do you measure?"
+  },
+  {
+    "label": "retention-strategy.faq.2.a",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Repeat purchase rate, revenue per recipient, time between orders and share of total revenue attributed to email. Opens and clicks are diagnostics, not goals."
+  },
+  {
+    "label": "girafon-bleu-welcome.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Girafon Bleu"
+  },
+  {
+    "label": "girafon-bleu-welcome.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome email"
+  },
+  {
+    "label": "girafon-bleu-welcome.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome flow"
+  },
+  {
+    "label": "girafon-bleu-welcome.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Brand-forward welcome that leads with the mission before the discount code."
+  },
+  {
+    "label": "girafon-bleu-welcome.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-girafon.png"
+  },
+  {
+    "label": "bondi-coffee-campaign.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Bondi Coffee"
+  },
+  {
+    "label": "bondi-coffee-campaign.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Campaign email"
+  },
+  {
+    "label": "bondi-coffee-campaign.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Campaign"
+  },
+  {
+    "label": "bondi-coffee-campaign.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Clean product-led layout designed to survive dark mode intact."
+  },
+  {
+    "label": "bondi-coffee-campaign.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-bondi.png"
+  },
+  {
+    "label": "kuchenkompane-mothers-day.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Kuchenkompane"
+  },
+  {
+    "label": "kuchenkompane-mothers-day.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Mother’s Day campaign"
+  },
+  {
+    "label": "kuchenkompane-mothers-day.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Seasonal campaign"
+  },
+  {
+    "label": "kuchenkompane-mothers-day.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Seasonal campaign built around a single gifting decision."
+  },
+  {
+    "label": "kuchenkompane-mothers-day.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-kuchenkompane.png"
+  },
+  {
+    "label": "nikos-knife-welcome.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "The Nikos Knife"
+  },
+  {
+    "label": "nikos-knife-welcome.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome sequence"
+  },
+  {
+    "label": "nikos-knife-welcome.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome flow"
+  },
+  {
+    "label": "nikos-knife-welcome.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Long-form welcome for a considered, higher-ticket product."
+  },
+  {
+    "label": "nikos-knife-welcome.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-nikos-welcome.png"
+  },
+  {
+    "label": "femmenal-campaign.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Femmenal"
+  },
+  {
+    "label": "femmenal-campaign.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Campaign email"
+  },
+  {
+    "label": "femmenal-campaign.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Campaign"
+  },
+  {
+    "label": "femmenal-campaign.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Editorial pacing: benefit, proof, offer, in that order."
+  },
+  {
+    "label": "femmenal-campaign.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-femmenal.png"
+  },
+  {
+    "label": "welcome-flow-a.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Ecommerce client"
+  },
+  {
+    "label": "welcome-flow-a.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome flow email"
+  },
+  {
+    "label": "welcome-flow-a.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome flow"
+  },
+  {
+    "label": "welcome-flow-a.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "First touch after sign-up, built to earn the second open."
+  },
+  {
+    "label": "welcome-flow-a.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-welcome-a.png"
+  },
+  {
+    "label": "welcome-flow-b.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Ecommerce client"
+  },
+  {
+    "label": "welcome-flow-b.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome flow email"
+  },
+  {
+    "label": "welcome-flow-b.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Welcome flow"
+  },
+  {
+    "label": "welcome-flow-b.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Range overview for a catalogue that needed explaining."
+  },
+  {
+    "label": "welcome-flow-b.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-welcome-b.png"
+  },
+  {
+    "label": "browse-abandonment.client",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Ecommerce client"
+  },
+  {
+    "label": "browse-abandonment.title",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Browse abandonment"
+  },
+  {
+    "label": "browse-abandonment.type",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Flow"
+  },
+  {
+    "label": "browse-abandonment.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Caught mid-consideration, without the desperate discount."
+  },
+  {
+    "label": "browse-abandonment.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/work-web.png"
+  },
+  {
+    "label": "proof.0.headline",
+    "kind": "copy",
+    "pass": true,
+    "expected": "$477,929 attributed to email"
+  },
+  {
+    "label": "proof.0.metric",
+    "kind": "copy",
+    "pass": true,
+    "expected": "47.96% of total revenue"
+  },
+  {
+    "label": "proof.0.window",
+    "kind": "copy",
+    "pass": true,
+    "expected": "4 Sep - 4 Nov 2023"
+  },
+  {
+    "label": "proof.0.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Total store revenue up 47% against the previous period. Campaigns drove $316,870; flows drove $161,058."
+  },
+  {
+    "label": "proof.0.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/proof-klaviyo-996k.png"
+  },
+  {
+    "label": "proof.1.headline",
+    "kind": "copy",
+    "pass": true,
+    "expected": "$98,625 attributed to email"
+  },
+  {
+    "label": "proof.1.metric",
+    "kind": "copy",
+    "pass": true,
+    "expected": "44.7% of total revenue"
+  },
+  {
+    "label": "proof.1.window",
+    "kind": "copy",
+    "pass": true,
+    "expected": "30 Dec 2022 - 30 Jan 2023"
+  },
+  {
+    "label": "proof.1.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Attributed revenue up 39% against the previous period, with flows out-earning campaigns roughly two to one."
+  },
+  {
+    "label": "proof.1.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/proof-klaviyo-220k.png"
+  },
+  {
+    "label": "proof.2.headline",
+    "kind": "copy",
+    "pass": true,
+    "expected": "£9,100 attributed to email"
+  },
+  {
+    "label": "proof.2.metric",
+    "kind": "copy",
+    "pass": true,
+    "expected": "44.8% of total revenue"
+  },
+  {
+    "label": "proof.2.window",
+    "kind": "copy",
+    "pass": true,
+    "expected": "30 May - 26 Nov 2023"
+  },
+  {
+    "label": "proof.2.note",
+    "kind": "copy",
+    "pass": true,
+    "expected": "Email-attributed revenue more than doubled year on year, up 104%, in a period where the store’s overall revenue fell."
+  },
+  {
+    "label": "proof.2.image",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/proof-klaviyo-gbp.png"
+  },
+  {
+    "label": "Girafon Bleu",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/client-girafon.png"
+  },
+  {
+    "label": "Bondi Coffee",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/client-bondi.png"
+  },
+  {
+    "label": "The Nikos Knife",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/client-nikos-knife.png"
+  },
+  {
+    "label": "Iced Plunge",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/client-iced-plunge.png"
+  },
+  {
+    "label": "Future Nurse Bundle",
+    "kind": "asset",
+    "pass": true,
+    "expected": "/images/client-future-nurse.png"
+  },
+  {
+    "label": "client-bondi.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "client-future-nurse.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "client-girafon.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "client-iced-plunge.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "client-nikos-knife.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "flame-smooth.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "flame.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "inferno-logo.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "proof-klaviyo-220k.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "proof-klaviyo-996k.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "proof-klaviyo-gbp.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "wordmark-dark.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "wordmark-light.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-bondi.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-femmenal.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-girafon.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-kuchenkompane.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-nikos-welcome.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-web.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-welcome-a.png",
+    "kind": "original asset retained",
+    "pass": true
+  },
+  {
+    "label": "work-welcome-b.png",
+    "kind": "original asset retained",
+    "pass": true
+  }
+]

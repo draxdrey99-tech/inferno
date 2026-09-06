@@ -42,7 +42,7 @@ import {
 } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta({
-  title: 'Email Marketing Agency for Ecommerce Brands | Inferno Emails',
+  title: 'Ecommerce Email Marketing Agency | Inferno Emails',
   description:
     'Email marketing agency for ecommerce brands. We build Klaviyo flows, design campaigns in your brand and fix deliverability. Book a free audit, no obligation.',
   path: '/',

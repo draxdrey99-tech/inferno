@@ -18,7 +18,7 @@ export default function EmailCard({
   priority?: boolean;
 }) {
   return (
-    <figure className="email-card group rounded-xl" tabIndex={0}>
+    <figure className="email-card group" tabIndex={0}>
       <div className="viewport">
         <Image
           src={item.image}
@@ -31,7 +31,7 @@ export default function EmailCard({
         />
       </div>
 
-      <figcaption className="flex items-baseline justify-between gap-4 border-t border-white/8 bg-white/[0.03] px-5 py-4">
+      <figcaption className="border-t border-white/8 bg-white/[0.03] px-5 py-4">
         <div>
           <p className="font-display text-base tracking-tight text-bone">
             {item.client}

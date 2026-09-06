@@ -33,7 +33,7 @@ export default function Marquee() {
   );
 
   return (
-    <div className="marquee-wrap relative overflow-hidden py-10 md:py-12">
+    <div className="marquee-wrap relative overflow-hidden py-10 md:py-12" role="region" aria-label="Client logos" tabIndex={0}>
       <label className="marquee-pause"><input type="checkbox" /> Pause logos</label>
       <div className="marquee">
         {row(false)}

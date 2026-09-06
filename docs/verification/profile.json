@@ -1,0 +1,21 @@
+{
+  "frames": 389,
+  "median": 16.699999999999818,
+  "p95": 16.799999999999272,
+  "over33ms": 0,
+  "interactions": [
+    {
+      "name": "pointerdown",
+      "duration": 32
+    },
+    {
+      "name": "pointerup",
+      "duration": 32
+    },
+    {
+      "name": "click",
+      "duration": 32
+    }
+  ],
+  "note": "Desktop headless Chromium lab sample; refresh scheduling is host-dependent. Trace can be loaded in Chrome DevTools Performance. Event Timing is not production field INP."
+}

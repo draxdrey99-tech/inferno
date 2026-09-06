@@ -35,3 +35,19 @@ Baseline and final results are populated from the saved report files below after
 |---|---|---|---|---|---|---|---|---|
 | Before | mobile | 86 | 100 | 100 | 100 | 3.94s | 0 | 141.5ms |
 | Before | desktop | 99 | 100 | 100 | 100 | 0.80s | 0 | 22ms |
+| Final | mobile | 95 | 100 | 100 | 100 | 2.87s | 0 | 44.5ms |
+| Final | desktop | 100 | 100 | 100 | 100 | 0.65s | 0 | 0ms |
+
+Final figures come from lighthouse/final-summary.json, measured after the brand revision with no concurrent browser checks. The preceding red-palette run (after-summary.json) measured mobile 95 / LCP 2.97s. Score thresholds and CLS pass; **mobile LCP remains above the requested 2.5s target** despite improvement from 3.94s. Earlier development measurements varied, including a 2.40s run before the final palette pass; these do not replace the final result. Investigate production caching and hydration cost before declaring the LCP goal achieved. Diagnostic phase3/optimized/measured reports are historical experiments, not final results.
+
+## Final verification and operating limits
+
+The user's palette revision is applied throughout: flame-red branding, accessible red controls/accents, neutral charcoal and warm-white proof panels. The original wordmark is unchanged. Final font is a single 28,964-byte Archivo variable Latin subset, self-hosted; the baseline framework description above records the original two-family setup.
+
+Production build, lint and TypeScript complete with zero errors. Automated results: 112 responsive/axe/interaction checks, 206 content-preservation checks, 28 image/redirect/revenue checks and 10 design checks, all passing. SEO validation: zero failures or warnings across all ten sitemap pages. Every original proof value, date window, service text and asset survives; see verification/content.json. Native disclosures preserve FAQ answers without JavaScript. Form feedback is tested with intercepted responses, never real submissions.
+
+There are 36 baseline and 72 final full-page screenshots at 320, 375, 768, 1024, 1440 and 1920 pixels, including sign-in and 404. New service URLs have no separate baseline page because they previously redirected to the home service section. Final captures have zero horizontal page overflows. Extra hero, proof, work and reduced-motion detail captures are saved alongside them.
+
+Chrome DevTools trace: 389 frames in a 6.5-second desktop scroll sample, median 16.7ms, p95 16.8ms, no frames over 33.4ms. FAQ Event Timing samples were 32ms. This is a lab interaction sample, not a field INP measurement; production INP remains unmeasured. The trace is saved in verification/scroll-trace.json.
+
+The production build was checked locally at http://localhost:3210. No deployment was performed. Database credentials are absent, so published blog content, authenticated CMS publishing, live lead delivery and calendar-provider completion could not be verified. Existing CMS, RSS and Article metadata logic remain; the empty-blog state is captured. No fabricated posts or real bookings were created. Final production verification requires the configured deployment and real-user performance data.

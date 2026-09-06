@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Archivo, Geist } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
 import Nav from '@/components/Nav';
@@ -12,22 +12,13 @@ import { SITE, SITE_URL } from '@/lib/site';
 
 /* Self-hosted at build time by next/font — no render-blocking request to
    Google, no layout shift, and the CSS variables feed Tailwind's theme. */
-/* Display face. Italic is loaded because headline emphasis stays inside
-   this family rather than swapping in a second font for decoration. */
-const archivo = Archivo({
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  style: ['normal'],
+/* Normal display face. Optional loading avoids a late text repaint on
+   slow first visits; next/font supplies a metric-adjusted fallback. */
+const archivo = localFont({
+  src: '../public/fonts/archivo-latin-400-800.woff2',
+  weight: '400 800',
   variable: '--font-archivo',
-  display: 'swap',
-});
-
-/* Body face. Geist over Inter: Inter is the default every generated site
-   reaches for, and Geist sits better beside a geometric grotesk. */
-const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist',
-  display: 'swap',
+  display: 'optional',
 });
 
 export const metadata: Metadata = {
@@ -59,7 +50,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#171916',
+  themeColor: '#171717',
   colorScheme: 'dark',
 };
 
@@ -71,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${geist.variable}`}
+      className={archivo.variable}
     >
       <body>
         <a href="#main" className="skip-link">

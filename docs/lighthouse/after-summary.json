@@ -1,0 +1,28 @@
+[
+  {
+    "phase": "after",
+    "mode": "mobile",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 2972.3625,
+    "cls": 0,
+    "tbt": 31.5
+  },
+  {
+    "phase": "after",
+    "mode": "desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 642.4924999999998,
+    "cls": 0,
+    "tbt": 0
+  }
+]

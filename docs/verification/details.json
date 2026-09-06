@@ -1,0 +1,226 @@
+[
+  {
+    "check": "/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/blog/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/privacy/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/terms/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/services/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/services/klaviyo-email-marketing/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/services/email-design/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/services/email-deliverability/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/services/retention-strategy/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/services/email-flows/opengraph-image",
+    "pass": true
+  },
+  {
+    "check": "/home",
+    "pass": true,
+    "status": 308,
+    "location": "/"
+  },
+  {
+    "check": "/work",
+    "pass": true,
+    "status": 308,
+    "location": "/#work"
+  },
+  {
+    "check": "/our-work",
+    "pass": true,
+    "status": 308,
+    "location": "/#work"
+  },
+  {
+    "check": "/portfolio",
+    "pass": true,
+    "status": 308,
+    "location": "/#work"
+  },
+  {
+    "check": "/about",
+    "pass": true,
+    "status": 308,
+    "location": "/#about"
+  },
+  {
+    "check": "/contact",
+    "pass": true,
+    "status": 308,
+    "location": "/#contact"
+  },
+  {
+    "check": "/contact-us",
+    "pass": true,
+    "status": 308,
+    "location": "/#contact"
+  },
+  {
+    "check": "/free-email-audit",
+    "pass": true,
+    "status": 308,
+    "location": "/#contact"
+  },
+  {
+    "check": "/audit",
+    "pass": true,
+    "status": 308,
+    "location": "/#contact"
+  },
+  {
+    "check": "/services/unknown-service",
+    "pass": true,
+    "status": 308,
+    "location": "/#services"
+  },
+  {
+    "check": "/infernomedia/old",
+    "pass": true,
+    "status": 308,
+    "location": "/"
+  },
+  {
+    "check": "revenue reels 0",
+    "pass": true,
+    "digits": [
+      {
+        "digit": 4,
+        "actual": 4.000007388593858
+      },
+      {
+        "digit": 7,
+        "actual": 6.999998152851535
+      },
+      {
+        "digit": 7,
+        "actual": 6.999998152851535
+      },
+      {
+        "digit": 9,
+        "actual": 9.000001847148464
+      },
+      {
+        "digit": 2,
+        "actual": 2.000003694296929
+      },
+      {
+        "digit": 9,
+        "actual": 9.000001847148464
+      },
+      {
+        "digit": 1,
+        "actual": 1.0000003694296928
+      },
+      {
+        "digit": 4,
+        "actual": 4.000007388593858
+      }
+    ]
+  },
+  {
+    "check": "dashboard 0 loaded",
+    "pass": true
+  },
+  {
+    "check": "revenue reels 1",
+    "pass": true,
+    "digits": [
+      {
+        "digit": 9,
+        "actual": 9.000001847148464
+      },
+      {
+        "digit": 8,
+        "actual": 8
+      },
+      {
+        "digit": 6,
+        "actual": 5.999996305703071
+      },
+      {
+        "digit": 2,
+        "actual": 2.000003694296929
+      },
+      {
+        "digit": 5,
+        "actual": 4.999994458554606
+      },
+      {
+        "digit": 6,
+        "actual": 5.999996305703071
+      },
+      {
+        "digit": 3,
+        "actual": 3.0000055414453937
+      }
+    ]
+  },
+  {
+    "check": "dashboard 1 loaded",
+    "pass": true
+  },
+  {
+    "check": "revenue reels 2",
+    "pass": true,
+    "digits": [
+      {
+        "digit": 9,
+        "actual": 9.000001847148464
+      },
+      {
+        "digit": 1,
+        "actual": 1.0000003694296928
+      },
+      {
+        "digit": 0,
+        "actual": 0
+      },
+      {
+        "digit": 0,
+        "actual": 0
+      },
+      {
+        "digit": 9,
+        "actual": 9.000001847148464
+      },
+      {
+        "digit": 4,
+        "actual": 4.000007388593858
+      }
+    ]
+  },
+  {
+    "check": "dashboard 2 loaded",
+    "pass": true
+  },
+  {
+    "check": "mobile logos can scroll",
+    "pass": true
+  }
+]

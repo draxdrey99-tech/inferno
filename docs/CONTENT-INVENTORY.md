@@ -1,5 +1,7 @@
 # Content inventory
 
+Verification: `scripts/content-check.mjs` compares the preserved data against the production site's no-JavaScript HTML and checks original asset sizes. All 206 checks passed in Phase 5. Full output: `verification/content.json`. Original body paragraphs outside lib/site.ts were compared with `before/home.txt`; the only non-visible paragraphs in the default after screenshot are native FAQ answers, which remain in HTML and open without JavaScript. Legal body copy and the blog empty state are retained. Decorative belief indices are recorded here but no longer presented as a sequence; see CHANGELOG.md.
+
 Captured before redesign on 6 September 2026. All original assets retained. Exact rendered page copy is in docs/before/*.txt; original homepage source and starting worktree diff are in docs/baseline/. Legacy WordPress export remains untouched in _legacy/.
 
 ## SITE_URL

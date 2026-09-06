@@ -32,7 +32,8 @@ const nextConfig: NextConfig = {
       // section instead of a 404. Fragments survive a 308 because the
       // browser, not the server, resolves them.
       // Service URLs are indexable pages again. Unknown slugs retain the
-      // previous /#services destination in the service route handler.
+      // previous /#services destination before rendering the service page.
+      { source: '/services/:path((?!(?:klaviyo-email-marketing|email-design|email-deliverability|retention-strategy|email-flows|opengraph-image)(?:/|$)).*)', destination: '/#services', permanent: true },
       { source: '/work', destination: '/#work', permanent: true },
       { source: '/our-work', destination: '/#work', permanent: true },
       { source: '/portfolio', destination: '/#work', permanent: true },

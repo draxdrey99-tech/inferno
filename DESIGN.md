@@ -1,5 +1,7 @@
 # Design system
 
+**Historical system.** The approved September 2026 brief supersedes the theme, shape, hero and motion restrictions in this document. Use [docs/DESIGN-PLAN.md](docs/DESIGN-PLAN.md) for current design decisions and [docs/CHANGELOG.md](docs/CHANGELOG.md) for their rationale. This earlier document is retained as history.
+
 The visual language and the rules that keep it consistent. Read this before
 changing anything in `app/globals.css` or adding a section to a page.
 

@@ -17,7 +17,8 @@ for(const route of routes){
   await page.setViewportSize({width,height:width<768?812:1000});
   const response=await page.goto(base+route,{waitUntil:'load',timeout:60000});
   await page.evaluate(async()=>{await document.fonts.ready; for(let y=0;y<document.body.scrollHeight;y+=650){window.scrollTo({top:y,behavior:'instant'}); await new Promise(r=>setTimeout(r,70));} window.scrollTo({top:0,behavior:'instant'});});
-  await page.waitForTimeout(1000);
+  await page.evaluate(async()=>{const images=Array.from(document.images).filter(img=>img.getBoundingClientRect().left<innerWidth);await Promise.race([Promise.all(images.map(img=>img.complete?Promise.resolve():new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true});}))),new Promise(r=>setTimeout(r,5000))]);});
+  await page.waitForTimeout(800);
   const slug=route==='/'?'home':route.slice(1).replaceAll('/','-');
   await page.screenshot({path:`docs/screenshots/${phase}/${slug}-${width}.png`,fullPage:true});
   if(width===1440){await fs.writeFile(`docs/${phase}/${slug}.txt`,await page.locator('body').innerText());await fs.writeFile(`docs/${phase}/${slug}.html`,await response.text());}

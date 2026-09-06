@@ -1,0 +1,72 @@
+Skip to content
+Services
+Work
+About
+Blog
+Book your free audit
+Home
+/
+Legal
+Privacy policy
+
+LAST UPDATED 30 AUGUST 2026
+
+This policy explains what personal data Inferno Emails collects through this website, why we collect it, and what we do with it. It covers this site only, not the email programmes we run inside a client’s own sending platform, which are governed by that client’s policy.
+
+What we collect
+
+We collect only what you type into a form on this site. That means your name, business email address, company name, store URL, optional phone number and whatever you write in the message field. We also store the browser user-agent string attached to the submission, which helps us filter automated spam.
+
+We do not run advertising trackers, we do not sell or rent data to anyone, and we do not enrich your submission against third-party databases.
+
+Why we collect it
+
+To reply to you and, where you have asked for one, to prepare and send your free email audit. The lawful basis is your consent, given when you submit the form, and our legitimate interest in responding to business enquiries.
+
+Where it is stored
+
+Form submissions are stored in a Postgres database hosted by Neon and served through Vercel. Both are processors acting on our instructions. Data may be processed in the United States and the European Union.
+
+How long we keep it
+
+Enquiries are kept for up to 24 months so we can pick up a conversation where it left off, then deleted. Ask us sooner and we will delete it sooner.
+
+Cookies
+
+This site sets no advertising or analytics cookies. The only cookie we set is a session cookie for the private content management area, which is used by our own team and never by site visitors.
+
+Your rights
+
+You can ask us for a copy of the data we hold about you, ask us to correct it, or ask us to delete it. Email hello@infernoemails.com and we will action it within 30 days. If you are in the UK or EU and are unhappy with our response, you have the right to complain to your local data protection authority.
+
+Changes
+
+If this policy changes we will update the date at the top of this page.
+
+Contact
+
+Questions about this policy: hello@infernoemails.com.
+
+Email and retention marketing for ecommerce brands. Flows, campaigns, design and deliverability, run as one system.
+
+Instagram
+hello@infernoemails.com
+WHAT WE DO
+Klaviyo email marketing
+Email design
+Email flows & automation
+Email deliverability
+Retention strategy
+COMPANY
+About
+Work
+Blog
+Contact
+START HERE
+Book a free audit
+Privacy policy
+Terms of service
+
+© 2026 Inferno Emails. All rights reserved.
+
+Built for brands that would rather own the inbox than rent the feed.

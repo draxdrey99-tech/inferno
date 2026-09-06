@@ -1,0 +1,434 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/blog",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/blog",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/blog",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/blog",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/blog",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/blog",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/privacy",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/privacy",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/privacy",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/privacy",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/privacy",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/privacy",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/terms",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/terms",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/terms",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/terms",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/terms",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/terms",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/admin",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/admin",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/admin",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/admin",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/admin",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/admin",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/missing-page",
+    "width": 320,
+    "status": 404,
+    "overflow": false
+  },
+  {
+    "route": "/missing-page",
+    "width": 375,
+    "status": 404,
+    "overflow": false
+  },
+  {
+    "route": "/missing-page",
+    "width": 768,
+    "status": 404,
+    "overflow": false
+  },
+  {
+    "route": "/missing-page",
+    "width": 1024,
+    "status": 404,
+    "overflow": false
+  },
+  {
+    "route": "/missing-page",
+    "width": 1440,
+    "status": 404,
+    "overflow": false
+  },
+  {
+    "route": "/missing-page",
+    "width": 1920,
+    "status": 404,
+    "overflow": false
+  },
+  {
+    "route": "/services",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/klaviyo-email-marketing",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/klaviyo-email-marketing",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/klaviyo-email-marketing",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/klaviyo-email-marketing",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/klaviyo-email-marketing",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/klaviyo-email-marketing",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-design",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-design",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-design",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-design",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-design",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-design",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-deliverability",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-deliverability",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-deliverability",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-deliverability",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-deliverability",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-deliverability",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/retention-strategy",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/retention-strategy",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/retention-strategy",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/retention-strategy",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/retention-strategy",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/retention-strategy",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-flows",
+    "width": 320,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-flows",
+    "width": 375,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-flows",
+    "width": 768,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-flows",
+    "width": 1024,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-flows",
+    "width": 1440,
+    "status": 200,
+    "overflow": false
+  },
+  {
+    "route": "/services/email-flows",
+    "width": 1920,
+    "status": 200,
+    "overflow": false
+  }
+]
