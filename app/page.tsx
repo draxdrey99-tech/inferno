@@ -1,9 +1,27 @@
-import Image from 'next/image';
+
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Calendar, Check, X } from '@phosphor-icons/react/dist/ssr';
+import {
+  ArrowRight,
+  Calendar,
+  Check,
+  Lightning,
+  ListChecks,
+  MagnifyingGlass,
+  PaintBrush,
+  Quotes,
+  Repeat,
+  Rocket,
+  ShieldCheck,
+  ChartLineUp,
+  TrendUp,
+  UsersThree,
+  X,
+} from '@phosphor-icons/react/dist/ssr';
 
-import Marquee from '@/components/Marquee';
+import Hero from '@/components/Hero';
+import ProofScenes from '@/components/ProofScenes';
+import GalleryControls from '@/components/GalleryControls';
 import EmailCard from '@/components/EmailCard';
 import Faq from '@/components/Faq';
 import AuditForm from '@/components/AuditForm';
@@ -36,13 +54,27 @@ export const metadata: Metadata = pageMeta({
    /work, /about, /contact and /free-email-audit is a section here, and the
    nav scrolls between them. /blog is the only route with a page of its own.
 
-   Eyebrow budget: ~12 sections, so at most 4 eyebrows and the hero is one of
-   them. Every other section opens on its headline alone. */
+   Eyebrow budget: 10 sections, so at most 4 badge pills. Used on the hero,
+   the proof section, the work section and the audit-checks section. Every
+   other section opens on its headline alone. */
 
 const ALL_FAQS = [...HOME_FAQS, ...AUDIT_FAQS];
 
+const SERVICE_ICON = {
+  'klaviyo-email-marketing': Lightning,
+  'email-design': PaintBrush,
+  'email-deliverability': ShieldCheck,
+  'retention-strategy': Repeat,
+} as const;
+
+const PROCESS_ICON = [MagnifyingGlass, Rocket, ChartLineUp];
+
+const AUDIT_ICON = [ListChecks, UsersThree, ShieldCheck, ChartLineUp];
+
+
+
 export default function HomePage() {
-  const [lead, ...rest] = PROOF;
+
 
   return (
     <>
@@ -73,156 +105,11 @@ export default function HomePage() {
         }}
       />
 
-      {/* ---------------------------------------------------------- HERO */}
-      <section className="pt-24 md:pt-24">
-        <div className="shell grid items-center gap-12 pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:pb-24">
-          <div className="reveal">
-            <p className="eyebrow">Email and retention marketing</p>
-
-            <h1 className="display-xl mt-6">
-              Your cheapest revenue is{' '}
-              <span className="accent">already on your list.</span>
-            </h1>
-
-            <p className="lede mt-6">
-              Email marketing for ecommerce brands. We build the Klaviyo flows,
-              design the campaigns, and fix the deliverability underneath.
-            </p>
-
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href={SITE.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-flame"
-              >
-                Book your free audit
-                <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
-              </a>
-              <Link href="#work" className="btn btn-ghost">
-                See the work
-              </Link>
-            </div>
-
-            <p className="mt-6 text-[0.875rem] text-mute">
-              30 minutes, no obligation, and the findings are yours to keep.
-            </p>
-          </div>
-
-          {/* A real client email, not a div-built mock of one. */}
-          <div className="reveal" data-reveal-delay="120">
-            <figure className="relative mx-auto max-w-md overflow-hidden rounded-xl border border-white/10 bg-ink-soft shadow-2xl shadow-black/60">
-              <div className="h-[26rem] overflow-hidden md:h-[31rem]">
-                <Image
-                  src="/images/work-girafon.png"
-                  alt="Girafon Bleu welcome email designed by Inferno Emails, introducing the brand with a 10% welcome offer"
-                  width={600}
-                  height={2189}
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 31rem"
-                  className="w-full"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink-soft to-transparent"
-                />
-              </div>
-              <figcaption className="border-t border-white/8 px-5 py-3.5 text-[0.8125rem] text-mute">
-                Girafon Bleu, welcome flow
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-
-        {/* Logo wall sits under the hero, never inside it. */}
-        <div className="border-y border-white/8">
-          <Marquee />
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------ PROOF ---- *
-       * Asymmetric: one dashboard carries the section, two support it.    */}
-      <section className="border-b border-white/8 bg-ink-raised">
-        <div className="shell py-20 md:py-28">
-          <div className="reveal max-w-3xl">
-            <p className="eyebrow">Receipts</p>
-            <h2 className="display-lg mt-6">
-              Screenshots, <span className="accent">not adjectives.</span>
-            </h2>
-            <p className="lede mt-5">
-              Klaviyo dashboards from client accounts, exact reporting windows
-              shown. On these three, email accounted for 44% to 48% of total
-              store revenue.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 lg:grid-cols-[1.35fr_1fr] lg:gap-8">
-            <figure className="reveal overflow-hidden rounded-xl border border-white/10 bg-ink">
-              <Image
-                src={lead.image}
-                alt={lead.alt}
-                width={lead.width}
-                height={lead.height}
-                sizes="(max-width: 1024px) 92vw, 52vw"
-                className="w-full border-b border-white/8 bg-white"
-              />
-              <figcaption className="p-7">
-                <p className="font-display text-3xl tracking-tight text-bone">
-                  {lead.headline}
-                </p>
-                <p className="mt-2 text-[1rem] text-flame">{lead.metric}</p>
-                <p className="mt-4 max-w-lg text-[0.9375rem] leading-relaxed text-mute">
-                  {lead.note}
-                </p>
-                <p className="mt-6 border-t border-white/8 pt-4 text-[0.75rem] uppercase tracking-[0.14em] text-mute/70">
-                  {lead.window}
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
-              {rest.map((p, i) => (
-                <figure
-                  key={p.image}
-                  className="reveal flex flex-col overflow-hidden rounded-xl border border-white/10 bg-ink"
-                  data-reveal-delay={(i + 1) * 110}
-                >
-                  <Image
-                    src={p.image}
-                    alt={p.alt}
-                    width={p.width}
-                    height={p.height}
-                    sizes="(max-width: 1024px) 92vw, 30vw"
-                    className="w-full border-b border-white/8 bg-white"
-                  />
-                  <figcaption className="flex flex-1 flex-col p-6">
-                    <p className="font-display text-xl tracking-tight text-bone">
-                      {p.headline}
-                    </p>
-                    <p className="mt-1.5 text-[0.875rem] text-flame">{p.metric}</p>
-                    <p className="mt-4 flex-1 text-[0.8125rem] leading-relaxed text-mute">
-                      {p.note}
-                    </p>
-                    <p className="mt-5 border-t border-white/8 pt-3.5 text-[0.6875rem] uppercase tracking-[0.14em] text-mute/70">
-                      {p.window}
-                    </p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-
-          <p className="reveal mt-9 max-w-2xl text-[0.8125rem] leading-relaxed text-mute/70">
-            Results vary by brand, list size, category and offer. These are
-            individual client accounts over the periods stated, not an average
-            or a guarantee of what your store will do.
-          </p>
-        </div>
-      </section>
+      <Hero />
+      <ProofScenes />
 
       {/* --------------------------------------------------- SERVICES ---- *
-       * Divided row list. The deliverables that used to sit behind four    *
-       * separate service pages are inline here, two columns per row.      */}
+       * Bento grid: what we do, made scannable in one screenful. */}
       <section id="services" className="scroll-mt-20 border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <div className="reveal max-w-3xl">
@@ -231,41 +118,37 @@ export default function HomePage() {
             </h2>
             <p className="lede mt-5">
               Design without deliverability lands in spam. Flows without
-              strategy talk to the wrong people. You can buy these separately
-              from four suppliers and spend your week translating between them,
-              or have one team own the whole channel.
+              strategy talk to the wrong people. Buy these separately from four
+              suppliers and spend your week translating between them, or have
+              one team own the whole channel.
             </p>
           </div>
 
-          <ul className="mt-14 divide-y divide-white/9 border-t border-white/9">
-            {SERVICES.map((s, i) => (
-              <li
-                key={s.slug}
-                className="reveal grid gap-6 py-10 md:py-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16"
-                data-reveal-delay={i * 70}
-              >
-                <div>
-                  <p className="font-display text-[0.875rem] tracking-[0.1em] text-flame">
-                    {s.index}
-                  </p>
-                  <h3 className="display-md mt-4">{s.title}</h3>
-                  <p className="mt-4 max-w-md text-[0.9375rem] leading-relaxed text-mute">
+          <div className="service-rows mt-14">
+            {SERVICES.map((s, i) => {
+              const Icon = SERVICE_ICON[s.slug as keyof typeof SERVICE_ICON];
+              return (
+                <div
+                  key={s.slug}
+                  className="card card-glow reveal flex flex-col rounded-xl p-8 md:p-9"
+                  data-reveal-delay={i * 70}
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-flame/25 bg-gradient-to-br from-flame/20 to-ember/10 text-flame">
+                    <Icon size={20} weight="bold" aria-hidden />
+                  </div>
+                  <h3 className="display-md mt-6">{s.title}</h3>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">
                     {s.summary}
                   </p>
-                </div>
 
-                <div>
-                  <p className="max-w-2xl text-[1rem] leading-relaxed text-bone/85">
-                    {s.intro}
-                  </p>
-                  <ul className="mt-7 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                  <ul className="mt-6 grid flex-1 gap-x-6 gap-y-3 sm:grid-cols-2">
                     {s.deliverables.map((d) => (
                       <li
                         key={d}
-                        className="flex gap-3 text-[0.875rem] leading-relaxed text-bone/75"
+                        className="flex gap-3 text-[0.8125rem] leading-relaxed text-bone/75"
                       >
                         <Check
-                          size={15}
+                          size={14}
                           weight="bold"
                           aria-hidden
                           className="mt-1 shrink-0 text-flame"
@@ -274,13 +157,14 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-7 border-l-2 border-flame pl-4 text-[0.9375rem] leading-relaxed text-mute">
+
+                  <p className="mt-6 border-t border-white/9 pt-5 text-[0.9375rem] leading-relaxed text-mute">
                     {s.outcome}
                   </p>
                 </div>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -304,7 +188,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <GalleryControls />
+          <div id="work-rail" className="work-rail mt-8" role="region" aria-label="Email design portfolio" tabIndex={0}>
             {WORK.map((item, i) => (
               <div key={item.slug} className="reveal" data-reveal-delay={(i % 3) * 90}>
                 <EmailCard item={item} />
@@ -315,10 +200,10 @@ export default function HomePage() {
       </section>
 
       {/* ---------------------------------------------------- PROCESS ---- *
-       * Sticky split. Used once on this page.                             */}
+       * Three-step timeline with a connecting line. */}
       <section className="border-b border-white/8">
-        <div className="shell grid gap-12 py-20 md:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div className="reveal lg:sticky lg:top-28 lg:self-start">
+        <div className="shell py-20 md:py-28">
+          <div className="reveal max-w-2xl">
             <h2 className="display-lg">
               Audit. Build. <span className="accent">Compound.</span>
             </h2>
@@ -328,20 +213,26 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ol className="divide-y divide-white/9 border-t border-white/9">
-            {PROCESS.map((step, i) => (
-              <li
-                key={step.title}
-                className="reveal py-8 md:py-10"
-                data-reveal-delay={i * 90}
-              >
-                <h3 className="display-md">{step.title}</h3>
-                <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-mute">
-                  {step.body}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <div className="relative mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-[16.6%] right-[16.6%] top-[1.375rem] hidden h-px bg-gradient-to-r from-flame/40 via-white/15 to-ember/40 md:block"
+            />
+            {PROCESS.map((step, i) => {
+              const Icon = PROCESS_ICON[i];
+              return (
+                <div key={step.title} className="reveal" data-reveal-delay={i * 100}>
+                  <div className="relative z-10 grid h-11 w-11 place-items-center rounded-full border border-flame/30 bg-ink text-flame">
+                    <Icon size={18} weight="bold" aria-hidden />
+                  </div>
+                  <h3 className="display-md mt-6">{step.title}</h3>
+                  <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-mute">
+                    {step.body}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -379,21 +270,19 @@ export default function HomePage() {
                   deliverability work underneath that decides whether any of it
                   arrives.
                 </p>
-                <p className="font-display text-[1.4rem] italic leading-[1.15] tracking-tight text-bone">
+                <p className="accent font-display text-[1.4rem] leading-[1.2] tracking-tight">
                   You grow, we grow. That is the entire business model.
                 </p>
               </div>
             </div>
 
             <div className="reveal" data-reveal-delay="110">
+              <p className="lede mb-8">Our aim: Turn your email list into your most profitable channel.</p>
               <h3 className="display-md">What we believe</h3>
-              <ol className="mt-7 border-t border-white/9">
+              <div className="mt-7 space-y-5">
                 {BELIEFS.map((b) => (
-                  <li key={b.index} className="border-b border-white/9 py-7">
-                    <div className="flex gap-5">
-                      <span className="font-display text-[0.875rem] tracking-[0.1em] text-flame">
-                        {b.index}
-                      </span>
+                  <div key={b.index} className="card rounded-xl p-6 md:p-7">
+                    <div className="flex gap-4">
                       <div>
                         <h4 className="font-display text-lg tracking-tight md:text-xl">
                           {b.title}
@@ -403,9 +292,9 @@ export default function HomePage() {
                         </p>
                       </div>
                     </div>
-                  </li>
+                  </div>
                 ))}
-              </ol>
+              </div>
             </div>
           </div>
 
@@ -417,7 +306,7 @@ export default function HomePage() {
             </h3>
 
             <div className="mt-14 grid gap-6 md:grid-cols-2">
-              <div className="reveal rounded-xl border border-white/10 bg-ink p-8 md:p-10">
+              <div className="card reveal rounded-xl p-8 md:p-10">
                 <h4 className="font-display text-lg tracking-tight text-flame">
                   Good fit
                 </h4>
@@ -440,7 +329,7 @@ export default function HomePage() {
               </div>
 
               <div
-                className="reveal rounded-xl border border-white/10 bg-ink p-8 md:p-10"
+                className="card reveal rounded-xl p-8 md:p-10"
                 data-reveal-delay="110"
               >
                 <h4 className="font-display text-lg tracking-tight text-mute">
@@ -482,37 +371,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ----------------------------------------------- TESTIMONIALS ---- *
-       * Offset composition, no card chrome, same dark ground as the rest. */}
+      {/* ----------------------------------------------- TESTIMONIALS ---- */}
       <section className="border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <h2 className="reveal display-lg max-w-3xl">
             Don’t just take <span className="accent">our word</span> for it.
           </h2>
 
-          <div className="mt-14 grid gap-x-12 gap-y-12 md:grid-cols-12">
-            {TESTIMONIALS.map((t, i) => {
-              const place = [
-                'md:col-span-5 md:col-start-1',
-                'md:col-span-5 md:col-start-8 md:mt-14',
-                'md:col-span-5 md:col-start-3',
-              ][i];
-              return (
-                <figure
-                  key={t.author}
-                  className={`reveal border-t border-white/12 pt-7 ${place}`}
-                  data-reveal-delay={i * 110}
-                >
-                  <blockquote className="font-display text-xl leading-snug tracking-tight text-bone md:text-2xl">
-                    “{t.quote}”
-                  </blockquote>
-                  <figcaption className="mt-6 text-[0.875rem]">
-                    <span className="text-bone">{t.author}</span>
-                    <span className="mt-0.5 block text-mute">{t.role}</span>
-                  </figcaption>
-                </figure>
-              );
-            })}
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {TESTIMONIALS.map((t, i) => (
+              <figure
+                key={t.author}
+                className="card reveal flex flex-col rounded-xl p-8"
+                data-reveal-delay={i * 100}
+              >
+                <Quotes size={28} weight="fill" aria-hidden className="text-flame/50" />
+                <blockquote className="mt-5 flex-1 font-display text-xl leading-snug tracking-tight text-bone">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-6 border-t border-white/9 pt-5 text-[0.875rem]">
+                  <span className="text-bone">{t.author}</span>
+                  <span className="mt-0.5 block text-mute">{t.role}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
@@ -534,23 +416,26 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ol className="mt-14 grid gap-6 md:grid-cols-2">
-            {AUDIT_CHECKS.map((c, i) => (
-              <li
-                key={c.index}
-                className="reveal rounded-xl border border-white/10 bg-ink p-8"
-                data-reveal-delay={(i % 2) * 90}
-              >
-                <span className="font-display text-[0.875rem] tracking-[0.1em] text-flame">
-                  {c.index}
-                </span>
-                <h3 className="display-md mt-4">{c.title}</h3>
-                <p className="mt-4 text-[0.9375rem] leading-relaxed text-mute">
-                  {c.body}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {AUDIT_CHECKS.map((c, i) => {
+              const Icon = AUDIT_ICON[i];
+              return (
+                <div
+                  key={c.index}
+                  className="card reveal rounded-xl p-8"
+                  data-reveal-delay={(i % 2) * 90}
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-flame/25 bg-gradient-to-br from-flame/20 to-ember/10 text-flame">
+                    <Icon size={20} weight="bold" aria-hidden />
+                  </div>
+                  <h3 className="display-md mt-5">{c.title}</h3>
+                  <p className="mt-4 text-[0.9375rem] leading-relaxed text-mute">
+                    {c.body}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -569,8 +454,11 @@ export default function HomePage() {
       {/* ---------------------------------------------------- CONTACT ---- *
        * Two ways in: book the call, or send the details and let us come    *
        * back to you. Same destination, different appetite for a calendar.  */}
-      <section id="contact" className="scroll-mt-20 bg-ink-raised">
-        <div className="shell grid gap-14 py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-20 lg:py-28">
+      <section id="contact" className="scroll-mt-20 relative isolate overflow-hidden bg-ink-raised">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <div className="orb orb-flame -bottom-40 -left-24 h-96 w-96 opacity-20" />
+        </div>
+        <div className="shell relative grid gap-14 py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-20 lg:py-28">
           <div className="reveal">
             <h2 className="display-lg">
               Find out what your list is{' '}
@@ -640,7 +528,7 @@ export default function HomePage() {
           </div>
 
           <div
-            className="reveal rounded-xl border border-white/10 bg-ink p-7 md:p-10"
+            className="card reveal rounded-xl p-7 md:p-10"
             data-reveal-delay="110"
           >
             <h3 className="font-display text-xl tracking-tight">

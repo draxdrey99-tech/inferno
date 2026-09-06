@@ -8,8 +8,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'error';
 const FIELDS = [
   { name: 'name', label: 'Full name', type: 'text', required: true, autoComplete: 'name' },
   { name: 'email', label: 'Business email', type: 'email', required: true, autoComplete: 'email' },
-  { name: 'company', label: 'Company name', type: 'text', required: true, autoComplete: 'organization' },
-  { name: 'website', label: 'Store URL', type: 'url', required: true, autoComplete: 'url', placeholder: 'https://' },
+  { name: 'company', label: 'Company name (optional)', type: 'text', required: false, autoComplete: 'organization' },
+  { name: 'website', label: 'Store URL (optional)', type: 'url', required: false, autoComplete: 'url', placeholder: 'https://' },
   { name: 'phone', label: 'Phone (optional)', type: 'tel', required: false, autoComplete: 'tel' },
 ] as const;
 
@@ -46,7 +46,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
     return (
       <div
         role="status"
-        className="rounded-lg border border-flame/40 bg-flame/6 p-8 md:p-10"
+        className="card rounded-xl border-flame/30 p-8 md:p-10"
       >
         <p className="eyebrow">Received</p>
         <h3 className="display-md mt-5">That’s all we need.</h3>
@@ -92,7 +92,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
               required={f.required}
               autoComplete={f.autoComplete}
               placeholder={'placeholder' in f ? f.placeholder : undefined}
-              className="mt-2.5 w-full rounded-lg border border-white/12 bg-ink px-4 py-3.5 text-[0.9375rem] text-bone outline-none transition-colors placeholder:text-mute/60 focus:border-flame"
+              className="field mt-2.5"
             />
           </div>
         ))}
@@ -110,7 +110,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
           name="message"
           rows={4}
           placeholder="e.g. flows are set up but barely earning, opens have been sliding for months, we send campaigns with no plan…"
-          className="mt-2.5 w-full resize-y rounded-lg border border-white/12 bg-ink px-4 py-3.5 text-[0.9375rem] text-bone outline-none transition-colors placeholder:text-mute/60 focus:border-flame"
+          className="field mt-2.5 resize-y"
         />
       </div>
 

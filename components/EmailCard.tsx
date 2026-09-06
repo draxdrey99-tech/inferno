@@ -18,7 +18,7 @@ export default function EmailCard({
   priority?: boolean;
 }) {
   return (
-    <figure className="email-card group" tabIndex={0}>
+    <figure className="email-card group rounded-xl" tabIndex={0}>
       <div className="viewport">
         <Image
           src={item.image}
@@ -31,16 +31,18 @@ export default function EmailCard({
         />
       </div>
 
-      <figcaption className="flex items-baseline justify-between gap-4 border-t border-white/8 bg-ink-raised px-5 py-4">
+      <figcaption className="flex items-baseline justify-between gap-4 border-t border-white/8 bg-white/[0.03] px-5 py-4">
         <div>
           <p className="font-display text-base tracking-tight text-bone">
             {item.client}
           </p>
           <p className="mt-0.5 text-[0.8125rem] text-mute">{item.title}</p>
         </div>
-        <span className="shrink-0 text-[0.75rem] text-mute/70">
+        <span className="shrink-0 rounded-full border border-white/10 px-2.5 py-1 text-[0.6875rem] text-mute/80">
           {item.type}
         </span>
+        <p className="mt-3 text-sm leading-relaxed text-mute">{item.note}</p>
+        <a href={item.image} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm underline underline-offset-4">Open full email<span className="sr-only">: {item.client}, {item.title}</span></a>
       </figcaption>
     </figure>
   );
