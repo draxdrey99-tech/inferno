@@ -15,7 +15,7 @@ export default function Hero(){
     <p className="lede hero-subhead hero-mobile-only">Turn subscribers into repeat customers with better email marketing.</p>
     <div className="hero-actions"><a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-flame" data-magnetic>Book your free audit</a><Link href="#work" className="hero-secondary">See the work</Link></div>
     <p className="hero-risk">30 minutes, no obligation, and the findings are yours to keep.</p>
-    <div className="hero-evidence"><a href="#proof"><strong>47.96%</strong><span>of revenue from email<br/><small>4 Sep - 4 Nov 2023 · View the account</small></span></a><p>Creative for <b>Girafon Bleu</b>, <b>Bondi Coffee</b> &amp; <b>The Nikos Knife</b></p></div>
+    <div className="hero-evidence"><a href="#proof"><strong>47.96%</strong><span>of revenue from email<br/><small>4 Sep - 4 Nov 2023 · View the account</small></span></a><p>Creative for <b>KÍLÈNTÀR</b>, <b>Girafon Bleu</b> &amp; <b>Bondi Coffee</b></p></div>
    </div>
    <div className="hero-art hero-desktop-only" aria-label="Client email creative and a separate, unattributed account result">
     <div className="hero-art-label">Made for their inbox.</div>
@@ -30,7 +30,7 @@ export default function Hero(){
    <div className="hero-mobile-work-content">
     <p className="eyebrow">Email marketing for DTC &amp; ecommerce brands</p>
     <p className="lede">Klaviyo flows, campaigns designed in your brand, and the deliverability work underneath so it actually reaches the inbox.</p>
-    <p className="hero-mobile-clients">Creative for <b>Girafon Bleu</b>, <b>Bondi Coffee</b> &amp; <b>The Nikos Knife</b></p>
+    <p className="hero-mobile-clients">Creative for <b>KÍLÈNTÀR</b>, <b>Girafon Bleu</b> &amp; <b>Bondi Coffee</b></p>
     <p className="eyebrow">Made for their inbox.</p>
     <div className="hero-mobile-previews">{[WORK[0],WORK[1],WORK[2]].map(item=><a key={item.slug} href={item.image} target="_blank" rel="noopener noreferrer"><Image src={`/images/hero-${item.slug}.webp`} alt={item.alt} width={480} height={620} sizes="30vw" loading="lazy"/><span>{item.client}</span></a>)}</div>
     <Link href="#work" className="hero-secondary">See the work</Link>

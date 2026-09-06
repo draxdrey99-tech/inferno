@@ -316,6 +316,7 @@ export const PROOF: Proof[] = [
  * ------------------------------------------------------------------ */
 
 export const CLIENTS = [
+  { name: 'KÍLÈNTÀR', logo: '/images/client-kilentar.png', width: 251, height: 53 },
   { name: 'Girafon Bleu', logo: '/images/client-girafon.png', width: 290, height: 379 },
   { name: 'Bondi Coffee', logo: '/images/client-bondi.png', width: 160, height: 61 },
   { name: 'The Nikos Knife', logo: '/images/client-nikos-knife.png', width: 209, height: 32 },
@@ -367,6 +368,17 @@ export type WorkItem = {
 };
 
 export const WORK: WorkItem[] = [
+  {
+    slug: 'kilentar-welcome',
+    client: 'KÍLÈNTÀR',
+    title: 'Welcome email',
+    type: 'Welcome flow',
+    image: '/images/work-kilentar.png',
+    width: 600,
+    height: 2500,
+    alt: 'KÍLÈNTÀR welcome email opening on a red-carpet photograph of three women in handcrafted pieces, followed by a first-order discount code, a twelve-piece product grid and a Slaying in a Different Styles editorial section',
+    note: 'Welcome flow for the London luxury house of Michelle Adepoju, Forbes 30 Under 30 Europe 2025. Runway imagery earns the scroll before the code.',
+  },
   {
     slug: 'girafon-bleu-welcome',
     client: 'Girafon Bleu',
@@ -423,37 +435,37 @@ export const WORK: WorkItem[] = [
     note: 'Editorial pacing: benefit, proof, offer, in that order.',
   },
   {
-    slug: 'welcome-flow-a',
-    client: 'Ecommerce client',
-    title: 'Welcome flow email',
+    slug: 'iced-plunge-welcome',
+    client: 'Iced Plunge',
+    title: 'Welcome email',
     type: 'Welcome flow',
-    image: '/images/work-welcome-a.png',
-    width: 600,
-    height: 2165,
-    alt: 'Ecommerce welcome flow email with brand introduction and first-order incentive',
-    note: 'First touch after sign-up, built to earn the second open.',
-  },
-  {
-    slug: 'welcome-flow-b',
-    client: 'Ecommerce client',
-    title: 'Welcome flow email',
-    type: 'Welcome flow',
-    image: '/images/work-welcome-b.png',
+    image: '/images/work-iced-plunge.png',
     width: 600,
     height: 1951,
-    alt: 'Ecommerce welcome flow email with product range overview and call to action',
-    note: 'Range overview for a catalogue that needed explaining.',
+    alt: 'Iced Plunge welcome email in teal showing the ice bath range, a WELCOME10 code valid for seven days, and three benefit icons for performance, immunity and stress',
+    note: 'Single-product welcome with a dated code, so the first order has a reason to happen this week.',
   },
   {
-    slug: 'browse-abandonment',
-    client: 'Ecommerce client',
-    title: 'Browse abandonment',
-    type: 'Flow',
-    image: '/images/work-web.png',
+    slug: 'future-nurse-welcome',
+    client: 'The Future Nurse Bundle',
+    title: 'Welcome email',
+    type: 'Welcome flow',
+    image: '/images/work-the-future-nurse-bundle.png',
+    width: 600,
+    height: 2165,
+    alt: 'The Future Nurse Bundle welcome email in red and blue showing the printed and digital study guides, a FAMILY10 discount code, and instant, safe and economic benefit icons',
+    note: 'Digital-product welcome that says what the list will send before it asks for the sale.',
+  },
+  {
+    slug: 'next-step-funded-campaign',
+    client: 'Next Step Funded',
+    title: 'Campaign email',
+    type: 'Campaign',
+    image: '/images/work-next-step-funded.png',
     width: 600,
     height: 1674,
-    alt: 'Browse abandonment email showing recently viewed products and a return-to-cart call to action',
-    note: 'Caught mid-consideration, without the desperate discount.',
+    alt: 'Next Step Funded campaign email in green showing three funded trading account tiers with pricing and rules, a Discord invitation, and a five-star Trustpilot review',
+    note: 'Three price tiers, one decision, and a real review carrying the trust underneath.',
   },
 ];
 

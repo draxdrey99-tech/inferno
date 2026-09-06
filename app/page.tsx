@@ -182,9 +182,15 @@ export default function HomePage() {
             </h2>
             <p className="lede mt-5">
               Every piece was drawn from scratch for the brand it belongs to.
-              Put the Girafon Bleu welcome next to the Kuchenkompane campaign
-              and you would not guess the same team made both. Hover any of them
-              to read the whole email.
+              Put the KÍLÈNTÀR welcome next to the Kuchenkompane campaign and
+              you would not guess the same team made both. Hover any of them to
+              read the whole email.
+            </p>
+            <p className="mt-4 text-[0.9375rem] leading-relaxed text-mute">
+              The one we point to first is KÍLÈNTÀR, the London luxury
+              womenswear house whose founder, Michelle Adepoju, was named to the
+              Forbes 30 Under 30 Europe list in 2025. Her welcome flow opens the
+              gallery.
             </p>
           </div>
 
