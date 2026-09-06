@@ -11,14 +11,15 @@ export const alt = 'Inferno Emails blog post';
 export default async function Image({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   let title = 'Inferno Emails';
   let eyebrow = 'Blog';
+  const { slug } = await params;
 
   if (dbConfigured()) {
     try {
-      const post = await getPublished(params.slug);
+      const post = await getPublished(slug);
       if (post) {
         title = post.title;
         eyebrow = post.tags?.[0] || 'Blog';

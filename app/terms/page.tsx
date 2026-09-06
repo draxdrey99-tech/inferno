@@ -1,5 +1,7 @@
+import JsonLd from '@/components/JsonLd';
+import Link from 'next/link';
 import type { Metadata } from 'next';
-import { pageMeta } from '@/lib/seo';
+import { pageMeta, breadcrumbLd } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta({
@@ -13,10 +15,10 @@ const UPDATED = '30 August 2026';
 
 export default function TermsPage() {
   return (
-    <section className="pt-24">
+    <section className="pt-24" aria-labelledby="legal-title"><JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Terms of service',path:'/terms'}])}/>
       <div className="shell pb-24 md:pb-32">
-        <p className="eyebrow">Legal</p>
-        <h1 className="display-lg mt-6">Terms of service</h1>
+        <nav aria-label="Breadcrumb" className="breadcrumb"><Link href="/">Home</Link><span>/</span><span>Legal</span></nav>
+        <h1 id="legal-title" className="display-lg mt-6">Terms of service</h1>
         <p className="mt-5 text-[0.8125rem] uppercase tracking-[0.14em] text-mute">
           Last updated {UPDATED}
         </p>

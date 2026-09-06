@@ -31,8 +31,8 @@ const nextConfig: NextConfig = {
       // Google's index, the old site's backlinks) lands on the matching
       // section instead of a 404. Fragments survive a 308 because the
       // browser, not the server, resolves them.
-      { source: '/services', destination: '/#services', permanent: true },
-      { source: '/services/:slug', destination: '/#services', permanent: true },
+      // Service URLs are indexable pages again. Unknown slugs retain the
+      // previous /#services destination in the service route handler.
       { source: '/work', destination: '/#work', permanent: true },
       { source: '/our-work', destination: '/#work', permanent: true },
       { source: '/portfolio', destination: '/#work', permanent: true },

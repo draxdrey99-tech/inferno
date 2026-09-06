@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { listPublished } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
 import { SITE_URL } from '@/lib/site';
+import { SERVICE_PAGES } from '@/lib/service-pages';
 
 export const revalidate = 3600;
 
@@ -15,6 +16,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // The marketing site is one page, so there are only four URLs to declare
   // besides the blog: the home page, the blog index and the two legal pages.
   const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/services`, changeFrequency: 'monthly', priority: 0.9 },
+    ...SERVICE_PAGES.map(s=>({url:`${SITE_URL}/services/${s.slug}`,changeFrequency:'monthly' as const,priority:0.8})),
     { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1.0, lastModified: now },
     { url: `${SITE_URL}/blog`, changeFrequency: 'daily', priority: 0.8, lastModified: now },
     { url: `${SITE_URL}/privacy`, changeFrequency: 'yearly', priority: 0.2, lastModified: now },

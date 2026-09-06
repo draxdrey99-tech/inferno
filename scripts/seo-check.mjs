@@ -10,6 +10,8 @@ const BASE = (process.argv[2] || 'http://localhost:3000').replace(/\/$/, '');
 
 const PATHS = [
   '/', '/blog', '/privacy', '/terms',
+  '/services', '/services/klaviyo-email-marketing', '/services/email-design',
+  '/services/email-deliverability', '/services/retention-strategy', '/services/email-flows',
 ];
 
 let failures = 0;

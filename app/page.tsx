@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
   ArrowRight,
   Calendar,
@@ -82,7 +83,7 @@ export default function HomePage() {
           data={serviceLd({
             name: s.title,
             description: s.summary,
-            path: `/#services`,
+            path: `/services/${s.slug}`,
           })}
         />
       ))}
@@ -107,7 +108,7 @@ export default function HomePage() {
 
       {/* --------------------------------------------------- SERVICES ---- *
        * Bento grid: what we do, made scannable in one screenful. */}
-      <section id="services" className="scroll-mt-20 border-b border-white/8">
+      <section aria-label="Services" id="services" className="scroll-mt-20 border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <div className="reveal max-w-3xl">
             <h2 className="display-lg">
@@ -134,6 +135,7 @@ export default function HomePage() {
                     <Icon size={20} weight="bold" aria-hidden />
                   </div>
                   <h3 className="display-md mt-6">{s.title}</h3>
+                  <Link href={`/services/${s.slug}`} className="text-link">Explore {s.navTitle.toLowerCase()}</Link>
                   <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">
                     {s.summary}
                   </p>
@@ -167,7 +169,7 @@ export default function HomePage() {
 
       {/* ------------------------------------------------------- WORK ---- *
        * Gallery grid. The only place a repeated card grid earns its keep. */}
-      <section
+      <section aria-label="Client email designs"
         id="work"
         className="scroll-mt-20 border-b border-white/8 bg-ink-raised"
       >
@@ -198,7 +200,7 @@ export default function HomePage() {
 
       {/* ---------------------------------------------------- PROCESS ---- *
        * Three-step timeline with a connecting line. */}
-      <section className="border-b border-white/8">
+      <section aria-label="Our process" className="border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <div className="reveal max-w-2xl">
             <h2 className="display-lg">
@@ -234,7 +236,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------------ ABOUT ---- */}
-      <section
+      <section aria-label="About Inferno Emails"
         id="about"
         className="scroll-mt-20 border-b border-white/8 bg-ink-raised"
       >
@@ -369,7 +371,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------------------------------------- TESTIMONIALS ---- */}
-      <section className="border-b border-white/8">
+      <section aria-label="Client testimonials" className="border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <h2 className="reveal display-lg max-w-3xl">
             Don’t just take <span className="accent">our word</span> for it.
@@ -397,7 +399,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ AUDIT CHECKS ---- */}
-      <section className="border-b border-white/8 bg-ink-raised">
+      <section aria-label="Free audit scope" className="border-b border-white/8 bg-ink-raised">
         <div className="shell py-20 md:py-28">
           <div className="reveal max-w-3xl">
             <p className="eyebrow">The free audit</p>
@@ -437,7 +439,7 @@ export default function HomePage() {
       </section>
 
       {/* -------------------------------------------------------- FAQ ---- */}
-      <section id="faq" className="scroll-mt-20 border-b border-white/8">
+      <section aria-label="Frequently asked questions" id="faq" className="scroll-mt-20 border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <h2 className="reveal display-lg max-w-2xl">
             The things people <span className="accent">actually ask.</span>
@@ -451,7 +453,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------- CONTACT ---- *
        * Two ways in: book the call, or send the details and let us come    *
        * back to you. Same destination, different appetite for a calendar.  */}
-      <section id="contact" className="scroll-mt-20 relative isolate overflow-hidden bg-ink-raised">
+      <section aria-label="Book or request your audit" id="contact" className="scroll-mt-20 relative isolate overflow-hidden bg-ink-raised">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
           <div className="orb orb-flame -bottom-40 -left-24 h-96 w-96 opacity-20" />
         </div>

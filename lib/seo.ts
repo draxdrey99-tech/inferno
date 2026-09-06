@@ -33,15 +33,18 @@ export function pageMeta({
   noindex,
 }: PageMetaInput): Metadata {
   const url = `${SITE_URL}${path}`;
+  const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+  const displayTitle = fullTitle.length < 60 ? fullTitle : fullTitle.slice(0, 56).replace(/\s+\S*$/, '') + '…';
+  const displayDescription = description.length < 155 ? description : description.slice(0, 151).replace(/\s+\S*$/, '') + '…';
   const ogImage = image
     ? image.startsWith('http')
       ? image
       : `${SITE_URL}${image}`
-    : `${SITE_URL}/opengraph-image`;
+    : `${SITE_URL}${path === '/' ? '' : path}/opengraph-image`;
 
   return {
-    title,
-    description,
+    title: { absolute: displayTitle },
+    description: displayDescription,
     // Self-referencing canonical on every page — the single most common
     // technical SEO miss, and the cheapest one to get right.
     alternates: { canonical: url },
@@ -63,8 +66,8 @@ export function pageMeta({
     openGraph: {
       type,
       url,
-      title,
-      description,
+      title: displayTitle,
+      description: displayDescription,
       siteName: SITE.name,
       locale: SITE.locale,
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
@@ -74,8 +77,8 @@ export function pageMeta({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: displayTitle,
+      description: displayDescription,
       images: [ogImage],
     },
   };

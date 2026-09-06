@@ -38,7 +38,7 @@ export const SITE = {
  * that gets a page of its own.
  */
 export const NAV = [
-  { label: 'Services', href: '/#services' },
+  { label: 'Services', href: '/services' },
   { label: 'Work', href: '/#work' },
   { label: 'About', href: '/#about' },
   { label: 'Blog', href: '/blog' },
@@ -57,10 +57,11 @@ export const FOOTER_NAV = [
   {
     title: 'What we do',
     links: [
-      { label: 'Klaviyo email marketing', href: '/#services' },
-      { label: 'Email design', href: '/#services' },
-      { label: 'Email deliverability', href: '/#services' },
-      { label: 'Retention strategy', href: '/#services' },
+      { label: 'Klaviyo email marketing', href: '/services/klaviyo-email-marketing' },
+      { label: 'Email design', href: '/services/email-design' },
+      { label: 'Email flows & automation', href: '/services/email-flows' },
+      { label: 'Email deliverability', href: '/services/email-deliverability' },
+      { label: 'Retention strategy', href: '/services/retention-strategy' },
     ],
   },
   {
