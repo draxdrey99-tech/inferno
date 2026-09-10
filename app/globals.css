@@ -302,7 +302,7 @@
   radial-gradient(circle,#f51717 0 1px,transparent 1.7px) 38% 60%/12px 12px no-repeat,
   radial-gradient(circle,#ff4747 0 1.1px,transparent 1.8px) 71% 90%/14px 14px no-repeat,
   radial-gradient(circle,#f51717 0 .9px,transparent 1.6px) 93% 40%/12px 12px no-repeat;}
-.btn-solid:hover::after,.btn-flame:hover::after {animation:sparks 1.5s var(--ease-travel) infinite;}
+.btn-solid:hover::after,.btn-flame:hover::after,.btn-solid:active::after,.btn-flame:active::after,.btn-solid:focus-visible::after,.btn-flame:focus-visible::after {animation:sparks 1.5s var(--ease-travel) infinite;}
 @keyframes sparks {0%{opacity:0;transform:translateY(6px) scale(.8)}20%{opacity:.9}100%{opacity:0;transform:translateY(-26px) scale(1.1)}}
 
 /* ------------------------------------------------------------- nav -- */
@@ -503,8 +503,6 @@ main#main {overflow-x:clip;}
 /* ------------------------------------------------------ responsive -- */
 @media(max-width:1023px){
  main>section:not(#hero) {content-visibility:auto;contain-intrinsic-size:auto 1000px;}
- .page-embers {display:none;}
- .bg-ink-raised {background-color:var(--color-ink-raised);}
  .hero-frame {padding:2.5rem 2rem 2rem;}
  .hero-grid {grid-template-columns:1fr;gap:3rem;}
  .hero-copy h1 {max-width:16ch;font-size:clamp(2.5rem,7vw,4rem);}
@@ -684,3 +682,22 @@ main#main {overflow-x:clip;}
 @media(max-width:767px){
  .hero-copy h1.display-xl {font-size:clamp(2rem,9.2vw,2.375rem);line-height:1.04;letter-spacing:-.045em;max-width:14ch;}
 }
+
+
+/* ===== Micro-interactions on every device (appended) =====
+   Touch has no hover, so the flourishes are driven by taps, focus and
+   entering the viewport. One shot each, transform, opacity and colour only,
+   and inert under reduced motion via the global rule. */
+.btn-solid:active,.btn-flame:active {transform:translateY(0) scale(.985);box-shadow:0 0 0 4px rgba(245,23,23,.28);}
+.btn-solid::before,.btn-flame::before {transition:transform .3s var(--ease);}
+.btn-solid:active::before,.btn-flame:active::before {transform:rotate(45deg);}
+.btn-line:active,.text-link:active,.related-links a:active {color:var(--color-flame);}
+.mono-label-dot:active::before,.section-index:active {filter:drop-shadow(0 0 6px rgba(245,23,23,.9));}
+@keyframes seen-edge {0%{border-color:rgba(245,23,23,.75);box-shadow:0 0 0 1px rgba(245,23,23,.25),0 0 28px -6px rgba(245,23,23,.45)}100%{border-color:var(--hairline);box-shadow:0 0 0 0 rgba(245,23,23,0),0 0 0 0 rgba(245,23,23,0)}}
+@keyframes seen-ticks {0%{opacity:1;filter:drop-shadow(0 0 5px rgba(245,23,23,.9))}100%{opacity:1;filter:none}}
+@keyframes seen-index {0%{opacity:.15;transform:translateX(-4px)}100%{opacity:1;transform:none}}
+.panel.is-seen,.card.is-seen,.proof-panel.is-seen,.start-box.is-seen,.testimonial.is-seen,.email-card.is-seen,.hud-box.is-seen,.hero-frame.is-seen {animation:seen-edge 1.6s var(--ease) both;}
+.panel-corners.is-seen::after,.hud-box.is-seen::after,.hero-frame.is-seen::after {animation:seen-ticks 1.4s var(--ease) both;}
+.section-index.is-seen {animation:seen-index .7s var(--ease) both;}
+.panel-set>.panel.is-seen {animation:none;}
+.panel-set.is-seen {animation:seen-edge 1.6s var(--ease) both;}

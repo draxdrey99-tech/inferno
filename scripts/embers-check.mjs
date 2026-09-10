@@ -9,7 +9,7 @@ console.log('desktop canvases',JSON.stringify(state));
 console.log('errors',errors);
 await page.screenshot({path:'docs/screenshots/embers-hero.png',clip:{x:0,y:0,width:1440,height:900}});
 const mobile=await browser.newPage({viewport:{width:375,height:812}});await mobile.goto(base,{waitUntil:'load'});await mobile.waitForTimeout(3000);
-console.log('mobile canvases on',await mobile.evaluate(()=>Array.from(document.querySelectorAll('canvas.page-embers')).filter(c=>c.classList.contains('is-on')).length),'display',await mobile.evaluate(()=>getComputedStyle(document.querySelector('canvas.page-embers')).display));
+console.log('mobile canvases on (expect 1)',await mobile.evaluate(()=>Array.from(document.querySelectorAll('canvas.page-embers')).filter(c=>c.classList.contains('is-on')).length),'display',await mobile.evaluate(()=>getComputedStyle(document.querySelector('canvas.page-embers')).display));
 const reduced=await browser.newContext({reducedMotion:'reduce'});const rp=await reduced.newPage({viewport:{width:1440,height:900}});await rp.goto(base,{waitUntil:'load'});await rp.waitForTimeout(3000);
 console.log('reduced-motion canvases on',await rp.evaluate(()=>Array.from(document.querySelectorAll('canvas.page-embers')).filter(c=>c.classList.contains('is-on')).length));
 const work=await browser.newPage({viewport:{width:1440,height:900}});await work.goto(base+'/work',{waitUntil:'load'});await work.screenshot({path:'docs/screenshots/work-page.png',fullPage:false});

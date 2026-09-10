@@ -86,6 +86,8 @@ export type EmberOptions = {
   density?: number;
   /** Peak alpha of the brightest ember. Keep low; this is a background. */
   opacity?: number;
+  /** Cap on devicePixelRatio. Lower on phones. */
+  maxDpr?: number;
 };
 
 export function mountEmbers(canvas: HTMLCanvasElement, opts: EmberOptions = {}) {
@@ -108,7 +110,7 @@ export function mountEmbers(canvas: HTMLCanvasElement, opts: EmberOptions = {}) 
     // No WebGL: the section simply keeps its flat background.
     return () => {};
   }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, opts.maxDpr ?? 1.5));
   renderer.setClearColor(0x000000, 0);
 
   const scene = new Scene();
@@ -139,7 +141,7 @@ export function mountEmbers(canvas: HTMLCanvasElement, opts: EmberOptions = {}) 
   geometry.setAttribute('aSpeed', new Float32BufferAttribute(speeds, 1));
 
   const pointer = new Vector2(-10, -10);
-  const target = new Vector2(-10, -10);
+  const target2 = new Vector2(-10, -10);
   const material = new ShaderMaterial({
     vertexShader: VERT,
     fragmentShader: FRAG,
@@ -172,9 +174,9 @@ export function mountEmbers(canvas: HTMLCanvasElement, opts: EmberOptions = {}) 
   // The canvas is pointer-events:none so it never blocks a click; listen on
   // the document and map into viewport space.
   const onMove = (e: PointerEvent) => {
-    target.set(e.clientX / window.innerWidth, 1 - e.clientY / window.innerHeight);
+    target2.set(e.clientX / window.innerWidth, 1 - e.clientY / window.innerHeight);
   };
-  const onLeave = () => target.set(-10, -10);
+  const onLeave = () => target2.set(-10, -10);
   document.addEventListener('pointermove', onMove, { passive: true });
   document.addEventListener('pointerleave', onLeave, { passive: true });
 
@@ -188,12 +190,27 @@ export function mountEmbers(canvas: HTMLCanvasElement, opts: EmberOptions = {}) 
   };
   document.addEventListener('visibilitychange', onVisibility);
 
+  // Scrolling stokes the fire: embers rise faster and glow brighter while
+  // the page moves, then settle. This is the touch-device interaction.
+  const baseOpacity = opts.opacity ?? 0.75;
+  let simTime = 0;
+  let lastNow = start;
+  let lastScroll = window.scrollY;
+  let boost = 0;
   const tick = (now: number) => {
     frame = 0;
     if (!visible || hidden) return;
-    material.uniforms.uTime.value = (now - start) / 1000;
+    const dt = Math.min(0.05, (now - lastNow) / 1000);
+    lastNow = now;
+    const dy = Math.abs(window.scrollY - lastScroll);
+    lastScroll = window.scrollY;
+    const target = Math.min(1, dy / (dt * 1800 + 1e-6));
+    boost += (target - boost) * (target > boost ? 0.35 : 0.04);
+    simTime += dt * (1 + boost * 3);
+    material.uniforms.uTime.value = simTime;
+    material.uniforms.uOpacity.value = baseOpacity * (1 + boost * 0.6);
     material.uniforms.uScroll.value = window.scrollY / Math.max(1, window.innerHeight);
-    pointer.lerp(target, 0.08);
+    pointer.lerp(target2, 0.08);
     renderer.render(scene, camera);
     schedule();
   };

@@ -123,3 +123,9 @@ Fixes from review: LED dot density scales with font size; hud-box punctuation mo
 ## Follow-up: mobile density pass
 
 Under 768px the root size steps to 15px, display sizes step down one notch (hero H1 about 34px, section H2 about 28px, H3 20px), body and lede copy sit at 14 to 15px, mono labels at 10 to 11px. Every panel set collapses to one column instead of two or three slivers, sections and panels lose about a third of their padding, the persistent nav button becomes a compact tile, email cards are shorter, and the mono underline links use text underlines so wrapped labels read cleanly. Page height on a 375px phone dropped from about 13,200px to 12,600px with all copy retained. Checks: 112 responsive and axe, 21 mobile CRO, 24 reels, 10 design, SEO crawl clean; Lighthouse mobile 96/100/100/100 with LCP 2.70s.
+
+## Follow-up: flair and micro-interactions on touch devices
+
+The ember layer now mounts on phones and tablets too, with a lighter field (about half the embers, pixel ratio capped at 1.25) that waits a further 2.5 seconds after idle so it never competes with first interactions. Scrolling stokes it: embers rise faster and glow brighter while the page moves, then settle. Reduced motion, data saver and low-end hardware still opt out. Section grounds stay translucent at every width.
+
+Micro-interactions without hover: primary buttons spark and rotate their arrow tile on tap and keyboard focus; panels, boxes, the hero frame and section indexes play a one-shot flourish when they enter view (a red hairline settling to grey, corner ticks glowing briefly), driven by a small IntersectionObserver in components/seen.ts and CSS animations that the global reduced-motion rule disables. Checks: 112 responsive and axe, 21 mobile CRO, 24 reels, 10 design, ember checks (mobile canvas on, reduced motion off); Lighthouse recorded in seo-geo-summary.json.
