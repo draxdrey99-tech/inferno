@@ -647,3 +647,40 @@ main#main {overflow-x:clip;}
 
 /* Accents at .display-md size are not large text on phones; use the AA red. */
 .display-md.accent,.display-md .accent {color:var(--color-flame);}
+
+/* ===== Mobile density pass (appended) =====
+   Phones read the desktop scale as oversized and the two- and three-column
+   panel sets as slivers. Type steps down about one notch, every panel set
+   becomes a single column, sections and panels lose a third of their air,
+   and the persistent nav button shrinks to a compact tile. */
+@media(max-width:767px){
+ html {font-size:15px;}
+ .display-xl {font-size:clamp(2.125rem,9.4vw,2.5rem);line-height:1.02;}
+ .display-lg {font-size:clamp(1.75rem,7.4vw,2rem);line-height:1.06;letter-spacing:-.04em;}
+ .display-md {font-size:1.25rem;line-height:1.2;}
+ .lede,.hero-subhead {font-size:.9375rem;line-height:1.6;}
+ .mono-label,.section-index,.eyebrow {font-size:.6875rem;}
+ .btn-line,.text-link {font-size:.6875rem;line-height:1.5;padding:.35rem 0;border-bottom:0;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--hairline-strong);}
+ .btn-line:hover,.text-link:hover {text-decoration-color:var(--color-flame);}
+ .panel-set.cols-2,.panel-set.cols-3,.panel-set.cols-4,.start-steps.cols-2,.start-steps.cols-3 {--cols:1;}
+ .shell.py-20 {padding-block:3.25rem;}
+ .section-space {padding-block:3rem;}
+ .service-panel,.audit-panel,.testimonial,.fit-panel,.start-step {padding:1.25rem 1rem;min-height:0;}
+ .testimonial blockquote {font-size:1.125rem;margin-top:1rem;}
+ .testimonial figcaption {margin-top:1.25rem;}
+ .proof-amount {font-size:2.5rem;}
+ .proof-note {font-size:.875rem;}
+ .hero-frame {padding:2rem 1.25rem 1.75rem;}
+ .hero-evidence strong {font-size:1.625rem;}
+ .site-nav .btn.mobile-audit {min-height:2rem;padding:.15rem .55rem .15rem .15rem;font-size:.5625rem;letter-spacing:.04em;gap:.4rem;}
+ .site-nav .btn.mobile-audit::before {width:1.35rem;height:1.35rem;background-size:9px 9px;}
+ .start-box {padding:1.5rem 1.25rem;}
+ .start-box-title {font-size:1.375rem;}
+ .faq-item summary h3,.belief summary h4 {font-size:1rem;}
+ .faq-item summary,.belief summary {padding:1.1rem 0;}
+ .work-rail>div {flex-basis:min(78vw,300px);}
+ .email-card .viewport {height:20rem;}
+}
+@media(max-width:767px){
+ .hero-copy h1.display-xl {font-size:clamp(2rem,9.2vw,2.375rem);line-height:1.04;letter-spacing:-.045em;max-width:14ch;}
+}

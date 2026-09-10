@@ -8,9 +8,9 @@
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": 2762.425,
+    "lcp": 2698.343875,
     "cls": 0,
-    "tbt": 3
+    "tbt": 10
   },
   {
     "phase": "seo-geo",
@@ -21,7 +21,7 @@
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": 641.39075,
+    "lcp": 620.763375,
     "cls": 0,
     "tbt": 0
   }
