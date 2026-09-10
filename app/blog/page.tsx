@@ -90,7 +90,7 @@ export default async function BlogIndex() {
 
       <section className="">
         <div className="shell py-16 md:py-20">
-          <nav aria-label="Blog resources" className="related-links mb-10"><Link href="/services">Email marketing services</Link><Link href="/work">Email design examples</Link><a href="/rss.xml">Subscribe via RSS</a></nav>
+          <nav aria-label="Blog resources" className="related-links mb-10"><Link href="/services">Email marketing services</Link><Link href="/services/klaviyo-email-marketing">Klaviyo email marketing agency</Link><Link href="/work">Email design examples</Link><Link href="/#proof">Klaviyo account screenshots</Link><a href="/rss.xml">Subscribe via RSS</a></nav>
           {posts.length === 0 ? (
             <div className="reveal max-w-xl rounded-xl border border-white/10 bg-ink-raised p-10">
               <h2 className="display-md">First posts are on the way.</h2>

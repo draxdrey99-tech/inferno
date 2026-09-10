@@ -15,9 +15,9 @@ const UPDATED = '30 August 2026';
 
 export default function PrivacyPage() {
   return (
-    <section className="pt-24" aria-labelledby="legal-title"><JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Privacy policy',path:'/privacy'}])}/>
+    <section className="pt-24" aria-labelledby="legal-title"><JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Services',path:'/services'},{name:'Privacy policy',path:'/privacy'}])}/>
       <div className="shell pb-24 md:pb-32">
-        <nav aria-label="Breadcrumb" className="breadcrumb"><Link href="/">Home</Link><span>/</span><span>Legal</span></nav>
+        <nav aria-label="Breadcrumb" className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/services">Services</Link><span>/</span><span>Legal</span></nav>
         <h1 id="legal-title" className="display-lg mt-6">Privacy policy</h1>
         <p className="mt-5 text-[0.8125rem] uppercase tracking-[0.14em] text-mute">
           Last updated {UPDATED}

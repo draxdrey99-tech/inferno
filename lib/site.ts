@@ -165,6 +165,14 @@ export const SERVICES: Service[] = [
         q: 'Do I need a big list for this to work?',
         a: 'No. Flows are triggered by behaviour, so they work on a small list from day one. If your list is small we will also work on capture: pop-ups, sign-up incentives and segmentation, so the list grows while the flows run.',
       },
+      {
+        q: 'How much does Klaviyo email marketing management cost?',
+        a: 'It depends on scope, so we quote after the free audit rather than guessing at a number up front. The audit itself carries no fee and no obligation, and you keep the findings either way.',
+      },
+      {
+        q: 'What happens if the flows and campaigns don’t lift revenue?',
+        a: 'We report against attributed revenue every month, so a flow or campaign that is not earning gets changed, cut or rebuilt as fast as we see it. If the audit shows we are not the right fit for your list or offer, we will tell you before you spend anything.',
+      },
     ],
   },
   {
@@ -204,6 +212,14 @@ export const SERVICES: Service[] = [
       {
         q: 'Will the emails work in dark mode?',
         a: 'Yes. We handle dark mode explicitly: logos get transparent or inverted variants, background colours are chosen so they do not invert badly, and we test in the clients that force dark mode rather than hoping for the best.',
+      },
+      {
+        q: 'How much does custom email design cost?',
+        a: 'It depends on how many campaigns and flow emails you need designed each month, so we quote after the free audit rather than a flat rate. There is no fee for the audit itself.',
+      },
+      {
+        q: 'How long until we get our first custom-designed email?',
+        a: 'Flow emails are typically ready within the same two to three weeks it takes to build the flows they belong to, since design and build happen together. Campaign emails can turn around faster once your brand system is documented.',
       },
     ],
   },
@@ -245,6 +261,14 @@ export const SERVICES: Service[] = [
         q: 'Will cleaning my list hurt my revenue?',
         a: 'Suppressing unengaged contacts almost always raises revenue, not lowers it. Those contacts were not buying; they were dragging your reputation down and taking the engaged ones with them into the promotions tab.',
       },
+      {
+        q: 'How much does deliverability repair cost?',
+        a: 'It depends on how much repair the account needs, from an authentication fix that takes days to a full reputation rebuild that typically takes four to eight weeks, so we quote after the free audit rather than a flat fee. The audit itself is free and has no obligation attached.',
+      },
+      {
+        q: 'What access do you need to fix deliverability?',
+        a: 'Read-only access to your Klaviyo account is fastest, since we need to see your authentication records, complaint rates and list health before changing anything. If you would rather not grant access, screenshots of those same three things get us most of the way there.',
+      },
     ],
   },
   {
@@ -284,6 +308,14 @@ export const SERVICES: Service[] = [
       {
         q: 'What do you measure?',
         a: 'Repeat purchase rate, revenue per recipient, time between orders and share of total revenue attributed to email. Opens and clicks are diagnostics, not goals.',
+      },
+      {
+        q: 'How much does a retention strategy engagement cost?',
+        a: 'It depends on how much of the lifecycle needs building versus tuning, so we quote after the free audit rather than in advance. The audit is free either way, and you keep the findings even if you do not go further.',
+      },
+      {
+        q: 'What if repeat purchase rate doesn’t improve?',
+        a: 'We report on repeat rate and revenue per recipient every month, so a sequence that is not moving those numbers gets rebuilt or cut rather than left running. If the audit shows your core problem is the product or the offer rather than the lifecycle, we will say so instead of selling you a retainer.',
       },
     ],
   },

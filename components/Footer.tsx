@@ -6,9 +6,9 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/8 bg-ink">
-      <div className="shell py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.3fr_2fr]">
+    <footer className="border-t border-flame/25 bg-ink">
+      <div className="shell py-14 md:py-16">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_2fr]">
           <div>
             <Wordmark />
             <p className="lede mt-6 max-w-sm text-[0.9375rem]">
@@ -33,13 +33,13 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-3">
             {FOOTER_NAV.map((col) => (
               <div key={col.title}>
                 <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-mute">
                   {col.title}
                 </h2>
-                <ul className="mt-5 space-y-3">
+                <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.label}>
                       {'external' in l && l.external ? (
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/8 pt-7 text-[0.8125rem] text-mute sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/8 pt-6 text-[0.8125rem] text-mute sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {SITE.name}. All rights reserved.</p>
           <p>Built for brands that would rather own the inbox than rent the feed.</p>
         </div>

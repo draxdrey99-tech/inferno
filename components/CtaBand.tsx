@@ -29,7 +29,7 @@ export default function CtaBand({
           </h2>
           <p className="lede mt-5">
             {body ??
-              'We review your flows, list health, authentication records and last ninety days of performance, then send back what we found. Free, and the findings are yours either way.'}
+              'We review your flows, list health, authentication records and last ninety days of performance, then send back what we found.'}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
@@ -45,6 +45,9 @@ export default function CtaBand({
               Send a message instead
             </Link>
           </div>
+          <p className="mt-4 text-[0.8125rem] text-mute">
+            30 minutes, no obligation, and the findings are yours to keep either way.
+          </p>
         </div>
       </div>
     </section>

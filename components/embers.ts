@@ -154,7 +154,7 @@ export function mountEmbers(canvas: HTMLCanvasElement, opts: EmberOptions = {}) 
       uScroll: { value: 0 },
       uPointer: { value: pointer },
       uEmber: { value: new Color('#f51717') },
-      uCoral: { value: new Color('#ed8c83') },
+      uCoral: { value: new Color('#ff4747') },
       uOpacity: { value: opts.opacity ?? 0.75 },
     },
   });

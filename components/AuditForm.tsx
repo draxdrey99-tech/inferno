@@ -1,15 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight, Calendar } from '@phosphor-icons/react';
+import { SITE } from '@/lib/site';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
+/* Ordered by how little friction each field adds: the two required fields
+   first, then the store URL because it is the one optional field that
+   actually helps us before the call, company next, phone last since it is
+   the field people are most reluctant to hand over. */
 const FIELDS = [
   { name: 'name', label: 'Full name', type: 'text', required: true, autoComplete: 'name' },
   { name: 'email', label: 'Business email', type: 'email', required: true, autoComplete: 'email' },
-  { name: 'company', label: 'Company name (optional)', type: 'text', required: false, autoComplete: 'organization' },
   { name: 'website', label: 'Store URL (optional)', type: 'url', required: false, autoComplete: 'url', placeholder: 'https://' },
+  { name: 'company', label: 'Company name (optional)', type: 'text', required: false, autoComplete: 'organization' },
   { name: 'phone', label: 'Phone (optional)', type: 'tel', required: false, autoComplete: 'tel' },
 ] as const;
 
@@ -51,9 +56,18 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
         <p className="eyebrow">Received</p>
         <h3 className="display-md mt-5">That’s all we need.</h3>
         <p className="lede mt-4">
-          We’ll review your account and come back within one business day with
-          what we found. If we don’t think we can help, we’ll tell you that too.
+          Next: we review your account and reply within one business day with
+          what we found, and what we’d do about it.
         </p>
+        <a
+          href={SITE.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-link mt-6 inline-flex items-center gap-1.5"
+        >
+          <Calendar size={15} weight="bold" aria-hidden />
+          Don’t want to wait? Book a time now
+        </a>
       </div>
     );
   }
@@ -75,10 +89,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
 
       <div className="grid gap-5 sm:grid-cols-2">
         {FIELDS.map((f) => (
-          <div
-            key={f.name}
-            className={f.name === 'website' || f.name === 'phone' ? '' : ''}
-          >
+          <div key={f.name}>
             <label
               htmlFor={f.name}
               className="block text-[0.875rem] text-mute"

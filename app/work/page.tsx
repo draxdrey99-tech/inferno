@@ -111,7 +111,7 @@ export default function WorkPage() {
           <Link href="/services/email-design">Email design</Link>
           <Link href="/services/email-flows">Email flows &amp; automation</Link>
           <Link href="/services/klaviyo-email-marketing">Klaviyo email marketing</Link>
-          <Link href="/#proof">Dated account results</Link>
+          <Link href="/#proof">See the Klaviyo account screenshots</Link>
           <Link href="/blog">Email marketing blog</Link>
         </div>
       </section>

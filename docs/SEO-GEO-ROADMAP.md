@@ -80,6 +80,19 @@ Applied, built, and verified locally (SEO crawl: 0 failures, 0 warnings across 1
 
 - A Three.js ember field sits behind the hero, the contact section and the closing CTA band: slow, sparse, brand-red points rising and drifting away from the pointer. It loads only after the page has finished loading and gone idle, only on screens 1024px and wider with a fine pointer and no reduced-motion preference, and only on hardware with 4 or more cores and 4GB or more memory. It stops rendering when scrolled out of view or when the tab is hidden. The chunk is 132KB gzipped and never ships to phones. Lighthouse desktop after the change: performance 99, LCP 0.93s.
 
+**Second pass, same day (service pages, comparison index, schema, internal linking)**
+
+Verified with `npm run typecheck` and `npm run lint` only (both clean). Not run against `next build`, a dev server or the live domain, so the SEO crawl and design-check numbers above still describe the first pass, not this one.
+
+- Every one of the five service pages (`klaviyo-email-marketing`, `email-design`, `email-deliverability`, `retention-strategy`, `email-flows`) now carries five FAQs instead of three. The two new ones on each page answer cost (always "we quote after the free audit", never an invented figure), timeline where it was missing, required access, how success is measured, or what happens if the work does not move the number it is supposed to move. No new fact was introduced; each answer reuses a position already stated elsewhere on the site (free audit first, core flows live in two to three weeks, deliverability repair takes four to eight weeks, attributed revenue over opens).
+- Each service page now has a "Is this the right fit?" section showing the full `GOOD_FIT` and `BAD_FIT` lists from `lib/site.ts`. These are agency-wide fit criteria, not written per service, so the same two lists are reused verbatim on every page rather than inventing a service-specific subset.
+- Each service page has a "Related reading" block linking to the two other service pages most relevant to it (a fixed map in `lib/service-pages.ts`, e.g. Klaviyo email marketing points at flows and retention) plus a descriptive link into `/work`. The older "rest of the channel" list of all four other services stays below it, so nothing was removed, only added to.
+- `Service` JSON-LD (`serviceLd` in `lib/seo.ts`) now includes `mainEntityOfPage`, an `Audience` node ("Ecommerce brands"), and an `Offer` for the free "Email marketing audit" (price 0 USD, linking to the Calendly booking page, seller set to the organisation node). This is the one thing on the site that is actually free with a fixed price, so it is the only defensible `Offer` to emit.
+- `/services` is no longer a thin list. Each of the five entries now shows one line each for "best for", "starts with" and "measured by" (a new `SERVICE_COMPARISON` map in `lib/service-pages.ts`, paraphrased from that service's own approved copy, nothing new claimed), plus an FAQPage with three questions about choosing between services, answered from the audit-first, quote-after-audit position already used everywhere else.
+- The blog post template now shows an "Updated" date next to "Published" when a post's `updated_at` differs from `published_at`, and a small "Keep exploring" nav after the related-services block linking to `/work`, `/#proof` and `/services`. The blog index gained the same two links plus a link to the Klaviyo email marketing page.
+- `/privacy` and `/terms` breadcrumbs now read Home / Services / Legal instead of Home / Legal, so both legal pages link back to `/` and `/services`. No legal copy was touched.
+- Proof-section links across `/services/[slug]`, `/work`, `/blog` and blog posts now read "See all three Klaviyo account screenshots" or equivalent, so the anchor text names what is actually behind `/#proof` instead of the vaguer "account results".
+
 ## 3. Page buckets
 
 Every indexable URL, sorted into exactly one of the playbook's four buckets. Reasoning is stated so any call can be overridden.
@@ -87,12 +100,12 @@ Every indexable URL, sorted into exactly one of the playbook's four buckets. Rea
 | URL | Bucket | Reasoning | Next action |
 |---|---|---|---|
 | `/` | Protect and expand | Strongest page, carries the head term and all proof | Add the founder byline when available; refresh proof screenshots with a 2025 or 2026 window |
-| `/services/klaviyo-email-marketing` | Protect and expand | The most valuable commercial term the site can realistically rank for | Add a "what it costs" FAQ with a real starting figure or minimum engagement; add the Klaviyo partner badge once listed |
+| `/services/klaviyo-email-marketing` | Protect and expand | The most valuable commercial term the site can realistically rank for | A cost FAQ now exists but still answers "we quote after the audit" rather than a figure; add a real starting price or minimum engagement the day one is agreed. Add the Klaviyo partner badge once listed |
 | `/services/email-flows` | Keep and reposition | Overlaps with the Klaviyo page on intent. Cannibalisation risk | Keep the angle strictly on automation mechanics (which flows, in what order, timing). Watch both URLs in Search Console for the same queries; consolidate into the Klaviyo page if they split |
 | `/services/email-design` | Protect and expand | Unusual for an agency to show nine full emails; `/work` now feeds it | Add two or three annotated before and after examples when a client permits |
 | `/services/email-deliverability` | Protect and expand | Best bridge from informational searches (spam, DMARC) to a commercial page | Publish the deliverability blog cluster first (section 5) and link every post here |
 | `/services/retention-strategy` | Keep and reposition | "Retention marketing agency" is a crowded head term with no differentiation here | Reframe around "Klaviyo retention" and repeat-purchase maths; link from the benchmark post |
-| `/services` | Keep and reposition | Thin index page | Add a short comparison of when to buy which service; otherwise light touch |
+| `/services` | Protect and expand | No longer thin: each row now states best-for, starts-with and measured-by, plus a 3-question FAQPage on choosing between services | Watch Search Console once it exists for which comparison row people land on, and adjust that row's wording first |
 | `/work` | Protect and expand | New. Only page targeting "examples" intent, which is exactly how designers and founders search | Add each new client email as it ships; ask clients for a one-line quote per email |
 | `/blog` and posts | Build | Empty. This is the entire long-tail engine | Section 5 |
 | `/privacy`, `/terms` | Prune | No search intent worth serving | No further investment. Add company registration details when known |

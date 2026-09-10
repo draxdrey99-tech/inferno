@@ -80,11 +80,11 @@ export default function AuditPopup({bookingUrl, checks}:{bookingUrl:string;check
           </div>
         </div>
         <div className="audit-popup-copy">
-          <p className="eyebrow">Your free email audit</p>
+          <p className="eyebrow">Free, 30-minute audit</p>
           <h2 id="audit-popup-title">Find the gaps in your email revenue.</h2>
-          <p id="audit-popup-description">A focused review of your Klaviyo flows, list health, deliverability and last 90 days of performance.</p>
-          <p className="audit-popup-risk">30 minutes. No obligation.<br/>The findings are yours to keep.</p>
+          <p id="audit-popup-description">We review your flows, list health, deliverability and last 90 days, then tell you what we found.</p>
           <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-flame" onClick={() => dialog.current?.close()}>Book your free audit</a>
+          <p className="audit-popup-risk">No obligation. The findings are yours to keep either way.</p>
           <button type="button" className="audit-popup-dismiss" onClick={() => dialog.current?.close()}>Keep browsing</button>
         </div>
       </div>

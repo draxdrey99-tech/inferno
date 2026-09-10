@@ -181,16 +181,33 @@ export function serviceLd(input: {
   description: string;
   path: string;
 }) {
+  const url = `${SITE_URL}${input.path}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': `${SITE_URL}${input.path}#service`,
+    '@id': `${url}#service`,
     name: input.name,
     description: input.description,
     serviceType: input.name,
     provider: { '@id': `${SITE_URL}/#organization` },
     areaServed: 'Worldwide',
-    url: `${SITE_URL}${input.path}`,
+    url,
+    mainEntityOfPage: url,
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Ecommerce brands',
+    },
+    // The free audit is the only "offer" honestly stated anywhere on the
+    // site: no price list exists, because scoped work is quoted after it.
+    offers: {
+      '@type': 'Offer',
+      name: 'Email marketing audit',
+      description: 'A free, no-obligation review of Klaviyo flow coverage, list health, authentication records and the last ninety days of performance.',
+      price: '0',
+      priceCurrency: 'USD',
+      url: SITE.calendly,
+      seller: { '@id': `${SITE_URL}/#organization` },
+    },
   };
 }
 

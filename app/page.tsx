@@ -175,6 +175,9 @@ export default function HomePage() {
                 No ninety-day discovery phase. We are in your account in week
                 one and sending by week two.
               </p>
+              <a href="#proof" className="text-link mt-3 inline-block">
+                See the account screenshots
+              </a>
 
               <div className="start-box mt-9">
                 <p className="start-box-title">Step one is free, and it is the whole first call</p>
@@ -240,8 +243,8 @@ export default function HomePage() {
               Emails that look like <span className="accent">your brand.</span>
             </h2>
             <p className="lede mt-5">
-              Every piece was drawn from scratch for the brand it belongs to.
-              Hover any of them to read the whole email.
+              Every piece is drawn from scratch for the brand it belongs to.
+              Hover to read one, or tap to open it full-size.
             </p>
             <p className="mt-4 text-[0.9375rem] leading-relaxed text-mute">
               First up: KÍLÈNTÀR, the London luxury womenswear house whose
@@ -289,11 +292,11 @@ export default function HomePage() {
                 </p>
                 <p>
                   Most brands treat email as an afterthought: a sale newsletter
-                  on top of three half-built flows. Meanwhile the customers who
-                  already trust you hear from you roughly never. We take that
+                  bolted onto three half-built flows, while the customers who
+                  already trust them barely hear from them. We take that
                   channel over and run it properly.
                 </p>
-                <p className="accent font-display text-[1.4rem] leading-[1.2] tracking-tight">
+                <p className="accent font-display text-[1.4rem] font-bold leading-[1.2] tracking-tight">
                   You grow, we grow. That is the entire business model.
                 </p>
               </div>
@@ -417,6 +420,17 @@ export default function HomePage() {
               </figure>
             ))}
           </div>
+          <p className="reveal mt-10 text-[0.9375rem] text-mute">
+            <a
+              href={SITE.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-flame underline underline-offset-4 hover:text-bone"
+            >
+              Book your free audit
+            </a>{' '}
+            and see what we would find in yours.
+          </p>
         </div>
       </section>
 
@@ -455,6 +469,23 @@ export default function HomePage() {
               );
             })}
           </div>
+
+          <div className="reveal mt-10">
+            <a
+              href={SITE.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-flame"
+            >
+              <Calendar size={17} weight="bold" aria-hidden />
+              Book your free audit
+              <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
+            </a>
+            <p className="mt-3 text-[0.8125rem] text-mute">
+              30 minutes. No obligation. We quote after, and only if we can
+              help.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -467,6 +498,18 @@ export default function HomePage() {
           <div className="reveal mt-12 max-w-3xl">
             <Faq items={ALL_FAQS} />
           </div>
+          <p className="reveal mt-10 text-[0.9375rem] text-mute">
+            Still deciding?{' '}
+            <a
+              href={SITE.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-flame underline underline-offset-4 hover:text-bone"
+            >
+              Book the free audit
+            </a>{' '}
+            and ask us directly.
+          </p>
         </div>
       </section>
 

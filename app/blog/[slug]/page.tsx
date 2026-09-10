@@ -134,11 +134,19 @@ export default async function BlogPost({
             )}
 
             <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.8125rem] uppercase tracking-[0.14em] text-mute">
-              <span>{post.author || SITE.name}</span>
+              <span>By {post.author || SITE.name}</span>
               <span aria-hidden="true" className="text-flame">·</span>
               <time dateTime={post.published_at ?? undefined}>
-                {formatDate(post.published_at)}
+                Published {formatDate(post.published_at)}
               </time>
+              {post.updated_at && post.published_at && formatDate(post.updated_at) !== formatDate(post.published_at) && (
+                <>
+                  <span aria-hidden="true" className="text-flame">·</span>
+                  <time dateTime={post.updated_at}>
+                    Updated {formatDate(post.updated_at)}
+                  </time>
+                </>
+              )}
               <span aria-hidden="true" className="text-flame">·</span>
               <span>{post.reading_minutes} min read</span>
             </div>
@@ -207,6 +215,12 @@ export default async function BlogPost({
                 ))}
               </ul>
             </aside>
+
+            <nav aria-label="Keep exploring" className="related-links mt-10 max-w-[68ch]">
+              <Link href="/work">See real client emails in the portfolio</Link>
+              <Link href="/#proof">See the Klaviyo account screenshots</Link>
+              <Link href="/services">All email marketing services</Link>
+            </nav>
 
             {post.tags?.length > 0 && (
               <ul className="mt-14 flex max-w-[68ch] flex-wrap gap-2 border-t border-white/9 pt-8">
