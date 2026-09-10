@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { mountMobileRevenue } from './mobile-revenue';
+import { mountRevenueReels } from './revenue-reels';
 
 /**
  * Route-aware progressive enhancement. Content stays server-visible;
@@ -18,7 +18,8 @@ export default function RevealObserver() {
       const animation = document.querySelector('main')?.animate([{transform:'translateY(8px)'},{transform:'none'}],{duration:250,easing:'cubic-bezier(.16,1,.3,1)'});
       return () => animation?.cancel();
     }
-    if (!matchMedia('(min-width: 1024px) and (pointer: fine)').matches) return mountMobileRevenue();
+    const stopReels = mountRevenueReels();
+    if (!matchMedia('(min-width: 1024px) and (pointer: fine)').matches) return stopReels;
     const remaining = 900 - performance.now();
     const entrances = remaining > 200 ? Array.from(document.querySelectorAll('.hero-word')).map((word,i)=>word.animate(
       [{transform:'translateY(110%)'},{transform:'translateY(0)'}],
@@ -27,7 +28,7 @@ export default function RevealObserver() {
     const timer = window.setTimeout(() => {
       import('./motion').then(({mountMotion}) => {if(!stopped) dispose=mountMotion();}).catch(() => {/* static layout is complete */});
     }, 150);
-    return () => {stopped=true;window.clearTimeout(timer);entrances.forEach(a=>a.cancel());dispose?.();};
+    return () => {stopped=true;window.clearTimeout(timer);entrances.forEach(a=>a.cancel());dispose?.();stopReels();};
   }, [pathname]);
 
   return null;

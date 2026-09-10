@@ -1,5 +1,7 @@
 # SEO
 
+**10 September 2026:** the current step-by-step plan, page buckets, keyword tiers and content briefs live in [docs/SEO-GEO-ROADMAP.md](docs/SEO-GEO-ROADMAP.md). It was produced by running `seo-geo-audit-playbook.md` against this site and supersedes the Week 1 and Week 2 sections below where they differ. The service pages and `/work` are real indexable pages again, so the single-page tradeoff described under Crawling & indexing no longer applies.
+
 Two halves. The first is done and lives in code. The second is yours, and it
 is the half that actually decides whether you rank — technical SEO gets you
 eligible to compete, it does not win anything on its own.

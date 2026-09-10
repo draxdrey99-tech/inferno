@@ -35,6 +35,7 @@ import {
   GOOD_FIT,
   HOME_FAQS,
   PROCESS,
+  QUICK_ANSWER,
   SERVICES,
   SITE,
   SITE_URL,
@@ -108,19 +109,16 @@ export default function HomePage() {
       <ProofScenes />
 
       {/* --------------------------------------------------- SERVICES ---- *
-       * Bento grid: what we do, made scannable in one screenful. */}
+       * Four editorial rows. Deliverables live on the service pages; the
+       * home page names the job, the outcome and the door. The opening
+       * paragraph is the extractable answer to "what is Inferno Emails". */}
       <section aria-label="Services" id="services" className="scroll-mt-20 border-b border-white/8">
         <div className="shell py-20 md:py-28">
           <div className="reveal max-w-3xl">
             <h2 className="display-lg">
               Four jobs, run as <span className="accent">one system.</span>
             </h2>
-            <p className="lede mt-5">
-              Design without deliverability lands in spam. Flows without
-              strategy talk to the wrong people. Buy these separately from four
-              suppliers and spend your week translating between them, or have
-              one team own the whole channel.
-            </p>
+            <p className="lede mt-5" id="answer">{QUICK_ANSWER}</p>
           </div>
 
           <div className="service-rows mt-14">
@@ -135,35 +133,96 @@ export default function HomePage() {
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-flame/25 bg-gradient-to-br from-flame/20 to-ember/10 text-flame">
                     <Icon size={20} weight="bold" aria-hidden />
                   </div>
-                  <h3 className="display-md mt-6">{s.title}</h3>
-                  <Link href={`/services/${s.slug}`} className="text-link">Explore {s.navTitle.toLowerCase()}</Link>
+                  <h3 className="display-md mt-6">
+                    <Link href={`/services/${s.slug}`} className="service-title-link">{s.title}</Link>
+                  </h3>
                   <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">
                     {s.summary}
                   </p>
-
-                  <ul className="mt-6 grid flex-1 gap-x-6 gap-y-3 sm:grid-cols-2">
-                    {s.deliverables.map((d) => (
-                      <li
-                        key={d}
-                        className="flex gap-3 text-[0.8125rem] leading-relaxed text-bone/75"
-                      >
-                        <Check
-                          size={14}
-                          weight="bold"
-                          aria-hidden
-                          className="mt-1 shrink-0 text-flame"
-                        />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <p className="mt-6 border-t border-white/9 pt-5 text-[0.9375rem] leading-relaxed text-mute">
-                    {s.outcome}
-                  </p>
+                  <Link href={`/services/${s.slug}`} className="text-link mt-6 flex-1 self-start">
+                    What is included in {s.navTitle.toLowerCase()}
+                  </Link>
                 </div>
               );
             })}
+          </div>
+          <p className="reveal mt-10 text-[0.9375rem] text-mute">
+            Flows are their own job too.{' '}
+            <Link href="/services/email-flows" className="text-flame underline underline-offset-4 hover:text-bone">
+              Email flows and automation
+            </Link>
+            , or see{' '}
+            <Link href="/services" className="text-flame underline underline-offset-4 hover:text-bone">
+              all five services
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------- HOW TO START ---- *
+       * The commercial hinge of the page: what happens if you click. Three
+       * steps, the four things the free audit covers, one button, and the
+       * pricing rule stated plainly so nobody has to guess. */}
+      <section aria-label="How to start" id="start" className="scroll-mt-20 border-b border-white/8">
+        <div className="shell py-20 md:py-28">
+          <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
+            <div className="reveal">
+              <h2 className="display-lg">
+                Audit. Build. <span className="accent">Compound.</span>
+              </h2>
+              <p className="lede mt-5">
+                No ninety-day discovery phase. We are in your account in week
+                one and sending by week two.
+              </p>
+
+              <div className="start-box mt-9">
+                <p className="start-box-title">Step one is free, and it is the whole first call</p>
+                <ul className="start-chips" aria-label="What the free audit covers">
+                  {AUDIT_CHECKS.map((c) => (
+                    <li key={c.index}>
+                      <a href="#audit">
+                        <Check size={13} weight="bold" aria-hidden />
+                        {c.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={SITE.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-flame mt-7"
+                >
+                  <Calendar size={17} weight="bold" aria-hidden />
+                  Book your free audit
+                  <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
+                </a>
+                <p className="start-note">
+                  30 minutes. Written findings you keep either way. We quote
+                  after the audit, and only if we think we can help.
+                </p>
+              </div>
+            </div>
+
+            <ol className="start-steps" aria-label="Our process">
+              {PROCESS.map((step, i) => {
+                const Icon = PROCESS_ICON[i];
+                return (
+                  <li key={step.title} className="start-step reveal" data-reveal-delay={i * 100}>
+                    <div className="start-step-icon">
+                      <Icon size={18} weight="bold" aria-hidden />
+                    </div>
+                    <div>
+                      <h3 className="display-md">{step.title}</h3>
+                      <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">
+                        {step.body}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
         </div>
       </section>
@@ -182,15 +241,12 @@ export default function HomePage() {
             </h2>
             <p className="lede mt-5">
               Every piece was drawn from scratch for the brand it belongs to.
-              Put the KÍLÈNTÀR welcome next to the Kuchenkompane campaign and
-              you would not guess the same team made both. Hover any of them to
-              read the whole email.
+              Hover any of them to read the whole email.
             </p>
             <p className="mt-4 text-[0.9375rem] leading-relaxed text-mute">
-              The one we point to first is KÍLÈNTÀR, the London luxury
-              womenswear house whose founder, Michelle Adepoju, was named to the
-              Forbes 30 Under 30 Europe list in 2025. Her welcome flow opens the
-              gallery.
+              First up: KÍLÈNTÀR, the London luxury womenswear house whose
+              founder, Michelle Adepoju, made the Forbes 30 Under 30 Europe list
+              in 2025.
             </p>
           </div>
 
@@ -202,42 +258,13 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------- PROCESS ---- *
-       * Three-step timeline with a connecting line. */}
-      <section aria-label="Our process" className="border-b border-white/8">
-        <div className="shell py-20 md:py-28">
-          <div className="reveal max-w-2xl">
-            <h2 className="display-lg">
-              Audit. Build. <span className="accent">Compound.</span>
-            </h2>
-            <p className="lede mt-5">
-              No ninety-day discovery phase. We are in your account in week one
-              and sending by week two.
-            </p>
-          </div>
-
-          <div className="relative mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute left-[16.6%] right-[16.6%] top-[1.375rem] hidden h-px bg-gradient-to-r from-flame/40 via-white/15 to-ember/40 md:block"
-            />
-            {PROCESS.map((step, i) => {
-              const Icon = PROCESS_ICON[i];
-              return (
-                <div key={step.title} className="reveal" data-reveal-delay={i * 100}>
-                  <div className="relative z-10 grid h-11 w-11 place-items-center rounded-full border border-flame/30 bg-ink text-flame">
-                    <Icon size={18} weight="bold" aria-hidden />
-                  </div>
-                  <h3 className="display-md mt-6">{step.title}</h3>
-                  <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-mute">
-                    {step.body}
-                  </p>
-                </div>
-              );
-            })}
+          <div className="reveal mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              Want emails like these? Book your free audit
+            </a>
+            <Link href="/work" className="text-[0.9375rem] text-mute underline underline-offset-4 hover:text-flame">
+              See all {WORK.length} emails on one page
+            </Link>
           </div>
         </div>
       </section>
@@ -261,20 +288,10 @@ export default function HomePage() {
                   kitchen goods in Europe, Australia and the US.
                 </p>
                 <p>
-                  Most ecommerce brands treat email as an afterthought: a
-                  newsletter someone sends when there is a sale on, sitting on
-                  top of three half-built flows that were configured during
-                  onboarding and never touched again. Meanwhile paid
-                  acquisition gets more expensive every year, and the cheapest
-                  customers in the business, the ones who already bought and
-                  already trust you, hear from you roughly never.
-                </p>
-                <p>
-                  We take that channel over and run it properly: flows built
-                  around how people actually buy from you, campaigns designed in
-                  your brand rather than a template, and the unglamorous
-                  deliverability work underneath that decides whether any of it
-                  arrives.
+                  Most brands treat email as an afterthought: a sale newsletter
+                  on top of three half-built flows. Meanwhile the customers who
+                  already trust you hear from you roughly never. We take that
+                  channel over and run it properly.
                 </p>
                 <p className="accent font-display text-[1.4rem] leading-[1.2] tracking-tight">
                   You grow, we grow. That is the entire business model.
@@ -285,20 +302,18 @@ export default function HomePage() {
             <div className="reveal" data-reveal-delay="110">
               <p className="lede mb-8">Our aim: Turn your email list into your most profitable channel.</p>
               <h3 className="display-md">What we believe</h3>
-              <div className="mt-7 space-y-5">
-                {BELIEFS.map((b) => (
-                  <div key={b.index} className="card rounded-xl p-6 md:p-7">
-                    <div className="flex gap-4">
-                      <div>
-                        <h4 className="font-display text-lg tracking-tight md:text-xl">
-                          {b.title}
-                        </h4>
-                        <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">
-                          {b.body}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="beliefs mt-7">
+                {BELIEFS.map((b, i) => (
+                  <details key={b.index} className="belief" open={i === 0}>
+                    <summary>
+                      <h4 className="font-display text-lg tracking-tight md:text-xl">
+                        {b.title}
+                      </h4>
+                    </summary>
+                    <p className="text-[0.9375rem] leading-relaxed text-mute">
+                      {b.body}
+                    </p>
+                  </details>
                 ))}
               </div>
             </div>
@@ -406,7 +421,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ AUDIT CHECKS ---- */}
-      <section aria-label="Free audit scope" className="border-b border-white/8 bg-ink-raised">
+      <section aria-label="Free audit scope" id="audit" className="scroll-mt-20 border-b border-white/8 bg-ink-raised">
         <div className="shell py-20 md:py-28">
           <div className="reveal max-w-3xl">
             <p className="eyebrow">The free audit</p>
@@ -415,10 +430,8 @@ export default function HomePage() {
               <span className="accent">almost everything.</span>
             </h2>
             <p className="lede mt-5">
-              Book the call and we review your account properly before it:
-              flows, list health, authentication records and the last ninety
-              days of performance. Reviewed by a person, not an automated PDF
-              generator.
+              Before the call we review your account properly. By a person, not
+              an automated PDF generator.
             </p>
           </div>
 
@@ -461,9 +474,6 @@ export default function HomePage() {
        * Two ways in: book the call, or send the details and let us come    *
        * back to you. Same destination, different appetite for a calendar.  */}
       <section aria-label="Book or request your audit" id="contact" className="scroll-mt-20 relative isolate overflow-hidden bg-ink-raised">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          <div className="orb orb-flame -bottom-40 -left-24 h-96 w-96 opacity-20" />
-        </div>
         <div className="shell relative grid gap-14 py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-20 lg:py-28">
           <div className="reveal">
             <h2 className="display-lg">

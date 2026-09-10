@@ -18,6 +18,7 @@ import {
   withHeadingIds,
 } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
+import { relatedServicesFor } from '@/lib/service-pages';
 import { SITE } from '@/lib/site';
 
 export const revalidate = 300;
@@ -101,6 +102,8 @@ export default async function BlogPost({
   const toc = extractToc(html);
   const faqs = normalizeFaqs(post.faqs);
   const related = await relatedPosts(post, 3).catch(() => []);
+  // Every post links back to the commercial page(s) its topic belongs to.
+  const services = relatedServicesFor([post.title, ...(post.tags || [])].join(' '));
 
   return (
     <>
@@ -192,6 +195,18 @@ export default async function BlogPost({
                 <Faq items={faqs} />
               </section>
             )}
+
+            <aside className="post-services mt-14 max-w-[68ch]" aria-labelledby="post-services-title">
+              <p id="post-services-title" className="eyebrow">Related services</p>
+              <ul>
+                {services.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={`/services/${s.slug}`}>{s.title}</Link>
+                    <span>{s.summary}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
 
             {post.tags?.length > 0 && (
               <ul className="mt-14 flex max-w-[68ch] flex-wrap gap-2 border-t border-white/9 pt-8">

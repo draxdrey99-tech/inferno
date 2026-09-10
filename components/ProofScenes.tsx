@@ -1,6 +1,6 @@
 import Revenue from './Revenue';
 import Image from 'next/image';
-import { PROOF } from '@/lib/site';
+import { PROOF, SITE } from '@/lib/site';
 const amounts=[477929.14,98625.63,9100.94];
 export default function ProofScenes(){
  return <section id="proof" className="proof-section" aria-labelledby="proof-title"><div className="shell">
@@ -12,5 +12,6 @@ export default function ProofScenes(){
    </div>
   </article>)}
   <p className="proof-disclaimer">Results vary by brand, list size, category and offer. These are individual client accounts over the periods stated, not an average or a guarantee of what your store will do.</p>
+  <p className="proof-next"><span>Want to know what your account is doing?</span><a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-flame">Book your free audit</a><a href="#start" className="proof-next-link">How it works</a></p>
  </div></section>;
 }

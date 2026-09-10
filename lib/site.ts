@@ -25,7 +25,24 @@ export const SITE = {
   linkedin: 'https://www.linkedin.com/company/infernoemails/',
   founded: '2022',
   locale: 'en_US',
+  /** Where the work has shipped. Read off the About copy, not invented. */
+  regions: ['Europe', 'Australia', 'United States'],
 } as const;
+
+/**
+ * Last substantive content edit to the static marketing pages. Feeds the
+ * sitemap lastModified for those routes so crawlers get an honest date
+ * instead of "now" on every request. Bump it when copy changes.
+ */
+export const CONTENT_UPDATED = '2026-09-10';
+
+/**
+ * The extractable one-paragraph answer to "what is Inferno Emails?".
+ * Answer engines quote direct statements, not scene-setting, so this sits
+ * in the first screen of body copy and in llms.txt. Every clause is
+ * already stated elsewhere on the site.
+ */
+export const QUICK_ANSWER = `${SITE.description} Founded in ${SITE.founded}, working with ecommerce brands in Europe, Australia and the United States. The first step is a free, no-obligation audit of your account.`;
 
 /* ------------------------------------------------------------------ *
  * Navigation
@@ -39,7 +56,7 @@ export const SITE = {
  */
 export const NAV = [
   { label: 'Services', href: '/services' },
-  { label: 'Work', href: '/#work' },
+  { label: 'Work', href: '/work' },
   { label: 'About', href: '/#about' },
   { label: 'Blog', href: '/blog' },
 ] as const;
@@ -68,7 +85,7 @@ export const FOOTER_NAV = [
     title: 'Company',
     links: [
       { label: 'About', href: '/#about' },
-      { label: 'Work', href: '/#work' },
+      { label: 'Work', href: '/work' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/#contact' },
     ],
@@ -97,6 +114,12 @@ export type Service = {
   summary: string;
   metaTitle: string;
   metaDescription: string;
+  /**
+   * GEO quick answer. A direct, two-sentence definition of the service
+   * that an answer engine can lift verbatim: what the thing is, then what
+   * we do about it. Rendered as the first paragraph under the H1.
+   */
+  answer: string;
   intro: string;
   deliverables: string[];
   outcome: string;
@@ -115,6 +138,8 @@ export const SERVICES: Service[] = [
     metaTitle: 'Klaviyo Email Marketing Agency',
     metaDescription:
       'We build and manage Klaviyo email marketing for ecommerce brands: welcome, abandoned cart, post-purchase and winback flows, plus a weekly campaign calendar.',
+    answer:
+      'Klaviyo email marketing management means an agency runs your Klaviyo account end to end: flow strategy and build, a weekly campaign calendar, segmentation, testing and reporting against attributed revenue. Inferno Emails does this for ecommerce brands that have Klaviyo installed and are not getting much out of it.',
     intro:
       'Most stores have Klaviyo installed and three half-finished flows in it. The money is in the gap between installed and actually running. We take the account over, map every point where someone hesitates, and build a flow for each one, then keep a campaign calendar moving on top of it.',
     deliverables: [
@@ -153,6 +178,8 @@ export const SERVICES: Service[] = [
     metaTitle: 'Ecommerce Email Design Agency',
     metaDescription:
       'Custom email design for ecommerce brands. Every campaign and flow email is drawn from scratch in your brand, with no template packs. Built to render everywhere.',
+    answer:
+      'Ecommerce email design is the work of turning a brand\'s identity into campaign and flow emails that render correctly in every inbox. Inferno Emails designs every email from scratch for the brand it belongs to, with no template packs, and tests each one across Gmail, Apple Mail, Outlook and mobile clients.',
     intro:
       'A template with your logo dropped in the corner still looks like a template, and customers can tell. We design each email around the brand it belongs to: your type, your colour, your photography, your tone. The portfolio on this site is the whole argument. Look at the Girafon Bleu welcome email next to the Bondi Coffee one and you would not guess the same team made both.',
     deliverables: [
@@ -191,6 +218,8 @@ export const SERVICES: Service[] = [
     metaTitle: 'Email Deliverability Services',
     metaDescription:
       'Email deliverability for ecommerce brands: SPF, DKIM and DMARC setup, sender reputation repair, list hygiene and inbox placement monitoring.',
+    answer:
+      'Email deliverability is whether your emails reach the inbox rather than the spam folder or the promotions tab. Inferno Emails fixes it for ecommerce brands by configuring SPF, DKIM and DMARC, repairing sender reputation, cleaning the list and monitoring inbox placement.',
     intro:
       'Deliverability is the least glamorous part of email and the one that quietly decides whether any of the rest of it matters. If Gmail has decided you are promotional noise, your best campaign of the year lands in a tab nobody opens. We fix the technical foundation first, then keep it clean.',
     deliverables: [
@@ -229,6 +258,8 @@ export const SERVICES: Service[] = [
     metaTitle: 'Ecommerce Retention Marketing Agency',
     metaDescription:
       'Retention marketing for ecommerce brands: lifecycle mapping, post-purchase sequences, replenishment timing, VIP segmentation and winback sequences.',
+    answer:
+      'Retention marketing is the plan for earning a customer\'s second, third and fourth order instead of paying to acquire a new one. Inferno Emails builds it in email: lifecycle mapping, post-purchase and replenishment sequences, VIP segmentation and winback, reported on repeat rate and revenue per recipient.',
     intro:
       'Paid acquisition gets more expensive every year. The customers you already paid for are the cheapest revenue in your business, and most stores do almost nothing with them after the shipping confirmation. Retention strategy is the plan for that second, third and fourth purchase.',
     deliverables: [

@@ -1,0 +1,17 @@
+import {chromium} from '@playwright/test';
+const base=process.argv[2]||'http://localhost:3210';
+const browser=await chromium.launch({args:['--use-gl=swiftshader','--enable-webgl','--ignore-gpu-blocklist']});
+const page=await browser.newPage({viewport:{width:1440,height:900}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await page.goto(base,{waitUntil:'load'});await page.waitForTimeout(6000);
+const state=await page.evaluate(()=>Array.from(document.querySelectorAll('canvas.page-embers')).map(c=>({on:c.classList.contains('is-on'),w:c.width,h:c.height,aria:!!c.closest('[aria-hidden="true"]'),z:getComputedStyle(c).zIndex})));
+console.log('desktop canvases',JSON.stringify(state));
+console.log('errors',errors);
+await page.screenshot({path:'docs/screenshots/embers-hero.png',clip:{x:0,y:0,width:1440,height:900}});
+const mobile=await browser.newPage({viewport:{width:375,height:812}});await mobile.goto(base,{waitUntil:'load'});await mobile.waitForTimeout(3000);
+console.log('mobile canvases on',await mobile.evaluate(()=>Array.from(document.querySelectorAll('canvas.page-embers')).filter(c=>c.classList.contains('is-on')).length),'display',await mobile.evaluate(()=>getComputedStyle(document.querySelector('canvas.page-embers')).display));
+const reduced=await browser.newContext({reducedMotion:'reduce'});const rp=await reduced.newPage({viewport:{width:1440,height:900}});await rp.goto(base,{waitUntil:'load'});await rp.waitForTimeout(3000);
+console.log('reduced-motion canvases on',await rp.evaluate(()=>Array.from(document.querySelectorAll('canvas.page-embers')).filter(c=>c.classList.contains('is-on')).length));
+const work=await browser.newPage({viewport:{width:1440,height:900}});await work.goto(base+'/work',{waitUntil:'load'});await work.screenshot({path:'docs/screenshots/work-page.png',fullPage:false});
+console.log('work h2s',await work.locator('h2.work-entry-title').count());
+await browser.close();

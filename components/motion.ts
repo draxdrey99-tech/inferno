@@ -18,15 +18,7 @@ export function mountMotion() {
     gsap.ticker.add(tick);
     const sheets=gsap.utils.toArray<HTMLElement>('.hero-sheet');
     sheets.forEach((sheet,i)=>gsap.to(sheet,{y:-(i+1)*35,z:0,rotationZ:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1}}));
-    document.querySelectorAll<HTMLElement>('.proof-scene').forEach(scene=>{
-      const panel=scene.querySelector('.proof-panel');
-      const picture=scene.querySelector('.proof-picture');
-      const timeline=gsap.timeline({scrollTrigger:{trigger:scene,start:'top 100px',end:'+=380',pin:panel,scrub:.7,invalidateOnRefresh:true}});
-      timeline.fromTo(picture,{scale:.96},{scale:1,ease:'none'},0);
-      scene.querySelectorAll<HTMLElement>('.revenue-strip').forEach(strip=>{
-        timeline.fromTo(strip,{y:0,yPercent:0},{y:0,yPercent:-Number(strip.dataset.digit)*10,duration:1,ease:'none'},0);
-      });
-    });
+    // Proof amounts play a one-shot reel on entry (see revenue-reels.ts); no pin, no scrub.
     // Native horizontal rail remains scrollable. The scrub is only a small
     // image-scale handoff, so keyboard focus and scroll position never disagree.
     gsap.utils.toArray<HTMLElement>('.work-rail .viewport img').forEach(img=>gsap.fromTo(img,{scale:1.035},{scale:1,ease:'none',scrollTrigger:{trigger:'#work',start:'top bottom',end:'top 20%',scrub:true}}));

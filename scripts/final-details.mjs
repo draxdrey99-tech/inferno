@@ -7,7 +7,7 @@ const routes=['/','/blog','/privacy','/terms','/services',...['klaviyo-email-mar
 for(const route of routes){
  const imagePath=route==='/'?'/opengraph-image':route+'/opengraph-image';const res=await fetch(base+imagePath);const bytes=Buffer.from(await res.arrayBuffer());const size=await sharp(bytes).metadata();results.push({check:imagePath,pass:res.ok&&size.width===1200&&size.height===630});
 }
-for(const [route,target] of [['/home','/'],['/work','/#work'],['/our-work','/#work'],['/portfolio','/#work'],['/about','/#about'],['/contact','/#contact'],['/contact-us','/#contact'],['/free-email-audit','/#contact'],['/audit','/#contact'],['/services/unknown-service','/#services'],['/infernomedia/old','/']]){
+for(const [route,target] of [['/home','/'],['/our-work','/work'],['/portfolio','/work'],['/about','/#about'],['/contact','/#contact'],['/contact-us','/#contact'],['/free-email-audit','/#contact'],['/audit','/#contact'],['/services/unknown-service','/#services'],['/infernomedia/old','/']]){
  const res=await fetch(base+route,{redirect:'manual'});results.push({check:route,pass:res.status===308&&res.headers.get('location')===target,status:res.status,location:res.headers.get('location')});
 }
 const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:900}});await page.goto(base);await page.waitForTimeout(1000);

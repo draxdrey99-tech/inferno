@@ -902,13 +902,13 @@
   {
     "label": "welcome-flow-a.client",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Ecommerce client"
   },
   {
     "label": "welcome-flow-a.title",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Welcome flow email"
   },
   {
@@ -920,25 +920,25 @@
   {
     "label": "welcome-flow-a.note",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "First touch after sign-up, built to earn the second open."
   },
   {
     "label": "welcome-flow-a.image",
     "kind": "asset",
-    "pass": true,
+    "pass": false,
     "expected": "/images/work-welcome-a.png"
   },
   {
     "label": "welcome-flow-b.client",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Ecommerce client"
   },
   {
     "label": "welcome-flow-b.title",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Welcome flow email"
   },
   {
@@ -950,25 +950,25 @@
   {
     "label": "welcome-flow-b.note",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Range overview for a catalogue that needed explaining."
   },
   {
     "label": "welcome-flow-b.image",
     "kind": "asset",
-    "pass": true,
+    "pass": false,
     "expected": "/images/work-welcome-b.png"
   },
   {
     "label": "browse-abandonment.client",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Ecommerce client"
   },
   {
     "label": "browse-abandonment.title",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Browse abandonment"
   },
   {
@@ -980,13 +980,13 @@
   {
     "label": "browse-abandonment.note",
     "kind": "copy",
-    "pass": true,
+    "pass": false,
     "expected": "Caught mid-consideration, without the desperate discount."
   },
   {
     "label": "browse-abandonment.image",
     "kind": "asset",
-    "pass": true,
+    "pass": false,
     "expected": "/images/work-web.png"
   },
   {
@@ -1202,16 +1202,16 @@
   {
     "label": "work-web.png",
     "kind": "original asset retained",
-    "pass": true
+    "pass": false
   },
   {
     "label": "work-welcome-a.png",
     "kind": "original asset retained",
-    "pass": true
+    "pass": false
   },
   {
     "label": "work-welcome-b.png",
     "kind": "original asset retained",
-    "pass": true
+    "pass": false
   }
 ]

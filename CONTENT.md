@@ -9,6 +9,10 @@ how much they matter.
 
 ---
 
+## 0. The domain is not serving
+
+On 10 September 2026 `infernoemails.com` returned HTTP 522 from Cloudflare on every page. DNS points at Cloudflare, not Vercel, and no Vercel project is linked to this repo. Section 1 of `docs/SEO-GEO-ROADMAP.md` has the exact steps. Everything else in this file is secondary to that.
+
 ## 1. Things I had to guess — check these before launch
 
 These are live on the site right now and may be wrong.

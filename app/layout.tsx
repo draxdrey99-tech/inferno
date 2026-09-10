@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import RevealObserver from '@/components/RevealObserver';
 import HideOnAdmin from '@/components/HideOnAdmin';
+import PageEmbers from '@/components/PageEmbers';
 import { orgGraph } from '@/lib/seo';
 import { SITE, SITE_URL } from '@/lib/site';
 
@@ -69,6 +70,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <JsonLd data={orgGraph()} />
+        <PageEmbers />
         <HideOnAdmin>
           <Nav />
         </HideOnAdmin>

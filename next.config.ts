@@ -34,9 +34,10 @@ const nextConfig: NextConfig = {
       // Service URLs are indexable pages again. Unknown slugs retain the
       // previous /#services destination before rendering the service page.
       { source: '/services/:path((?!(?:klaviyo-email-marketing|email-design|email-deliverability|retention-strategy|email-flows|opengraph-image)(?:/|$)).*)', destination: '/#services', permanent: true },
-      { source: '/work', destination: '/#work', permanent: true },
-      { source: '/our-work', destination: '/#work', permanent: true },
-      { source: '/portfolio', destination: '/#work', permanent: true },
+      // /work is an indexable portfolio page again (September 2026). The
+      // older aliases follow it rather than the home-page anchor.
+      { source: '/our-work', destination: '/work', permanent: true },
+      { source: '/portfolio', destination: '/work', permanent: true },
       { source: '/about', destination: '/#about', permanent: true },
       { source: '/contact', destination: '/#contact', permanent: true },
       { source: '/contact-us', destination: '/#contact', permanent: true },

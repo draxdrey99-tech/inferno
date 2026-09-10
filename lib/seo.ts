@@ -116,6 +116,14 @@ export function orgGraph() {
         },
         image: { '@id': `${SITE_URL}/#logo` },
         sameAs: [SITE.instagram, SITE.linkedin],
+        slogan: SITE.tagline,
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          email: SITE.email,
+          url: `${SITE_URL}/#contact`,
+          availableLanguage: 'en',
+        },
         areaServed: 'Worldwide',
         knowsAbout: [
           'Email marketing',
@@ -183,6 +191,47 @@ export function serviceLd(input: {
     provider: { '@id': `${SITE_URL}/#organization` },
     areaServed: 'Worldwide',
     url: `${SITE_URL}${input.path}`,
+  };
+}
+
+/**
+ * Portfolio as an ItemList of ImageObjects. Gives image search and answer
+ * engines a name, description and creator for every email design instead
+ * of an anonymous grid of PNGs.
+ */
+export function workGalleryLd(
+  items: readonly {
+    slug: string;
+    client: string;
+    title: string;
+    type: string;
+    image: string;
+    alt: string;
+    note: string;
+  }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${SITE_URL}/work#gallery`,
+    name: 'Ecommerce email design examples by Inferno Emails',
+    url: `${SITE_URL}/work`,
+    numberOfItems: items.length,
+    itemListElement: items.map((w, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'ImageObject',
+        '@id': `${SITE_URL}/work#${w.slug}`,
+        name: `${w.client}: ${w.title}`,
+        description: w.note,
+        caption: w.alt,
+        contentUrl: `${SITE_URL}${w.image}`,
+        genre: w.type,
+        creator: { '@id': `${SITE_URL}/#organization` },
+        copyrightHolder: { '@type': 'Organization', name: w.client },
+      },
+    })),
   };
 }
 
