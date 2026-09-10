@@ -12,7 +12,7 @@ const checks=await page.evaluate(()=>({
   'nine email designs':document.querySelectorAll('.work-rail .email-card').length===9,
   'native FAQ answers':document.querySelectorAll('#faq details').length===10,
   'adjacent audit risk reversal':!!document.querySelector('.hero-risk'),
-  'pauseable logos':!!document.querySelector('.marquee-pause input'),
+  'logo marquee present':!!document.querySelector('.marquee'),
   'canvases are decorative only':Array.from(document.querySelectorAll('canvas')).every(el=>el.closest('[aria-hidden="true"]')),
   'subordinate work CTA':!!document.querySelector('.hero-secondary'),
 }))

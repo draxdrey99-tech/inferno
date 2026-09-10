@@ -11,7 +11,7 @@ import { SITE, WORK, PROOF } from '@/lib/site';
  * with one phrase rendered as an LED dot grid and two groups framed in
  * hairline HUD boxes.
  */
-const kicker = 'Klaviyo email marketing agency for ecommerce brands';
+const kicker = 'Email marketing agency for ecommerce brands';
 const headline = 'The cheapest revenue is already on your list.';
 
 /* Word groups: which words share a hairline box, and which carry the LED
@@ -258,9 +258,6 @@ export default function Hero() {
       </div>
 
       <div className="ticker mt-8" role="region" aria-label="Capabilities" tabIndex={0}>
-        <label className="ticker-pause">
-          <input type="checkbox" /> Pause
-        </label>
         <div className="ticker-track">
           <TickerRow />
           <TickerRow hidden />

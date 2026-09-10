@@ -61,7 +61,7 @@ Applied, built, and verified locally (SEO crawl: 0 failures, 0 warnings across 1
 
 **Search and answer-engine surface**
 
-- The home page H1 now carries the commercial keyword as a small first line ("Klaviyo email marketing agency for ecommerce brands") above the positioning headline. Previously the H1 contained no keyword at all.
+- The home page H1 now carries the commercial keyword as a small first line ("Email marketing agency for ecommerce brands") above the positioning headline. Previously the H1 contained no keyword at all.
 - Every service page opens with a two-sentence direct answer under the H1: what the service is, then what Inferno does. This is the paragraph an answer engine extracts. The narrative intro follows it.
 - The home services section opens with the one-paragraph "what is Inferno Emails" answer.
 - `/work` is an indexable page again, targeting "ecommerce email design examples", with all nine emails, an H2 per email, a "part of" link to the matching service page, four FAQs and `ItemList` plus `ImageObject` structured data. `/our-work` and `/portfolio` now redirect to it. The home page still keeps its work rail and links to the full page.

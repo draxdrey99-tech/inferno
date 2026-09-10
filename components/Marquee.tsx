@@ -41,9 +41,6 @@ export default function Marquee() {
       tabIndex={0}
     >
       <p className="marquee-label mono-label mono-label-dot">Trusted by</p>
-      <label className="marquee-pause">
-        <input type="checkbox" /> Pause logos
-      </label>
       <div className="marquee">
         {row(false)}
         {row(true)}

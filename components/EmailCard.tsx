@@ -41,9 +41,6 @@ export default function EmailCard({
         </div>
         <p className="mono-label mt-1">{item.title}</p>
         <p className="mt-3 text-sm leading-relaxed text-mute">{item.note}</p>
-        <a href={item.image} target="_blank" rel="noopener noreferrer" className="btn-line mt-4">
-          Open full email<span className="sr-only">: {item.client}, {item.title}</span>
-        </a>
       </figcaption>
     </figure>
   );

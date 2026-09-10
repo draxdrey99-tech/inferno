@@ -19,9 +19,7 @@ export function mountMotion() {
     const sheets=gsap.utils.toArray<HTMLElement>('.hero-sheet');
     sheets.forEach((sheet,i)=>gsap.to(sheet,{y:-(i+1)*35,z:0,rotationZ:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1}}));
     // Proof amounts play a one-shot reel on entry (see revenue-reels.ts); no pin, no scrub.
-    // Native horizontal rail remains scrollable. The scrub is only a small
-    // image-scale handoff, so keyboard focus and scroll position never disagree.
-    gsap.utils.toArray<HTMLElement>('.work-rail .viewport img').forEach(img=>gsap.fromTo(img,{scale:1.035},{scale:1,ease:'none',scrollTrigger:{trigger:'#work',start:'top bottom',end:'top 20%',scrub:true}}));
+    // Work rail: the CSS hover pan owns the image transform; no scroll scrub here.
     return ()=>{gsap.ticker.remove(tick);lenis.destroy();};
   });
   if(matchMedia('(pointer:fine) and (prefers-reduced-motion:no-preference)').matches){

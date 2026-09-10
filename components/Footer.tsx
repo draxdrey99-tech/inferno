@@ -60,11 +60,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-statement" aria-hidden="true">
-          <div className="footer-block" />
-          <p className="footer-wordmark">Inferno Emails</p>
-        </div>
-
         <div className="footer-legal">
           <p>
             © {year} {SITE.name}. All rights reserved.
