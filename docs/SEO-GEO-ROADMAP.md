@@ -14,6 +14,10 @@ The playbook's first rule is to live-fetch every page before saying anything abo
 - No Google Search Console, Bing Webmaster, analytics or keyword tool access was available in this session. There are therefore **no impressions, clicks, positions or search-volume figures anywhere in this document**. Page buckets and keyword tiers are based on ICP fit and the codebase, not on performance data. Once Search Console has 30 days of data, redo the bucketing with real numbers.
 - Every page was read from source and from a local production build (`next build` and `next start`) rather than from the live domain, because the live domain was not serving.
 
+## Status update, 10 September 2026, afternoon
+
+The domain is live. DNS moved to Vercel (team inferno14, project inferno, Git-connected to main, so every push to main deploys production). The first attempt looped because Vercel had the apex redirecting to www while the code redirects www to the apex; the apex is now primary and www redirects to it with a 308. Live checks: SEO crawl 0 failures across 11 sitemap URLs, GPTBot gets 200, llms.txt serves, Lighthouse mobile 96/100/100/100 (LCP 2.63s) and desktop 100 across the board. Section 1.1 below is therefore done; 1.2 (Search Console, Bing, analytics, Business Profile) and 1.3 (trust items) remain.
+
 ## 1. Urgent: get the domain serving, then fix the trust items
 
 These are separated from ordinary SEO work because they carry business risk beyond rankings.
