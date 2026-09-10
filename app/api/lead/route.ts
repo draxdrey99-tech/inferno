@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db, dbConfigured } from '@/lib/db';
+import { notifyLead } from '@/lib/notify';
 
 export const runtime = 'nodejs';
 
@@ -54,6 +55,9 @@ export async function POST(req: Request) {
       VALUES (${name}, ${email}, ${company}, ${website}, ${phone}, ${message}, ${source},
               ${clip(req.headers.get('user-agent'), 400)})
     `;
+    // The lead is saved. Tell the team, but never let a mail problem turn a
+    // stored lead into an error on screen.
+    await notifyLead({ name, email, company, website, phone, message, source });
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error('[lead] insert failed', err);
