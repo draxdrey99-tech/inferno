@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight } from '@phosphor-icons/react';
 import { NAV, NAV_SECTIONS, SITE } from '@/lib/site';
 import Wordmark from './Wordmark';
 
@@ -12,7 +11,11 @@ export default function Nav() {
   return <Navigation key={pathname} pathname={pathname} />;
 }
 
-function Navigation({pathname}:{pathname:string}) {
+/**
+ * A floating, centred instrument bar rather than a full-width header: dark,
+ * hairline, blurred. On phones the menu drops out of the same bar.
+ */
+function Navigation({ pathname }: { pathname: string }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [section, setSection] = useState('');
@@ -37,7 +40,7 @@ function Navigation({pathname}:{pathname:string}) {
 
   /**
    * Scroll-spy for the single-page nav. The root margin pins the detection
-   * line just under the fixed header, so a section counts as current from
+   * line just under the fixed bar, so a section counts as current from
    * the moment its top clears the bar until the next one reaches it.
    */
   useEffect(() => {
@@ -81,48 +84,41 @@ function Navigation({pathname}:{pathname:string}) {
     <>
       <div ref={sentinel} aria-hidden className="absolute top-0 h-px w-full" />
 
-      <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled || open
-            ? 'border-b border-white/10 bg-ink/80 shadow-[0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl'
-            : 'border-b border-transparent'
-        }`}
-      >
-        <nav className="shell flex h-[4.25rem] items-center justify-between gap-6 md:h-[4.5rem]">
+      <header className="site-header fixed inset-x-0 top-0 z-50">
+        <nav className="site-nav" data-scrolled={scrolled || open ? 'true' : 'false'}>
           <Wordmark priority />
 
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="site-nav-links">
             {NAV.map((item) => {
               const active = isActive(item.href);
               return (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    aria-current={active ? 'page' : undefined}
-                    className={`relative text-[0.9375rem] transition-colors ${
-                      active ? 'text-bone' : 'text-mute hover:text-bone'
-                    }`}
-                  >
+                  <Link href={item.href} aria-current={active ? 'page' : undefined}>
                     {item.label}
-                    {active && (
-                      <span className="absolute -bottom-1.5 left-0 h-px w-full bg-flame shadow-[0_0_8px_rgba(245,23,23,0.85)]" />
-                    )}
                   </Link>
                 </li>
               );
             })}
           </ul>
 
-          <div className="flex items-center gap-3">
-            {scrolled && <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-flame mobile-audit">Book your free audit</a>}
+          <div className="flex items-center gap-2">
+            {scrolled && (
+              <a
+                href={SITE.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-flame mobile-audit"
+              >
+                Book your free audit
+              </a>
+            )}
             <a
               href={SITE.calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-flame hidden px-5 py-2.5 md:inline-flex"
+              className="btn btn-flame site-nav-desktop-cta"
             >
               Book your free audit
-              <ArrowRight size={15} weight="bold" className="arr" aria-hidden />
             </a>
 
             <button
@@ -131,50 +127,34 @@ function Navigation({pathname}:{pathname:string}) {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? 'Close menu' : 'Open menu'}
-              className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
+              className="site-nav-menu"
             >
-              <span
-                className={`h-px w-5 bg-bone transition-transform duration-300 ${
-                  open ? 'translate-y-[3px] rotate-45' : ''
-                }`}
-              />
-              <span
-                className={`h-px w-5 bg-bone transition-transform duration-300 ${
-                  open ? '-translate-y-[3px] -rotate-45' : ''
-                }`}
-              />
+              <span />
+              <span />
             </button>
           </div>
         </nav>
 
-        <div
-          id="mobile-nav"
-          hidden={!open}
-          className="border-t border-white/8 bg-ink md:hidden"
-        >
-          <ul className="shell flex flex-col py-2">
-            {NAV.map((item) => (
-              <li key={item.href} className="border-b border-white/6 last:border-0">
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-4 font-display text-2xl tracking-tight text-bone"
-                >
+        <div id="mobile-nav" hidden={!open} className="mobile-nav md:hidden">
+          <ul>
+            {NAV.map((item, i) => (
+              <li key={item.href}>
+                <Link href={item.href} onClick={() => setOpen(false)}>
                   {item.label}
+                  <span aria-hidden="true">.0{i + 1}.</span>
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="shell pb-7 pt-3">
+          <div className="mobile-nav-foot">
             <a
               href={SITE.calendly}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="btn btn-flame w-full"
+              className="btn btn-flame"
             >
               Book your free audit
-              <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
             </a>
           </div>
         </div>

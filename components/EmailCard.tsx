@@ -8,7 +8,8 @@ import type { WorkItem } from '@/lib/site';
  * The motion is there to make the artefact readable, not for decoration.
  *
  * Nothing is overlaid on the image itself: the label lives in the caption
- * underneath, where it does not sit on top of the client's work.
+ * underneath, set as a mono ledger line, where it does not sit on top of
+ * the client's work.
  */
 export default function EmailCard({
   item,
@@ -18,7 +19,7 @@ export default function EmailCard({
   priority?: boolean;
 }) {
   return (
-    <figure className="email-card group" tabIndex={0}>
+    <figure className="email-card panel-corners group" tabIndex={0}>
       <div className="viewport">
         <Image
           src={item.image}
@@ -31,18 +32,18 @@ export default function EmailCard({
         />
       </div>
 
-      <figcaption className="border-t border-white/10 px-5 py-4">
+      <figcaption className="px-5 py-4">
         <div className="flex items-baseline justify-between gap-3">
-          <p className="font-display text-lg tracking-tight text-bone">
+          <p className="font-display text-lg font-medium tracking-tight text-bone">
             {item.client}
           </p>
-          <span className="shrink-0 text-[0.6875rem] font-medium uppercase tracking-[0.09em] text-flame/80">
-            {item.type}
-          </span>
+          <span className="mono-label mono-label-red shrink-0">{item.type}</span>
         </div>
-        <p className="mt-0.5 text-[0.8125rem] text-mute">{item.title}</p>
+        <p className="mono-label mt-1">{item.title}</p>
         <p className="mt-3 text-sm leading-relaxed text-mute">{item.note}</p>
-        <a href={item.image} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm underline underline-offset-4">Open full email<span className="sr-only">: {item.client}, {item.title}</span></a>
+        <a href={item.image} target="_blank" rel="noopener noreferrer" className="btn-line mt-4">
+          Open full email<span className="sr-only">: {item.client}, {item.title}</span>
+        </a>
       </figcaption>
     </figure>
   );

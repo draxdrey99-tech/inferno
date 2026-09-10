@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 import { SITE } from '@/lib/site';
 
 /**
- * Closing conversion band, repeated at the foot of the site and the blog.
- * One label per intent across the whole site: the audit is always
- * "Book your free audit" and always goes to Calendly; the secondary is
- * always the contact form, which lives in the #contact section.
+ * Closing conversion band: a red-to-charcoal gradient panel behind a
+ * centred CTA. One label per intent across the whole site: the audit is
+ * always "Book your free audit" and always goes to Calendly; the secondary
+ * is always the contact form, which lives in the #contact section.
  */
 export default function CtaBand({
   title,
@@ -16,10 +15,11 @@ export default function CtaBand({
   body?: string;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-ink-raised">
+    <section className="relative isolate overflow-hidden">
       <div className="shell py-20 md:py-28">
-        <div className="reveal max-w-3xl">
-          <h2 className="display-lg">
+        <div className="start-box cta-gradient panel-corners reveal">
+          <div className="rule-dots w-full max-w-xs" aria-hidden="true" />
+          <h2 className="display-lg max-w-3xl">
             {title ?? (
               <>
                 Find out what your list is{' '}
@@ -27,11 +27,11 @@ export default function CtaBand({
               </>
             )}
           </h2>
-          <p className="lede mt-5">
+          <p className="lede mx-auto">
             {body ??
               'We review your flows, list health, authentication records and last ninety days of performance, then send back what we found.'}
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             <a
               href={SITE.calendly}
               target="_blank"
@@ -39,13 +39,12 @@ export default function CtaBand({
               className="btn btn-flame"
             >
               Book your free audit
-              <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
             </a>
-            <Link href="/#contact" className="btn btn-ghost">
+            <Link href="/#contact" className="btn-line">
               Send a message instead
             </Link>
           </div>
-          <p className="mt-4 text-[0.8125rem] text-mute">
+          <p className="start-note">
             30 minutes, no obligation, and the findings are yours to keep either way.
           </p>
         </div>

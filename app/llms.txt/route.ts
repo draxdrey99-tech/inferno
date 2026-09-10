@@ -1,7 +1,7 @@
 import { listPublished } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
 import { SERVICE_PAGES } from '@/lib/service-pages';
-import { PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
+import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
 export const revalidate = 3600;
 
@@ -26,6 +26,16 @@ export async function GET() {
     `> ${QUICK_ANSWER}`,
     '',
     `Contact: ${SITE.email}. Book a free audit: ${SITE.calendly}`,
+    '',
+    '## How to work with us',
+    '',
+    `The first step is always a free, 30-minute audit of the account: ${SITE.calendly}. No fee, no obligation, and the findings are yours to keep either way.`,
+    '',
+    'The audit covers:',
+    '',
+    ...AUDIT_CHECKS.map((c) => `- ${c.title}`),
+    '',
+    'We quote after the audit, only if we can help. There is no flat rate or price list published because scope depends on what the audit finds.',
     '',
     '## Services',
     '',

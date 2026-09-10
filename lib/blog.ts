@@ -258,7 +258,7 @@ export function normalizePostInput(body: Record<string, unknown> = {}) {
 export function authorNode(name?: string) {
   const n = (name || '').trim();
   if (!n || n === SITE.name) {
-    return { '@type': 'Organization', name: SITE.name, url: SITE_URL };
+    return { '@type': 'Organization', name: SITE.name, url: `${SITE_URL}/#about` };
   }
   return { '@type': 'Person', name: n };
 }
@@ -282,6 +282,7 @@ export function articleJsonLd(post: Post) {
       dateModified: post.updated_at || post.published_at,
       wordCount: stripTags(post.content_html).split(/\s+/).filter(Boolean).length,
       keywords: post.tags?.join(', ') || undefined,
+      articleSection: post.tags?.[0] || undefined,
       author: authorNode(post.author),
       publisher: { '@id': `${SITE_URL}/#organization` },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },

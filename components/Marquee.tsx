@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { CLIENTS } from '@/lib/site';
 
 /**
- * Client logo marquee. The list is rendered twice so the CSS translate of
+ * Client logo strip. The list is rendered twice so the CSS translate of
  * -50% loops seamlessly; the duplicate is hidden from assistive tech.
+ * Pausable by the checkbox, by hover and by focus.
  */
 export default function Marquee() {
   const row = (dup: boolean) => (
@@ -22,7 +23,7 @@ export default function Marquee() {
               alt={dup ? '' : c.name}
               width={c.width}
               height={c.height}
-              className={`w-auto max-w-full object-contain opacity-60 brightness-0 invert transition-opacity duration-500 hover:opacity-100 ${
+              className={`w-auto max-w-full object-contain opacity-55 brightness-0 invert transition-opacity duration-500 hover:opacity-100 ${
                 squarish ? 'h-12 md:h-14' : 'h-9 md:h-11'
               }`}
             />
@@ -33,8 +34,16 @@ export default function Marquee() {
   );
 
   return (
-    <div className="marquee-wrap relative overflow-hidden py-8 md:py-10" role="region" aria-label="Client logos" tabIndex={0}>
-      <label className="marquee-pause"><input type="checkbox" /> Pause logos</label>
+    <div
+      className="marquee-wrap relative overflow-hidden border-y border-[#2a2a2a] py-10 md:py-12"
+      role="region"
+      aria-label="Client logos"
+      tabIndex={0}
+    >
+      <p className="marquee-label mono-label mono-label-dot">Trusted by</p>
+      <label className="marquee-pause">
+        <input type="checkbox" /> Pause logos
+      </label>
       <div className="marquee">
         {row(false)}
         {row(true)}

@@ -51,7 +51,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
     return (
       <div
         role="status"
-        className="card rounded-xl border-flame/30 p-8 md:p-10"
+        className="card border-flame/30 p-8 md:p-10"
       >
         <p className="eyebrow">Received</p>
         <h3 className="display-md mt-5">That’s all we need.</h3>
@@ -92,10 +92,10 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
           <div key={f.name}>
             <label
               htmlFor={f.name}
-              className="block text-[0.875rem] text-mute"
+              className="mono-label"
             >
               {f.label}
-              {f.required && <span className="ml-1 text-flame">*</span>}
+              {f.required && <span className="text-flame">*</span>}
             </label>
             <input
               id={f.name}
@@ -113,7 +113,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
       <div>
         <label
           htmlFor="message"
-          className="block text-[0.875rem] text-mute"
+          className="mono-label"
         >
           What’s the main problem right now?
         </label>
@@ -136,7 +136,7 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="btn btn-flame disabled:opacity-60"
+          className="btn btn-solid disabled:opacity-60"
         >
           {status === 'sending' ? 'Sending…' : 'Send my details'}
           {status !== 'sending' && (

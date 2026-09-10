@@ -142,6 +142,10 @@ export function orgGraph() {
         description: SITE.description,
         publisher: { '@id': `${SITE_URL}/#organization` },
         inLanguage: 'en',
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['#answer', 'h1'],
+        },
       },
     ],
   };

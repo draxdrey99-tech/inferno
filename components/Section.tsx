@@ -6,6 +6,10 @@
  * page read as templated, so the budget is one per three sections and most
  * sections open on the headline alone.
  *
+ * Uses the same `.section-head` rhythm (a vertical gap, no manual margins)
+ * as the home page's section openers, so this header reads as part of the
+ * same system rather than a one-off.
+ *
  * `as` defaults to h2. Pass `as="h1"` when this is the page heading.
  */
 export default function SectionHead({
@@ -22,12 +26,10 @@ export default function SectionHead({
   className?: string;
 }) {
   return (
-    <div className={`reveal ${className}`}>
+    <div className={`reveal section-head ${className}`}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-      <Heading className={`display-lg max-w-4xl ${eyebrow ? 'mt-6' : ''}`}>
-        {title}
-      </Heading>
-      {lede && <p className="lede mt-5">{lede}</p>}
+      <Heading className="display-lg max-w-4xl">{title}</Heading>
+      {lede && <p className="lede">{lede}</p>}
     </div>
   );
 }

@@ -33,7 +33,11 @@ export const metadata: Metadata = {
   authors: [{ name: SITE.name, url: SITE_URL }],
   creator: SITE.name,
   publisher: SITE.name,
-  alternates: { canonical: '/' },
+  category: 'Marketing',
+  alternates: {
+    canonical: '/',
+    types: { 'application/rss+xml': '/rss.xml' },
+  },
   robots: {
     index: true,
     follow: true,

@@ -65,8 +65,13 @@ export default function WorkPage() {
           <span>/</span>
           <span>Work</span>
         </nav>
-        <h1 id="work-title" className="display-xl max-w-4xl">
-          Ecommerce email design examples, shown in full.
+
+        <p className="section-meta" aria-hidden="true">
+          <span className="section-index">.01.</span>
+          <span className="mono-label">Portfolio</span>
+        </p>
+        <h1 id="work-title" className="display-xl mt-5 max-w-4xl">
+          Ecommerce email design examples, shown in <span className="hud-box">full.</span>
         </h1>
         <p className="lede mt-7 max-w-3xl">{ANSWER}</p>
         <p className="mt-4 max-w-3xl text-[0.9375rem] leading-relaxed text-mute">
@@ -97,14 +102,22 @@ export default function WorkPage() {
       </section>
 
       <section className="shell section-space border-t" aria-labelledby="work-faq">
-        <h2 id="work-faq" className="display-lg mb-10">
+        <p className="section-meta" aria-hidden="true">
+          <span className="section-index">.02.</span>
+          <span className="mono-label">FAQ</span>
+        </p>
+        <h2 id="work-faq" className="display-lg mt-5 mb-10">
           Questions about the work.
         </h2>
         <Faq items={WORK_FAQS} />
       </section>
 
       <section className="shell section-space border-t" aria-labelledby="work-related">
-        <h2 id="work-related" className="display-md">
+        <p className="section-meta" aria-hidden="true">
+          <span className="section-index">.03.</span>
+          <span className="mono-label">Keep reading</span>
+        </p>
+        <h2 id="work-related" className="display-md mt-5">
           Where the emails come from.
         </h2>
         <div className="related-links">

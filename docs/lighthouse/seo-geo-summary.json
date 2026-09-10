@@ -3,14 +3,14 @@
     "phase": "seo-geo",
     "mode": "mobile",
     "scores": {
-      "performance": 99,
+      "performance": 96,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": 2254.628875,
+    "lcp": 2762.425,
     "cls": 0,
-    "tbt": 7.5
+    "tbt": 3
   },
   {
     "phase": "seo-geo",
@@ -21,7 +21,7 @@
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": 620.8074999999999,
+    "lcp": 641.39075,
     "cls": 0,
     "tbt": 0
   }

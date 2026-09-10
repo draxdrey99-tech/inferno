@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 
 export const metadata: Metadata = {
   title: 'Page not found',
@@ -9,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="">
+    <section>
       <div className="shell grid min-h-[70dvh] place-items-center py-32">
-        <div className="max-w-xl text-center">
-          <p className="eyebrow justify-center">404</p>
+        <div className="panel panel-grid panel-corners max-w-xl px-8 py-14 text-center md:px-14">
+          <p className="mono-label mono-label-dot notfound-index">Error 404</p>
           <h1 className="display-lg mt-6">
             This one <span className="accent">bounced.</span>
           </h1>
@@ -20,12 +19,11 @@ export default function NotFound() {
             The page you asked for is not here. It may have moved when we
             rebuilt the site.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             <Link href="/" className="btn btn-flame">
               Back to home
-              <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
             </Link>
-            <Link href="/blog" className="btn btn-ghost">
+            <Link href="/blog" className="btn-line">
               Read the blog
             </Link>
           </div>

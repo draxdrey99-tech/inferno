@@ -89,6 +89,15 @@ function formatDate(value: string | null) {
   });
 }
 
+/** Splits the post title so the last word can sit in a `.hud-box`, the
+ * same treatment the home page gives one boxed phrase per headline, without
+ * touching the title text itself (the words still concatenate identically). */
+function splitTitle(title: string) {
+  const words = title.trim().split(' ');
+  const last = words.pop() ?? title;
+  return { lead: words.join(' '), last };
+}
+
 export default async function BlogPost({
   params,
 }: {
@@ -104,6 +113,7 @@ export default async function BlogPost({
   const related = await relatedPosts(post, 3).catch(() => []);
   // Every post links back to the commercial page(s) its topic belongs to.
   const services = relatedServicesFor([post.title, ...(post.tags || [])].join(' '));
+  const { lead: titleLead, last: titleLast } = splitTitle(post.title);
 
   return (
     <>
@@ -113,42 +123,43 @@ export default async function BlogPost({
 
       <article>
         {/* ------------------------------------------------------ header */}
-        <header className="border-b border-white/8 pt-24">
+        <header className="section-rule panel-grid pt-24">
           <div className="shell pb-14 md:pb-16">
-            <nav aria-label="Breadcrumb" className="mb-9">
-              <ol className="flex flex-wrap items-center gap-2 text-[0.75rem] uppercase tracking-[0.14em] text-mute">
-                <li><Link href="/" className="hover:text-bone">Home</Link></li>
-                <li aria-hidden="true">/</li>
-                <li><Link href="/blog" className="hover:text-bone">Blog</Link></li>
-              </ol>
+            <nav aria-label="Breadcrumb" className="breadcrumb">
+              <Link href="/">Home</Link>
+              <span>/</span>
+              <Link href="/blog">Blog</Link>
             </nav>
 
             {post.tags?.[0] && (
-              <p className="text-[0.875rem] text-flame">{post.tags[0]}</p>
+              <p className="mono-label mono-label-red mt-9">{post.tags[0]}</p>
             )}
 
-            <h1 className="display-lg mt-6 max-w-4xl">{post.title}</h1>
+            <h1 className="display-lg mt-6 max-w-4xl">
+              {titleLead && `${titleLead} `}
+              <span className="hud-box">{titleLast}</span>
+            </h1>
 
             {post.excerpt && (
               <p className="lede mt-7 max-w-2xl">{post.excerpt}</p>
             )}
 
-            <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.8125rem] uppercase tracking-[0.14em] text-mute">
-              <span>By {post.author || SITE.name}</span>
+            <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <span className="mono-label">By {post.author || SITE.name}</span>
               <span aria-hidden="true" className="text-flame">·</span>
-              <time dateTime={post.published_at ?? undefined}>
+              <time className="mono-label" dateTime={post.published_at ?? undefined}>
                 Published {formatDate(post.published_at)}
               </time>
               {post.updated_at && post.published_at && formatDate(post.updated_at) !== formatDate(post.published_at) && (
                 <>
                   <span aria-hidden="true" className="text-flame">·</span>
-                  <time dateTime={post.updated_at}>
+                  <time className="mono-label" dateTime={post.updated_at}>
                     Updated {formatDate(post.updated_at)}
                   </time>
                 </>
               )}
               <span aria-hidden="true" className="text-flame">·</span>
-              <span>{post.reading_minutes} min read</span>
+              <span className="mono-label">{post.reading_minutes} min read</span>
             </div>
           </div>
         </header>
@@ -162,7 +173,7 @@ export default async function BlogPost({
               height={900}
               priority
               sizes="(max-width: 1200px) 92vw, 1200px"
-              className="w-full rounded-xl border border-white/10 object-cover"
+              className="w-full border border-[#2a2a2a] object-cover"
             />
           </div>
         )}
@@ -171,9 +182,9 @@ export default async function BlogPost({
         <div className="shell grid gap-14 py-12 md:py-16 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16">
           {toc.length > 2 ? (
             <aside className="lg:sticky lg:top-28 lg:self-start">
-              <p className="eyebrow">On this page</p>
+              <p className="mono-label mono-label-dot">On this page</p>
               <nav aria-label="Table of contents" className="mt-5">
-                <ul className="space-y-3 border-l border-white/10 pl-4">
+                <ul className="space-y-3 border-l border-[#2a2a2a] pl-4">
                   {toc.map((h) => (
                     <li key={h.id}>
                       <a
@@ -205,7 +216,7 @@ export default async function BlogPost({
             )}
 
             <aside className="post-services mt-14 max-w-[68ch]" aria-labelledby="post-services-title">
-              <p id="post-services-title" className="eyebrow">Related services</p>
+              <p id="post-services-title" className="mono-label mono-label-dot">Related services</p>
               <ul>
                 {services.map((s) => (
                   <li key={s.slug}>
@@ -223,11 +234,11 @@ export default async function BlogPost({
             </nav>
 
             {post.tags?.length > 0 && (
-              <ul className="mt-14 flex max-w-[68ch] flex-wrap gap-2 border-t border-white/9 pt-8">
+              <ul className="mt-14 flex max-w-[68ch] flex-wrap gap-2 border-t border-[#2a2a2a] pt-8">
                 {post.tags.map((t) => (
                   <li
                     key={t}
-                    className="rounded-full border border-white/12 px-3.5 py-1.5 text-[0.75rem] uppercase tracking-[0.12em] text-mute"
+                    className="mono-label border border-[#3d3d3d] px-3.5 py-1.5"
                   >
                     {t}
                   </li>
@@ -240,15 +251,15 @@ export default async function BlogPost({
 
       {/* ----------------------------------------------------- related */}
       {related.length > 0 && (
-        <section className="border-t border-white/8 bg-ink-raised">
+        <section className="section-rule bg-ink-raised">
           <div className="shell py-20 md:py-24">
-            <p className="eyebrow">Keep reading</p>
-            <div className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-3">
+            <p className="mono-label mono-label-dot">Keep reading</p>
+            <div className="panel-set cols-3 mt-10">
               {related.map((p) => (
-                <article key={p.slug} className="reveal group">
+                <article key={p.slug} className="reveal group panel panel-grid p-6">
                   <Link href={`/blog/${p.slug}`}>
                     {p.cover_image_url && (
-                      <div className="mb-5 overflow-hidden rounded-lg border border-white/10">
+                      <div className="mb-5 overflow-hidden border border-[#2a2a2a]">
                         <Image
                           src={p.cover_image_url}
                           alt={p.cover_image_alt || p.title}

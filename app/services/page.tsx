@@ -27,23 +27,50 @@ const CHOOSING_FAQS=[
  },
 ] as const;
 
-export default function Services(){return <>
- <JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Services',path:'/services'}])}/>
- <JsonLd data={faqLd(CHOOSING_FAQS)}/>
- <section className="shell inner-page" aria-labelledby="services-title">
-<nav aria-label="Breadcrumb" className="breadcrumb"><Link href="/">Home</Link><span>/</span><span>Services</span></nav><h1 id="services-title" className="display-xl max-w-4xl">An email channel that works together.</h1><p className="lede mt-7">Klaviyo, creative, deliverability and retention. One team responsible for the whole programme. Each page below covers one service in full; this page is the two-minute comparison.</p>
- <div className="service-index">{SERVICE_PAGES.map(s=>{const c=SERVICE_COMPARISON[s.slug];return <article key={s.slug}>
-  <h2 className="display-md"><Link href={`/services/${s.slug}`}>{s.title}</Link></h2>
-  <p className="lede mt-4">{s.summary}</p>
-  {c&&<dl className="mt-6 grid grid-cols-[6rem_1fr] gap-x-4 gap-y-2.5 text-[0.8125rem] leading-relaxed">
-   <dt className="text-mute">Best for</dt><dd>{c.bestFor}</dd>
-   <dt className="text-mute">Starts with</dt><dd>{c.startsWith}</dd>
-   <dt className="text-mute">Measured by</dt><dd>{c.measuredBy}</dd>
-  </dl>}
-  <Link className="text-link" href={`/services/${s.slug}`}>Explore {s.navTitle.toLowerCase()}</Link>
- </article>})}</div>
- <p className="lede">See the <Link className="text-link" href="/work">email design examples</Link>, inspect the <Link className="text-link" href="/#proof">Klaviyo account screenshots</Link>, or read the <Link className="text-link" href="/blog">blog</Link>.</p>
- </section>
- <section className="shell section-space border-t" aria-labelledby="choosing-faq"><h2 id="choosing-faq" className="display-lg mb-10">Choosing between them.</h2><Faq items={CHOOSING_FAQS}/></section>
- <CtaBand/>
- </>}
+export default function Services(){
+ return <>
+  <JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Services',path:'/services'}])}/>
+  <JsonLd data={faqLd(CHOOSING_FAQS)}/>
+
+  <section className="shell inner-page" aria-labelledby="services-title">
+   <nav aria-label="Breadcrumb" className="breadcrumb"><Link href="/">Home</Link><span>/</span><span>Services</span></nav>
+
+   <p className="section-meta" aria-hidden="true"><span className="section-index">.01.</span><span className="mono-label">Services</span></p>
+   <h1 id="services-title" className="display-xl max-w-4xl mt-5">An email channel that <span className="hud-box">works together.</span></h1>
+   <p className="lede mt-7">Klaviyo, creative, deliverability and retention. One team responsible for the whole programme. Each page below covers one service in full; this page is the two-minute comparison.</p>
+
+   <div className="ruler mt-14" aria-hidden="true" />
+   <div className="service-index">
+    {SERVICE_PAGES.map((s,i)=>{
+     const c=SERVICE_COMPARISON[s.slug];
+     return (
+      <article key={s.slug} className="panel-grid">
+       <div className="flex items-center justify-between gap-4" aria-hidden="true">
+        <span className="section-index">.0{i+1}.</span>
+        <span className="mono-label">{s.keyword}</span>
+       </div>
+       <h2 className="display-md mt-5">
+        <Link href={`/services/${s.slug}`} className="service-title-link">{s.title}</Link>
+       </h2>
+       <p className="lede mt-4">{s.summary}</p>
+       {c&&<dl className="mt-6 grid grid-cols-[6rem_1fr] gap-x-4 gap-y-3 text-[0.8125rem] leading-relaxed">
+        <dt className="mono-label">Best for</dt><dd>{c.bestFor}</dd>
+        <dt className="mono-label">Starts with</dt><dd>{c.startsWith}</dd>
+        <dt className="mono-label">Measured by</dt><dd>{c.measuredBy}</dd>
+       </dl>}
+       <Link className="text-link mt-6 inline-block" href={`/services/${s.slug}`}>Explore {s.navTitle.toLowerCase()}</Link>
+      </article>
+     );
+    })}
+   </div>
+   <p className="lede mt-10">See the <Link className="text-link" href="/work">email design examples</Link>, inspect the <Link className="text-link" href="/#proof">Klaviyo account screenshots</Link>, or read the <Link className="text-link" href="/blog">blog</Link>.</p>
+  </section>
+
+  <section className="shell section-space border-t" aria-labelledby="choosing-faq">
+   <p className="section-meta" aria-hidden="true"><span className="section-index">.02.</span><span className="mono-label">FAQ</span></p>
+   <h2 id="choosing-faq" className="display-lg mt-5 mb-10">Choosing between them.</h2>
+   <Faq items={CHOOSING_FAQS}/>
+  </section>
+  <CtaBand/>
+ </>;
+}

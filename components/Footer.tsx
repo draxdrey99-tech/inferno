@@ -2,62 +2,55 @@ import Link from 'next/link';
 import { FOOTER_NAV, SITE } from '@/lib/site';
 import Wordmark from './Wordmark';
 
+/**
+ * Statement footer: link columns under mono labels, then the red brand
+ * block beside a wordmark set as large as the shell allows. The giant
+ * wordmark is decorative; the linked Wordmark above already names the site.
+ */
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-flame/25 bg-ink">
-      <div className="shell py-14 md:py-16">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_2fr]">
+    <footer className="site-footer">
+      <div className="shell">
+        <div className="footer-top">
           <div>
             <Wordmark />
             <p className="lede mt-6 max-w-sm text-[0.9375rem]">
               Email and retention marketing for ecommerce brands. Flows,
               campaigns, design and deliverability, run as one system.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
               <a
                 href={SITE.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost px-5 py-2.5 text-[0.8125rem]"
+                className="btn-line"
               >
                 Instagram
               </a>
-              <a
-                href={`mailto:${SITE.email}`}
-                className="btn btn-ghost px-5 py-2.5 text-[0.8125rem]"
-              >
+              <a href={`mailto:${SITE.email}`} className="btn-line normal-case">
                 {SITE.email}
               </a>
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3">
-            {FOOTER_NAV.map((col) => (
+          <div className="footer-links">
+            {FOOTER_NAV.map((col, i) => (
               <div key={col.title}>
-                <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-mute">
+                <h2 className="mono-label">
+                  <span className="section-index" aria-hidden="true">.0{i + 1}.</span>
                   {col.title}
                 </h2>
-                <ul className="mt-4 space-y-2.5">
+                <ul>
                   {col.links.map((l) => (
                     <li key={l.label}>
                       {'external' in l && l.external ? (
-                        <a
-                          href={l.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[0.9375rem] text-bone/75 transition-colors hover:text-flame"
-                        >
+                        <a href={l.href} target="_blank" rel="noopener noreferrer">
                           {l.label}
                         </a>
                       ) : (
-                        <Link
-                          href={l.href}
-                          className="text-[0.9375rem] text-bone/75 transition-colors hover:text-flame"
-                        >
-                          {l.label}
-                        </Link>
+                        <Link href={l.href}>{l.label}</Link>
                       )}
                     </li>
                   ))}
@@ -67,8 +60,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/8 pt-6 text-[0.8125rem] text-mute sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {SITE.name}. All rights reserved.</p>
+        <div className="footer-statement" aria-hidden="true">
+          <div className="footer-block" />
+          <p className="footer-wordmark">Inferno Emails</p>
+        </div>
+
+        <div className="footer-legal">
+          <p>
+            © {year} {SITE.name}. All rights reserved.
+          </p>
           <p>Built for brands that would rather own the inbox than rent the feed.</p>
         </div>
       </div>

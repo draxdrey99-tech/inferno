@@ -72,14 +72,14 @@ export default async function BlogIndex() {
         />
       )}
 
-      <section className="relative isolate border-b border-white/8 pt-24">
+      <section className="relative isolate section-rule panel-grid pt-24">
         <div className="shell pb-16 md:pb-20">
           <SectionHead
             eyebrow="Writing"
             as="h1"
             title={
               <>
-                Notes on making email{' '}
+                Notes on making <span className="hud-box">email</span>{' '}
                 <span className="accent">actually earn.</span>
               </>
             }
@@ -92,7 +92,7 @@ export default async function BlogIndex() {
         <div className="shell py-16 md:py-20">
           <nav aria-label="Blog resources" className="related-links mb-10"><Link href="/services">Email marketing services</Link><Link href="/services/klaviyo-email-marketing">Klaviyo email marketing agency</Link><Link href="/work">Email design examples</Link><Link href="/#proof">Klaviyo account screenshots</Link><a href="/rss.xml">Subscribe via RSS</a></nav>
           {posts.length === 0 ? (
-            <div className="reveal max-w-xl rounded-xl border border-white/10 bg-ink-raised p-10">
+            <div className="reveal panel panel-grid panel-corners max-w-xl p-10">
               <h2 className="display-md">First posts are on the way.</h2>
               <p className="lede mt-4">
                 In the meantime, the fastest way to get something useful out of us
@@ -112,13 +112,13 @@ export default async function BlogIndex() {
           ) : (
             <>
               {/* Lead story */}
-              <article className="reveal group border-b border-white/9 pb-14">
+              <article className="reveal group panel panel-grid p-6 md:p-10">
                 <Link
                   href={`/blog/${lead.slug}`}
                   className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center"
                 >
                   {lead.cover_image_url && (
-                    <div className="order-2 overflow-hidden rounded-xl border border-white/10 md:order-1">
+                    <div className="order-2 overflow-hidden border border-[#2a2a2a] md:order-1">
                       <Image
                         src={lead.cover_image_url}
                         alt={lead.cover_image_alt || lead.title}
@@ -131,12 +131,12 @@ export default async function BlogIndex() {
                     </div>
                   )}
                   <div className={lead.cover_image_url ? 'order-1 md:order-2' : ''}>
-                    <p className="eyebrow">Latest</p>
+                    <p className="mono-label mono-label-red">Latest</p>
                     <h2 className="display-md mt-5 transition-colors group-hover:text-flame">
                       {lead.title}
                     </h2>
                     <p className="lede mt-4 text-[1rem]">{lead.excerpt}</p>
-                    <p className="mt-6 text-[0.8125rem] uppercase tracking-[0.14em] text-mute">
+                    <p className="mono-label mt-6">
                       {formatDate(lead.published_at)} · {lead.reading_minutes} min read
                     </p>
                   </div>
@@ -144,16 +144,16 @@ export default async function BlogIndex() {
               </article>
 
               {/* The rest */}
-              <div className="grid gap-x-8 gap-y-12 pt-14 md:grid-cols-2 lg:grid-cols-3">
+              <div className="panel-set cols-3 mt-10">
                 {rest.map((p, i) => (
                   <article
                     key={p.slug}
-                    className="reveal group"
+                    className="reveal group panel panel-grid p-6"
                     data-reveal-delay={(i % 3) * 90}
                   >
                     <Link href={`/blog/${p.slug}`} className="block">
                       {p.cover_image_url && (
-                        <div className="mb-6 overflow-hidden rounded-lg border border-white/10">
+                        <div className="mb-6 overflow-hidden border border-[#2a2a2a]">
                           <Image
                             src={p.cover_image_url}
                             alt={p.cover_image_alt || p.title}
@@ -165,7 +165,7 @@ export default async function BlogIndex() {
                         </div>
                       )}
                       {p.tags?.[0] && (
-                        <p className="text-[0.8125rem] text-flame">{p.tags[0]}</p>
+                        <p className="mono-label mono-label-red">{p.tags[0]}</p>
                       )}
                       <h2 className="mt-4 font-display text-xl leading-tight tracking-tight transition-colors group-hover:text-flame">
                         {p.title}
@@ -173,7 +173,7 @@ export default async function BlogIndex() {
                       <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">
                         {p.excerpt}
                       </p>
-                      <p className="mt-5 text-[0.75rem] uppercase tracking-[0.14em] text-mute/70">
+                      <p className="mono-label mt-5">
                         {formatDate(p.published_at)} · {p.reading_minutes} min
                       </p>
                     </Link>

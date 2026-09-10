@@ -15,11 +15,10 @@ const UPDATED = '30 August 2026';
 
 export default function PrivacyPage() {
   return (
-    <section className="pt-24" aria-labelledby="legal-title"><JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Services',path:'/services'},{name:'Privacy policy',path:'/privacy'}])}/>
-      <div className="shell pb-24 md:pb-32">
+    <section className="shell inner-page" aria-labelledby="legal-title"><JsonLd data={breadcrumbLd([{name:'Home',path:'/'},{name:'Services',path:'/services'},{name:'Privacy policy',path:'/privacy'}])}/>
         <nav aria-label="Breadcrumb" className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/services">Services</Link><span>/</span><span>Legal</span></nav>
-        <h1 id="legal-title" className="display-lg mt-6">Privacy policy</h1>
-        <p className="mt-5 text-[0.8125rem] uppercase tracking-[0.14em] text-mute">
+        <h1 id="legal-title" className="display-lg mt-6">Privacy <span className="hud-box">policy</span></h1>
+        <p className="mono-label mono-label-dot mt-5">
           Last updated {UPDATED}
         </p>
 
@@ -95,7 +94,6 @@ export default function PrivacyPage() {
             Questions about this policy: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
           </p>
         </div>
-      </div>
     </section>
   );
 }
