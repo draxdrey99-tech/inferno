@@ -9,3 +9,8 @@ next-env.d.ts
 .DS_Store
 .tooling/
 .env*
+
+# Agent skill files installed by the Vercel CLI for Neon; tooling, not site code.
+.agents/
+skills-lock.json
+.claude/
