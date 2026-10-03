@@ -42,6 +42,7 @@ export async function GET() {
     '## Key pages',
     '',
     `- [Free email audit](${SITE_URL}/free-email-audit): what the audit covers, what you get back, and how to book.`,
+    `- [Flow coverage checklist](${SITE_URL}/flow-coverage-checklist): the flows every ecommerce store should have running.`,
     `- [About](${SITE_URL}/about): who we are and how we work.`,
     `- [Contact](${SITE_URL}/contact): book a call or send a written request.`,
     '',

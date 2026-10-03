@@ -98,6 +98,7 @@ export default function WorkPage() {
                 </h2>
                 <EmailCard item={item} priority={i < 3} />
                 <p className="work-entry-service">
+                  <Link href={`/work/${item.slug}`}>Read about this email</Link>{' · '}
                   Part of{' '}
                   <Link href={`/services/${service.slug}`}>
                     {service.navTitle.toLowerCase()}

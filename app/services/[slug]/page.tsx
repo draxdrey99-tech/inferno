@@ -52,6 +52,11 @@ export default async function ServicePage({params}:Props){
     </div>
    </section>
 
+   <section aria-labelledby="approach-title" className="mt-20 md:mt-24">
+    <h2 id="approach-title" className="display-lg">How we approach it.</h2>
+    <div className="mt-8 max-w-3xl space-y-5 text-[1rem] leading-relaxed text-bone/85">{detail.approach.map(p=><p key={p}>{p}</p>)}</div>
+   </section>
+
    <section aria-labelledby="fit-title" className="mt-20 md:mt-24">
     <p className="section-meta" aria-hidden="true"><span className="section-index">.02.</span><span className="mono-label">Fit</span></p>
     <h2 id="fit-title" className="display-lg mt-5">Is this the right fit?</h2>
@@ -84,7 +89,7 @@ export default async function ServicePage({params}:Props){
    {examples.length>0&&<section aria-labelledby="examples-title" className="mt-20 md:mt-24">
     <p className="section-meta" aria-hidden="true"><span className="section-index">.05.</span><span className="mono-label">Examples</span></p>
     <h2 id="examples-title" className="display-lg mt-5">Work in this area.</h2>
-    <div className="related-links">{examples.map(w=><Link key={w.slug} href={`/work#${w.slug}`}>{w.client}: {w.title}</Link>)}</div>
+    <div className="related-links">{examples.map(w=><Link key={w.slug} href={`/work/${w.slug}`}>{w.client}: {w.title}</Link>)}</div>
    </section>}
 
    <p className="mt-16 text-[0.8125rem] text-mute">Last reviewed <time dateTime={CONTENT_UPDATED}>{reviewed}</time>.</p>
