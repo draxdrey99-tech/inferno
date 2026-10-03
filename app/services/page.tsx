@@ -4,6 +4,7 @@ import {pageMeta,breadcrumbLd,faqLd} from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import CtaBand from '@/components/CtaBand';
+import {USE_CASES} from '@/lib/use-cases';
 
 export const metadata=pageMeta({title:'Ecommerce Email Marketing Services',description:'Klaviyo management, email automation, campaign design, deliverability and retention strategy. One team for your ecommerce email channel.',path:'/services'});
 
@@ -63,6 +64,15 @@ export default function Services(){
     })}
    </div>
    <p className="lede mt-10">See the <Link className="text-link" href="/work">email design examples</Link>, inspect the <Link className="text-link" href="/#proof">Klaviyo account screenshots</Link>, or read the <Link className="text-link" href="/blog">blog</Link>.</p>
+  </section>
+
+  <section className="shell section-space border-t" aria-labelledby="by-industry">
+   <h2 id="by-industry" className="display-md">By kind of store.</h2>
+   <div className="related-links">
+    {USE_CASES.map(u=><Link key={u.slug} href={`/email-marketing-for/${u.slug}`}>Email marketing for {u.label}</Link>)}
+    <Link href="/email-agency-vs-in-house">Agency vs in-house</Link>
+    <Link href="/glossary">Email marketing glossary</Link>
+   </div>
   </section>
 
   <section className="shell section-space border-t" aria-labelledby="choosing-faq">

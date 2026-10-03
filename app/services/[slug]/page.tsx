@@ -3,6 +3,8 @@ import Link from 'next/link';
 import {permanentRedirect} from 'next/navigation';
 import {SERVICE_PAGES,SERVICE_DETAIL,FIRST_30_DAYS,NEEDED_FROM_YOU,getServicePage,relatedReadingFor,serviceForWork} from '@/lib/service-pages';
 import {PROOF,WORK,CONTENT_UPDATED} from '@/lib/site';
+import {GLOSSARY} from '@/lib/glossary';
+import {USE_CASES} from '@/lib/use-cases';
 import {pageMeta,breadcrumbLd,serviceLd,faqLd} from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
@@ -123,6 +125,8 @@ export default async function ServicePage({params}:Props){
    <h2 id="related-reading" className="display-md mt-5">Related reading.</h2>
    <div className="related-links">
     {related.map(r=><Link href={`/services/${r.slug}`} key={r.slug}>Explore {r.navTitle.toLowerCase()}</Link>)}
+    {GLOSSARY.filter(t=>t.service===s.slug).map(t=><Link href={`/glossary/${t.slug}`} key={t.slug}>What is {t.term}?</Link>)}
+    {USE_CASES.slice(0,3).map(u=><Link href={`/email-marketing-for/${u.slug}`} key={u.slug}>Email marketing for {u.label}</Link>)}
     <Link href="/work">See real client emails in the portfolio</Link>
    </div>
   </section>

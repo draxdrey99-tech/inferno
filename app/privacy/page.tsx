@@ -5,6 +5,7 @@ import { pageMeta, breadcrumbLd } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta({
+  brand: true,
   title: 'Privacy Policy',
   description:
     'How Inferno Emails collects, uses and stores personal data submitted through this website.',

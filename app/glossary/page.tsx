@@ -1,0 +1,42 @@
+import Link from 'next/link';
+
+import CtaBand from '@/components/CtaBand';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbLd, pageLd, pageMeta } from '@/lib/seo';
+import { GLOSSARY } from '@/lib/glossary';
+
+export const metadata = pageMeta({
+  title: 'Email Marketing Glossary for Ecommerce Brands',
+  description: 'Plain-English definitions of the email marketing terms ecommerce brands run into: deliverability, SPF, DKIM, DMARC, flows and segmentation.',
+  path: '/glossary',
+  image: '/opengraph-image',
+});
+
+export default function GlossaryIndex() {
+  return (
+    <>
+      <JsonLd data={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Glossary', path: '/glossary' }])} />
+      <JsonLd data={pageLd({ type: 'CollectionPage', path: '/glossary', name: 'Email marketing glossary', description: 'Plain-English definitions of email marketing terms for ecommerce brands.' })} />
+      <section className="shell inner-page" aria-labelledby="gl-title">
+        <nav aria-label="Breadcrumb" className="breadcrumb">
+          <Link href="/">Home</Link><span>/</span><span>Glossary</span>
+        </nav>
+        <h1 id="gl-title" className="display-xl max-w-4xl">Email marketing glossary.</h1>
+        <p className="lede mt-7 max-w-3xl" id="answer">
+          Short, plain definitions of the email terms ecommerce brands run into, each on its own page with what to do about it.
+        </p>
+        <ul className="mt-12 grid gap-6 md:grid-cols-2">
+          {GLOSSARY.map((t) => (
+            <li key={t.slug} className="panel panel-grid p-6">
+              <h2 className="font-display text-xl tracking-tight">
+                <Link href={`/glossary/${t.slug}`} className="service-title-link">{t.term}</Link>
+              </h2>
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">{t.definition}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <CtaBand />
+    </>
+  );
+}

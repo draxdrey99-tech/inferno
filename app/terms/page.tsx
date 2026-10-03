@@ -5,6 +5,7 @@ import { pageMeta, breadcrumbLd } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta({
+  brand: true,
   title: 'Terms of Service',
   description:
     'The terms governing use of the Inferno Emails website and the free email audit offer.',

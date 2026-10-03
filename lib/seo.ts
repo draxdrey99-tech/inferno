@@ -18,6 +18,8 @@ type PageMetaInput = {
   authors?: string[];
   tags?: string[];
   noindex?: boolean;
+  /** Append " | Inferno Emails". Off by default: the brand is shown as the site name, and the title budget is better spent on the keyword. */
+  brand?: boolean;
 };
 
 export function pageMeta({
@@ -31,9 +33,10 @@ export function pageMeta({
   authors,
   tags,
   noindex,
+  brand = false,
 }: PageMetaInput): Metadata {
   const url = `${SITE_URL}${path}`;
-  const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+  const fullTitle = brand && !title.includes(SITE.name) ? `${title} | ${SITE.name}` : title;
   const displayTitle = fullTitle.length < 60 ? fullTitle : fullTitle.slice(0, 56).replace(/\s+\S*$/, '') + '…';
   const displayDescription = description.length < 155 ? description : description.slice(0, 151).replace(/\s+\S*$/, '') + '…';
   const ogImage = image

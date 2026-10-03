@@ -1,6 +1,8 @@
 import { listPublished } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
 import { SERVICE_PAGES } from '@/lib/service-pages';
+import { USE_CASES } from '@/lib/use-cases';
+import { GLOSSARY } from '@/lib/glossary';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
 export const revalidate = 3600;
@@ -48,6 +50,16 @@ export async function GET() {
     ...SERVICE_PAGES.map(
       (s) => `- [${s.title}](${SITE_URL}/services/${s.slug}): ${s.answer}`
     ),
+    '',
+    '## Industries',
+    '',
+    ...USE_CASES.map((u) => `- [Email marketing for ${u.label}](${SITE_URL}/email-marketing-for/${u.slug}): ${u.answer}`),
+    '',
+    '## Glossary',
+    '',
+    ...GLOSSARY.map((t) => `- [${t.term}](${SITE_URL}/glossary/${t.slug}): ${t.definition}`),
+    '',
+    `- [Email marketing agency vs in-house](${SITE_URL}/email-agency-vs-in-house): a side-by-side comparison.`,
     '',
     '## Results',
     '',

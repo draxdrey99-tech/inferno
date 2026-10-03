@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, Calendar } from '@phosphor-icons/react';
+import { sendGAEvent } from '@next/third-parties/google';
 import CalendlyLink from './CalendlyLink';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
@@ -39,6 +40,9 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      // GA4's standard lead event: counts a written request as a conversion
+      // alongside calendly_booked, so Analytics can compare the two paths.
+      sendGAEvent('event', 'generate_lead', { source });
       setStatus('sent');
       form.reset();
     } catch (err) {

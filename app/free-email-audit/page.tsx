@@ -82,6 +82,17 @@ export default function FreeAuditPage() {
             performance. You get the findings in writing, and they are yours
             whether or not you hire us.
           </p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <a href="#audit-book" className="btn btn-flame">
+              Pick a time
+            </a>
+            <a href="#audit-request" className="btn-line">
+              Or send a written request
+            </a>
+          </div>
+          <p className="mt-3 text-[0.8125rem] text-mute">
+            30 minutes, no obligation, and the findings are yours to keep.
+          </p>
         </div>
 
         <div className="mt-20 grid gap-14 lg:grid-cols-2 lg:gap-20">
@@ -127,12 +138,12 @@ export default function FreeAuditPage() {
         </div>
       </section>
 
-      <section className="shell section-space border-t" aria-labelledby="audit-book">
+      <section id="audit-book" className="shell section-space border-t scroll-mt-20" aria-labelledby="audit-book-title">
         <p className="section-meta" aria-hidden="true">
           <span className="section-index">.03.</span>
           <span className="mono-label">Book</span>
         </p>
-        <h2 id="audit-book" className="display-lg mt-5">Pick a time.</h2>
+        <h2 id="audit-book-title" className="display-lg mt-5">Pick a time.</h2>
         <p className="lede mt-5 max-w-2xl">
           Thirty minutes. We walk your account with you and tell you plainly
           what is missing and what is leaking.
@@ -141,7 +152,7 @@ export default function FreeAuditPage() {
           <CalendlyEmbed source="free-email-audit" />
         </div>
 
-        <div className="card panel-grid panel-corners mt-16 max-w-2xl p-7 md:p-10">
+        <div id="audit-request" className="card panel-grid panel-corners mt-16 max-w-2xl scroll-mt-24 p-7 md:p-10">
           <p className="eyebrow">Written request</p>
           <h3 className="display-md mt-5">Rather not book a call?</h3>
           <p className="mt-2 text-[0.875rem] text-mute">

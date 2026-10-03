@@ -140,6 +140,8 @@ export const FOOTER_NAV = [
       { label: 'About', href: '/about' },
       { label: 'Work', href: '/work' },
       { label: 'Blog', href: '/blog' },
+      { label: 'Glossary', href: '/glossary' },
+      { label: 'Agency vs in-house', href: '/email-agency-vs-in-house' },
       { label: 'Contact', href: '/contact' },
     ],
   },
