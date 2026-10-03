@@ -5,7 +5,8 @@ import CtaBand from '@/components/CtaBand';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbLd, pageMeta } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
-import { GLOSSARY, getTerm } from '@/lib/glossary';
+import { GLOSSARY, getTerm, termSiblings } from '@/lib/glossary';
+import { FAQ_PAGES } from '@/lib/faq';
 import { getServicePage } from '@/lib/service-pages';
 
 type Props = { params: Promise<{ term: string }> };
@@ -33,7 +34,8 @@ export default async function TermPage({ params }: Props) {
 
   const path = `/glossary/${t.slug}`;
   const service = getServicePage(t.service);
-  const related = GLOSSARY.filter((g) => t.related.includes(g.slug));
+  const related = [...GLOSSARY.filter((g) => t.related.includes(g.slug)), ...termSiblings(t.slug)].filter((g, i, a) => a.findIndex((x) => x.slug === g.slug) === i);
+  const faqs = FAQ_PAGES.filter((f) => f.terms.includes(t.slug)).slice(0, 3);
 
   return (
     <>
@@ -61,6 +63,9 @@ export default async function TermPage({ params }: Props) {
           {t.body.map((p) => <p key={p}>{p}</p>)}
         </div>
 
+        <h2 className="display-md mt-14">A worked example.</h2>
+        <p className="mt-4 max-w-3xl text-[1rem] leading-relaxed text-bone/85">{t.example}</p>
+
         <h2 className="display-md mt-14">Common mistakes.</h2>
         <ul className="deliverables mt-6 max-w-3xl">{t.mistakes.map((m) => <li key={m}>{m}</li>)}</ul>
 
@@ -74,6 +79,7 @@ export default async function TermPage({ params }: Props) {
         {related.length > 0 && (
           <div className="related-links mt-8">
             {related.map((r) => <Link key={r.slug} href={`/glossary/${r.slug}`}>{r.term}</Link>)}
+            {faqs.map((f) => <Link key={f.slug} href={`/faq/${f.slug}`}>{f.q}</Link>)}
           </div>
         )}
       </section>

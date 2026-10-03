@@ -12,6 +12,14 @@ export const metadata = pageMeta({
   image: '/opengraph-image',
 });
 
+const LABELS: Record<string, string> = {
+  deliverability: 'Deliverability',
+  flows: 'Flows and automation',
+  metrics: 'Metrics and reporting',
+  lists: 'Lists',
+  strategy: 'Strategy',
+};
+
 export default function GlossaryIndex() {
   return (
     <>
@@ -25,16 +33,25 @@ export default function GlossaryIndex() {
         <p className="lede mt-7 max-w-3xl" id="answer">
           Short, plain definitions of the email terms ecommerce brands run into, each on its own page with what to do about it.
         </p>
-        <ul className="mt-12 grid gap-6 md:grid-cols-2">
-          {GLOSSARY.map((t) => (
-            <li key={t.slug} className="panel panel-grid p-6">
-              <h2 className="font-display text-xl tracking-tight">
-                <Link href={`/glossary/${t.slug}`} className="service-title-link">{t.term}</Link>
-              </h2>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">{t.definition}</p>
-            </li>
-          ))}
-        </ul>
+        {Object.entries(LABELS).map(([c, label]) => {
+          const items = GLOSSARY.filter((t) => t.category === c);
+          if (!items.length) return null;
+          return (
+            <div key={c} className="mt-14">
+              <h2 className="display-md">{label}</h2>
+              <ul className="mt-6 grid gap-6 md:grid-cols-2">
+                {items.map((t) => (
+                  <li key={t.slug} className="panel panel-grid p-6">
+                    <h3 className="font-display text-xl tracking-tight">
+                      <Link href={`/glossary/${t.slug}`} className="service-title-link">{t.term}</Link>
+                    </h3>
+                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-mute">{t.definition}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </section>
       <CtaBand />
     </>

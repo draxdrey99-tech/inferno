@@ -5,6 +5,7 @@ import { CONTENT_UPDATED, SITE_URL, WORK } from '@/lib/site';
 import { SERVICE_PAGES } from '@/lib/service-pages';
 import { USE_CASES } from '@/lib/use-cases';
 import { GLOSSARY } from '@/lib/glossary';
+import { FAQ_PAGES } from '@/lib/faq';
 
 export const revalidate = 3600;
 
@@ -39,6 +40,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/contact`, lastModified: edited },
     ...USE_CASES.map((u) => ({ url: `${SITE_URL}/email-marketing-for/${u.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/email-agency-vs-in-house`, lastModified: edited },
+    { url: `${SITE_URL}/faq`, lastModified: edited },
+    ...FAQ_PAGES.map((f) => ({ url: `${SITE_URL}/faq/${f.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/glossary`, lastModified: edited },
     ...GLOSSARY.map((t) => ({ url: `${SITE_URL}/glossary/${t.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/blog`, lastModified: edited },

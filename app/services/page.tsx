@@ -72,6 +72,7 @@ export default function Services(){
     {USE_CASES.map(u=><Link key={u.slug} href={`/email-marketing-for/${u.slug}`}>Email marketing for {u.label}</Link>)}
     <Link href="/email-agency-vs-in-house">Agency vs in-house</Link>
     <Link href="/glossary">Email marketing glossary</Link>
+    <Link href="/faq">Email marketing FAQ</Link>
     <Link href="/flow-coverage-checklist">Flow coverage checklist</Link>
    </div>
   </section>

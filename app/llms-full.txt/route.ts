@@ -1,0 +1,44 @@
+import { FAQ_PAGES } from '@/lib/faq';
+import { GLOSSARY } from '@/lib/glossary';
+import { SERVICE_PAGES } from '@/lib/service-pages';
+import { QUICK_ANSWER, SITE, SITE_URL } from '@/lib/site';
+import { USE_CASES } from '@/lib/use-cases';
+
+export const revalidate = 3600;
+
+/**
+ * llms-full.txt: the substance of the site in one plain-text file, so an
+ * answer engine can read definitions, answers and services without
+ * crawling every page. Built from the same data the pages render, so it
+ * can never drift from them.
+ */
+export function GET() {
+  const out: string[] = [`# ${SITE.name}: full text`, '', `> ${QUICK_ANSWER}`, ''];
+
+  out.push('## Services', '');
+  for (const s of SERVICE_PAGES) {
+    out.push(`### ${s.title}`, `URL: ${SITE_URL}/services/${s.slug}`, '', s.answer, '', s.intro, '', ...s.deliverables.map((d) => `- ${d}`), '');
+  }
+
+  out.push('## Industries', '');
+  for (const u of USE_CASES) {
+    out.push(`### Email marketing for ${u.label}`, `URL: ${SITE_URL}/email-marketing-for/${u.slug}`, '', u.answer, '', ...u.differences.map((d) => `- ${d.title}: ${d.body}`), '');
+  }
+
+  out.push('## Glossary', '');
+  for (const t of GLOSSARY) {
+    out.push(`### ${t.term}`, `URL: ${SITE_URL}/glossary/${t.slug}`, '', t.definition, '', ...t.body, '', `Example: ${t.example}`, '');
+  }
+
+  out.push('## FAQ', '');
+  for (const f of FAQ_PAGES) {
+    out.push(`### ${f.q}`, `URL: ${SITE_URL}/faq/${f.slug}`, '', f.a, '', ...f.detail, '', `In practice: ${f.example}`, '');
+  }
+
+  return new Response(out.join('\n'), {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+    },
+  });
+}

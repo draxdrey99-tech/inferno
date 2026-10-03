@@ -3,6 +3,7 @@ import { dbConfigured } from '@/lib/db';
 import { SERVICE_PAGES } from '@/lib/service-pages';
 import { USE_CASES } from '@/lib/use-cases';
 import { GLOSSARY } from '@/lib/glossary';
+import { FAQ_PAGES } from '@/lib/faq';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
 export const revalidate = 3600;
@@ -60,6 +61,11 @@ export async function GET() {
     '',
     ...GLOSSARY.map((t) => `- [${t.term}](${SITE_URL}/glossary/${t.slug}): ${t.definition}`),
     '',
+    '## FAQ',
+    '',
+    ...FAQ_PAGES.map((f) => `- [${f.q}](${SITE_URL}/faq/${f.slug}): ${f.a}`),
+    '',
+    `- [Full text of this site for language models](${SITE_URL}/llms-full.txt)`,
     `- [Email marketing agency vs in-house](${SITE_URL}/email-agency-vs-in-house): a side-by-side comparison.`,
     '',
     '## Results',
