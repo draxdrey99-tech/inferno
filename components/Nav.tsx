@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { NAV, NAV_SECTIONS, SITE } from '@/lib/site';
+import { NAV, NAV_SECTIONS } from '@/lib/site';
+import CalendlyLink from './CalendlyLink';
 import Wordmark from './Wordmark';
 
 export default function Nav() {
@@ -103,23 +104,13 @@ function Navigation({ pathname }: { pathname: string }) {
 
           <div className="flex items-center gap-2">
             {scrolled && (
-              <a
-                href={SITE.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-flame mobile-audit"
-              >
+              <CalendlyLink source="nav-compact" className="btn btn-flame mobile-audit">
                 Book your free audit
-              </a>
+              </CalendlyLink>
             )}
-            <a
-              href={SITE.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-flame site-nav-desktop-cta"
-            >
+            <CalendlyLink source="nav" className="btn btn-flame site-nav-desktop-cta">
               Book your free audit
-            </a>
+            </CalendlyLink>
 
             <button
               type="button"
@@ -147,15 +138,13 @@ function Navigation({ pathname }: { pathname: string }) {
             ))}
           </ul>
           <div className="mobile-nav-foot">
-            <a
-              href={SITE.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalendlyLink
+              source="nav-mobile"
               onClick={() => setOpen(false)}
               className="btn btn-flame"
             >
               Book your free audit
-            </a>
+            </CalendlyLink>
           </div>
         </div>
       </header>

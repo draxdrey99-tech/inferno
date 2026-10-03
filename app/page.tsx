@@ -13,6 +13,7 @@ import {
 
 import Hero from '@/components/Hero';
 import AuditPopup from '@/components/AuditPopup';
+import CalendlyLink from '@/components/CalendlyLink';
 import ProofScenes from '@/components/ProofScenes';
 import GalleryControls from '@/components/GalleryControls';
 import EmailCard from '@/components/EmailCard';
@@ -23,16 +24,15 @@ import { SERVICE_PAGES } from '@/lib/service-pages';
 import { faqLd, pageMeta, serviceLd } from '@/lib/seo';
 import {
   AUDIT_CHECKS,
-  AUDIT_FAQS,
   BAD_FIT,
   BELIEFS,
+  calendlyHref,
   GOOD_FIT,
   HOME_FAQS,
   PROCESS,
   QUICK_ANSWER,
   SERVICES,
   SITE,
-  SITE_URL,
   TESTIMONIALS,
   WORK,
 } from '@/lib/site';
@@ -44,15 +44,16 @@ export const metadata: Metadata = pageMeta({
   path: '/',
 });
 
-/* The marketing site is one page. Everything that used to live on /services,
-   /work, /about, /contact and /free-email-audit is a section here, and the
-   nav scrolls between them. /blog is the only route with a page of its own.
+/* The home page summarises every section; /services, /work, /about, /contact
+   and /free-email-audit each go deeper on their own URL.
 
    Every section opens with a decorative mono index (".02. / Services"),
    aria-hidden, then the headline. Sentence-case eyebrows are kept on the
    proof, work and audit sections. */
 
-const ALL_FAQS = [...HOME_FAQS, ...AUDIT_FAQS];
+/* Audit-specific questions live on /free-email-audit, where they are the
+   primary content, so FAQPage markup is not repeated across URLs. */
+const ALL_FAQS = HOME_FAQS;
 
 const PROCESS_ICON = [MagnifyingGlass, Rocket, ChartLineUp];
 
@@ -136,21 +137,6 @@ export default function HomePage() {
           })}
         />
       ))}
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'Offer',
-          '@id': `${SITE_URL}/#audit-offer`,
-          name: 'Free email marketing audit',
-          description:
-            'A manual review of your ecommerce email programme: flow coverage, list health, deliverability and last-90-day performance.',
-          price: '0',
-          priceCurrency: 'USD',
-          availability: 'https://schema.org/InStock',
-          url: SITE.calendly,
-          seller: { '@id': `${SITE_URL}/#organization` },
-        }}
-      />
 
       <Hero />
       <ProofScenes />
@@ -179,7 +165,6 @@ export default function HomePage() {
               >
                 <div className="service-panel-top" aria-hidden="true">
                   <span className="section-index">.0{i + 1}.</span>
-                  <span className="mono-label">{s.keyword}</span>
                 </div>
                 <WireIcon kind={s.slug} />
                 <h3 className="display-md">
@@ -264,14 +249,9 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <a
-              href={SITE.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-flame mt-2"
-            >
+            <CalendlyLink source="how-to-start" className="btn btn-flame mt-2">
               Book your free audit
-            </a>
+            </CalendlyLink>
             <p className="start-note">
               30 minutes. Written findings you keep either way. We quote
               after the audit, and only if we think we can help.
@@ -322,9 +302,9 @@ export default function HomePage() {
           <div className="reveal mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
             <div>
               <p className="mono-label">Want emails like these?</p>
-              <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-ghost mt-3">
+              <CalendlyLink source="work-rail" className="btn btn-ghost mt-3">
                 Book your free audit
-              </a>
+              </CalendlyLink>
               <p className="mt-3 text-[0.8125rem] text-mute">30 minutes, no obligation, and the findings are yours to keep.</p>
             </div>
             <Link href="/work" className="btn-line">
@@ -352,7 +332,11 @@ export default function HomePage() {
                 <p>
                   Building email and retention programmes for ecommerce brands
                   since 2022, across apparel, coffee, bakery, wellness and
-                  kitchen goods in Europe, Australia and the US.
+                  kitchen goods in Europe, Australia and the US.{' '}
+                  <Link href="/about" className="text-flame underline underline-offset-4 hover:text-bone">
+                    More about us
+                  </Link>
+                  .
                 </p>
                 <p>
                   Most brands treat email as an afterthought: a sale newsletter
@@ -443,14 +427,12 @@ export default function HomePage() {
 
             <p className="reveal mt-10 text-[0.9375rem] text-mute">
               Not sure which you are?{' '}
-              <a
-                href={SITE.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CalendlyLink
+                source="fit-section"
                 className="text-flame underline underline-offset-4 hover:text-bone"
               >
                 Book your free audit
-              </a>
+              </CalendlyLink>
               . We will tell you straight, and you can walk away with the
               findings.
             </p>
@@ -485,14 +467,12 @@ export default function HomePage() {
             ))}
           </div>
           <p className="reveal mt-10 text-[0.9375rem] text-mute">
-            <a
-              href={SITE.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalendlyLink
+              source="testimonials"
               className="text-flame underline underline-offset-4 hover:text-bone"
             >
               Book your free audit
-            </a>{' '}
+            </CalendlyLink>{' '}
             and see what we would find in yours.
           </p>
         </div>
@@ -536,14 +516,12 @@ export default function HomePage() {
           </div>
 
           <div className="reveal mt-10">
-            <a
-              href={SITE.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-flame"
-            >
+            <CalendlyLink source="audit-scope" className="btn btn-flame">
               Book your free audit
-            </a>
+            </CalendlyLink>
+            <Link href="/free-email-audit" className="btn-line ml-6">
+              Full audit scope
+            </Link>
             <p className="mt-3 text-[0.8125rem] text-mute">
               30 minutes. No obligation. We quote after, and only if we can
               help.
@@ -563,14 +541,12 @@ export default function HomePage() {
               </h2>
               <p className="text-[0.9375rem] text-mute">
                 Still deciding?{' '}
-                <a
-                  href={SITE.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <CalendlyLink
+                  source="faq"
                   className="text-flame underline underline-offset-4 hover:text-bone"
                 >
                   Book your free audit
-                </a>{' '}
+                </CalendlyLink>{' '}
                 and ask us directly.
               </p>
             </div>
@@ -603,16 +579,11 @@ export default function HomePage() {
             </p>
 
             <div className="mt-2">
-              <a
-                href={SITE.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-flame"
-              >
+              <CalendlyLink source="contact-primary" className="btn btn-flame">
                 Book your free audit
-              </a>
+              </CalendlyLink>
 
-              <AuditPopup bookingUrl={SITE.calendly} checks={AUDIT_CHECKS.map((check) => check.title)} />
+              <AuditPopup bookingUrl={calendlyHref('audit-popup')} checks={AUDIT_CHECKS.map((check) => check.title)} />
             </div>
 
             <ul className="mt-6 space-y-3 border-t border-[#3d3d3d] pt-8">

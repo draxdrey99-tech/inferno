@@ -37,6 +37,12 @@ export async function GET() {
     '',
     'We quote after the audit, only if we can help. There is no flat rate or price list published because scope depends on what the audit finds.',
     '',
+    '## Key pages',
+    '',
+    `- [Free email audit](${SITE_URL}/free-email-audit): what the audit covers, what you get back, and how to book.`,
+    `- [About](${SITE_URL}/about): who we are and how we work.`,
+    `- [Contact](${SITE_URL}/contact): book a call or send a written request.`,
+    '',
     '## Services',
     '',
     ...SERVICE_PAGES.map(

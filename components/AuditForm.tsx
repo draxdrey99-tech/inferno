@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, Calendar } from '@phosphor-icons/react';
-import { SITE } from '@/lib/site';
+import CalendlyLink from './CalendlyLink';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -59,15 +59,13 @@ export default function AuditForm({ source = 'free-email-audit' }: { source?: st
           Next: we review your account and reply within one business day with
           what we found, and what we’d do about it.
         </p>
-        <a
-          href={SITE.calendly}
-          target="_blank"
-          rel="noopener noreferrer"
+        <CalendlyLink
+          source="audit-form-success"
           className="text-link mt-6 inline-flex items-center gap-1.5"
         >
           <Calendar size={15} weight="bold" aria-hidden />
           Don’t want to wait? Book a time now
-        </a>
+        </CalendlyLink>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import CalendlyLink from './CalendlyLink';
 import Marquee from './Marquee';
 import { SITE, WORK, PROOF } from '@/lib/site';
 
@@ -98,15 +99,9 @@ export default function Hero() {
                 Turn subscribers into repeat customers with better email marketing.
               </p>
               <div className="hero-actions">
-                <a
-                  href={SITE.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-flame"
-                  data-magnetic
-                >
+                <CalendlyLink source="hero" className="btn btn-flame" data-magnetic>
                   Book your free audit
-                </a>
+                </CalendlyLink>
                 <Link href="#work" className="hero-secondary">
                   See the work
                 </Link>
@@ -146,7 +141,8 @@ export default function Hero() {
                         height={620}
                         sizes="(max-width: 768px) 160px, 270px"
                         priority={i === 2}
-                        loading={i === 2 ? undefined : 'eager'}
+                        loading={i === 2 ? undefined : 'lazy'}
+                        quality={65}
                       />
                     </div>
                     <figcaption>
@@ -183,24 +179,10 @@ export default function Hero() {
           See client work <span aria-hidden="true">+</span>
         </summary>
         <div className="hero-mobile-work-content">
-          <p className="eyebrow">Email marketing for DTC &amp; ecommerce brands</p>
-          <p className="lede">
-            Klaviyo flows, campaigns designed in your brand, and the
-            deliverability work underneath so it actually reaches the inbox.
-          </p>
-          <p className="hero-mobile-clients">
-            Creative for <b>KÍLÈNTÀR</b>, <b>Girafon Bleu</b> &amp;{' '}
-            <b>Bondi Coffee</b>
-          </p>
           <p className="eyebrow">Made for their inbox.</p>
           <div className="hero-mobile-previews">
             {[WORK[0], WORK[1], WORK[2]].map((item) => (
-              <a
-                key={item.slug}
-                href={item.image}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link key={item.slug} href="/work">
                 <Image
                   src={`/images/hero-${item.slug}.webp`}
                   alt={item.alt}
@@ -210,7 +192,7 @@ export default function Hero() {
                   loading="lazy"
                 />
                 <span>{item.client}</span>
-              </a>
+              </Link>
             ))}
           </div>
           <Link href="/work" className="hero-secondary">
@@ -221,23 +203,10 @@ export default function Hero() {
             4 Nov 2023. Unattributed account; client creative shown separately
             above.
           </p>
-          <div className="hero-mobile-stats">
-            {[
-              ['44-48%', 'of revenue from email, across the client accounts below'],
-              [String(WORK.length), 'campaigns and flows designed from scratch, shown below'],
-              [SITE.founded, 'building ecommerce email programmes since'],
-              ['3', 'continents: Europe, Australia, United States'],
-            ].map(([value, label]) => (
-              <p key={label}>
-                <strong>{value}</strong> {label}
-              </p>
-            ))}
-          </div>
-          <Marquee />
         </div>
       </details>
 
-      <div className="shell hero-desktop-only">
+      <div className="shell">
         <div className="hero-stats panel-set">
           {[
             { value: '44-48%', label: 'of revenue from email, across the client accounts below' },

@@ -45,13 +45,7 @@ export default function Footer() {
                 <ul>
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      {'external' in l && l.external ? (
-                        <a href={l.href} target="_blank" rel="noopener noreferrer">
-                          {l.label}
-                        </a>
-                      ) : (
-                        <Link href={l.href}>{l.label}</Link>
-                      )}
+                      <Link href={l.href}>{l.label}</Link>
                     </li>
                   ))}
                 </ul>

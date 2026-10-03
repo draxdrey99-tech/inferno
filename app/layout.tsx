@@ -14,13 +14,14 @@ import { SITE, SITE_URL } from '@/lib/site';
 
 /* Self-hosted at build time by next/font — no render-blocking request to
    Google, no layout shift, and the CSS variables feed Tailwind's theme. */
-/* Normal display face. Optional loading avoids a late text repaint on
-   slow first visits; next/font supplies a metric-adjusted fallback. */
+/* swap, not optional: on a slow first visit the brand face must still
+   paint. next/font supplies a metric-adjusted fallback so the swap does not
+   shift layout. */
 const archivo = localFont({
   src: '../public/fonts/archivo-latin-400-800.woff2',
   weight: '400 800',
   variable: '--font-archivo',
-  display: 'optional',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -32,6 +33,14 @@ export const metadata: Metadata = {
   description: SITE.description,
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: SITE_URL }],
+  verification: {
+    // Set in Vercel to claim the site in Search Console / Bing without a
+    // DNS record. Omitted from the page when unset.
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
+      : undefined,
+  },
   creator: SITE.name,
   publisher: SITE.name,
   category: 'Marketing',
@@ -67,7 +76,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang={SITE.lang}
       className={archivo.variable}
     >
       <body>
@@ -84,10 +93,10 @@ export default function RootLayout({
           <Footer />
         </HideOnAdmin>
         <RevealObserver />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
     </html>
   );
 }

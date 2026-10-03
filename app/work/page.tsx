@@ -5,7 +5,7 @@ import EmailCard from '@/components/EmailCard';
 import Faq from '@/components/Faq';
 import CtaBand from '@/components/CtaBand';
 import JsonLd from '@/components/JsonLd';
-import { breadcrumbLd, faqLd, pageMeta, workGalleryLd } from '@/lib/seo';
+import { breadcrumbLd, faqLd, pageLd, pageMeta, workGalleryLd } from '@/lib/seo';
 import { serviceForWork } from '@/lib/service-pages';
 import { SITE, WORK } from '@/lib/site';
 
@@ -55,6 +55,14 @@ export default function WorkPage() {
           { name: 'Home', path: '/' },
           { name: 'Work', path: '/work' },
         ])}
+      />
+      <JsonLd
+        data={pageLd({
+          type: 'CollectionPage',
+          path: '/work',
+          name: 'Ecommerce Email Design Examples',
+          description: 'Real Klaviyo campaign and flow emails designed from scratch for ecommerce brands.',
+        })}
       />
       <JsonLd data={workGalleryLd(WORK)} />
       <JsonLd data={faqLd(WORK_FAQS)} />

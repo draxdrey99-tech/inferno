@@ -3,6 +3,7 @@ import { revalidatePath } from 'next/cache';
 import { requireAdmin } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { listAll, normalizePostInput } from '@/lib/blog';
+import { pingIndexNow } from '@/lib/indexnow';
 
 export const runtime = 'nodejs';
 
@@ -78,6 +79,7 @@ export async function POST(req: Request) {
     revalidatePath('/blog');
     revalidatePath(`/blog/${p.slug}`);
     revalidatePath('/sitemap.xml');
+    if (p.status === 'published') void pingIndexNow([`/blog/${p.slug}`, '/blog']);
 
     return NextResponse.json({ ok: true, post: rows[0] });
   } catch (err) {

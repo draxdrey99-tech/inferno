@@ -1,14 +1,15 @@
 import type { MetadataRoute } from 'next';
 import { listPublished } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
-import { CONTENT_UPDATED, SITE_URL } from '@/lib/site';
+import { CONTENT_UPDATED, SITE_URL, WORK } from '@/lib/site';
 import { SERVICE_PAGES } from '@/lib/service-pages';
 
 export const revalidate = 3600;
 
 /**
- * Priorities are relative hints within our own site, not a ranking lever.
- * The value here is completeness and accurate lastModified dates.
+ * Google ignores priority and changeFrequency; they are omitted. What
+ * matters is completeness, accurate lastModified dates and the image
+ * entries on /work.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
@@ -18,18 +19,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // every day, teaches crawlers to ignore the field.
   const edited = new Date(CONTENT_UPDATED);
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1.0, lastModified: edited },
-    { url: `${SITE_URL}/services`, changeFrequency: 'monthly', priority: 0.9, lastModified: edited },
+    { url: `${SITE_URL}/`, lastModified: edited },
+    { url: `${SITE_URL}/services`, lastModified: edited },
     ...SERVICE_PAGES.map((s) => ({
       url: `${SITE_URL}/services/${s.slug}`,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
       lastModified: edited,
     })),
-    { url: `${SITE_URL}/work`, changeFrequency: 'monthly', priority: 0.8, lastModified: edited },
-    { url: `${SITE_URL}/blog`, changeFrequency: 'weekly', priority: 0.8, lastModified: now },
-    { url: `${SITE_URL}/privacy`, changeFrequency: 'yearly', priority: 0.2, lastModified: new Date('2026-08-30') },
-    { url: `${SITE_URL}/terms`, changeFrequency: 'yearly', priority: 0.2, lastModified: new Date('2026-08-30') },
+    {
+      url: `${SITE_URL}/work`,
+      lastModified: edited,
+      images: WORK.map((w) => `${SITE_URL}${w.image}`),
+    },
+    { url: `${SITE_URL}/free-email-audit`, lastModified: edited },
+    { url: `${SITE_URL}/about`, lastModified: edited },
+    { url: `${SITE_URL}/contact`, lastModified: edited },
+    { url: `${SITE_URL}/blog`, lastModified: edited },
+    { url: `${SITE_URL}/privacy`, lastModified: new Date('2026-08-30') },
+    { url: `${SITE_URL}/terms`, lastModified: new Date('2026-08-30') },
   ];
 
   let postRoutes: MetadataRoute.Sitemap = [];
@@ -38,8 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const posts = await listPublished(500);
       postRoutes = posts.map((p) => ({
         url: `${SITE_URL}/blog/${p.slug}`,
-        changeFrequency: 'monthly',
-        priority: 0.7,
+       
         lastModified: new Date(p.updated_at || p.published_at || now),
       }));
     } catch (err) {

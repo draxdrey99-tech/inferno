@@ -5,11 +5,12 @@ import { ArrowRight } from '@phosphor-icons/react/dist/ssr';
 
 import SectionHead from '@/components/Section';
 import CtaBand from '@/components/CtaBand';
+import CalendlyLink from '@/components/CalendlyLink';
 import JsonLd from '@/components/JsonLd';
-import { breadcrumbLd, pageMeta } from '@/lib/seo';
+import { breadcrumbLd, pageLd, pageMeta } from '@/lib/seo';
 import { listPublished, type Post } from '@/lib/blog';
 import { dbConfigured } from '@/lib/db';
-import { SITE, SITE_URL } from '@/lib/site';
+import { SITE_URL } from '@/lib/site';
 
 // Rebuilt at most every 5 minutes; publishing from /admin revalidates
 // immediately, so this is only a safety net.
@@ -53,8 +54,15 @@ export default async function BlogIndex() {
           { name: 'Blog', path: '/blog' },
         ])}
       />
-      {posts.length > 0 && (
-        <JsonLd
+      <JsonLd
+        data={pageLd({
+          type: 'CollectionPage',
+          path: '/blog',
+          name: 'Ecommerce Email Marketing Blog',
+          description: 'Practical writing on ecommerce email marketing: Klaviyo flows, campaign strategy, email design, deliverability and retention.',
+        })}
+      />
+      <JsonLd
           data={{
             '@context': 'https://schema.org',
             '@type': 'Blog',
@@ -62,6 +70,7 @@ export default async function BlogIndex() {
             name: 'Inferno Emails Blog',
             url: `${SITE_URL}/blog`,
             publisher: { '@id': `${SITE_URL}/#organization` },
+            inLanguage: 'en-GB',
             blogPost: posts.slice(0, 20).map((p) => ({
               '@type': 'BlogPosting',
               headline: p.title,
@@ -70,10 +79,14 @@ export default async function BlogIndex() {
             })),
           }}
         />
-      )}
 
       <section className="relative isolate section-rule panel-grid pt-24">
         <div className="shell pb-16 md:pb-20">
+          <nav aria-label="Breadcrumb" className="breadcrumb">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <span>Blog</span>
+          </nav>
           <SectionHead
             eyebrow="Writing"
             as="h1"
@@ -99,15 +112,10 @@ export default async function BlogIndex() {
                 is the free audit. We will tell you what is wrong with your
                 account whether or not you hire us.
               </p>
-              <a
-                href={SITE.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-flame mt-8"
-              >
+              <CalendlyLink source="blog-index" className="btn btn-flame mt-8">
                 Book your free audit
                 <ArrowRight size={16} weight="bold" className="arr" aria-hidden />
-              </a>
+              </CalendlyLink>
             </div>
           ) : (
             <>

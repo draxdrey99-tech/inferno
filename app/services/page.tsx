@@ -47,7 +47,6 @@ export default function Services(){
       <article key={s.slug} className="panel-grid">
        <div className="flex items-center justify-between gap-4" aria-hidden="true">
         <span className="section-index">.0{i+1}.</span>
-        <span className="mono-label">{s.keyword}</span>
        </div>
        <h2 className="display-md mt-5">
         <Link href={`/services/${s.slug}`} className="service-title-link">{s.title}</Link>

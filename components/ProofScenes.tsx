@@ -1,6 +1,8 @@
 import Revenue from './Revenue';
 import Image from 'next/image';
-import { PROOF, SITE } from '@/lib/site';
+import CalendlyLink from './CalendlyLink';
+import JsonLd from './JsonLd';
+import { PROOF, SITE_URL } from '@/lib/site';
 
 const amounts = [477929.14, 98625.63, 9100.94];
 
@@ -13,6 +15,23 @@ const amounts = [477929.14, 98625.63, 9100.94];
 export default function ProofScenes() {
   return (
     <section id="proof" className="proof-section" aria-labelledby="proof-title">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@graph': PROOF.map((p) => ({
+            '@type': 'ImageObject',
+            '@id': `${SITE_URL}${p.image}#image`,
+            contentUrl: `${SITE_URL}${p.image}`,
+            name: p.headline,
+            caption: `${p.metric}, ${p.window}`,
+            description: p.alt,
+            width: p.width,
+            height: p.height,
+            representativeOfPage: false,
+            creator: { '@id': `${SITE_URL}/#organization` },
+          })),
+        }}
+      />
       <div className="shell">
         <div className="ruler" aria-hidden="true" />
         <div className="proof-heading">
@@ -79,9 +98,9 @@ export default function ProofScenes() {
         </p>
         <p className="proof-next">
           <span>Want to know what your account is doing?</span>
-          <a href={SITE.calendly} target="_blank" rel="noopener noreferrer" className="btn btn-flame">
+          <CalendlyLink source="proof" className="btn btn-flame">
             Book your free audit
-          </a>
+          </CalendlyLink>
           <a href="#start" className="proof-next-link">
             How it works
           </a>

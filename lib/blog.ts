@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import { db } from './db';
-import { SITE, SITE_URL } from './site';
+import { FOUNDER, SITE, SITE_URL } from './site';
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -257,9 +257,10 @@ export function normalizePostInput(body: Record<string, unknown> = {}) {
 
 export function authorNode(name?: string) {
   const n = (name || '').trim();
-  if (!n || n === SITE.name) {
-    return { '@type': 'Organization', name: SITE.name, url: `${SITE_URL}/#about` };
-  }
+  // A byline of "Inferno Emails" is the company, not a person: never emit a
+  // Person node for it. The founder resolves to the shared Person entity.
+  if (FOUNDER && n === FOUNDER.name) return { '@id': `${SITE_URL}/about#founder` };
+  if (!n || n === SITE.name) return { '@id': `${SITE_URL}/#organization` };
   return { '@type': 'Person', name: n };
 }
 
@@ -286,7 +287,7 @@ export function articleJsonLd(post: Post) {
       author: authorNode(post.author),
       publisher: { '@id': `${SITE_URL}/#organization` },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      inLanguage: 'en',
+      inLanguage: SITE.lang,
     },
     {
       '@context': 'https://schema.org',

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE, SITE_URL } from './site';
+import { ADDRESS, FOUNDER, SITE, SITE_URL } from './site';
 
 /* ------------------------------------------------------------------ *
  * Metadata helper
@@ -115,13 +115,29 @@ export function orgGraph() {
           caption: SITE.name,
         },
         image: { '@id': `${SITE_URL}/#logo` },
-        sameAs: [SITE.instagram, SITE.linkedin],
+        // Only profiles confirmed to be ours. The LinkedIn company URL was a
+        // build-time guess, so it stays out until someone verifies it.
+        sameAs: [SITE.instagram],
+        ...(FOUNDER ? { founder: { '@id': `${SITE_URL}/about#founder` } } : {}),
+        ...(ADDRESS
+          ? {
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: ADDRESS.street,
+                addressLocality: ADDRESS.city,
+                ...(ADDRESS.region ? { addressRegion: ADDRESS.region } : {}),
+                postalCode: ADDRESS.postalCode,
+                addressCountry: ADDRESS.country,
+              },
+              ...(ADDRESS.phone ? { telephone: ADDRESS.phone } : {}),
+            }
+          : {}),
         slogan: SITE.tagline,
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'sales',
           email: SITE.email,
-          url: `${SITE_URL}/#contact`,
+          url: `${SITE_URL}/contact`,
           availableLanguage: 'en',
         },
         areaServed: 'Worldwide',
@@ -141,13 +157,53 @@ export function orgGraph() {
         name: SITE.name,
         description: SITE.description,
         publisher: { '@id': `${SITE_URL}/#organization` },
-        inLanguage: 'en',
-        speakable: {
-          '@type': 'SpeakableSpecification',
-          cssSelector: ['#answer', 'h1'],
-        },
+        inLanguage: SITE.lang,
       },
     ],
+  };
+}
+
+/** Person node for the founder. Null until FOUNDER is filled in. */
+export function founderLd() {
+  if (!FOUNDER) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE_URL}/about#founder`,
+    name: FOUNDER.name,
+    jobTitle: FOUNDER.role,
+    description: FOUNDER.bio,
+    url: `${SITE_URL}/about`,
+    ...(FOUNDER.photo ? { image: `${SITE_URL}${FOUNDER.photo}` } : {}),
+    ...(FOUNDER.sameAs.length ? { sameAs: FOUNDER.sameAs } : {}),
+    worksFor: { '@id': `${SITE_URL}/#organization` },
+    knowsAbout: ['Klaviyo', 'Email marketing', 'Ecommerce retention marketing', 'Email deliverability'],
+  };
+}
+
+/**
+ * Page-type node (AboutPage, ContactPage, CollectionPage, WebPage...) so a
+ * page declares what it is, hangs off the site entity and names its parent.
+ */
+export function pageLd(input: {
+  type: 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'WebPage';
+  path: string;
+  name: string;
+  description: string;
+  about?: { '@id': string };
+}) {
+  const url = `${SITE_URL}${input.path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': input.type,
+    '@id': `${url}#webpage`,
+    url,
+    name: input.name,
+    description: input.description,
+    inLanguage: SITE.lang,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: input.about ?? { '@id': `${SITE_URL}/#organization` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
   };
 }
 

@@ -24,17 +24,70 @@ export const SITE = {
   calendly: 'https://calendly.com/infernoemails/new-meeting',
   linkedin: 'https://www.linkedin.com/company/infernoemails/',
   founded: '2022',
-  locale: 'en_US',
+  /** Copy is written in British English (programmes, optimised), so the locale matches. */
+  locale: 'en_GB',
+  lang: 'en-GB',
   /** Where the work has shipped. Read off the About copy, not invented. */
   regions: ['Europe', 'Australia', 'United States'],
 } as const;
+
+/**
+ * The founder, as a named human. Left null on purpose: nothing here may be
+ * invented. Fill it in (name, role, bio, a LinkedIn URL you have checked is
+ * theirs) and the About page, the Person schema, the Organization `founder`
+ * link and every blog post's author byline all switch on with no other edit.
+ */
+export type Founder = {
+  name: string;
+  role: string;
+  bio: string;
+  /** Profile URLs the person owns: LinkedIn first. Used as schema sameAs. */
+  sameAs: string[];
+  /** Path under /public, e.g. '/images/founder.webp'. */
+  photo?: string;
+};
+export const FOUNDER: Founder | null = null;
+
+/**
+ * Registered or trading address and phone, if there is one to publish.
+ * Null until supplied: a made-up address is worse than none. When set it
+ * feeds the Organization PostalAddress/telephone and the footer.
+ */
+export type Address = {
+  street: string;
+  city: string;
+  region?: string;
+  postalCode: string;
+  /** ISO 3166-1 alpha-2, e.g. 'GB'. */
+  country: string;
+  phone?: string;
+};
+export const ADDRESS: Address | null = null;
+
+/**
+ * Every booking link on the site should go through this, not `SITE.calendly`
+ * directly. `source` is a short, stable identifier for the CTA's position
+ * (e.g. "hero", "faq", "service-email-flows") and lands in Calendly's own
+ * UTM Tracking report as `utm_content`, so a booked call can be traced back
+ * to the exact button that produced it. Plain-text mentions (llms.txt, the
+ * work-page FAQ answer, JSON-LD) intentionally keep the bare URL.
+ */
+export function calendlyHref(source: string) {
+  const params = new URLSearchParams({
+    utm_source: 'infernoemails.com',
+    utm_medium: 'site',
+    utm_campaign: 'free-audit',
+    utm_content: source,
+  });
+  return `${SITE.calendly}?${params.toString()}`;
+}
 
 /**
  * Last substantive content edit to the static marketing pages. Feeds the
  * sitemap lastModified for those routes so crawlers get an honest date
  * instead of "now" on every request. Bump it when copy changes.
  */
-export const CONTENT_UPDATED = '2026-09-10';
+export const CONTENT_UPDATED = '2026-10-03';
 
 /**
  * The extractable one-paragraph answer to "what is Inferno Emails?".
@@ -57,7 +110,7 @@ export const QUICK_ANSWER = `${SITE.description} Founded in ${SITE.founded}, wor
 export const NAV = [
   { label: 'Services', href: '/services' },
   { label: 'Work', href: '/work' },
-  { label: 'About', href: '/#about' },
+  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
 ] as const;
 
@@ -84,16 +137,16 @@ export const FOOTER_NAV = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/#about' },
+      { label: 'About', href: '/about' },
       { label: 'Work', href: '/work' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Contact', href: '/#contact' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
     title: 'Start here',
     links: [
-      { label: 'Book a free audit', href: SITE.calendly, external: true },
+      { label: 'Free email audit', href: '/free-email-audit' },
       { label: 'Privacy policy', href: '/privacy' },
       { label: 'Terms of service', href: '/terms' },
     ],
@@ -436,7 +489,7 @@ export const WORK: WorkItem[] = [
     client: 'KÍLÈNTÀR',
     title: 'Welcome email',
     type: 'Welcome flow',
-    image: '/images/work-kilentar.png',
+    image: '/images/work-kilentar.webp',
     width: 600,
     height: 2500,
     alt: 'KÍLÈNTÀR welcome email opening on a red-carpet photograph of three women in handcrafted pieces, followed by a first-order discount code, a twelve-piece product grid and a Slaying in a Different Styles editorial section',
@@ -447,7 +500,7 @@ export const WORK: WorkItem[] = [
     client: 'Girafon Bleu',
     title: 'Welcome email',
     type: 'Welcome flow',
-    image: '/images/work-girafon.png',
+    image: '/images/work-girafon.webp',
     width: 600,
     height: 2189,
     alt: 'Girafon Bleu welcome email in orange and blue, introducing the brand with a 10% welcome code and pre-order product cards',
@@ -458,7 +511,7 @@ export const WORK: WorkItem[] = [
     client: 'Bondi Coffee',
     title: 'Campaign email',
     type: 'Campaign',
-    image: '/images/work-bondi.png',
+    image: '/images/work-bondi.webp',
     width: 600,
     height: 2516,
     alt: 'Bondi Coffee campaign email featuring product photography and a clear call to action',
@@ -469,7 +522,7 @@ export const WORK: WorkItem[] = [
     client: 'Kuchenkompane',
     title: 'Mother’s Day campaign',
     type: 'Seasonal campaign',
-    image: '/images/work-kuchenkompane.png',
+    image: '/images/work-kuchenkompane.webp',
     width: 600,
     height: 2282,
     alt: 'Kuchenkompane Mother’s Day campaign email with seasonal styling and gift product cards',
@@ -480,7 +533,7 @@ export const WORK: WorkItem[] = [
     client: 'The Nikos Knife',
     title: 'Welcome sequence',
     type: 'Welcome flow',
-    image: '/images/work-nikos-welcome.png',
+    image: '/images/work-nikos-welcome.webp',
     width: 1200,
     height: 5666,
     alt: 'The Nikos Knife long-form welcome email introducing the product story and craftsmanship',
@@ -491,7 +544,7 @@ export const WORK: WorkItem[] = [
     client: 'Femmenal',
     title: 'Campaign email',
     type: 'Campaign',
-    image: '/images/work-femmenal.png',
+    image: '/images/work-femmenal.webp',
     width: 600,
     height: 2825,
     alt: 'Femmenal campaign email with editorial layout and product benefit sections',
@@ -502,7 +555,7 @@ export const WORK: WorkItem[] = [
     client: 'Iced Plunge',
     title: 'Welcome email',
     type: 'Welcome flow',
-    image: '/images/work-iced-plunge.png',
+    image: '/images/work-iced-plunge.webp',
     width: 600,
     height: 1951,
     alt: 'Iced Plunge welcome email in teal showing the ice bath range, a WELCOME10 code valid for seven days, and three benefit icons for performance, immunity and stress',
@@ -513,7 +566,7 @@ export const WORK: WorkItem[] = [
     client: 'The Future Nurse Bundle',
     title: 'Welcome email',
     type: 'Welcome flow',
-    image: '/images/work-the-future-nurse-bundle.png',
+    image: '/images/work-the-future-nurse-bundle.webp',
     width: 600,
     height: 2165,
     alt: 'The Future Nurse Bundle welcome email in red and blue showing the printed and digital study guides, a FAMILY10 discount code, and instant, safe and economic benefit icons',
@@ -524,7 +577,7 @@ export const WORK: WorkItem[] = [
     client: 'Next Step Funded',
     title: 'Campaign email',
     type: 'Campaign',
-    image: '/images/work-next-step-funded.png',
+    image: '/images/work-next-step-funded.webp',
     width: 600,
     height: 1674,
     alt: 'Next Step Funded campaign email in green showing three funded trading account tiers with pricing and rules, a Discord invitation, and a five-star Trustpilot review',

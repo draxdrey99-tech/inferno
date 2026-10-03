@@ -20,11 +20,17 @@ export default function NotFound() {
             rebuilt the site.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            <Link href="/" className="btn btn-flame">
-              Back to home
+            <Link href="/free-email-audit" className="btn btn-flame">
+              Book a free audit
             </Link>
-            <Link href="/blog" className="btn-line">
-              Read the blog
+            <Link href="/services" className="btn-line">
+              Services
+            </Link>
+            <Link href="/work" className="btn-line">
+              Work
+            </Link>
+            <Link href="/" className="btn-line">
+              Home
             </Link>
           </div>
         </div>

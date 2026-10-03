@@ -91,3 +91,50 @@ export const SERVICE_COMPARISON:Record<string,{bestFor:string;startsWith:string;
   measuredBy:'Flow-attributed revenue',
  },
 };
+
+/**
+ * Service-specific fit and mistakes. The home page keeps the generic
+ * GOOD_FIT / BAD_FIT lists; each service page says who *this* service is
+ * for, so the pages stop repeating one block of ten bullets. The mistakes
+ * are general practitioner knowledge, not claims about any client.
+ */
+export const SERVICE_DETAIL:Record<string,{goodFit:string[];badFit:string[];mistakes:string[]}>={
+ 'klaviyo-email-marketing':{
+  goodFit:['Klaviyo is installed but only a welcome flow and the occasional newsletter go out','You want one team accountable for flows, campaigns and reporting','Email is under 20% of revenue and you suspect it should be more'],
+  badFit:['You have no Klaviyo account and no plan to adopt it','You want a one-off template, not an ongoing programme','You are pre-revenue with no list to send to'],
+  mistakes:['Sending the same campaign to the whole list instead of segmenting by engagement','Reporting on open rates, which Apple Mail Privacy Protection inflates','Leaving flows live for years without testing the first email or the delay between steps'],
+ },
+ 'email-design':{
+  goodFit:['Your emails look like a stock template rather than your brand','You have a strong brand and a product that photographs well','You need design capacity alongside an in-house or existing Klaviyo team'],
+  badFit:['You want dozens of cheap template swaps a month','You cannot share brand assets, photography or guidelines','You need the design only, with no say over what gets sent or when'],
+  mistakes:['Designing in a single image, so nothing renders when images are blocked','Dark mode left untested, turning logos and text unreadable','A dozen competing calls to action where one clear button would earn more clicks'],
+ },
+ 'email-deliverability':{
+  goodFit:['Open rates have drifted down and nobody can say why','Mail is landing in spam or the Promotions tab at Gmail or Outlook','You have never checked SPF, DKIM and DMARC, or are unsure they are correct'],
+  badFit:['You bought or scraped your list and plan to keep mailing it','You are not willing to stop sending to long-inactive contacts','You expect a fix without any change to how you send'],
+  mistakes:['Mailing the full list at full volume after a long gap, which spikes complaints','Publishing a DMARC record at p=none and never moving beyond it','Ignoring the share of the list that has not opened in six months'],
+ },
+ 'retention-strategy':{
+  goodFit:['Most of your revenue comes from first-time buyers','You have a repeatable product or a natural reorder window','You want a lifecycle plan, not just more sends'],
+  badFit:['Your product is bought once, ever, with no add-ons or referrals','You have under a few hundred past customers to learn from','You want only acquisition and have no interest in repeat revenue'],
+  mistakes:['Ending the conversation at the shipping confirmation','Sending replenishment reminders on a guess rather than your real repurchase interval','Treating a first-time buyer and a ten-time buyer to the same discount'],
+ },
+ 'email-flows':{
+  goodFit:['Flow coverage has gaps: no browse abandonment, no winback, a thin post-purchase','Your existing flows were built once and never revisited','You want revenue that keeps arriving between campaigns'],
+  badFit:['You send under a few hundred emails a month, so flows have nobody to trigger on','You want a flow built but nobody to approve copy or offers','You are not able to give us access to your store data'],
+  mistakes:['A cart-recovery flow that keeps emailing after the customer has purchased','Welcome flows that open with a discount before the brand has said anything','Flows with no exit conditions, so the same person receives overlapping sequences'],
+ },
+};
+
+/** Shared across all five service pages: how an engagement actually starts. */
+export const FIRST_30_DAYS=[
+ {when:'Week 1',what:'We are in your account. Audit, authentication check, and a list of what to fix first, in order.'},
+ {when:'Weeks 2 to 3',what:'Core flows go live and the first campaigns send, designed in your brand and approved by you.'},
+ {when:'Week 4',what:'First monthly report against attributed revenue, and the test plan for the month ahead.'},
+] as const;
+
+export const NEEDED_FROM_YOU=[
+ 'Read-only access to Klaviyo and your store platform, or screenshots if you prefer',
+ 'Brand assets: logo, fonts, colours and product photography',
+ 'One person who can approve copy and offers within a couple of working days',
+] as const;

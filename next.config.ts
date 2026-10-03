@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ['image/avif', 'image/webp'],
+    qualities: [65, 75],
     remotePatterns: [
       // Vercel Blob — cover images uploaded through /admin.
       { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
@@ -38,11 +39,21 @@ const nextConfig: NextConfig = {
       // older aliases follow it rather than the home-page anchor.
       { source: '/our-work', destination: '/work', permanent: true },
       { source: '/portfolio', destination: '/work', permanent: true },
-      { source: '/about', destination: '/#about', permanent: true },
-      { source: '/contact', destination: '/#contact', permanent: true },
-      { source: '/contact-us', destination: '/#contact', permanent: true },
-      { source: '/free-email-audit', destination: '/#contact', permanent: true },
-      { source: '/audit', destination: '/#contact', permanent: true },
+      // /about, /contact and /free-email-audit are real pages. Only the
+      // aliases redirect to them.
+      { source: '/contact-us', destination: '/contact', permanent: true },
+      { source: '/audit', destination: '/free-email-audit', permanent: true },
+      { source: '/free-audit', destination: '/free-email-audit', permanent: true },
+      // Portfolio artwork moved from multi-megabyte PNGs to WebP.
+      { source: '/images/:name(work-[a-z-]+).png', destination: '/images/:name.webp', permanent: true },
+      // Old WordPress archive, feed and attachment URLs. Nothing at these
+      // paths is worth a 404 if anything still links to them.
+      { source: '/category/:path*', destination: '/blog', permanent: true },
+      { source: '/tag/:path*', destination: '/blog', permanent: true },
+      { source: '/author/:path*', destination: '/about', permanent: true },
+      { source: '/feed', destination: '/rss.xml', permanent: true },
+      { source: '/feed/:path*', destination: '/rss.xml', permanent: true },
+      { source: '/wp-content/:path*', destination: '/', permanent: true },
     ];
   },
 
