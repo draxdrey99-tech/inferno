@@ -1,5 +1,6 @@
 import { FAQ_PAGES } from '@/lib/faq';
 import { GLOSSARY } from '@/lib/glossary';
+import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { SERVICE_PAGES } from '@/lib/service-pages';
 import { QUICK_ANSWER, SITE, SITE_URL } from '@/lib/site';
 import { USE_CASES } from '@/lib/use-cases';
@@ -28,6 +29,11 @@ export function GET() {
   out.push('## Glossary', '');
   for (const t of GLOSSARY) {
     out.push(`### ${t.term}`, `URL: ${SITE_URL}/glossary/${t.slug}`, '', t.definition, '', ...t.body, '', `Example: ${t.example}`, '');
+  }
+
+  out.push('## Subject line libraries', '');
+  for (const s of SUBJECT_LIBRARIES) {
+    out.push(`### ${s.type} email subject lines`, `URL: ${SITE_URL}/email-subject-lines/${s.slug}`, '', s.answer, '', ...s.examples.slice(0, 10).map((e) => `- ${e.line}: ${e.why}`), '');
   }
 
   out.push('## FAQ', '');

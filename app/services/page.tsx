@@ -73,6 +73,7 @@ export default function Services(){
     <Link href="/email-agency-vs-in-house">Agency vs in-house</Link>
     <Link href="/glossary">Email marketing glossary</Link>
     <Link href="/faq">Email marketing FAQ</Link>
+    <Link href="/email-subject-lines">Email subject line libraries</Link>
     <Link href="/flow-coverage-checklist">Flow coverage checklist</Link>
    </div>
   </section>

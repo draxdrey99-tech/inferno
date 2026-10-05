@@ -6,6 +6,7 @@ import { SERVICE_PAGES } from '@/lib/service-pages';
 import { USE_CASES } from '@/lib/use-cases';
 import { GLOSSARY } from '@/lib/glossary';
 import { FAQ_PAGES } from '@/lib/faq';
+import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 
 export const revalidate = 3600;
 
@@ -44,6 +45,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...FAQ_PAGES.map((f) => ({ url: `${SITE_URL}/faq/${f.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/glossary`, lastModified: edited },
     ...GLOSSARY.map((t) => ({ url: `${SITE_URL}/glossary/${t.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/email-subject-lines`, lastModified: edited },
+    ...SUBJECT_LIBRARIES.map((s) => ({ url: `${SITE_URL}/email-subject-lines/${s.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/blog`, lastModified: edited },
     { url: `${SITE_URL}/privacy`, lastModified: new Date('2026-08-30') },
     { url: `${SITE_URL}/terms`, lastModified: new Date('2026-08-30') },

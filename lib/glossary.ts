@@ -711,6 +711,347 @@ export const GLOSSARY: Term[] = [
       "welcome-flow",
       "email-segmentation"
     ]
+  },
+  {
+    "slug": "spam-trap",
+    "category": "deliverability",
+    "term": "Spam trap",
+    "metaTitle": "What Is a Spam Trap in Email Marketing?",
+    "metaDescription": "A spam trap is an address used to catch senders with poor list hygiene. Learn the types, how they get on a list and how to avoid them.",
+    "definition": "A spam trap is an email address that belongs to no real subscriber and exists only to identify senders who mail people without permission or who never clean their lists.",
+    "body": [
+      "There are two common kinds. Pristine traps are addresses that were never used by a person, so the only way onto your list is scraping, buying or guessing. Recycled traps are old addresses that were abandoned and later repurposed by a mailbox provider or blocklist operator to catch senders who keep mailing dead contacts.",
+      "Hitting a trap does not usually show up as an error. You may simply see delivery drop, blocklist listings or sudden spam folder placement. Prevention is the realistic approach: collect addresses with clear consent, use double opt-in where it fits, and stop mailing people who have not engaged for a long time.",
+      "Typos at signup are another route in, such as a misspelled domain that happens to be a trap. Validating addresses at the point of capture helps."
+    ],
+    "example": "A hypothetical tea shop imports an old event attendee spreadsheet from several years ago. Within a week its emails start landing in spam and a blocklist check shows a listing. Tracing it back, the imported file is the only new source, and it likely contained recycled addresses. The shop removes the file and rebuilds with consented signups only.",
+    "mistakes": [
+      "Importing purchased or very old lists",
+      "Never suppressing contacts who stopped engaging years ago",
+      "Skipping address validation on signup forms"
+    ],
+    "service": "email-deliverability",
+    "related": [
+      "suppression-list",
+      "sender-reputation",
+      "hard-vs-soft-bounce"
+    ]
+  },
+  {
+    "slug": "feedback-loop",
+    "category": "deliverability",
+    "term": "Feedback loop",
+    "metaTitle": "What Is an Email Feedback Loop (FBL)?",
+    "metaDescription": "A feedback loop tells senders when a recipient marks their email as spam. Learn how it works and what to do with the reports.",
+    "definition": "A feedback loop is a service offered by some mailbox providers that notifies a sender when a recipient reports one of their messages as spam, so that person can be removed from future sends.",
+    "body": [
+      "Each report identifies the message that was flagged, which lets the sender suppress that address. Continuing to mail someone who has complained is one of the fastest ways to damage reputation.",
+      "Not every provider offers a feedback loop, and many require you to register your sending IP or domain. Where you use a major email platform, complaints are generally processed on your behalf and the contact is suppressed automatically, but it is worth confirming how yours handles them.",
+      "Treat the volume of reports as a signal. A rising count after a particular campaign usually points to a list source, frequency or content problem rather than bad luck."
+    ],
+    "example": "Imagine a stationery shop sends a promotion to a freshly merged list. Complaints arrive through feedback loop reports within a day. The team confirms those contacts are suppressed, finds that most came from one older import, and stops sending to that import until it is re-permissioned.",
+    "mistakes": [
+      "Assuming complaints are handled without checking",
+      "Ignoring which list source the complaints came from",
+      "Re-adding complained contacts through a later import"
+    ],
+    "service": "email-deliverability",
+    "related": [
+      "spam-complaint-rate",
+      "suppression-list",
+      "spam-trap"
+    ]
+  },
+  {
+    "slug": "hard-vs-soft-bounce",
+    "category": "deliverability",
+    "term": "Hard bounce vs soft bounce",
+    "metaTitle": "Hard Bounce vs Soft Bounce: What Is the Difference?",
+    "metaDescription": "A hard bounce is a permanent delivery failure and a soft bounce is temporary. Learn how each is handled and why it matters for reputation.",
+    "definition": "A hard bounce is a permanent delivery failure, such as an address that does not exist, while a soft bounce is a temporary failure, such as a full mailbox or a server that is briefly unavailable.",
+    "body": [
+      "Hard bounces should be suppressed immediately. Mailing nonexistent addresses signals poor list quality to mailbox providers. Most email platforms do this automatically.",
+      "Soft bounces are retried for a period. If an address keeps soft bouncing across several sends, platforms generally treat it as undeliverable and stop mailing it.",
+      "Watching both tells you something about list health. Hard bounces cluster around bad data sources and typos, while soft bounces can point to temporary receiver issues or a mailbox that nobody uses."
+    ],
+    "example": "A hypothetical jewelry store notices a small group of addresses bouncing after a trade show signup sheet was typed in by hand. The hard bounces are suppressed automatically, and the team adds address checks to the signup form so typos are caught before they reach the list.",
+    "mistakes": [
+      "Re-importing suppressed addresses",
+      "Treating every bounce as a temporary glitch",
+      "Not validating addresses captured offline"
+    ],
+    "service": "email-deliverability",
+    "related": [
+      "bounce-rate",
+      "suppression-list",
+      "spam-trap"
+    ]
+  },
+  {
+    "slug": "event-trigger",
+    "category": "flows",
+    "term": "Event trigger",
+    "metaTitle": "What Is an Event Trigger in Email Automation?",
+    "metaDescription": "An event trigger is the customer action that starts an automated email flow. Learn common triggers and how to choose the right one.",
+    "definition": "An event trigger is a customer action or data change, such as placing an order or starting checkout, that starts an automated flow for that person.",
+    "body": [
+      "Flows in Klaviyo and similar platforms start from a trigger. It can be a tracked event like Started Checkout, a list or segment joining, or a date property such as a birthday.",
+      "The trigger decides who enters and when. A trigger tied to a real action is usually more relevant than a calendar send, because the email arrives when the behaviour is fresh.",
+      "Events must be tracked reliably for this to work. If the store integration does not send an event, the flow quietly never starts, so test each trigger with a real or test profile."
+    ],
+    "example": "A hypothetical bookshop sets a flow to trigger on a customer viewing a series page but not purchasing. When a visitor browses the second book of a series and leaves, the flow starts and sends an email about that series a few hours later.",
+    "mistakes": [
+      "Choosing a trigger without verifying the event fires",
+      "Triggering several flows on the same event with no priority",
+      "Using a list trigger when a behaviour trigger fits better"
+    ],
+    "service": "email-flows",
+    "related": [
+      "flow-filter",
+      "abandoned-cart-flow"
+    ]
+  },
+  {
+    "slug": "flow-filter",
+    "category": "flows",
+    "term": "Flow filter",
+    "metaTitle": "What Is a Flow Filter in Klaviyo?",
+    "metaDescription": "A flow filter limits who can enter or stay in a flow. Learn how it differs from a trigger and common filters for ecommerce.",
+    "definition": "A flow filter is a rule on a flow that decides which people are allowed to enter it or continue through it, such as excluding anyone who has already purchased.",
+    "body": [
+      "Trigger filters apply when a person qualifies to enter. Profile filters apply at each step when the message is about to send, so someone who stops meeting the condition is skipped.",
+      "Typical ecommerce uses include excluding recent purchasers from a promotional flow, limiting a flow to a country or product line, and keeping people on the suppression list out entirely.",
+      "Filters are a common reason a flow seems to send nothing. When troubleshooting, check whether the filters are removing the people you expected to reach."
+    ],
+    "example": "A hypothetical coffee roaster has a browse flow filtered to exclude anyone who bought in the last two weeks. A customer who buys the day after browsing is skipped at the next step, so they never get a reminder for something they already own.",
+    "mistakes": [
+      "Adding filters that exclude almost everyone",
+      "Forgetting to exclude recent purchasers",
+      "Never checking why a flow has low entry volume"
+    ],
+    "service": "email-flows",
+    "related": [
+      "event-trigger",
+      "abandoned-cart-flow"
+    ]
+  },
+  {
+    "slug": "cross-sell-email",
+    "category": "flows",
+    "term": "Cross-sell email",
+    "metaTitle": "What Is a Cross-Sell Email? Ecommerce Examples",
+    "metaDescription": "A cross-sell email recommends products that complement what a customer just bought. Learn when to send it and how to keep it relevant.",
+    "definition": "A cross-sell email recommends products that go well with something a customer has already bought, rather than repeating the same item.",
+    "body": [
+      "It usually sits inside a post-purchase flow after delivery, once the customer has had time to use the first item. Relevance is the point, so recommendations should match the product bought, not simply the best sellers.",
+      "Product data matters. Clear categories, tags and a reliable catalog feed make it possible to pair items logically, such as a case with a device or a refill with a starter kit.",
+      "Timing matters as much as the content. Sending before the order arrives feels pushy, while sending after the customer has tried the product reads as helpful."
+    ],
+    "example": "Imagine a hypothetical bike accessories store. A customer buys a helmet, and a few weeks after delivery receives an email about lights and a lock, with a short note on how riders usually kit out a commuter bike.",
+    "mistakes": [
+      "Recommending the item the customer just bought",
+      "Sending while the order is still in transit",
+      "Pairing products with no logical link"
+    ],
+    "service": "email-flows",
+    "related": [
+      "post-purchase-flow",
+      "catalog-feed",
+      "replenishment-flow"
+    ]
+  },
+  {
+    "slug": "klaviyo-metric",
+    "category": "metrics",
+    "term": "Klaviyo metric",
+    "metaTitle": "What Is a Metric in Klaviyo? Events Explained",
+    "metaDescription": "A Klaviyo metric is a type of tracked event, like Placed Order. Learn how metrics power flows, segments and reporting.",
+    "definition": "A Klaviyo metric is a named type of event the platform records for a profile, such as Placed Order, Started Checkout or Opened Email.",
+    "body": [
+      "Each time a customer does something tracked, an event of that metric is stored on their profile with details such as the product or value. Metrics come from integrations like your store platform, from Klaviyo itself, or from custom events you send.",
+      "Metrics are the building blocks of most automation. Flows trigger on them, segments are defined by them and reports count them over time.",
+      "Because so much depends on them, check that the key ecommerce metrics are flowing in correctly before building anything. A missing event usually means a broken integration, not a customer who did nothing."
+    ],
+    "example": "A hypothetical outdoor gear store opens its metrics list and sees Placed Order, Started Checkout and Viewed Product are all recording. It then builds a segment of people who viewed a tent three times without purchasing, which can only be done because that metric is tracked.",
+    "mistakes": [
+      "Building flows before confirming events are recorded",
+      "Mixing custom event names with inconsistent spelling",
+      "Treating missing events as customer inactivity"
+    ],
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "event-trigger",
+      "attributed-revenue"
+    ]
+  },
+  {
+    "slug": "holdout-group",
+    "category": "metrics",
+    "term": "Holdout group",
+    "metaTitle": "What Is a Holdout Group in Email Marketing?",
+    "metaDescription": "A holdout group is a set of people deliberately not sent a message, used to measure its true effect. Learn how to run one.",
+    "definition": "A holdout group is a randomly chosen set of contacts who are deliberately not sent an email so their behaviour can be compared with those who were.",
+    "body": [
+      "Attribution tells you what customers did after an email, but not what they would have done anyway. A holdout compares the two groups, so the gap shows the effect of the message itself.",
+      "The groups must be chosen randomly and be large enough to compare. Hold them out for long enough for purchasing to show up, and keep everything else the same for both.",
+      "Holdouts have a cost, because the held-out people miss the message. They are best used selectively, for example on a flow that you suspect mostly reaches people who would buy regardless."
+    ],
+    "example": "A hypothetical candle brand holds back a small random slice of new subscribers from a replenishment reminder for a month. If the reminded group reorders noticeably more than the held-out group, the flow is adding value, and if not, the brand reconsiders it.",
+    "mistakes": [
+      "Choosing the held-out group by hand",
+      "Ending the test before purchases show up",
+      "Changing the message partway through the test"
+    ],
+    "service": "retention-strategy",
+    "related": [
+      "attributed-revenue",
+      "ab-testing"
+    ]
+  },
+  {
+    "slug": "predictive-analytics",
+    "category": "metrics",
+    "term": "Predictive analytics",
+    "metaTitle": "What Is Predictive Analytics in Email Marketing?",
+    "metaDescription": "Predictive analytics estimates things like next order date or churn risk from past behaviour. Learn how stores use it in Klaviyo.",
+    "definition": "Predictive analytics uses a customer's past behaviour to estimate what they are likely to do next, such as when they will order again or whether they are likely to stop buying.",
+    "body": [
+      "In Klaviyo, predictive fields on a profile can include expected date of next order, predicted lifetime value and churn risk. They are estimates based on patterns in your own order history, not guarantees.",
+      "They are most useful for segmentation. You might target people expected to reorder soon, or nudge customers whose risk of lapsing has risen.",
+      "Predictions need enough order history to be meaningful. A new store with few orders will get thinner results, and any prediction should be checked against what you actually see before building a strategy on it."
+    ],
+    "example": "A hypothetical coffee shop builds a segment of customers whose expected next order date falls in the coming week and who have not ordered yet. They receive a reminder, while customers flagged as high churn risk get a different, gentler message.",
+    "mistakes": [
+      "Treating predictions as certain",
+      "Using them with very little order history",
+      "Never validating predictions against real outcomes"
+    ],
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "customer-lifetime-value",
+      "replenishment-flow"
+    ]
+  },
+  {
+    "slug": "email-list-growth",
+    "category": "lists",
+    "term": "Email list growth",
+    "metaTitle": "How to Grow an Ecommerce Email List the Right Way",
+    "metaDescription": "Email list growth is adding new, consented subscribers over time. Learn the main sources and why quality beats raw size.",
+    "definition": "Email list growth is the steady addition of new subscribers who have agreed to hear from you, measured by how many are real, reachable and engaged rather than by total size.",
+    "body": [
+      "Common sources include signup forms and popups, checkout opt-ins, giveaways, content downloads and in-person capture. Each brings people with different intent, so track which sources lead to real engagement and orders.",
+      "Quality matters more than headline numbers. A large list of people who never open hurts engagement metrics and deliverability, while a smaller engaged list performs better.",
+      "Growth is also about retention of subscribers. If many people leave soon after joining, review what the signup promised and what the first emails delivered."
+    ],
+    "example": "Imagine a hypothetical stationery brand that compares its sources and finds checkout opt-ins produce buyers while a giveaway brings many people who never open. It keeps the giveaway but moves them into a separate segment with a slower welcome series.",
+    "mistakes": [
+      "Counting total list size as success",
+      "Using giveaways that attract only prize hunters",
+      "Never checking which source leads to purchases"
+    ],
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "lead-magnet",
+      "double-opt-in"
+    ]
+  },
+  {
+    "slug": "lead-magnet",
+    "category": "lists",
+    "term": "Lead magnet",
+    "metaTitle": "What Is a Lead Magnet? Examples for Ecommerce",
+    "metaDescription": "A lead magnet is something useful offered in exchange for an email address. Learn what works for stores and what to avoid.",
+    "definition": "A lead magnet is something of value, such as a guide, quiz or early access, offered in exchange for a person's email address.",
+    "body": [
+      "For ecommerce, the best lead magnets relate directly to the product. A fit guide, a buying checklist, a quiz that recommends products or early access to a launch attracts people who are likely to be real customers.",
+      "Generic prizes bring people who want the prize, not the product. The closer the offer is to what you sell, the better the quality of the list that results.",
+      "Deliver what you promised quickly, and follow it with a welcome flow that continues the conversation rather than going silent."
+    ],
+    "example": "Imagine a hypothetical running shoe store offering a short fit quiz that recommends a shoe type based on gait and distance. Those who complete it join a flow that explains the recommendation and shows relevant models.",
+    "mistakes": [
+      "Offering something unrelated to the products",
+      "Failing to deliver the promised item promptly",
+      "Dropping new subscribers into a generic flow"
+    ],
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "email-list-growth",
+      "welcome-flow"
+    ]
+  },
+  {
+    "slug": "vip-segment",
+    "category": "lists",
+    "term": "VIP segment",
+    "metaTitle": "What Is a VIP Segment for Ecommerce Email?",
+    "metaDescription": "A VIP segment is a group of your best customers by spend or frequency. Learn how to define it and what to send.",
+    "definition": "A VIP segment is a group of your most valuable customers, defined by measures such as total spend, order count or consistent recent purchasing.",
+    "body": [
+      "The definition should fit your business. A store with frequent low-value orders might use order count, while one with rare large purchases might use total spend. Review the thresholds periodically so the group stays meaningful.",
+      "VIPs respond well to recognition rather than discounts: early access, previews, personal notes or exclusive products. Discounting your best customers can reduce margin on sales that would have happened anyway.",
+      "Also watch for VIPs who go quiet. A message to a lapsing high-value customer is often worth more attention than one to a casual buyer."
+    ],
+    "example": "Imagine a hypothetical jewelry store defining VIPs as customers with several orders in the past year. Before each launch they get a preview link a day early, and one who has gone quiet is sent a short note from the founder.",
+    "mistakes": [
+      "Using a threshold that never updates",
+      "Discounting VIPs by default",
+      "Ignoring VIPs who stop buying"
+    ],
+    "service": "retention-strategy",
+    "related": [
+      "customer-lifetime-value",
+      "email-segmentation"
+    ]
+  },
+  {
+    "slug": "dynamic-content",
+    "category": "strategy",
+    "term": "Dynamic content",
+    "metaTitle": "What Is Dynamic Content in Email Marketing?",
+    "metaDescription": "Dynamic content changes parts of an email for each recipient. Learn how stores use it and how to keep it manageable.",
+    "definition": "Dynamic content is part of an email that changes depending on who receives it, such as different blocks for different segments or product recommendations based on browsing.",
+    "body": [
+      "The email has one template with rules that swap blocks. A subscriber who has bought before might see a loyalty note while a first-time visitor sees a brand introduction.",
+      "It saves effort compared with building many versions of the same email, and makes each message feel more relevant.",
+      "Complexity is the risk. Each variation is something to test, and fallbacks are needed for when data is missing, so keep the number of rules small and preview the email as several different profiles before sending."
+    ],
+    "example": "A hypothetical outdoor brand sends one newsletter with a header block that shows tents to people who browsed camping gear and jackets to those who browsed hiking apparel. People with no browsing data see a general feature block.",
+    "mistakes": [
+      "Creating many variations that nobody tests",
+      "Leaving out a fallback when data is missing",
+      "Not previewing as different profiles"
+    ],
+    "service": "email-design",
+    "related": [
+      "email-segmentation",
+      "catalog-feed"
+    ]
+  },
+  {
+    "slug": "catalog-feed",
+    "category": "strategy",
+    "term": "Catalog feed",
+    "metaTitle": "What Is a Catalog Feed in Email Marketing?",
+    "metaDescription": "A catalog feed is the product data an email platform uses for recommendations and dynamic blocks. Learn what it needs to be accurate.",
+    "definition": "A catalog feed is the set of product data, such as names, prices, images, links and availability, that an email platform syncs from your store to use in emails.",
+    "body": [
+      "It powers product blocks, recommendations and back-in-stock messages. When the store integration syncs correctly, an email can pull the current image and price for each item automatically.",
+      "Accuracy matters because customers click what they see. Out-of-stock items, wrong prices and broken images all come from stale or incomplete data.",
+      "Good product data also helps recommendations. Clear categories and consistent tags let the platform group related items sensibly."
+    ],
+    "example": "A hypothetical shoe store notices a recommendation block showing an item that sold out last week. The team finds that stock status was not syncing, fixes the integration, and adds a check of the catalog before each large campaign.",
+    "mistakes": [
+      "Not checking sync status before campaigns",
+      "Leaving products without images or categories",
+      "Showing out-of-stock items in blocks"
+    ],
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "cross-sell-email",
+      "dynamic-content",
+      "back-in-stock-flow"
+    ]
   }
 ];
 

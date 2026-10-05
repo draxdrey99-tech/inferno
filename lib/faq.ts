@@ -416,6 +416,227 @@ export const FAQ_PAGES: Faq[] = [
       "email-deliverability"
     ],
     "service": "email-deliverability"
+  },
+  {
+    "slug": "how-to-set-up-a-klaviyo-welcome-flow",
+    "category": "flows",
+    "q": "How do I set up a welcome flow in Klaviyo?",
+    "a": "Create a flow triggered by joining your list, add a first email that sends right away, then two to four follow-ups spaced a day or more apart. Set a flow filter so existing customers are excluded, then turn it live.",
+    "detail": [
+      "In Klaviyo, open Flows, choose Create Flow and pick the welcome series recipe, which uses the list or form submission as its trigger. Choose the list you want it tied to, so every new signup enters automatically.",
+      "Write the first email to deliver whatever the signup form promised, then use later emails to introduce the brand, show best sellers and answer common objections. Add a conditional split so people who buy leave the series instead of receiving more introductory messages.",
+      "Preview on mobile, send yourself a test, and check smart sending and quiet hours before switching the flow from draft to live."
+    ],
+    "example": "A candle shop sets its welcome flow to trigger when someone joins the main list. The first email goes out immediately with the code the popup promised, the second tells the founding story, and the third shows three best sellers. Buyers are filtered out after the first order.",
+    "terms": [
+      "welcome-flow",
+      "email-segmentation"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "how-to-segment-email-list-by-purchase-history",
+    "category": "lists",
+    "q": "How do I segment my email list by purchase history?",
+    "a": "Build segments from placed-order events: group people by number of orders, time since last order, total spend or product bought. Start with first-time buyers, repeat buyers and lapsed customers, then refine only when each group needs different messaging.",
+    "detail": [
+      "Most email platforms record each order as an event. You can then define segments such as people who ordered once, people who ordered more than once, and people whose last order was a long time ago.",
+      "Pick segments that change what you would actually send. A repeat buyer can see loyalty or new-arrival content, while a first-time buyer benefits from education and a nudge toward a second order.",
+      "Keep definitions simple at first and review them each quarter, since segments that nobody uses add maintenance without adding revenue."
+    ],
+    "example": "A coffee roaster creates three segments: customers with one order, customers with several orders, and customers whose last order was long ago. The campaign for the first group highlights a subscription, the second gets a limited release, and the third receives a gentle reminder.",
+    "terms": [
+      "email-segmentation",
+      "customer-lifetime-value"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "what-is-a-good-unsubscribe-rate",
+    "category": "metrics",
+    "q": "What is a good unsubscribe rate for marketing emails?",
+    "a": "A good unsubscribe rate is low and stable compared with your own history, usually a small fraction of recipients per send. A sudden rise matters more than the absolute number, so watch trend by campaign type.",
+    "detail": [
+      "Published benchmarks vary by industry, list source and how often you send, so a single universal target is not reliable. Compare each send with your own recent average instead.",
+      "Some unsubscribes are healthy, since they remove people who would never buy and protect your sender reputation. Worry when a particular campaign, segment or acquisition source produces a clear spike.",
+      "Always compare unsubscribes with spam complaints, because complaints are the more damaging signal for deliverability."
+    ],
+    "example": "A brand sends a weekly campaign and sees unsubscribes stay steady for months. After it doubles frequency for everyone, the rate jumps on the first send. It rolls the change back for less engaged segments and the rate settles again.",
+    "terms": [
+      "unsubscribe-rate",
+      "spam-complaint-rate"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-grow-an-email-list-on-shopify",
+    "category": "lists",
+    "q": "How do I grow an email list on Shopify?",
+    "a": "Collect consented signups at every touchpoint: a popup or embedded form, a checkout opt-in, a footer signup and a clear reason to subscribe. Connect the forms to your email platform so new subscribers sync automatically.",
+    "detail": [
+      "Start with the integration between Shopify and your email platform, then add forms that match your site design. A well-timed popup with a clear benefit usually collects more than a footer link alone.",
+      "Offer something worth the address: early access, a guide, a gift with purchase or a discount if your margins allow. Be honest about what they will receive and how often.",
+      "Capture permission at checkout as well, because customers who just bought are the warmest audience you have."
+    ],
+    "example": "A jewelry store adds an embedded form to its homepage, a checkout opt-in and a quiet exit popup offering early access to new releases. Each form feeds one list in its email platform, and the welcome flow starts automatically.",
+    "terms": [
+      "double-opt-in",
+      "welcome-flow"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "plain-text-vs-html-email-for-ecommerce",
+    "category": "strategy",
+    "q": "Should ecommerce emails be plain text or HTML?",
+    "a": "Use designed HTML for product-focused campaigns and flows, and plain text style for personal, founder or service messages. Test both, because the better format depends on your audience and purpose.",
+    "detail": [
+      "HTML email lets you show products, use buttons and keep branding consistent, which suits most promotional sends. Plain text style emails feel personal and can work well for apology notes, feedback requests or founder letters.",
+      "Whichever you choose, include a clear call to action, working alt text for images and a readable layout on mobile. Many readers see images blocked at first.",
+      "Run an A/B test on a comparable send and judge by clicks and revenue per recipient rather than opens alone."
+    ],
+    "example": "A bag brand sends designed HTML campaigns for launches but tests a short plain text note from its founder as a post-purchase check-in. It keeps the HTML for sales and uses the plain note for relationship building.",
+    "terms": [
+      "ab-testing",
+      "dark-mode-email"
+    ],
+    "service": "email-design"
+  },
+  {
+    "slug": "how-to-reactivate-inactive-email-subscribers",
+    "category": "lists",
+    "q": "How do I reactivate inactive email subscribers?",
+    "a": "Send a short, targeted re-engagement sequence to people who have not opened or clicked in a long time, then remove those who still do not respond. Reactivating a few engaged readers is worth more than keeping a large silent list.",
+    "detail": [
+      "Define inactive using your own buying cycle, for example no clicks or purchases for several months. Then send two or three messages with a clear value, such as a preference update or a best-of roundup.",
+      "Be willing to let people go. Continued sending to unengaged addresses lowers engagement rates and can push your mail toward spam folders.",
+      "Move those who do not respond into a suppression list, but keep them in your ad audiences if that suits your plan."
+    ],
+    "example": "A tea brand identifies subscribers with no clicks for half a year. It sends three emails asking whether they still want to hear from it and offering a choice of topics. Those who click return to the main list and the rest are suppressed.",
+    "terms": [
+      "sunset-policy",
+      "suppression-list"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "klaviyo-vs-mailchimp-for-ecommerce",
+    "category": "strategy",
+    "q": "Is Klaviyo or Mailchimp better for ecommerce?",
+    "a": "Klaviyo is usually the stronger fit for ecommerce stores because of its deep store integrations, event-based segmentation and built-in revenue reporting. Mailchimp can suit very small or content-led senders with simple needs.",
+    "detail": [
+      "Klaviyo records store behavior such as viewed product, added to cart and placed order, which makes behavioral flows and precise segments straightforward. Its reports tie email activity to store revenue.",
+      "Mailchimp offers a gentler start and a broad marketing toolset, and may be enough for a small list with occasional newsletters. Costs and features change, so check current plans for both.",
+      "The best choice depends on your store platform, list size, team skills and plans for automation. Migration is possible later but takes planning."
+    ],
+    "example": "A new store with a few hundred subscribers and a monthly newsletter picks a simple tool. A year later it wants cart and browse automations and segments by purchase behavior, so it plans a migration to a platform built for ecommerce.",
+    "terms": [
+      "email-flow-vs-campaign",
+      "email-segmentation"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-set-up-a-post-purchase-flow",
+    "category": "flows",
+    "q": "How do I set up a post-purchase email flow?",
+    "a": "Trigger a flow from the placed-order event, then send a thank-you, shipping and usage guidance, a review request and a relevant cross-sell. Space them around delivery time so each message arrives when it is useful.",
+    "detail": [
+      "Keep order confirmations in your transactional system and use the marketing flow to build the relationship afterwards. Start with usefulness: how to use or care for the product, and what to expect.",
+      "Request a review once the customer has had time to use the item, not just when it ships. Later, suggest complementary products based on what they bought.",
+      "Exclude recent buyers from promotions that compete with the flow, and tailor the path for first-time versus repeat customers."
+    ],
+    "example": "A skincare shop sends a thank-you after the order, a usage guide as the parcel arrives, a review request after a few weeks and a refill suggestion near when the bottle should run low. Each message has one clear job.",
+    "terms": [
+      "post-purchase-flow",
+      "transactional-vs-marketing-email"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "how-to-set-up-a-back-in-stock-flow",
+    "category": "flows",
+    "q": "How do I set up back in stock emails?",
+    "a": "Add a notify-me form on out-of-stock product pages, collect the subscriber against that product, and send an alert when stock returns. Most email platforms offer this as a built-in feature or flow.",
+    "detail": [
+      "Shoppers who ask to be told are showing high intent, so send the alert quickly once inventory is available. Keep the email short, with the product image and a direct link.",
+      "Make sure the stock status is updated reliably, otherwise people may be alerted for items that sell out again within minutes. Consider sending only when quantity passes a sensible threshold.",
+      "Be clear about consent: the shopper is requesting one alert, so respect that and invite them to subscribe separately."
+    ],
+    "example": "A sneaker store shows a notify-me button on sold-out sizes. When a restock arrives, it emails each person who asked, with the exact size and a direct link to buy. The page also invites them to join its main list.",
+    "terms": [
+      "back-in-stock-flow",
+      "double-opt-in"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "what-is-a-good-click-rate-for-email",
+    "category": "metrics",
+    "q": "What is a good click rate for ecommerce email?",
+    "a": "A good click rate is one that sits above your own recent average for a similar type of email. Benchmarks vary widely, so use them only as rough context and track revenue per recipient alongside.",
+    "detail": [
+      "Click rate is a more dependable engagement signal than opens, because Apple Mail Privacy Protection inflates opens. Still, rates differ between flows and campaigns, so compare like with like.",
+      "Flows aimed at warm intent, such as cart reminders, usually perform better than broad newsletters. Judge each against its own category history.",
+      "Clicks matter only if they lead to purchases, so pair click rate with conversion and revenue per recipient."
+    ],
+    "example": "A brand reviews its last quarter and sees newsletters get fewer clicks than its post-purchase flow, which is expected. It sets a goal to beat its own newsletter average by improving subject lines and a clearer button.",
+    "terms": [
+      "click-through-rate",
+      "revenue-per-recipient"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-tell-if-an-email-is-working-without-open-rates",
+    "category": "metrics",
+    "q": "How can I judge email performance without open rates?",
+    "a": "Look at click rate, conversion rate, revenue per recipient and unsubscribes instead. These reflect real behavior and are not distorted by automatic image loading from privacy features.",
+    "detail": [
+      "Apple Mail Privacy Protection loads images for many recipients, so open rate overstates real attention. Treat opens as directional at best.",
+      "Revenue per recipient shows how much each send contributes, while click rate and unsubscribes show interest and fatigue. Compare trends over several sends rather than single results.",
+      "Use A/B tests with clicks or revenue as the winning metric, not opens."
+    ],
+    "example": "A team used to pick subject-line winners by opens. It switches to choosing winners by clicks and revenue per recipient, and finds that the subject line with fewer opens actually drove more orders.",
+    "terms": [
+      "apple-mail-privacy-protection",
+      "revenue-per-recipient"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "what-are-spam-traps-and-how-to-avoid-them",
+    "category": "deliverability",
+    "q": "What are spam traps and how do I avoid them?",
+    "a": "Spam traps are addresses used by mailbox providers and blocklist operators to catch senders with poor list practices. Avoid them by only mailing people who opted in, removing bounces and sunsetting long-inactive contacts.",
+    "detail": [
+      "Some traps are old abandoned addresses that were repurposed, and others were never real users at all. Hitting one suggests you are mailing old or acquired lists.",
+      "You cannot identify a trap by looking at it, so prevention is the strategy. Use confirmed signups, validate addresses and stop sending to people who have not engaged in a long time.",
+      "If you suspect a trap hit, pause, clean the list and review your sources."
+    ],
+    "example": "A store inherits a decade-old customer file and starts mailing it. Delivery drops. It stops, removes everyone who has not interacted recently, re-asks consent from the rest and rebuilds sending slowly.",
+    "terms": [
+      "sender-reputation",
+      "suppression-list"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "why-is-my-email-landing-in-spam-after-a-long-break",
+    "category": "deliverability",
+    "q": "Why do my emails go to spam after I stopped sending for a while?",
+    "a": "Mailbox providers lose context for senders who go quiet, and a sudden large send to an old list looks suspicious. Resume gradually with your most engaged subscribers first, then widen the audience.",
+    "detail": [
+      "Reputation is tied to recent behavior. After a long gap, many addresses have changed or gone inactive, and engagement with your mail will be lower.",
+      "Start with people who engaged most recently, send consistently at moderate volume and watch bounces and complaints. Expand to wider segments only if the results stay healthy.",
+      "Consider a sunset process for those who remain unresponsive."
+    ],
+    "example": "A shop pauses emails for several months, then sends to everyone at once and lands in spam. It restarts with recent buyers only, adds more groups every week and delivery recovers steadily.",
+    "terms": [
+      "ip-warming",
+      "sender-reputation"
+    ],
+    "service": "klaviyo-email-marketing"
   }
 ];
 
