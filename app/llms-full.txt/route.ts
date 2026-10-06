@@ -1,4 +1,5 @@
 import { FAQ_PAGES } from '@/lib/faq';
+import { HOWTOS } from '@/lib/howto';
 import { GLOSSARY } from '@/lib/glossary';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { SERVICE_PAGES } from '@/lib/service-pages';
@@ -34,6 +35,11 @@ export function GET() {
   out.push('## Subject line libraries', '');
   for (const s of SUBJECT_LIBRARIES) {
     out.push(`### ${s.type} email subject lines`, `URL: ${SITE_URL}/email-subject-lines/${s.slug}`, '', s.answer, '', ...s.examples.slice(0, 10).map((e) => `- ${e.line}: ${e.why}`), '');
+  }
+
+  out.push('## Klaviyo how-to guides', '');
+  for (const h of HOWTOS) {
+    out.push(`### ${h.task}`, `URL: ${SITE_URL}/klaviyo/${h.slug}`, '', h.answer, '', ...h.steps.map((s, i) => `${i + 1}. ${s.title}: ${s.body}`), '');
   }
 
   out.push('## FAQ', '');

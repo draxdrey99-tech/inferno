@@ -16,6 +16,7 @@ const { GLOSSARY, termSiblings } = await load('glossary.ts');
 const { FAQ_PAGES, faqSiblings } = await load('faq.ts');
 const { USE_CASES } = await load('use-cases.ts');
 const { SUBJECT_LIBRARIES, subjectSiblings } = await load('subject-lines.ts');
+const { HOWTOS, howToSiblings } = await load('howto.ts');
 
 // Service slugs, read from source so this stays in sync with the site.
 const siteSrc = readFileSync(new URL('../lib/site.ts', import.meta.url), 'utf8');
@@ -32,6 +33,7 @@ const FAMILY = {
   faq: { minWords: 90, template: 50 },
   industry: { minWords: 200, template: 120 },
   subject: { minWords: 600, template: 120 },
+  howto: { minWords: 280, template: 110 },
 };
 const MIN_UNIQUE_RATIO = 0.35;
 
@@ -113,6 +115,20 @@ check('subject', SUBJECT_LIBRARIES, (s) => ({
   }
 }
 
+check('howto', HOWTOS, (h) => ({
+  id: h.slug,
+  required: { answer: h.answer, before: h.before, steps: h.steps, pitfalls: h.pitfalls, checklist: h.checklist, metaDescription: h.metaDescription, category: h.category, service: h.service },
+  text: [h.answer, ...h.before, ...h.steps.map((s) => `${s.title} ${s.body}`), ...h.pitfalls, ...h.checklist],
+  title: h.task, desc: h.metaDescription, h1: h.task, lead: h.answer, service: h.service,
+}));
+for (const h of HOWTOS) {
+  if (h.steps.length < 5) fail('howto', h.slug, `only ${h.steps.length} steps (min 5)`);
+  if (h.metaDescription.length > 160) fail('howto', h.slug, 'meta description over 160 characters');
+  for (const r of h.terms) if (!GLOSSARY.some((t) => t.slug === r)) fail('howto', h.slug, `term "${r}" does not exist`);
+  const inbound = 1 + HOWTOS.filter((o) => o.slug !== h.slug && howToSiblings(o.slug).some((s) => s.slug === h.slug)).length;
+  if (inbound < 3) fail('howto', h.slug, `only ${inbound} inbound internal links (min 3)`);
+}
+
 /* Links: every reference must resolve, and every page needs at least three
    inbound internal links (hub + siblings + references from other pages). */
 const termSlugs = new Set(GLOSSARY.map((t) => t.slug));
@@ -134,10 +150,10 @@ for (const f of FAQ_PAGES) {
   if (inbound < 3) fail('faq', f.slug, `only ${inbound} inbound internal links (min 3)`);
 }
 
-const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length;
+const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length;
 if (problems.length) {
   console.error(`\x1b[31m✗ Quality gate failed (${problems.length} problem${problems.length === 1 ? '' : 's'})\x1b[0m`);
   for (const p of problems) console.error('  - ' + p);
   process.exit(1);
 }
-console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line)`);
+console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to)`);

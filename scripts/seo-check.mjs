@@ -9,7 +9,7 @@
 const BASE = (process.argv[2] || 'http://localhost:3000').replace(/\/$/, '');
 
 const PATHS = [
-  '/', '/blog', '/privacy', '/terms', '/work', '/about', '/contact', '/free-email-audit', '/glossary', '/faq', '/faq/do-i-need-dmarc', '/flow-coverage-checklist', '/work/bondi-coffee-campaign', '/glossary/spf-dkim-dmarc', '/email-subject-lines', '/email-subject-lines/welcome', '/email-marketing-for/coffee-brands', '/email-agency-vs-in-house',
+  '/', '/blog', '/privacy', '/terms', '/work', '/about', '/contact', '/free-email-audit', '/glossary', '/faq', '/faq/do-i-need-dmarc', '/flow-coverage-checklist', '/work/bondi-coffee-campaign', '/glossary/spf-dkim-dmarc', '/klaviyo', '/email-subject-lines', '/email-subject-lines/welcome', '/email-marketing-for/coffee-brands', '/email-agency-vs-in-house',
   '/services', '/services/klaviyo-email-marketing', '/services/email-design',
   '/services/email-deliverability', '/services/retention-strategy', '/services/email-flows',
 ];

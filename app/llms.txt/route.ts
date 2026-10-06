@@ -4,6 +4,7 @@ import { SERVICE_PAGES } from '@/lib/service-pages';
 import { USE_CASES } from '@/lib/use-cases';
 import { GLOSSARY } from '@/lib/glossary';
 import { FAQ_PAGES } from '@/lib/faq';
+import { HOWTOS } from '@/lib/howto';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
@@ -65,6 +66,10 @@ export async function GET() {
     '## Subject line libraries',
     '',
     ...SUBJECT_LIBRARIES.map((s) => `- [${s.type} email subject lines](${SITE_URL}/email-subject-lines/${s.slug}): ${s.answer}`),
+    '',
+    '## Klaviyo how-to guides',
+    '',
+    ...HOWTOS.map((h) => `- [${h.task}](${SITE_URL}/klaviyo/${h.slug}): ${h.answer}`),
     '',
     '## FAQ',
     '',

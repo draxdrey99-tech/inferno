@@ -143,3 +143,7 @@ Worked through `inferno-emails-seo-audit.md`. Added real `/free-email-audit` (Of
 ## Wave 2 (5 Oct 2026)
 
 Glossary 32 to 46, FAQ 24 to 37, and a new subject-line library family (8 pages at `/email-subject-lines/{type}`, 30 original lines each with a reason). Quality gate extended with subject-line rules. Sitemap, llms.txt and llms-full.txt include the new family. Deliberately paced: 14 glossary terms and 13 FAQ pages are queued in `content/queued/` for the next wave so the domain does not jump too fast.
+
+## Wave 3 (6 Oct 2026)
+
+Released the queued Wave 2 pages (glossary 46 to 60, FAQ 37 to 50) and added the how-to family: 25 pages at `/klaviyo/{task}` plus a hub at `/klaviyo`. Each has a direct answer, what to have ready, 6 to 8 steps, pitfalls and a verify checklist, with HowTo schema. Quality gate gained how-to rules (280 word minimum, 5+ steps, valid glossary terms, 3 inbound links, meta description length). Sitemap, llms.txt, llms-full.txt and the services hub include the family. Integration guides (15) are deferred to Wave 4 to keep pacing at about 50 pages a week.
