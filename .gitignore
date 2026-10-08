@@ -14,3 +14,7 @@ next-env.d.ts
 .agents/
 skills-lock.json
 .claude/
+
+# Google service account keys
+gsc-key*.json
+*-service-account*.json

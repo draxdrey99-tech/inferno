@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit",
     "verify": "node scripts/verify.mjs",
     "quality": "node scripts/quality-gate.mjs",
+    "gsc": "node scripts/gsc.mjs",
     "prebuild": "node scripts/quality-gate.mjs"
   },
   "dependencies": {
