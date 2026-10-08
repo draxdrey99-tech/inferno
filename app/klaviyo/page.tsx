@@ -36,6 +36,11 @@ export default function HowToIndex() {
         <p className="lede mt-7 max-w-3xl" id="answer">
           One page per task, each with the steps, the pitfalls and a checklist to confirm it worked. Or book a free audit and we will do it with you.
         </p>
+        <div className="related-links mt-8">
+          <Link href="/klaviyo/integrations">Integration guides</Link>
+          <Link href="/klaviyo-flows">Flow teardowns</Link>
+          <Link href="/compare">Klaviyo comparisons</Link>
+        </div>
         {groups.map((g) => (
           <div key={g.c} className="mt-14">
             <h2 className="display-md">{LABELS[g.c]}</h2>

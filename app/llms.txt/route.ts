@@ -5,6 +5,9 @@ import { USE_CASES } from '@/lib/use-cases';
 import { GLOSSARY } from '@/lib/glossary';
 import { FAQ_PAGES } from '@/lib/faq';
 import { HOWTOS } from '@/lib/howto';
+import { INTEGRATIONS } from '@/lib/integrations';
+import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
+import { COMPARISONS } from '@/lib/comparisons';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
@@ -70,6 +73,18 @@ export async function GET() {
     '## Klaviyo how-to guides',
     '',
     ...HOWTOS.map((h) => `- [${h.task}](${SITE_URL}/klaviyo/${h.slug}): ${h.answer}`),
+    '',
+    '## Klaviyo integrations',
+    '',
+    ...INTEGRATIONS.map((i) => `- [Klaviyo and ${i.app}](${SITE_URL}/klaviyo/integrations/${i.slug}): ${i.answer}`),
+    '',
+    '## Klaviyo flow teardowns',
+    '',
+    ...FLOW_TEARDOWNS.map((f) => `- [${f.flow}](${SITE_URL}/klaviyo-flows/${f.slug}): ${f.answer}`),
+    '',
+    '## Comparisons',
+    '',
+    ...COMPARISONS.map((c) => `- [${c.a} vs ${c.b}](${SITE_URL}/compare/${c.slug}): ${c.answer}`),
     '',
     '## FAQ',
     '',

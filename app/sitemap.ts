@@ -8,6 +8,9 @@ import { GLOSSARY } from '@/lib/glossary';
 import { FAQ_PAGES } from '@/lib/faq';
 import { HOWTOS } from '@/lib/howto';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
+import { INTEGRATIONS } from '@/lib/integrations';
+import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
+import { COMPARISONS } from '@/lib/comparisons';
 
 export const revalidate = 3600;
 
@@ -50,6 +53,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...SUBJECT_LIBRARIES.map((s) => ({ url: `${SITE_URL}/email-subject-lines/${s.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/klaviyo`, lastModified: edited },
     ...HOWTOS.map((h) => ({ url: `${SITE_URL}/klaviyo/${h.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/klaviyo/integrations`, lastModified: edited },
+    ...INTEGRATIONS.map((i) => ({ url: `${SITE_URL}/klaviyo/integrations/${i.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/klaviyo-flows`, lastModified: edited },
+    ...FLOW_TEARDOWNS.map((f) => ({ url: `${SITE_URL}/klaviyo-flows/${f.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/compare`, lastModified: edited },
+    ...COMPARISONS.map((c) => ({ url: `${SITE_URL}/compare/${c.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/blog`, lastModified: edited },
     { url: `${SITE_URL}/privacy`, lastModified: new Date('2026-08-30') },
     { url: `${SITE_URL}/terms`, lastModified: new Date('2026-08-30') },

@@ -1,5 +1,8 @@
 import { FAQ_PAGES } from '@/lib/faq';
 import { HOWTOS } from '@/lib/howto';
+import { INTEGRATIONS } from '@/lib/integrations';
+import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
+import { COMPARISONS } from '@/lib/comparisons';
 import { GLOSSARY } from '@/lib/glossary';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { SERVICE_PAGES } from '@/lib/service-pages';
@@ -40,6 +43,21 @@ export function GET() {
   out.push('## Klaviyo how-to guides', '');
   for (const h of HOWTOS) {
     out.push(`### ${h.task}`, `URL: ${SITE_URL}/klaviyo/${h.slug}`, '', h.answer, '', ...h.steps.map((s, i) => `${i + 1}. ${s.title}: ${s.body}`), '');
+  }
+
+  out.push('## Klaviyo integrations', '');
+  for (const i of INTEGRATIONS) {
+    out.push(`### Klaviyo and ${i.app}`, `URL: ${SITE_URL}/klaviyo/integrations/${i.slug}`, '', i.answer, '', ...i.events.map((e) => `- ${e.name}: ${e.meaning}`), '', ...i.setup.map((s, n) => `${n + 1}. ${s.title}: ${s.body}`), '');
+  }
+
+  out.push('## Klaviyo flow teardowns', '');
+  for (const f of FLOW_TEARDOWNS) {
+    out.push(`### ${f.flow}`, `URL: ${SITE_URL}/klaviyo-flows/${f.slug}`, '', f.answer, '', `Trigger: ${f.trigger}`, '', ...f.sequence.map((s, n) => `${n + 1}. ${s.step} (${s.timing}): ${s.purpose}`), '', ...f.branches.map((b) => `- ${b}`), '');
+  }
+
+  out.push('## Comparisons', '');
+  for (const c of COMPARISONS) {
+    out.push(`### ${c.a} vs ${c.b}`, `URL: ${SITE_URL}/compare/${c.slug}`, '', c.answer, '', ...c.table.map((r) => `- ${r.feature}: ${c.a}, ${r.a}. ${c.b}, ${r.b}.`), '', ...c.verdict, '');
   }
 
   out.push('## FAQ', '');

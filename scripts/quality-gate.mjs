@@ -17,6 +17,9 @@ const { FAQ_PAGES, faqSiblings } = await load('faq.ts');
 const { USE_CASES } = await load('use-cases.ts');
 const { SUBJECT_LIBRARIES, subjectSiblings } = await load('subject-lines.ts');
 const { HOWTOS, howToSiblings } = await load('howto.ts');
+const { INTEGRATIONS, integrationSiblings } = await load('integrations.ts');
+const { FLOW_TEARDOWNS, flowSiblings } = await load('flow-teardowns.ts');
+const { COMPARISONS, comparisonSiblings } = await load('comparisons.ts');
 
 // Service slugs, read from source so this stays in sync with the site.
 const siteSrc = readFileSync(new URL('../lib/site.ts', import.meta.url), 'utf8');
@@ -34,6 +37,9 @@ const FAMILY = {
   industry: { minWords: 200, template: 120 },
   subject: { minWords: 600, template: 120 },
   howto: { minWords: 280, template: 110 },
+  integration: { minWords: 280, template: 110 },
+  flow: { minWords: 280, template: 110 },
+  compare: { minWords: 280, template: 110 },
 };
 const MIN_UNIQUE_RATIO = 0.35;
 
@@ -129,6 +135,34 @@ for (const h of HOWTOS) {
   if (inbound < 3) fail('howto', h.slug, `only ${inbound} inbound internal links (min 3)`);
 }
 
+check('integration', INTEGRATIONS, (i) => ({
+  id: i.slug,
+  required: { answer: i.answer, events: i.events, flows: i.flows, setup: i.setup, pitfalls: i.pitfalls, metaDescription: i.metaDescription, category: i.category, service: i.service },
+  text: [i.answer, ...i.events.map((e) => `${e.name} ${e.meaning}`), ...i.flows.map((f) => `${f.title} ${f.body}`), ...i.setup.map((s) => `${s.title} ${s.body}`), ...i.pitfalls],
+  title: i.metaTitle, desc: i.metaDescription, h1: i.app, lead: i.answer, service: i.service,
+}));
+check('flow', FLOW_TEARDOWNS, (f) => ({
+  id: f.slug,
+  required: { answer: f.answer, trigger: f.trigger, filters: f.filters, sequence: f.sequence, branches: f.branches, copyOutline: f.copyOutline, measure: f.measure, mistakes: f.mistakes, metaDescription: f.metaDescription, service: f.service },
+  text: [f.answer, f.trigger, ...f.filters, ...f.sequence.map((s) => `${s.step} ${s.timing} ${s.purpose}`), ...f.branches, ...f.copyOutline.map((c) => `${c.email} ${c.outline}`), ...f.measure, ...f.mistakes],
+  title: f.metaTitle, desc: f.metaDescription, h1: f.flow, lead: f.answer, service: f.service,
+}));
+check('compare', COMPARISONS, (c) => ({
+  id: c.slug,
+  required: { answer: c.answer, table: c.table, suitsA: c.suitsA, suitsB: c.suitsB, verdict: c.verdict, migration: c.migration, metaDescription: c.metaDescription, service: c.service },
+  text: [c.answer, ...c.table.map((r) => `${r.feature} ${r.a} ${r.b}`), ...c.suitsA, ...c.suitsB, ...c.verdict, ...c.migration],
+  title: c.metaTitle, desc: c.metaDescription, h1: `${c.a} vs ${c.b}`, lead: c.answer, service: c.service,
+}));
+for (const [fam, items, sib] of [['integration', INTEGRATIONS, integrationSiblings], ['flow', FLOW_TEARDOWNS, flowSiblings], ['compare', COMPARISONS, comparisonSiblings]]) {
+  for (const it of items) {
+    if (it.metaDescription.length > 160) fail(fam, it.slug, 'meta description over 160 characters');
+    for (const r of it.terms) if (!GLOSSARY.some((t) => t.slug === r)) fail(fam, it.slug, `term "${r}" does not exist`);
+    // hub + sibling links from other pages
+    const inbound = 1 + items.filter((o) => o.slug !== it.slug && sib(o.slug).some((s) => s.slug === it.slug)).length;
+    if (inbound < 3) fail(fam, it.slug, `only ${inbound} inbound internal links (min 3)`);
+  }
+}
+
 /* Links: every reference must resolve, and every page needs at least three
    inbound internal links (hub + siblings + references from other pages). */
 const termSlugs = new Set(GLOSSARY.map((t) => t.slug));
@@ -150,10 +184,10 @@ for (const f of FAQ_PAGES) {
   if (inbound < 3) fail('faq', f.slug, `only ${inbound} inbound internal links (min 3)`);
 }
 
-const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length;
+const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length;
 if (problems.length) {
   console.error(`\x1b[31m✗ Quality gate failed (${problems.length} problem${problems.length === 1 ? '' : 's'})\x1b[0m`);
   for (const p of problems) console.error('  - ' + p);
   process.exit(1);
 }
-console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to)`);
+console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison)`);

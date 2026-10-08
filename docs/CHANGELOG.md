@@ -147,3 +147,7 @@ Glossary 32 to 46, FAQ 24 to 37, and a new subject-line library family (8 pages 
 ## Wave 3 (6 Oct 2026)
 
 Released the queued Wave 2 pages (glossary 46 to 60, FAQ 37 to 50) and added the how-to family: 25 pages at `/klaviyo/{task}` plus a hub at `/klaviyo`. Each has a direct answer, what to have ready, 6 to 8 steps, pitfalls and a verify checklist, with HowTo schema. Quality gate gained how-to rules (280 word minimum, 5+ steps, valid glossary terms, 3 inbound links, meta description length). Sitemap, llms.txt, llms-full.txt and the services hub include the family. Integration guides (15) are deferred to Wave 4 to keep pacing at about 50 pages a week.
+
+## Wave 4 (8 Oct 2026)
+
+Added 63 pages in three new families and 20 industry pages. Integration guides: 15 at `/klaviyo/integrations/{app}` plus hub (events the app sends, flows it enables, setup order, pitfalls). Flow teardowns: 20 at `/klaviyo-flows/{flow}` plus hub (trigger, filters, timing, branch logic, copy outline). Comparisons: 8 at `/compare/{klaviyo-vs-x}` plus hub, each disclosing that Inferno builds in Klaviyo, with no prices or plan details. Industries grew from 5 to 25. Quality gate gained integration, flow and comparison families (280 word minimum, 3 inbound links, valid glossary terms). Sitemap, llms.txt, llms-full.txt, services hub and the /klaviyo hub link the new families. Gate passes on 211 pages, build passes, seo-check clean on 248 URLs.

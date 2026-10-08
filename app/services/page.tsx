@@ -75,6 +75,9 @@ export default function Services(){
     <Link href="/faq">Email marketing FAQ</Link>
     <Link href="/email-subject-lines">Email subject line libraries</Link>
     <Link href="/klaviyo">Klaviyo how-to guides</Link>
+    <Link href="/klaviyo/integrations">Klaviyo integration guides</Link>
+    <Link href="/klaviyo-flows">Klaviyo flow teardowns</Link>
+    <Link href="/compare">Klaviyo comparisons</Link>
     <Link href="/flow-coverage-checklist">Flow coverage checklist</Link>
    </div>
   </section>
