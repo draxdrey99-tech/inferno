@@ -66,6 +66,12 @@ export default function VsPage() {
 
         <h2 className="display-lg mt-20">Questions.</h2>
         <div className="mt-8"><Faq items={FAQS} /></div>
+        <div className="related-links mt-10">
+          <Link href="/hiring-guides/how-to-choose-a-klaviyo-agency">How to choose a Klaviyo agency</Link>
+          <Link href="/hiring-guides/email-marketing-agency-vs-freelancer">Agency vs freelancer</Link>
+          <Link href="/hiring-guides/when-to-hire-an-email-marketing-agency">When to hire an agency</Link>
+          <Link href="/hiring-guides/klaviyo-agency-pricing-models">Pricing models</Link>
+        </div>
         <p className="lede mt-10">
           See <Link className="text-link" href="/services">what we do</Link> or{' '}
           <Link className="text-link" href="/free-email-audit">book a free audit</Link> and we will tell you which route fits.

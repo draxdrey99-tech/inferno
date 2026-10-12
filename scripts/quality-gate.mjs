@@ -21,6 +21,7 @@ const { INTEGRATIONS, integrationSiblings } = await load('integrations.ts');
 const { FLOW_TEARDOWNS, flowSiblings } = await load('flow-teardowns.ts');
 const { COMPARISONS, comparisonSiblings } = await load('comparisons.ts');
 const { EVENTS, calendarSiblings, eventDates } = await load('calendar.ts');
+const { HIRING_GUIDES, hiringSiblings } = await load('hiring-guides.ts');
 
 // Service slugs, read from source so this stays in sync with the site.
 const siteSrc = readFileSync(new URL('../lib/site.ts', import.meta.url), 'utf8');
@@ -42,6 +43,7 @@ const FAMILY = {
   flow: { minWords: 280, template: 110 },
   compare: { minWords: 280, template: 110 },
   calendar: { minWords: 280, template: 110 },
+  hiring: { minWords: 450, template: 110 },
 };
 const MIN_UNIQUE_RATIO = 0.35;
 
@@ -175,7 +177,13 @@ check('calendar', EVENTS, (e) => ({
     if (eventDates(e).some((d) => !d.label || /Invalid|NaN/.test(d.label))) fail('calendar', e.slug, 'a date did not compute');
   }
 }
-for (const [fam, items, sib] of [['integration', INTEGRATIONS, integrationSiblings], ['flow', FLOW_TEARDOWNS, flowSiblings], ['compare', COMPARISONS, comparisonSiblings], ['calendar', EVENTS, calendarSiblings]]) {
+check('hiring', HIRING_GUIDES, (g) => ({
+  id: g.slug,
+  required: { answer: g.answer, sections: g.sections, checklist: g.checklist, mistakes: g.mistakes, scenario: g.scenario, faqs: g.faqs, metaDescription: g.metaDescription, service: g.service },
+  text: [g.answer, ...g.sections.flatMap((s) => [s.heading, ...s.body]), ...g.checklist, ...g.mistakes, g.scenario, ...g.faqs.map((f) => `${f.q} ${f.a}`)],
+  title: g.metaTitle, desc: g.metaDescription, h1: g.title, lead: g.answer, service: g.service,
+}));
+for (const [fam, items, sib] of [['integration', INTEGRATIONS, integrationSiblings], ['flow', FLOW_TEARDOWNS, flowSiblings], ['compare', COMPARISONS, comparisonSiblings], ['calendar', EVENTS, calendarSiblings], ['hiring', HIRING_GUIDES, hiringSiblings]]) {
   for (const it of items) {
     if (it.metaDescription.length > 160) fail(fam, it.slug, 'meta description over 160 characters');
     for (const r of it.terms) if (!GLOSSARY.some((t) => t.slug === r)) fail(fam, it.slug, `term "${r}" does not exist`);
@@ -206,10 +214,10 @@ for (const f of FAQ_PAGES) {
   if (inbound < 3) fail('faq', f.slug, `only ${inbound} inbound internal links (min 3)`);
 }
 
-const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length + EVENTS.length;
+const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length + EVENTS.length + HIRING_GUIDES.length;
 if (problems.length) {
   console.error(`\x1b[31m✗ Quality gate failed (${problems.length} problem${problems.length === 1 ? '' : 's'})\x1b[0m`);
   for (const p of problems) console.error('  - ' + p);
   process.exit(1);
 }
-console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison, ${EVENTS.length} calendar)`);
+console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison, ${EVENTS.length} calendar, ${HIRING_GUIDES.length} hiring)`);

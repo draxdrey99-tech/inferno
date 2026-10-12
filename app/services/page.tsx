@@ -80,6 +80,7 @@ export default function Services(){
     <Link href="/compare">Klaviyo comparisons</Link>
     <Link href="/email-calendar">Ecommerce email calendar</Link>
     <Link href="/tools">Free email tools</Link>
+    <Link href="/hiring-guides">How to hire an email agency</Link>
     <Link href="/flow-coverage-checklist">Flow coverage checklist</Link>
    </div>
   </section>

@@ -9,6 +9,7 @@ import { INTEGRATIONS } from '@/lib/integrations';
 import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
 import { EVENTS } from '@/lib/calendar';
+import { HIRING_GUIDES } from '@/lib/hiring-guides';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
@@ -90,6 +91,10 @@ export async function GET() {
     '## Email calendar',
     '',
     ...EVENTS.map((e) => `- [${e.event}](${SITE_URL}/email-calendar/${e.slug}): ${e.answer}`),
+    '',
+    '## Hiring guides',
+    '',
+    ...HIRING_GUIDES.map((g) => `- [${g.title}](${SITE_URL}/hiring-guides/${g.slug}): ${g.answer}`),
     '',
     '## Free tools',
     '',

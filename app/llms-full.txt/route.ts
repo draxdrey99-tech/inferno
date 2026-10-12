@@ -4,6 +4,7 @@ import { INTEGRATIONS } from '@/lib/integrations';
 import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
 import { EVENTS, eventDates } from '@/lib/calendar';
+import { HIRING_GUIDES } from '@/lib/hiring-guides';
 import { GLOSSARY } from '@/lib/glossary';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { SERVICE_PAGES } from '@/lib/service-pages';
@@ -64,6 +65,11 @@ export function GET() {
   out.push('## Email calendar', '');
   for (const e of EVENTS) {
     out.push(`### ${e.event}`, `URL: ${SITE_URL}/email-calendar/${e.slug}`, '', e.answer, '', ...eventDates(e).map((d) => (d.year ? `- ${d.year}: ${d.label}` : `- ${d.label}`)), '', ...e.plan.map((p, n) => `${n + 1}. ${p.when}: ${p.action}`), '');
+  }
+
+  out.push('## Hiring guides', '');
+  for (const g of HIRING_GUIDES) {
+    out.push(`### ${g.title}`, `URL: ${SITE_URL}/hiring-guides/${g.slug}`, '', g.answer, '', ...g.sections.flatMap((s) => [`${s.heading}:`, ...s.body]), '', ...g.checklist.map((c) => `- ${c}`), '');
   }
 
   out.push('## FAQ', '');
