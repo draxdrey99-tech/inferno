@@ -8,6 +8,7 @@ import { HOWTOS } from '@/lib/howto';
 import { INTEGRATIONS } from '@/lib/integrations';
 import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
+import { EVENTS } from '@/lib/calendar';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
@@ -85,6 +86,15 @@ export async function GET() {
     '## Comparisons',
     '',
     ...COMPARISONS.map((c) => `- [${c.a} vs ${c.b}](${SITE_URL}/compare/${c.slug}): ${c.answer}`),
+    '',
+    '## Email calendar',
+    '',
+    ...EVENTS.map((e) => `- [${e.event}](${SITE_URL}/email-calendar/${e.slug}): ${e.answer}`),
+    '',
+    '## Free tools',
+    '',
+    `- [DMARC record generator](${SITE_URL}/tools/dmarc-record-generator): Build a DMARC TXT record with the right policy, reporting address and alignment settings.`,
+    `- [SPF record checker](${SITE_URL}/tools/spf-record-checker): Look up a domain's SPF record and count its DNS lookups against the limit of 10.`,
     '',
     '## FAQ',
     '',

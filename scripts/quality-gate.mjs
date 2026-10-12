@@ -20,6 +20,7 @@ const { HOWTOS, howToSiblings } = await load('howto.ts');
 const { INTEGRATIONS, integrationSiblings } = await load('integrations.ts');
 const { FLOW_TEARDOWNS, flowSiblings } = await load('flow-teardowns.ts');
 const { COMPARISONS, comparisonSiblings } = await load('comparisons.ts');
+const { EVENTS, calendarSiblings, eventDates } = await load('calendar.ts');
 
 // Service slugs, read from source so this stays in sync with the site.
 const siteSrc = readFileSync(new URL('../lib/site.ts', import.meta.url), 'utf8');
@@ -40,6 +41,7 @@ const FAMILY = {
   integration: { minWords: 280, template: 110 },
   flow: { minWords: 280, template: 110 },
   compare: { minWords: 280, template: 110 },
+  calendar: { minWords: 280, template: 110 },
 };
 const MIN_UNIQUE_RATIO = 0.35;
 
@@ -153,7 +155,27 @@ check('compare', COMPARISONS, (c) => ({
   text: [c.answer, ...c.table.map((r) => `${r.feature} ${r.a} ${r.b}`), ...c.suitsA, ...c.suitsB, ...c.verdict, ...c.migration],
   title: c.metaTitle, desc: c.metaDescription, h1: `${c.a} vs ${c.b}`, lead: c.answer, service: c.service,
 }));
-for (const [fam, items, sib] of [['integration', INTEGRATIONS, integrationSiblings], ['flow', FLOW_TEARDOWNS, flowSiblings], ['compare', COMPARISONS, comparisonSiblings]]) {
+check('calendar', EVENTS, (e) => ({
+  id: e.slug,
+  required: { answer: e.answer, why: e.why, plan: e.plan, segments: e.segments, subjectIdeas: e.subjectIdeas, mistakes: e.mistakes, prep: e.prep, metaDescription: e.metaDescription, region: e.region, service: e.service, dates: eventDates(e) },
+  text: [e.answer, ...e.why, ...e.plan.map((p) => `${p.when} ${p.action}`), ...e.segments, ...e.subjectIdeas, ...e.mistakes, ...e.prep],
+  title: e.metaTitle, desc: e.metaDescription, h1: e.event, lead: e.answer, service: e.service,
+}));
+{
+  const lines = new Map();
+  for (const e of EVENTS) {
+    if (e.plan.length < 5) fail('calendar', e.slug, `only ${e.plan.length} plan steps (min 5)`);
+    if (e.subjectIdeas.length < 4) fail('calendar', e.slug, 'fewer than 4 subject line ideas');
+    for (const l of e.subjectIdeas) {
+      const k = l.toLowerCase().trim();
+      if (lines.has(k)) fail('calendar', e.slug, `subject idea "${l}" duplicates ${lines.get(k)}`);
+      else lines.set(k, e.slug);
+    }
+    if (!SUBJECT_LIBRARIES.some((s) => s.slug === e.library)) fail('calendar', e.slug, `library "${e.library}" does not exist`);
+    if (eventDates(e).some((d) => !d.label || /Invalid|NaN/.test(d.label))) fail('calendar', e.slug, 'a date did not compute');
+  }
+}
+for (const [fam, items, sib] of [['integration', INTEGRATIONS, integrationSiblings], ['flow', FLOW_TEARDOWNS, flowSiblings], ['compare', COMPARISONS, comparisonSiblings], ['calendar', EVENTS, calendarSiblings]]) {
   for (const it of items) {
     if (it.metaDescription.length > 160) fail(fam, it.slug, 'meta description over 160 characters');
     for (const r of it.terms) if (!GLOSSARY.some((t) => t.slug === r)) fail(fam, it.slug, `term "${r}" does not exist`);
@@ -184,10 +206,10 @@ for (const f of FAQ_PAGES) {
   if (inbound < 3) fail('faq', f.slug, `only ${inbound} inbound internal links (min 3)`);
 }
 
-const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length;
+const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length + EVENTS.length;
 if (problems.length) {
   console.error(`\x1b[31m✗ Quality gate failed (${problems.length} problem${problems.length === 1 ? '' : 's'})\x1b[0m`);
   for (const p of problems) console.error('  - ' + p);
   process.exit(1);
 }
-console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison)`);
+console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison, ${EVENTS.length} calendar)`);

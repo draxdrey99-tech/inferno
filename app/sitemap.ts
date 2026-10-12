@@ -11,6 +11,7 @@ import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { INTEGRATIONS } from '@/lib/integrations';
 import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
+import { EVENTS } from '@/lib/calendar';
 
 export const revalidate = 3600;
 
@@ -59,6 +60,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...FLOW_TEARDOWNS.map((f) => ({ url: `${SITE_URL}/klaviyo-flows/${f.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/compare`, lastModified: edited },
     ...COMPARISONS.map((c) => ({ url: `${SITE_URL}/compare/${c.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/email-calendar`, lastModified: edited },
+    ...EVENTS.map((e) => ({ url: `${SITE_URL}/email-calendar/${e.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/tools`, lastModified: edited },
+    { url: `${SITE_URL}/tools/dmarc-record-generator`, lastModified: edited },
+    { url: `${SITE_URL}/tools/spf-record-checker`, lastModified: edited },
     { url: `${SITE_URL}/blog`, lastModified: edited },
     { url: `${SITE_URL}/privacy`, lastModified: new Date('2026-08-30') },
     { url: `${SITE_URL}/terms`, lastModified: new Date('2026-08-30') },

@@ -3,6 +3,7 @@ import { HOWTOS } from '@/lib/howto';
 import { INTEGRATIONS } from '@/lib/integrations';
 import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
+import { EVENTS, eventDates } from '@/lib/calendar';
 import { GLOSSARY } from '@/lib/glossary';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { SERVICE_PAGES } from '@/lib/service-pages';
@@ -58,6 +59,11 @@ export function GET() {
   out.push('## Comparisons', '');
   for (const c of COMPARISONS) {
     out.push(`### ${c.a} vs ${c.b}`, `URL: ${SITE_URL}/compare/${c.slug}`, '', c.answer, '', ...c.table.map((r) => `- ${r.feature}: ${c.a}, ${r.a}. ${c.b}, ${r.b}.`), '', ...c.verdict, '');
+  }
+
+  out.push('## Email calendar', '');
+  for (const e of EVENTS) {
+    out.push(`### ${e.event}`, `URL: ${SITE_URL}/email-calendar/${e.slug}`, '', e.answer, '', ...eventDates(e).map((d) => (d.year ? `- ${d.year}: ${d.label}` : `- ${d.label}`)), '', ...e.plan.map((p, n) => `${n + 1}. ${p.when}: ${p.action}`), '');
   }
 
   out.push('## FAQ', '');

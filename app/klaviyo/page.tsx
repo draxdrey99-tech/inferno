@@ -40,6 +40,8 @@ export default function HowToIndex() {
           <Link href="/klaviyo/integrations">Integration guides</Link>
           <Link href="/klaviyo-flows">Flow teardowns</Link>
           <Link href="/compare">Klaviyo comparisons</Link>
+          <Link href="/email-calendar">Email calendar</Link>
+          <Link href="/tools">Free tools</Link>
         </div>
         {groups.map((g) => (
           <div key={g.c} className="mt-14">
