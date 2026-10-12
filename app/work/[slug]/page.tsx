@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   if (!w) return {};
   return pageMeta({
     title: `${w.client} ${w.title}: Email Design Example`,
-    description: `${w.type} designed for ${w.client} in Klaviyo. ${w.note}`,
+    description: `${w.type} designed for ${w.client} in Klaviyo. ${w.note} See the design notes and the flows it supports.`,
     path: `/work/${w.slug}`,
     image: w.image,
   });
@@ -35,7 +35,9 @@ export default async function WorkCase({ params }: Props) {
   const path = `/work/${w.slug}`;
   const service = serviceForWork(w.type);
   const industry = USE_CASES.find((u) => u.work.includes(w.slug));
-  const more = WORK.filter((o) => o.slug !== w.slug).slice(0, 3);
+  // Rotate from the current case so every case study gets inbound links.
+  const at = WORK.findIndex((o) => o.slug === w.slug);
+  const more = [1, 2, 3].map((n) => WORK[(at + n) % WORK.length]);
 
   return (
     <>

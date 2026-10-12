@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMeta({
   brand: true,
   title: 'Terms of Service',
   description:
-    'The terms governing use of the Inferno Emails website and the free email audit offer.',
+    'The terms governing use of the Inferno Emails website and the free email audit offer, including what the audit covers, acceptable use and limits of liability.',
   path: '/terms',
 });
 

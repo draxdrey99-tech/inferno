@@ -395,7 +395,7 @@ export const GLOSSARY: Term[] = [
     "category": "flows",
     "term": "Back in stock flow",
     "metaTitle": "What Is a Back in Stock Email Flow?",
-    "metaDescription": "A back in stock flow tells shoppers when a sold-out item returns. How it works and why it converts.",
+    "metaDescription": "A back in stock flow tells shoppers when a sold-out item returns. How it works, how to set it up in Klaviyo and why it converts.",
     "definition": "A back in stock flow is an automated message sent to people who asked to be notified when a sold-out product is available again.",
     example: "A shopper taps notify me on a sold-out hoodie. When the size returns, an email goes to her within minutes with a link straight to that size. The same email goes only to people who asked for it.",
     "body": [

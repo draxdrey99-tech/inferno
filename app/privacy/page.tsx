@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMeta({
   brand: true,
   title: 'Privacy Policy',
   description:
-    'How Inferno Emails collects, uses and stores personal data submitted through this website.',
+    'How Inferno Emails collects, uses and stores personal data submitted through this website, who we share it with, how long we keep it and how to exercise your rights.',
   path: '/privacy',
 });
 
