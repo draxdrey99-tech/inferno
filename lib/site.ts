@@ -140,10 +140,21 @@ export const FOOTER_NAV = [
       { label: 'About', href: '/about' },
       { label: 'Work', href: '/work' },
       { label: 'Blog', href: '/blog' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Learn',
+    links: [
+      { label: 'Klaviyo how-to guides', href: '/klaviyo' },
+      { label: 'Flow teardowns', href: '/klaviyo-flows' },
+      { label: 'Email calendar', href: '/email-calendar' },
+      { label: 'Subject lines', href: '/email-subject-lines' },
       { label: 'Glossary', href: '/glossary' },
       { label: 'FAQ', href: '/faq' },
+      { label: 'Free tools', href: '/tools' },
+      { label: 'Hiring guides', href: '/hiring-guides' },
       { label: 'Agency vs in-house', href: '/email-agency-vs-in-house' },
-      { label: 'Contact', href: '/contact' },
     ],
   },
   {

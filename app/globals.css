@@ -460,7 +460,7 @@
 .footer-links li a:hover {color:var(--color-flame);opacity:1;}
 /* CSS-only brand mark: red square, ink circle, small red square. Nothing upscaled. */
 .footer-legal {display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;padding:1.5rem 0 2rem;margin-top:2rem;border-top:1px solid var(--hairline);font-family:var(--font-mono);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-mute);}
-@media(min-width:768px){.footer-top{grid-template-columns:1.1fr 2fr}.footer-links{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:768px){.footer-top{grid-template-columns:1.1fr 2fr}.footer-links{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.footer-links{grid-template-columns:repeat(4,1fr)}}
 
 /* ------------------------------------------------------- 404 & misc -- */
 .notfound-index {display:inline-flex;justify-content:center;}
