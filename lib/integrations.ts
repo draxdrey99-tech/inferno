@@ -585,6 +585,386 @@ export const INTEGRATIONS: Integration[] = [
     ],
     terms: ['email-segmentation', 'dynamic-content', 'post-purchase-flow'],
     service: 'email-flows'
+  },
+  {
+    slug: 'wix',
+    app: 'Wix',
+    category: 'platform',
+    metaTitle: 'Klaviyo and Wix Integration Guide for Online Stores',
+    metaDescription: 'How to connect a Wix store to Klaviyo: what customer and order data can sync, which flows it supports and the setup checks that matter first.',
+    answer: 'Wix stores can connect to Klaviyo so customer, cart and order activity is available for email flows. The connection is set up from the Wix side or from Klaviyo, and what syncs can differ by Wix product and version, so confirm the current details in the Wix and Klaviyo documentation. Once data arrives, you build abandoned cart, welcome and post purchase flows on top of it.',
+    events: [
+      { name: 'Customer and contact data', meaning: 'Names, emails and sign ups collected through the site, used to build profiles and lists.' },
+      { name: 'Cart and checkout activity', meaning: 'Where the connection supports it, carts and checkouts that were started but not finished, which power recovery flows.' },
+      { name: 'Order activity', meaning: 'Placed orders and the products in them, so you can segment by purchase and trigger post purchase messages.' },
+      { name: 'Form submissions', meaning: 'Sign ups from site forms or pop ups, which depend on how you connect them to a Klaviyo list.' },
+      { name: 'Product details', meaning: 'Catalogue information for emails, which varies by how the store and connection are configured.' }
+    ],
+    flows: [
+      { title: 'Welcome series', body: 'Starts when someone joins a list from the site. Introduce the brand, set expectations and point to best sellers.' },
+      { title: 'Abandoned cart', body: 'Reaches shoppers who began checkout and left. It only works if the connection reports cart activity, so test it before relying on it.' },
+      { title: 'Post purchase', body: 'Starts from an order and covers thanks, care advice and a later review request.' },
+      { title: 'Winback', body: 'Uses time since the last order to bring lapsed customers back with a real reason to return.' }
+    ],
+    setup: [
+      { title: 'Check what your Wix setup supports', body: 'Read the current Wix and Klaviyo documentation to see which data your store type can send and how the connection is made.' },
+      { title: 'Connect the accounts', body: 'Follow the documented route to link the store to your Klaviyo account and authorise it.' },
+      { title: 'Confirm data arrives', body: 'Place a test order and sign up with a test address, then check the profile in Klaviyo for the activity.' },
+      { title: 'Check tracking on the live site', body: 'Make sure any required tracking is active on the published site, not only in the editor.' },
+      { title: 'Map consent properly', body: 'Decide how site forms and checkout consent map to Klaviyo subscription status.' },
+      { title: 'Build and test one flow', body: 'Create the welcome flow first, then the abandoned cart flow once cart activity is confirmed.' }
+    ],
+    pitfalls: [
+      'Assuming every event exists without testing a real order and cart.',
+      'Connecting before the domain and live site are final, then losing tracking after a change.',
+      'Sign up forms that add people to a list without recording consent.',
+      'Running a second app that also sends cart reminders.',
+      'Judging flow results before the data has been verified.'
+    ],
+    terms: ['abandoned-cart-flow', 'welcome-flow', 'email-segmentation'],
+    service: 'klaviyo-email-marketing'
+  },
+  {
+    slug: 'squarespace',
+    app: 'Squarespace',
+    category: 'platform',
+    metaTitle: 'Klaviyo and Squarespace Integration Guide for Stores',
+    metaDescription: 'Connect Squarespace to Klaviyo: what data can sync from forms and commerce, the flows it enables and the setup steps to check before you launch.',
+    answer: 'Squarespace sites can send sign ups and, for stores, commerce activity to Klaviyo so you can run welcome, abandoned cart and post purchase flows. How the connection works and how much data syncs depends on your Squarespace setup and version, so confirm the current approach in the Squarespace and Klaviyo documentation before you build.',
+    events: [
+      { name: 'Form and newsletter sign ups', meaning: 'People who join through site forms or blocks, added to a Klaviyo list when the connection is set up.' },
+      { name: 'Customer data', meaning: 'Names and emails gathered at sign up or checkout, used to build and enrich profiles.' },
+      { name: 'Order activity', meaning: 'Where commerce data is supported, placed orders and their products, used for segmentation and post purchase messages.' },
+      { name: 'Cart activity', meaning: 'Carts left behind, available only where the connection reports them. Verify with a test.' },
+      { name: 'Product details', meaning: 'Catalogue information for emails, which varies by setup and how the connection is configured.' }
+    ],
+    flows: [
+      { title: 'Welcome series', body: 'Starts when a new subscriber joins from the site. Keep it short and useful, with a clear first step.' },
+      { title: 'Abandoned cart', body: 'Useful only if cart activity reaches Klaviyo. Test with a real browser session before turning it on.' },
+      { title: 'Post purchase', body: 'Follows an order with thanks, usage tips and a review request after delivery.' },
+      { title: 'Newsletter and campaigns', body: 'Use list and purchase data to send relevant campaigns rather than one blast to everyone.' }
+    ],
+    setup: [
+      { title: 'Confirm the supported route', body: 'Check the current Squarespace and Klaviyo documentation for how your plan of site can connect and what it sends.' },
+      { title: 'Connect the accounts', body: 'Follow the documented steps to link Squarespace with Klaviyo and authorise access.' },
+      { title: 'Point forms at the right list', body: 'Make sure each form adds people to the intended Klaviyo list with clear consent wording.' },
+      { title: 'Test with a real order', body: 'Sign up and place a test order, then confirm both appear on the Klaviyo profile.' },
+      { title: 'Check tracking after publishing', body: 'Confirm any tracking works on the live site, not just in preview.' },
+      { title: 'Build the first flow', body: 'Start with the welcome flow, then add cart and post purchase flows once their data is confirmed.' }
+    ],
+    pitfalls: [
+      'Assuming commerce activity syncs without testing it.',
+      'Forms that add subscribers with no consent wording.',
+      'Changing site structure and breaking form connections.',
+      'Duplicate sign up tools feeding different lists.',
+      'Relying on cart flows that never receive cart data.'
+    ],
+    terms: ['welcome-flow', 'abandoned-cart-flow', 'email-segmentation'],
+    service: 'klaviyo-email-marketing'
+  },
+  {
+    slug: 'loox',
+    app: 'Loox',
+    category: 'reviews',
+    metaTitle: 'Klaviyo and Loox Integration Guide for Photo Reviews',
+    metaDescription: 'How Loox photo reviews can work with Klaviyo: review activity in your flows, a sensible setup order and how to avoid duplicate review requests.',
+    answer: 'Loox is a photo review app that can connect to Klaviyo so review activity feeds your flows and segments. The details of the connection and the events it sends depend on the app version, so check the Loox documentation. Choose whether Loox or Klaviyo sends the review request, and let only one do it.',
+    events: [
+      { name: 'Review request activity', meaning: 'Signals about requests sent, where reported, so you can see who has already been asked.' },
+      { name: 'Review submitted', meaning: 'A customer has left a review, which can stop further requests and start a thank you.' },
+      { name: 'Photo and rating content', meaning: 'Ratings and customer photos that can reassure shoppers in emails, subject to how the connection exposes them.' },
+      { name: 'Reviewer attributes', meaning: 'Properties that mark people who have reviewed, usable for advocate segments.' },
+      { name: 'Discount or reward activity', meaning: 'Where review incentives are used, signals about rewards, which vary by setup.' }
+    ],
+    flows: [
+      { title: 'Review request', body: 'One request after likely delivery, then at most one reminder, then the customer is left alone.' },
+      { title: 'Reviewer thank you', body: 'Acknowledges a published review and points to a related product or helpful content.' },
+      { title: 'Photo social proof', body: 'Uses approved customer photos in campaigns and recovery emails to show the product in real use.' },
+      { title: 'Non reviewer follow up', body: 'Reaches buyers who did not review with a lighter, different ask, without repeating the same request.' }
+    ],
+    setup: [
+      { title: 'Read the current documentation', body: 'Check how Loox connects to Klaviyo and which events it reports for your version.' },
+      { title: 'Connect the app', body: 'Link Loox to your Klaviyo account following the documented steps.' },
+      { title: 'Leave a test review', body: 'Place a test order, review it and confirm the activity appears on the Klaviyo profile.' },
+      { title: 'Settle request ownership', body: 'Choose one tool to send review requests and switch the other off.' },
+      { title: 'Build reviewer segments', body: 'Separate reviewers from non reviewers to guide different messages.' },
+      { title: 'Test the whole path', body: 'Follow one order through delivery, request, review and thank you to check each message sends once.' }
+    ],
+    pitfalls: [
+      'Both Loox and Klaviyo asking for the same review.',
+      'Using customer photos in marketing without confirming permission.',
+      'Requests sent before the order has arrived.',
+      'Offering incentives that conflict with platform or legal rules.',
+      'Assuming reviewers have agreed to marketing emails.'
+    ],
+    terms: ['email-segmentation', 'abandoned-cart-flow', 'welcome-flow'],
+    service: 'email-flows'
+  },
+  {
+    slug: 'reviews-io',
+    app: 'REVIEWS.io',
+    category: 'reviews',
+    metaTitle: 'Klaviyo and REVIEWS.io Integration Guide for Ecommerce',
+    metaDescription: 'How REVIEWS.io data can reach Klaviyo: review and rating activity in your flows, the setup order and how to coordinate review request emails.',
+    answer: 'REVIEWS.io collects product and company reviews and can connect to Klaviyo so review activity supports your flows and segments. What it sends depends on the version and configuration, so confirm the details in the REVIEWS.io documentation. Decide which tool sends review requests so customers are not asked twice.',
+    events: [
+      { name: 'Review invitation activity', meaning: 'Where reported, signals that a request has been sent, so you can avoid asking again.' },
+      { name: 'Review submitted', meaning: 'A customer has left a review, which can end the request sequence and begin a thank you.' },
+      { name: 'Rating content', meaning: 'Star ratings and review text that can appear in emails, depending on how the connection exposes them.' },
+      { name: 'Reviewer attributes', meaning: 'Properties that identify people who have reviewed, useful for advocate segments.' },
+      { name: 'Company and product review data', meaning: 'Both kinds of review may exist in the account, and which is shared can vary by setup.' }
+    ],
+    flows: [
+      { title: 'Review invitation', body: 'A single request after likely delivery, with one reminder at most.' },
+      { title: 'Reviewer thank you', body: 'Thanks people for their review and suggests a next step, such as a related product.' },
+      { title: 'Ratings in recovery emails', body: 'Adds a rating or short quote to abandoned cart messages for products with good feedback.' },
+      { title: 'Advocate campaigns', body: 'Targets happy reviewers for referrals or early access, with honest terms.' }
+    ],
+    setup: [
+      { title: 'Check the documentation', body: 'Find out how REVIEWS.io connects to Klaviyo for your account and what it sends.' },
+      { title: 'Connect the accounts', body: 'Authorise the link using the documented steps.' },
+      { title: 'Submit a test review', body: 'Place a test order, leave a review and confirm the activity shows on the profile.' },
+      { title: 'Decide who sends requests', body: 'Pick REVIEWS.io or Klaviyo for review invitations and disable the other.' },
+      { title: 'Create segments', body: 'Build reviewer and non reviewer segments to tailor messages.' },
+      { title: 'Test end to end', body: 'Check the timing from delivery to request, review and thank you.' }
+    ],
+    pitfalls: [
+      'Two tools sending the same review request.',
+      'Asking for a review on a returned order.',
+      'Showing product ratings against the wrong product in an email block.',
+      'Mixing company and product review messages so the ask is unclear.',
+      'Treating a review as marketing consent.'
+    ],
+    terms: ['email-segmentation', 'abandoned-cart-flow', 'winback-flow'],
+    service: 'email-flows'
+  },
+  {
+    slug: 'swym-wishlist',
+    app: 'Swym Wishlist',
+    category: 'loyalty',
+    metaTitle: 'Klaviyo and Swym Wishlist Integration Guide for Stores',
+    metaDescription: 'How wishlist activity from Swym can feed Klaviyo: saved item signals, reminder flows and the setup checks that keep wishlist emails relevant.',
+    answer: 'Swym Wishlist lets shoppers save products, and that activity can be shared with Klaviyo so you can send reminders about items they saved. Whether it uses a native connection or another route depends on your version, so confirm in the Swym and Klaviyo documentation. Wishlist signals show clear interest, which makes them a strong base for relevant, low pressure emails.',
+    events: [
+      { name: 'Item added to wishlist', meaning: 'A shopper saved a product, which shows interest even without a cart.' },
+      { name: 'Wishlist shared', meaning: 'Where the feature is used, a list sent to someone else, useful as an advocacy signal.' },
+      { name: 'Back in stock or price change signals', meaning: 'Where supported, signals that a saved item has changed, which vary by setup and version.' },
+      { name: 'Wishlist reminder activity', meaning: 'Records of reminders sent, if reported, so you can avoid repeating yourself.' },
+      { name: 'Customer identity', meaning: 'The email address that ties a wishlist to a profile, which is needed for any flow to work.' }
+    ],
+    flows: [
+      { title: 'Saved item reminder', body: 'Reminds someone of a product they saved, shown with the actual item, after a sensible gap.' },
+      { title: 'Back in stock', body: 'Tells people when something they saved is available again, if that data is supplied.' },
+      { title: 'Wishlist to cart nudge', body: 'A gentle follow up when saved items are still unbought, without leaning on urgency.' },
+      { title: 'Gift list share', body: 'Helps shoppers share a list and returns to the sharer when it is viewed or bought, where supported.' }
+    ],
+    setup: [
+      { title: 'Confirm the connection method', body: 'Check the Swym and Klaviyo documentation for how wishlist data reaches Klaviyo for your setup.' },
+      { title: 'Connect the app', body: 'Link the two accounts following the documented steps.' },
+      { title: 'Add an item as a test', body: 'Save a product while signed in and check the event on the Klaviyo profile.' },
+      { title: 'Confirm identification', body: 'Make sure shoppers are identified by email, or the activity cannot reach a profile.' },
+      { title: 'Align with other flows', body: 'Decide how wishlist messages sit next to cart and browse flows.' },
+      { title: 'Build and test the reminder', body: 'Create the reminder flow and test it with your own account.' }
+    ],
+    pitfalls: [
+      'Reminding people about a wishlist item they have since bought.',
+      'Sending a wishlist reminder at the same time as a cart email.',
+      'Assuming anonymous wishlists reach Klaviyo profiles.',
+      'Overusing urgency on items someone only saved for later.',
+      'Not checking the event data before building the flow.'
+    ],
+    terms: ['abandoned-cart-flow', 'email-segmentation', 'welcome-flow'],
+    service: 'retention-strategy'
+  },
+  {
+    slug: 'attentive',
+    app: 'Attentive',
+    category: 'sms',
+    metaTitle: 'Klaviyo and Attentive Integration Guide for SMS and Email',
+    metaDescription: 'How Attentive SMS can sit alongside Klaviyo email: sharing consent and activity, coordinating flows and avoiding double messaging.',
+    answer: 'Attentive is an SMS marketing platform, and many stores run it alongside Klaviyo email. Whether and how the two share data depends on your setup, so check the current documentation for both before you rely on a sync. The key work is coordinating consent and timing so a customer is not messaged by both channels about the same thing.',
+    events: [
+      { name: 'SMS consent', meaning: 'Where shared, whether a person has agreed to text messages, which must be treated as separate from email consent.' },
+      { name: 'SMS sign up source', meaning: 'Where a person joined, such as a pop up or checkout, useful for reporting and welcome messages.' },
+      { name: 'Message activity', meaning: 'Sends, clicks or replies, where the connection reports them, which varies by setup.' },
+      { name: 'Phone number data', meaning: 'The number tied to a profile, which needs correct formatting and permission to use.' },
+      { name: 'Purchase and cart activity', meaning: 'Commerce signals that either tool may use for triggers, so decide which channel owns each trigger.' }
+    ],
+    flows: [
+      { title: 'Welcome across channels', body: 'Greets a new subscriber by email and, if they agreed, by text, without repeating the same offer.' },
+      { title: 'Abandoned cart coordination', body: 'Decides which channel goes first and holds the second back, so a shopper gets one reminder not two.' },
+      { title: 'Post purchase', body: 'Email carries the detail while text, if used, stays brief and useful, such as delivery updates.' },
+      { title: 'Channel preference campaigns', body: 'Segments people by the channels they agreed to and sends each the right message.' }
+    ],
+    setup: [
+      { title: 'Check the supported connection', body: 'Read the current Attentive and Klaviyo documentation to see what can be shared.' },
+      { title: 'Map consent separately', body: 'Keep email and SMS consent distinct, and record the source and wording of each.' },
+      { title: 'Decide trigger ownership', body: 'For each trigger such as cart or welcome, name the channel that leads.' },
+      { title: 'Test the data', body: 'Sign up with a test number and email and confirm what each platform shows.' },
+      { title: 'Build the cross channel logic', body: 'Use delays and conditions so the second channel does not fire straight after the first.' },
+      { title: 'Review quiet hours and frequency', body: 'Set sensible send windows for text, which is more intrusive than email.' }
+    ],
+    pitfalls: [
+      'Treating email consent as permission to send texts.',
+      'Both tools firing a cart reminder at once.',
+      'Sending text outside sensible hours.',
+      'Poorly formatted phone numbers causing failed sends.',
+      'Not recording when and how consent was given.'
+    ],
+    terms: ['abandoned-cart-flow', 'welcome-flow', 'email-segmentation'],
+    service: 'retention-strategy'
+  },
+  {
+    slug: 'privy',
+    app: 'Privy',
+    category: 'forms',
+    metaTitle: 'Klaviyo and Privy Integration Guide for Pop Ups and Forms',
+    metaDescription: 'How Privy pop ups and sign up forms can connect to Klaviyo: passing subscribers and consent, welcome flows and avoiding duplicate capture tools.',
+    answer: 'Privy builds pop ups and sign up forms that can send new subscribers to Klaviyo, where they start a welcome flow. The connection and the fields it passes depend on your setup, so confirm the current steps in the Privy documentation. The main jobs are sending people to the right list with clear consent and avoiding a second form tool doing the same thing.',
+    events: [
+      { name: 'Form submission', meaning: 'Someone completed a Privy form, which adds or updates a profile in Klaviyo when connected.' },
+      { name: 'Email and phone capture', meaning: 'The contact details collected, which need consent wording that matches how you will use them.' },
+      { name: 'Custom fields', meaning: 'Extra answers such as preferences, passed through only where the connection maps them.' },
+      { name: 'Form source', meaning: 'Which form or campaign the person came from, useful for tailoring the welcome message.' },
+      { name: 'Discount code delivery', meaning: 'Where a code is offered, how it is issued, which varies by setup and should match what the email says.' }
+    ],
+    flows: [
+      { title: 'Welcome series', body: 'Starts when a Privy form adds someone to a list. Deliver any promised offer first, then introduce the brand.' },
+      { title: 'Preference based follow up', body: 'Uses an answer from a form to send relevant products rather than a generic message.' },
+      { title: 'Back in stock or product interest', body: 'If a form captures interest in a product, a follow up when it becomes relevant.' },
+      { title: 'Re engagement of new sign ups', body: 'Nudges people who joined but never opened the welcome email, with a single gentle reminder.' }
+    ],
+    setup: [
+      { title: 'Check the documented connection', body: 'Read the current Privy documentation to see how it sends subscribers to Klaviyo.' },
+      { title: 'Choose the target list', body: 'Create or pick the list the form should feed, and name it clearly.' },
+      { title: 'Write clear consent wording', body: 'Make sure the form text matches how you will email the person.' },
+      { title: 'Test a submission', body: 'Submit the form with a test address and confirm the profile, list and fields in Klaviyo.' },
+      { title: 'Build the welcome flow', body: 'Trigger it from the list and check the offer, if any, arrives as promised.' },
+      { title: 'Retire duplicate forms', body: 'Turn off other capture tools that add the same people so profiles stay clean.' }
+    ],
+    pitfalls: [
+      'Two form tools adding the same subscriber with different consent.',
+      'An offer in the form that the email does not honour.',
+      'Missing fields because the connection does not map them.',
+      'Pop ups showing to existing subscribers.',
+      'Vague consent text on the form.'
+    ],
+    terms: ['welcome-flow', 'email-segmentation', 'email-deliverability'],
+    service: 'klaviyo-email-marketing'
+  },
+  {
+    slug: 'aftership',
+    app: 'AfterShip',
+    category: 'shipping',
+    metaTitle: 'Klaviyo and AfterShip Integration Guide for Tracking Emails',
+    metaDescription: 'How AfterShip tracking data can reach Klaviyo: shipment status events, delivery update flows and the setup checks that keep notices accurate.',
+    answer: 'AfterShip tracks parcels across carriers and can pass shipment status updates to Klaviyo so you can send accurate shipping emails. Whether it connects directly or through another route depends on your setup, so confirm in the AfterShip and Klaviyo documentation. Reliable tracking data lets you replace guesswork with messages that match where the order actually is.',
+    events: [
+      { name: 'Shipment created', meaning: 'A tracking number has been attached to an order, the start of the delivery journey.' },
+      { name: 'In transit and out for delivery', meaning: 'Status changes as the carrier reports them, which can vary by carrier and by what the connection sends.' },
+      { name: 'Delivered', meaning: 'The carrier shows the parcel as delivered, a good trigger for a review request after a pause.' },
+      { name: 'Delivery exception', meaning: 'A delay, failed attempt or problem, which is worth a helpful message.' },
+      { name: 'Tracking details', meaning: 'The carrier, number and link, used in emails so customers can follow the parcel.' }
+    ],
+    flows: [
+      { title: 'Shipping confirmation', body: 'Sent when tracking is created, with a clear link and an honest delivery expectation.' },
+      { title: 'Delivery update', body: 'Tells people when the parcel is close or delivered, keeping the message short and useful.' },
+      { title: 'Delay and exception message', body: 'Reaches customers when something goes wrong, with a way to get help before they have to ask.' },
+      { title: 'Post delivery follow up', body: 'Starts from delivered status with care tips, then a review request after a sensible gap.' }
+    ],
+    setup: [
+      { title: 'Check how the data reaches Klaviyo', body: 'Read the current AfterShip and Klaviyo documentation to see which events and properties are sent.' },
+      { title: 'Connect the accounts', body: 'Follow the documented steps to link them.' },
+      { title: 'Create a test shipment', body: 'Use a real or test tracking number and confirm the events appear on the profile.' },
+      { title: 'Decide who sends shipping emails', body: 'Choose between AfterShip notifications, store notifications and Klaviyo, and use one.' },
+      { title: 'Build the flows', body: 'Create the confirmation, delivery and exception flows with branded templates.' },
+      { title: 'Test the timing', body: 'Check that messages follow the real status, not the order date.' }
+    ],
+    pitfalls: [
+      'Customers receiving shipping emails from three systems.',
+      'Marking delivered before the parcel has arrived.',
+      'Promotional content in a delay message.',
+      'Ignoring carriers that report patchy status.',
+      'Not testing exception cases.'
+    ],
+    terms: ['email-deliverability', 'email-segmentation', 'winback-flow'],
+    service: 'email-flows'
+  },
+  {
+    slug: 'bold-subscriptions',
+    app: 'Bold Subscriptions',
+    category: 'subscriptions',
+    metaTitle: 'Klaviyo and Bold Subscriptions Integration Guide',
+    metaDescription: 'How Bold Subscriptions data can reach Klaviyo: subscription lifecycle signals, flows for renewals and cancellations, and setup checks to run first.',
+    answer: 'Bold Subscriptions manages recurring orders, and its data can be sent to Klaviyo so you can message subscribers at key points in the subscription lifecycle. How the connection works and which events it sends depend on your setup, so confirm in the Bold and Klaviyo documentation. Useful flows cover upcoming renewals, failed payments, skips and cancellations.',
+    events: [
+      { name: 'Subscription started', meaning: 'A customer has begun a subscription, the start of an onboarding flow.' },
+      { name: 'Upcoming order or renewal', meaning: 'A reminder point before the next charge, where the connection reports it.' },
+      { name: 'Payment failure', meaning: 'A charge did not go through, which needs a clear and calm message.' },
+      { name: 'Skip, pause or change', meaning: 'The customer altered the subscription, useful for tailoring what you say next.' },
+      { name: 'Cancellation', meaning: 'The subscription has ended, which starts a winback path and a short feedback ask.' }
+    ],
+    flows: [
+      { title: 'Subscriber onboarding', body: 'Explains how the subscription works, how to manage it and what to expect next.' },
+      { title: 'Upcoming renewal', body: 'A short reminder with an easy way to change or skip, which reduces surprise charges.' },
+      { title: 'Failed payment recovery', body: 'Helps the customer update their details without blame, with a clear next step.' },
+      { title: 'Cancellation winback', body: 'Follows a cancellation with a useful, honest reason to return, such as a different cadence.' }
+    ],
+    setup: [
+      { title: 'Confirm the connection route', body: 'Read the current Bold and Klaviyo documentation for what is sent and how it is connected.' },
+      { title: 'Connect the accounts', body: 'Follow the documented steps and authorise access.' },
+      { title: 'Create a test subscription', body: 'Start, change and cancel one, and confirm each action reaches Klaviyo.' },
+      { title: 'Separate subscribers from one off buyers', body: 'Build segments so promotions suit each group.' },
+      { title: 'Decide who sends account emails', body: 'Avoid duplicating notices the subscription app already sends.' },
+      { title: 'Build and test the lifecycle flows', body: 'Start with failed payment and upcoming renewal, which matter most.' }
+    ],
+    pitfalls: [
+      'Promoting a discount to subscribers who already get one.',
+      'Duplicate renewal notices from the app and Klaviyo.',
+      'Treating a skip as a cancellation.',
+      'Failed payment emails that sound accusing.',
+      'Not testing the cancellation path.'
+    ],
+    terms: ['winback-flow', 'email-segmentation', 'abandoned-cart-flow'],
+    service: 'retention-strategy'
+  },
+  {
+    slug: 'rebuy',
+    app: 'Rebuy',
+    category: 'platform',
+    metaTitle: 'Klaviyo and Rebuy Integration Guide for Personalisation',
+    metaDescription: 'How Rebuy product recommendations and upsells relate to Klaviyo: coordinating onsite offers with email flows and checking what data is shared.',
+    answer: 'Rebuy is a personalisation and upsell app that recommends products on the store, in cart and after checkout. It can work alongside Klaviyo, but what data passes between them depends on your setup, so confirm in the Rebuy and Klaviyo documentation. The practical aim is to keep onsite recommendations and email offers consistent rather than competing.',
+    events: [
+      { name: 'Recommendation engagement', meaning: 'Where shared, signals that a shopper interacted with an onsite recommendation.' },
+      { name: 'Cart additions from recommendations', meaning: 'Items added through an upsell, which show up as ordinary cart and order activity.' },
+      { name: 'Order activity', meaning: 'Placed orders including upsell items, used for segmentation and post purchase flows.' },
+      { name: 'Product interest', meaning: 'Which items a person looked at or added, which can improve email recommendations.' },
+      { name: 'Customer data', meaning: 'Profiles and purchase history that either tool may use to personalise.' }
+    ],
+    flows: [
+      { title: 'Post purchase cross sell', body: 'Recommends complementary items after an order, using what was actually bought.' },
+      { title: 'Abandoned cart with relevance', body: 'Shows the left items and sensible companions rather than a long list of random products.' },
+      { title: 'Replenishment reminder', body: 'Prompts a reorder for consumable products based on typical use, where the timing is known.' },
+      { title: 'Browse follow up', body: 'Reaches visitors who showed interest in a category with a short, relevant selection.' }
+    ],
+    setup: [
+      { title: 'Check the data shared', body: 'Read the current documentation for both tools to see what passes between them.' },
+      { title: 'Connect where supported', body: 'Follow the documented route to link them, if one exists for your setup.' },
+      { title: 'Test an upsell order', body: 'Add an upsell item and confirm it appears correctly in order data on the profile.' },
+      { title: 'Align the offers', body: 'Make sure onsite and email offers do not contradict each other.' },
+      { title: 'Review the recommendation logic', body: 'Check the products shown make sense for the person and are in stock.' },
+      { title: 'Build and test the follow up flows', body: 'Start with post purchase cross sell and verify it avoids items already bought.' }
+    ],
+    pitfalls: [
+      'Email and onsite offers showing conflicting discounts.',
+      'Recommending items the customer just bought.',
+      'Pushing out of stock products.',
+      'Too many recommendations in one message.',
+      'Assuming shared data without testing.'
+    ],
+    terms: ['abandoned-cart-flow', 'email-segmentation', 'winback-flow'],
+    service: 'email-flows'
   }
 ];
 

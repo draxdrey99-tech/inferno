@@ -858,6 +858,374 @@ export const FAQ_PAGES: Faq[] = [
       "welcome-flow"
     ],
     "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-write-a-subject-line-for-a-sale",
+    "category": "strategy",
+    "q": "How do I write a good subject line for a sale email?",
+    "a": "State the offer and the deadline plainly in the subject line, in a few words, so the reader knows what they get and by when. Clarity beats cleverness, and capital letters or stacked exclamation marks tend to hurt.",
+    "detail": [
+      "A sale subject line has one job, which is to make the right person open an email they already half expect. Name the product or category, the saving and the end date if there is one. Keep the most important words at the start, because mobile screens cut subject lines short.",
+      "Pair it with a preheader that adds one new detail rather than repeating the subject. Test two versions on a split of the list and judge them by clicks and revenue, not opens alone."
+    ],
+    "example": "A store running a weekend sale tests \"Weekend sale on knitwear, ends Sunday\" against a version that only teases a surprise. It sends each to half of a segment and keeps whichever drives more clicks and orders per recipient.",
+    "terms": [
+      "preheader-text",
+      "ab-testing"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-many-products-in-an-abandoned-cart-email",
+    "category": "flows",
+    "q": "How many products should an abandoned cart email show?",
+    "a": "Show the items the shopper left behind, and only those. If the cart is large, show the first few and link to the rest, so the email stays focused on getting them back to checkout.",
+    "detail": [
+      "The point of the email is to return the shopper to the exact cart. Extra recommendations can dilute that, so many stores keep suggestions to a small block below the cart items or leave them out of the first email.",
+      "Use dynamic content so the email builds itself from the cart. Check how it renders when the cart holds one item and when it holds many."
+    ],
+    "example": "A shopper leaves three items in a cart. The email shows those three with images and prices and one clear button back to checkout. A cart with twelve items shows the first four and a line saying \"plus 8 more\".",
+    "terms": [
+      "abandoned-cart-flow",
+      "dynamic-content"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "what-is-a-good-email-list-growth-rate",
+    "category": "lists",
+    "q": "What is a good email list growth rate?",
+    "a": "There is no universal good rate, because it depends on traffic, offer and how much of the list you lose. Track net growth, meaning new subscribers minus unsubscribes, bounces and removals, and compare it with your own past months.",
+    "detail": [
+      "Raw sign-up counts can flatter you if the list is also shrinking from unsubscribes and clean-ups. Net growth and the share of new subscribers who go on to click or buy tell you more.",
+      "Also watch the sign-up rate of your forms against site visits. If traffic grows but sign-ups do not, the offer or placement is usually the problem."
+    ],
+    "example": "A store adds subscribers each month but also removes a similar number of inactive and bounced addresses. It reports net growth and the percentage of new subscribers who buy within their first month.",
+    "terms": [
+      "email-list-growth",
+      "signup-popup"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "should-i-email-new-subscribers-every-day",
+    "category": "strategy",
+    "q": "Should I email new subscribers every day?",
+    "a": "Usually no. A daily send to everyone raises unsubscribes and complaints. A short, useful welcome series followed by your normal rhythm works better for most stores.",
+    "detail": [
+      "New subscribers are the most engaged they will ever be, so a few emails in the first days is reasonable. A welcome flow with spaced messages covers this without turning into daily promotion.",
+      "Reduce frequency if complaints or unsubscribes climb. Let behaviour guide you: shoppers who click and browse can receive more than those who stay silent."
+    ],
+    "example": "A store sends a four-email welcome series over about ten days, then moves new subscribers onto its weekly campaigns. Those who click often are later added to a segment that gets an extra mid-week send.",
+    "terms": [
+      "welcome-flow",
+      "spam-complaint-rate"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "how-to-plan-a-black-friday-email-schedule-for-a-small-store",
+    "category": "strategy",
+    "q": "How do I plan a Black Friday email schedule for a small store?",
+    "a": "Start a few weeks early with teasers and an early-access list, then send a short run of emails across the sale days, with a last-chance message before it ends. Keep the plan to what your team can build and test.",
+    "detail": [
+      "Warm your list before the event. Early-access sign-ups, a teaser and a VIP preview give you your best buyers first and avoid a sudden spike to a quiet list.",
+      "During the sale, give engaged subscribers more emails and quieter ones fewer. After the event, return to your normal rhythm so complaints do not linger."
+    ],
+    "example": "A small store sets a one-page plan: a teaser, a VIP early-access email, a launch email, a mid-sale reminder and a last-chance email. It prepares and tests all of them in advance and holds back extra sends for the less engaged.",
+    "terms": [
+      "vip-segment",
+      "engagement-segment"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-segment-email-list-by-product-category",
+    "category": "lists",
+    "q": "How do I segment an email list by product category?",
+    "a": "Create segments based on the categories people have viewed, added to cart or bought, using your store data inside your email platform. Then send category-relevant content to those groups.",
+    "detail": [
+      "Start with purchase and browse events, since they show real interest. A segment such as \"bought skincare in the last year\" is easy to understand and easy to act on.",
+      "Do not over-slice. Make sure each segment is large enough to send to and has a clear use, such as a new-arrival email or a replenishment reminder."
+    ],
+    "example": "A store selling both coffee and brewing gear builds a segment of people who bought coffee beans. It sends them a new-roast email, while gear buyers get an accessories email instead.",
+    "terms": [
+      "email-segmentation",
+      "klaviyo-metric"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-write-a-win-back-subject-line",
+    "category": "flows",
+    "q": "How do I write a win-back email subject line?",
+    "a": "Be warm and direct: say you have missed them and give a reason to come back, such as a new product or an offer. Avoid guilt or pressure, which can raise unsubscribes and complaints.",
+    "detail": [
+      "People who have gone quiet respond to relevance more than to drama. Reference something real, like what is new since they last bought, rather than a generic plea.",
+      "Test a plain subject against a benefit-led one and keep the winner. If a series gets no response, suppress those contacts instead of continuing to send."
+    ],
+    "example": "A store tests \"It has been a while, here is what is new\" against a subject that mentions a returning favourite product. It reviews clicks and orders from the lapsed customers and keeps the better one.",
+    "terms": [
+      "winback-flow",
+      "ab-testing"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "what-to-put-in-a-thank-you-email",
+    "category": "flows",
+    "q": "What should I put in a thank you email after a purchase?",
+    "a": "Thank the customer, confirm what they bought and what happens next, and offer one useful thing such as care tips, setup help or support contact details. Hold the hard sell for later.",
+    "detail": [
+      "The first email after a purchase is read closely, so make it genuinely helpful. Order details and delivery information usually come from your transactional email, and a thank-you message can add warmth and next steps.",
+      "Keep promotion light. A single link to guides or a gentle invitation to follow the brand works better than a wall of product recommendations."
+    ],
+    "example": "A candle store sends a thank-you email that names the order, explains how to burn a candle safely and gives a support address. A related-products email follows a couple of weeks later.",
+    "terms": [
+      "post-purchase-flow",
+      "transactional-vs-marketing-email"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "how-to-ask-for-reviews-by-email",
+    "category": "flows",
+    "q": "How do I ask customers for reviews by email?",
+    "a": "Send a short, friendly request after the product has had time to arrive and be used, with a direct link to the review form. Make it one click and one clear ask.",
+    "detail": [
+      "Timing matters. Wait long enough for delivery and a first try, and consider a different delay for fast-use products and slow-use ones.",
+      "Do not offer rewards in a way that pushes only positive reviews, and follow the rules of your review platform and local law. Ask all customers, not just happy ones."
+    ],
+    "example": "A store waits several days after the estimated delivery date for a clothing order and sends a short email with a star-rating link. A second gentle reminder goes only to those who did not respond.",
+    "terms": [
+      "post-purchase-flow",
+      "event-trigger"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "should-a-welcome-email-include-a-discount",
+    "category": "flows",
+    "q": "Should a welcome email include a discount?",
+    "a": "It depends on your margins and brand. A discount can lift first purchases, but it can also train people to wait for offers. Test a discount against a no-discount welcome and compare revenue per recipient.",
+    "detail": [
+      "Some stores lead with value instead, such as free shipping, a gift or a strong brand story. Others use a small incentive in exchange for the sign-up.",
+      "Whatever you pick, check the effect on margin and repeat buyers, not only on the first order."
+    ],
+    "example": "A store splits new subscribers between a welcome series with an incentive and one without. After a few weeks it compares orders, margin and repeat purchases before deciding.",
+    "terms": [
+      "welcome-flow",
+      "revenue-per-recipient"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "how-long-to-wait-before-sunsetting-subscribers",
+    "category": "lists",
+    "q": "How long should I wait before sunsetting inactive subscribers?",
+    "a": "Base it on your buying cycle: long enough that a normal customer would have bought or clicked, but short enough that unengaged addresses do not hurt your reputation. Many stores review it every few months.",
+    "detail": [
+      "A store selling items people buy yearly needs a longer window than one selling consumables. Define inactivity using clicks and purchases, not opens alone.",
+      "Run a final re-engagement attempt first, then suppress those who do not respond. Keep an eye on deliverability after the change."
+    ],
+    "example": "A store whose customers usually reorder within three months chooses a six-month inactivity window. It sends a last win-back series and suppresses those who still do not click or buy.",
+    "terms": [
+      "sunset-policy",
+      "suppression-list"
+    ],
+    "service": "email-deliverability"
+  },
+  {
+    "slug": "what-share-of-ecommerce-revenue-should-come-from-email",
+    "category": "metrics",
+    "q": "What share of ecommerce revenue should come from email?",
+    "a": "There is no fixed target. The share varies with the business, how revenue is attributed and how much other marketing you run. Measure your own share and watch how it moves, ideally alongside a holdout test.",
+    "detail": [
+      "Attributed email revenue depends on attribution windows and can overlap with other channels. Treat it as a guide, not a precise number.",
+      "A better question is whether email adds orders that would not happen without it. A holdout group can estimate that."
+    ],
+    "example": "A store notes that its email-attributed share rose after launching flows. To check that it is real, it holds back a small group from a campaign and compares their orders with those who received it.",
+    "terms": [
+      "attributed-revenue",
+      "holdout-group"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "why-did-my-klaviyo-revenue-suddenly-drop",
+    "category": "metrics",
+    "q": "Why did my Klaviyo revenue suddenly drop?",
+    "a": "Check the likely causes in order: a broken flow or integration, a change in send volume or segments, deliverability problems and tracking changes. Compare with the same period before to rule out seasonality.",
+    "detail": [
+      "Start with whether flows are still live and triggering, and whether events from your store are still arriving. A disconnected integration can silently stop data.",
+      "Then look at deliverability signals such as bounces, complaints and inbox placement, and at any recent edits to sending patterns, templates or attribution settings."
+    ],
+    "example": "Revenue dips on a Tuesday. A store finds that its cart abandonment flow stopped triggering after a theme change, restores the event and sees the flow resume.",
+    "terms": [
+      "klaviyo-metric",
+      "email-deliverability"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-migrate-from-mailchimp-to-klaviyo",
+    "category": "strategy",
+    "q": "How do I migrate from Mailchimp to Klaviyo?",
+    "a": "Export your lists and suppressions, connect your store, set up domain authentication, rebuild your key flows and warm up sending in stages. Run both briefly if needed so nothing goes dark.",
+    "detail": [
+      "Bring over consent status and unsubscribes, not just addresses. Sending to people who opted out is a legal and reputation risk.",
+      "Rebuild the core flows first: welcome, cart abandonment and post-purchase. Move send volume gradually, starting with your most engaged contacts."
+    ],
+    "example": "A store exports its list with unsubscribes, connects Klaviyo to its shop, rebuilds three flows and sends its first campaigns to engaged contacts before moving the whole list.",
+    "terms": [
+      "suppression-list",
+      "ip-warming"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-set-up-utm-tags-for-email",
+    "category": "metrics",
+    "q": "How do I set up UTM tags for email?",
+    "a": "Add consistent UTM parameters, source, medium and campaign, to the links in your emails so your analytics tool can attribute visits correctly. Most platforms can add them automatically.",
+    "detail": [
+      "Use the same naming pattern every time, in lowercase, so reports are clean. Source can be your email platform, medium is email and campaign names the send or flow.",
+      "Check that your analytics tool shows the traffic as email, and remember analytics and platform attribution will not match exactly."
+    ],
+    "example": "A store switches on automatic tagging with medium set to email and campaign names matching each send. In analytics it can now see sessions and orders from each campaign.",
+    "terms": [
+      "utm-tagging",
+      "attributed-revenue"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-check-if-my-domain-is-blocklisted",
+    "category": "deliverability",
+    "q": "How do I check if my sending domain or IP is blocklisted?",
+    "a": "Look up your sending domain and IP on public blocklist checkers and in Google Postmaster Tools, then confirm with bounce messages that name a block. Fix the cause before requesting removal.",
+    "detail": [
+      "Not every listing blocks mail equally, and some are minor. Bounce text usually says which list is responsible.",
+      "Find out why you were listed, such as spam trap hits or complaints, fix the practice and then follow the list removal process."
+    ],
+    "example": "A store sees a spike in bounces mentioning a blocklist. It confirms the listing through a lookup, cleans its list and removes risky segments before asking for delisting.",
+    "terms": [
+      "google-postmaster-tools",
+      "spam-trap"
+    ],
+    "service": "email-deliverability"
+  },
+  {
+    "slug": "what-is-double-sending-in-email",
+    "category": "strategy",
+    "q": "What is double sending, and should I avoid it?",
+    "a": "Double sending means sending the same campaign twice, often resending to non-openers with a new subject. It can add some clicks, but it can also raise complaints and fatigue.",
+    "detail": [
+      "Open data is unreliable with privacy protections, so a resend to non-openers can reach people who already saw the first email.",
+      "If you test it, limit it to engaged segments, change something meaningful, and watch complaints and unsubscribes."
+    ],
+    "example": "A store resends a key announcement once, three days later, with a new subject line to engaged subscribers who did not click. It compares added orders with extra unsubscribes before repeating it.",
+    "terms": [
+      "apple-mail-privacy-protection",
+      "smart-sending"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-test-emails-before-sending",
+    "category": "strategy",
+    "q": "How do I test an email before sending it?",
+    "a": "Send a test to yourself and colleagues, then check it on several devices, apps and dark mode, and click every link. Review the subject, preheader and any personalisation.",
+    "detail": [
+      "Use a checklist covering links, images, alt text, merge tags and unsubscribe link. Test dynamic blocks with different customer profiles.",
+      "Preview in the main inbox apps your customers use, and in dark mode, since layouts can change."
+    ],
+    "example": "A store sends a test to three devices, checks the discount link and confirms the first-name field falls back gracefully when a name is missing.",
+    "terms": [
+      "dark-mode-email",
+      "merge-tags"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-personalise-emails-beyond-first-name",
+    "category": "strategy",
+    "q": "How do I personalise emails beyond using a first name?",
+    "a": "Use what customers have done: products viewed or bought, category interest, order history and location. Show relevant products and timing instead of only inserting a name.",
+    "detail": [
+      "Behavioural data usually matters more than a name. Dynamic blocks can show recently viewed items or products that complement a past purchase.",
+      "Keep it respectful. Personalisation that feels intrusive can backfire, so use data customers would expect you to have, and always check that a fallback appears when a field is empty."
+    ],
+    "example": "A store sends a cross-sell email showing accessories for the item a customer bought last month, instead of the same promotion to everyone.",
+    "terms": [
+      "dynamic-content",
+      "cross-sell-email"
+    ],
+    "service": "klaviyo-email-marketing"
+  },
+  {
+    "slug": "how-to-build-a-vip-email-programme",
+    "category": "strategy",
+    "q": "How do I build a VIP email programme?",
+    "a": "Define VIPs by spend, order count or recency, put them in a segment and give them early access, perks and a more personal tone. Review membership regularly.",
+    "detail": [
+      "Pick rules you can explain, such as top customers by lifetime value. Revisit them so the segment stays current.",
+      "Offer things money cannot easily buy, such as early drops and direct support, rather than relying on discounts alone."
+    ],
+    "example": "A store creates a segment of its highest-value repeat customers and sends them an early look at a new range a day before everyone else.",
+    "terms": [
+      "vip-segment",
+      "customer-lifetime-value"
+    ],
+    "service": "retention-strategy"
+  },
+  {
+    "slug": "how-to-reduce-complaints-from-abandoned-cart-emails",
+    "category": "flows",
+    "q": "How do I reduce complaints from abandoned cart emails?",
+    "a": "Send fewer, better-timed messages, stop the flow once the customer buys, and make unsubscribing easy. Limit the series length and exclude people who recently received other emails.",
+    "detail": [
+      "Complaints rise when emails keep arriving after a purchase or feel pushy. Use flow filters so buyers exit at once.",
+      "Review complaint levels by flow and trim steps that draw the most complaints. A shorter series that stops at the right moment usually protects your sender reputation better than a long one."
+    ],
+    "example": "A store shortens its cart series, adds an exit once an order is placed and sees fewer replies saying the email was unwanted.",
+    "terms": [
+      "flow-filter",
+      "spam-complaint-rate"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "how-many-email-flows-does-a-store-need",
+    "category": "flows",
+    "q": "How many email flows does an ecommerce store need?",
+    "a": "Start with a handful of core flows: welcome, abandoned cart, browse abandonment, post-purchase and win-back. Add more as your catalog and data justify them.",
+    "detail": [
+      "Quality beats count. A small set of well-built flows tends to outperform many thin ones, and each one is easier to test and maintain when the list is short.",
+      "Later additions can include back in stock, replenishment and birthday flows if they suit your products. Review each flow on a regular schedule, since stale copy and broken filters quietly cost you results."
+    ],
+    "example": "A new store launches welcome, cart and post-purchase flows first. After a few months, it adds win-back and back-in-stock flows.",
+    "terms": [
+      "welcome-flow",
+      "post-purchase-flow"
+    ],
+    "service": "email-flows"
+  },
+  {
+    "slug": "what-to-send-customers-who-return-a-product",
+    "category": "flows",
+    "q": "What should I email customers who return a product?",
+    "a": "Acknowledge the return, confirm refund steps, and ask what went wrong. Pause promotions for a short time, then offer help finding a better fit.",
+    "detail": [
+      "A return is a service moment. Keep the first message about the refund and next steps, not about selling.",
+      "Use the reason for return to guide what you suggest later, such as a different size or a related product."
+    ],
+    "example": "A shopper returns a pair of shoes that were too small. The store confirms the refund, asks about fit and later sends a size guide with other styles.",
+    "terms": [
+      "post-purchase-flow",
+      "event-trigger"
+    ],
+    "service": "email-flows"
   }
 ];
 

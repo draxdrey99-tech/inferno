@@ -1573,6 +1573,936 @@ export const HOWTOS: HowTo[] = [
       "One test chosen and dated"
     ],
     "service": "email-flows"
+  },
+  {
+    "slug": "set-up-birthday-flow-klaviyo",
+    "category": "flows",
+    "task": "How to set up a birthday flow in Klaviyo",
+    "metaDescription": "Set up a Klaviyo birthday flow for your online store: collect birthdays, trigger on a date property, write the message and test it before going live.",
+    "answer": "A birthday flow sends a personal message on or near a customer's birthday. In Klaviyo you collect a birthday into a profile property, build a flow triggered by a date based property, add one or two emails with a small gift or a simple greeting, and test it with a dummy profile before setting it live.",
+    "before": [
+      "A way to collect birthdays, such as a signup form field or a preference page",
+      "Consent from each person to receive marketing email",
+      "A decision on the gift, such as a code, free shipping or just a greeting",
+      "A short list of favourite products to feature"
+    ],
+    "steps": [
+      {
+        "title": "Collect the birthday properly",
+        "body": "Add a birthday field to a signup form or a post-signup preference form. Make it optional and explain why you are asking, so people are happy to share it."
+      },
+      {
+        "title": "Check the property format",
+        "body": "Open a test profile and confirm the birthday is stored as a date property, not plain text. A flow cannot trigger on a date if the value is stored as a string."
+      },
+      {
+        "title": "Create a date triggered flow",
+        "body": "In Flows, choose a flow triggered by a date property and select the birthday field. Decide whether it fires on the day or a few days before."
+      },
+      {
+        "title": "Add a flow filter",
+        "body": "Limit the flow to people who can receive marketing email and exclude suppressed profiles. Consider excluding anyone who has not engaged in a long time."
+      },
+      {
+        "title": "Write one warm email",
+        "body": "Keep the first message short and personal, with a clear greeting, one gift and one button. A second email a few days later can remind people the gift expires."
+      },
+      {
+        "title": "Set the gift rules",
+        "body": "Create a code that is limited to one use per person and expires after a sensible window. Tell people the end date inside the email itself."
+      },
+      {
+        "title": "Test with a dummy profile",
+        "body": "Set a test profile birthday to a date that triggers the flow soon, confirm it enters, and read the email on a phone before you set it live."
+      }
+    ],
+    "pitfalls": [
+      "Asking for a birthday with no reason given, so people leave the field blank or enter false dates.",
+      "Storing the value as text, so the trigger never fires.",
+      "Using a gift code that anyone can share, with no use limit or end date.",
+      "Sending to profiles that have since unsubscribed because the filter was missed."
+    ],
+    "checklist": [
+      "Birthday property shows as a date on a test profile",
+      "Test profile enters the flow on the right day",
+      "Gift code works once and expires as stated",
+      "Suppressed profiles are excluded",
+      "Email status is live, not draft"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "birthday-and-anniversary-flow",
+      "flow-filter",
+      "event-trigger"
+    ]
+  },
+  {
+    "slug": "set-up-replenishment-flow-klaviyo",
+    "category": "flows",
+    "task": "How to set up a replenishment flow in Klaviyo",
+    "metaDescription": "Build a Klaviyo replenishment flow for products people run out of: pick the reorder window, trigger on purchase, add a reminder and exclude repeat buyers.",
+    "answer": "A replenishment flow reminds customers to reorder a product around the time they are likely to run out. In Klaviyo you trigger on placed order, split by the product bought, wait roughly as long as the product lasts, then send a reminder with a direct reorder link.",
+    "before": [
+      "A list of products that are used up and bought again",
+      "A rough idea of how long each product lasts",
+      "Order events syncing from your store into Klaviyo",
+      "Product pages that make reordering quick"
+    ],
+    "steps": [
+      {
+        "title": "Pick the right products",
+        "body": "Choose items people genuinely reuse, such as skincare, coffee or supplements. A reminder for a one-off item feels odd and trains people to ignore you."
+      },
+      {
+        "title": "Estimate the reorder window",
+        "body": "Look at the gap between first and second orders in your own data, or use the pack size and normal usage. Aim to reach people a little before they run out."
+      },
+      {
+        "title": "Trigger on placed order",
+        "body": "Create a flow on the placed order metric. This is the event that starts the clock for every purchase of the product."
+      },
+      {
+        "title": "Split by product",
+        "body": "Add a conditional split on items in the order, so each product or collection gets its own wait time and message."
+      },
+      {
+        "title": "Add the delay",
+        "body": "Insert a time delay that matches the window for that branch. Longer lasting products get a longer wait than small ones."
+      },
+      {
+        "title": "Send a reminder with a reorder link",
+        "body": "Write a short email that names the product, links straight to it and makes reordering one click. A subscription mention suits products with steady usage."
+      },
+      {
+        "title": "Stop the flow when they reorder",
+        "body": "Add a flow filter or split so anyone who bought the product again during the delay is removed and does not get a pointless reminder."
+      }
+    ],
+    "pitfalls": [
+      "Using one delay for every product, so some reminders arrive far too early or late.",
+      "Reminding people who have already reordered.",
+      "Including items that are not repeat purchases.",
+      "Linking to the homepage instead of the product."
+    ],
+    "checklist": [
+      "Each product branch has its own delay",
+      "Repeat buyers are filtered out",
+      "Reminder links go to the exact product",
+      "Test order enters the correct branch",
+      "All emails are live"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "replenishment-flow",
+      "conditional-split",
+      "flow-filter"
+    ]
+  },
+  {
+    "slug": "set-up-customer-thank-you-flow-klaviyo",
+    "category": "flows",
+    "task": "How to set up a customer thank-you flow in Klaviyo",
+    "metaDescription": "Create a Klaviyo thank-you flow that follows up first-time buyers: trigger on first order, send a personal note, ask for feedback and avoid hard selling.",
+    "answer": "A thank-you flow is a short, warm follow up sent after a customer places their first order. In Klaviyo you trigger on placed order, filter to first-time buyers, wait for the order to ship, and send a plain thank you that invites a reply or feedback instead of pushing another sale.",
+    "before": [
+      "Order events syncing into Klaviyo",
+      "A real reply to address that someone reads",
+      "A short note in your brand voice, ideally from a named person",
+      "A decision on whether to include a question or survey link"
+    ],
+    "steps": [
+      {
+        "title": "Trigger on placed order",
+        "body": "Create a flow on the placed order metric so every new order starts the sequence."
+      },
+      {
+        "title": "Limit to first-time buyers",
+        "body": "Add a flow filter for people with exactly one order. Returning customers can get a different, shorter note or be excluded."
+      },
+      {
+        "title": "Add a short delay",
+        "body": "Wait a day or two so the message does not collide with the order confirmation, which is a transactional email sent by your store."
+      },
+      {
+        "title": "Write the note",
+        "body": "Open with thanks, say what happens next in a sentence, and keep the tone personal. Use one person as the sender if you can."
+      },
+      {
+        "title": "Invite a reply",
+        "body": "Ask a single easy question, such as what made them choose you. Replies teach you why people buy and tell mail providers the sender is wanted."
+      },
+      {
+        "title": "Keep selling light",
+        "body": "Add at most one soft link, such as care tips or how to reach support. Save product recommendations for the post-purchase flow."
+      },
+      {
+        "title": "Check against other flows",
+        "body": "Review timing alongside post-purchase and review flows so a new buyer does not receive three messages in one day."
+      }
+    ],
+    "pitfalls": [
+      "Repeating the order confirmation instead of adding something new.",
+      "Sending from a no-reply address, which blocks the replies you want.",
+      "Heavy discounting that teaches customers to wait for offers.",
+      "Overlapping with the post-purchase flow on the same day."
+    ],
+    "checklist": [
+      "Only first-time buyers enter",
+      "Reply address is monitored",
+      "Timing does not clash with other flows",
+      "Links and images load on mobile",
+      "Email status is live"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "post-purchase-flow",
+      "flow-filter",
+      "transactional-vs-marketing-email"
+    ]
+  },
+  {
+    "slug": "create-review-request-flow-klaviyo",
+    "category": "flows",
+    "task": "How to create a review request flow in Klaviyo",
+    "metaDescription": "Create a Klaviyo review request flow: trigger on fulfilled orders, time the ask after delivery, link to your review app and avoid pestering buyers.",
+    "answer": "A review request flow asks customers for a product review after they have had time to use what they bought. In Klaviyo you trigger on a fulfilled order or a review app event, wait until delivery plus usage time, send one clear request, and add a single reminder for people who have not responded.",
+    "before": [
+      "A review platform connected to your store, or a simple review page",
+      "Fulfilment or delivery events available in Klaviyo",
+      "An idea of how long customers need to try the product",
+      "A plain, honest ask with no reward tied to a positive score"
+    ],
+    "steps": [
+      {
+        "title": "Choose the trigger",
+        "body": "Use the fulfilled order metric if your store sends it, since it is closer to delivery than the placed order event."
+      },
+      {
+        "title": "Time the ask",
+        "body": "Add a delay long enough for the parcel to arrive and the product to be used. Fast use items need days, slower ones need weeks."
+      },
+      {
+        "title": "Skip people who already reviewed",
+        "body": "Add a flow filter on your review app event, so anyone who has left a review never receives the request."
+      },
+      {
+        "title": "Write a simple request",
+        "body": "Name the product, say why the review helps other shoppers, and give one large button to the review form."
+      },
+      {
+        "title": "Make leaving a review easy",
+        "body": "Link to a page that works well on a phone and does not need an account. Fewer steps means more responses."
+      },
+      {
+        "title": "Add one reminder",
+        "body": "Wait a week and send a shorter second message to people who have not reviewed. Stop there rather than chasing."
+      },
+      {
+        "title": "Check support issues first",
+        "body": "Exclude customers with an open complaint or a return, so the request does not land on someone unhappy."
+      }
+    ],
+    "pitfalls": [
+      "Asking before the product has arrived.",
+      "Offering rewards only for positive reviews, which breaks most review platform rules.",
+      "Sending requests for every item in a large order separately.",
+      "Forgetting to exclude people who already reviewed."
+    ],
+    "checklist": [
+      "Trigger fires from a test fulfilled order",
+      "Delay matches delivery and usage time",
+      "Reviewers are filtered out",
+      "Review form works on a phone",
+      "Both emails are live"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "post-purchase-flow",
+      "flow-filter",
+      "event-trigger"
+    ]
+  },
+  {
+    "slug": "build-cross-sell-flow-klaviyo",
+    "category": "flows",
+    "task": "How to build a cross-sell flow in Klaviyo",
+    "metaDescription": "Build a Klaviyo cross-sell flow that suggests complementary products after a purchase: trigger, product logic, timing and exits so it feels helpful.",
+    "answer": "A cross-sell flow recommends products that go well with what a customer already bought. In Klaviyo you trigger on placed order, split by the item or collection purchased, wait a sensible time, and send products that complement it, not duplicate it.",
+    "before": [
+      "A clear map of which products pair with which",
+      "Order and product data syncing into Klaviyo",
+      "A catalog with working images and links",
+      "A view of what other post-purchase messages already send"
+    ],
+    "steps": [
+      {
+        "title": "Map the pairings",
+        "body": "List the main products or collections and the items that genuinely suit them, such as a case with a phone or a conditioner with a shampoo."
+      },
+      {
+        "title": "Trigger on placed order",
+        "body": "Build the flow on the placed order metric so each purchase starts a cross-sell path."
+      },
+      {
+        "title": "Split by what was bought",
+        "body": "Use a conditional split on the ordered item or collection, sending each group to its own message and product picks."
+      },
+      {
+        "title": "Wait until it feels natural",
+        "body": "Delay for several days so the customer has received the order and had a chance to try it before you suggest more."
+      },
+      {
+        "title": "Build the product block",
+        "body": "Use a dynamic product block set to your chosen items, or a manual block for fixed pairings. Show two to four products, not a whole catalog."
+      },
+      {
+        "title": "Explain the link in a line",
+        "body": "Say why the items go together. A one line reason does more than a grid of products with no context."
+      },
+      {
+        "title": "Exit buyers of the suggested item",
+        "body": "Add a filter so anyone who already bought the pairing is removed, and stop the flow if they place another order."
+      }
+    ],
+    "pitfalls": [
+      "Recommending the exact product they just bought.",
+      "Showing too many items, which hides the best match.",
+      "Using one generic message for every branch.",
+      "Running at the same time as post-purchase and review flows."
+    ],
+    "checklist": [
+      "Each branch shows items that pair with the purchase",
+      "Already purchased items are excluded",
+      "Timing is separated from other post-purchase emails",
+      "Product images and links work",
+      "Flow status is live"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "cross-sell-email",
+      "conditional-split",
+      "dynamic-content"
+    ]
+  },
+  {
+    "slug": "set-up-smart-sending-klaviyo",
+    "category": "campaigns",
+    "task": "How to set up smart sending correctly in Klaviyo",
+    "metaDescription": "Set up Klaviyo smart sending correctly: how the recent send window works, when to switch it on or off, and the checks that stop missed sends.",
+    "answer": "Smart sending skips a recipient if they were sent a marketing message within a recent window, so people are not hit with several emails close together. In Klaviyo it is a setting on each campaign and flow email. Keep it on for most marketing, and switch it off only for messages that must always reach everyone.",
+    "before": [
+      "A clear view of how often you send campaigns and flows",
+      "A list of messages that must not be skipped, such as an urgent notice",
+      "Access to campaign and flow settings",
+      "An understanding of the window length set on your account"
+    ],
+    "steps": [
+      {
+        "title": "Learn what the setting does",
+        "body": "Smart sending checks whether a profile received a marketing message in the recent window and skips them if so. It does not delay the message, it skips it."
+      },
+      {
+        "title": "Check the campaign default",
+        "body": "Open a draft campaign and find the smart sending option in the settings or sending options. Note whether it is on by default."
+      },
+      {
+        "title": "Check each flow email",
+        "body": "Open the settings on flow emails and confirm the choice. Flow emails can be skipped too, which surprises people when flow counts look low."
+      },
+      {
+        "title": "Decide per message type",
+        "body": "Leave it on for promotions and regular campaigns. Consider turning it off for time critical messages, but only where the content really needs to reach everyone."
+      },
+      {
+        "title": "Review skipped counts",
+        "body": "After a send, read the report or message details for skipped recipients. A large number means your sending is too dense or flows overlap."
+      },
+      {
+        "title": "Fix the cause of heavy skipping",
+        "body": "Space out campaigns, remove flow overlap or trim the audience, instead of turning smart sending off to hide the problem."
+      },
+      {
+        "title": "Document the rule",
+        "body": "Write down which message types have it off and why, so the next person editing a flow does not change it by accident."
+      }
+    ],
+    "pitfalls": [
+      "Turning it off globally and doubling up sends to the same people.",
+      "Expecting skipped people to get the message later.",
+      "Ignoring skipped counts that point to overlapping flows.",
+      "Leaving it off on a flow email by mistake."
+    ],
+    "checklist": [
+      "Setting checked on campaigns and on each flow email",
+      "Messages with it off are listed and justified",
+      "Skipped counts read after each send",
+      "Send spacing reviewed if skips are high",
+      "Rule documented for the team"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "smart-sending",
+      "email-flow-vs-campaign",
+      "unsubscribe-rate"
+    ]
+  },
+  {
+    "slug": "create-utm-tagged-campaign-klaviyo",
+    "category": "campaigns",
+    "task": "How to create a UTM-tagged campaign in Klaviyo",
+    "metaDescription": "Create a UTM-tagged Klaviyo campaign so sessions and sales show up cleanly in your analytics: naming rules, tracking settings and a test before you send.",
+    "answer": "UTM tagging adds parameters to your email links so your web analytics can tell which campaign sent a visit. In Klaviyo you turn on link tracking in the campaign, set consistent source, medium and campaign values, send a test, and confirm the parameters appear on the landing page address.",
+    "before": [
+      "A naming convention for campaign names",
+      "Access to your web analytics to check results",
+      "A decision on which parameters are fixed and which change",
+      "A test address that can click links"
+    ],
+    "steps": [
+      {
+        "title": "Agree the naming rules",
+        "body": "Decide on lowercase, hyphens instead of spaces and a clear pattern for campaign names, so reports do not split one campaign across several spellings."
+      },
+      {
+        "title": "Open the campaign tracking settings",
+        "body": "In the campaign setup, find the tracking options and enable UTM parameters. Klaviyo can add them automatically to your links."
+      },
+      {
+        "title": "Set source and medium",
+        "body": "Use a fixed source such as the platform name and a fixed medium such as email, matching how your analytics already groups traffic."
+      },
+      {
+        "title": "Set the campaign value",
+        "body": "Use the campaign name or a short code so each send is distinguishable. Add content or term values only if you will actually report on them."
+      },
+      {
+        "title": "Check custom links",
+        "body": "If any links already contain parameters, or point to a different domain you do not own, review whether they should be tagged or left alone."
+      },
+      {
+        "title": "Send a test and click through",
+        "body": "Send a test, click each main link and read the address in the browser. Confirm every parameter is present and spelled as planned."
+      },
+      {
+        "title": "Verify in analytics",
+        "body": "After the real send, look for the campaign in your analytics acquisition view and compare visits with clicks in Klaviyo, expecting small differences."
+      }
+    ],
+    "pitfalls": [
+      "Mixing capital and lowercase names so one send appears as two campaigns.",
+      "Changing the source value between sends.",
+      "Tagging links to external sites you do not own.",
+      "Expecting analytics sessions to match Klaviyo clicks exactly."
+    ],
+    "checklist": [
+      "Naming convention written down",
+      "UTM tracking enabled on the campaign",
+      "Test link shows every parameter",
+      "Campaign appears in analytics after send",
+      "Source and medium match other channels"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "utm-tagging",
+      "attributed-revenue",
+      "klaviyo-metric"
+    ]
+  },
+  {
+    "slug": "build-seasonal-campaign-segment-klaviyo",
+    "category": "campaigns",
+    "task": "How to build a seasonal campaign segment in Klaviyo",
+    "metaDescription": "Build a seasonal segment in Klaviyo for a back-to-school or holiday campaign: choose the signals, set time windows, exclude recent buyers and preview it.",
+    "answer": "A seasonal segment targets people most likely to care about a time of year, such as back to school or a holiday. In Klaviyo you combine past purchase of relevant products, recent site interest and engagement, add a time window, exclude people who just bought, and preview the size before sending.",
+    "before": [
+      "The campaign theme and the products it features",
+      "Purchase and browsing data syncing into Klaviyo",
+      "A date for when the campaign will send",
+      "A clear view of how many people you expect to reach"
+    ],
+    "steps": [
+      {
+        "title": "Define who the season is for",
+        "body": "Write a one sentence description of the target, such as parents of school age children or past gift buyers. The segment should match it."
+      },
+      {
+        "title": "Start with past purchase signals",
+        "body": "Add a condition on people who bought from the relevant collections in earlier seasons. Last year buyers are often the best audience."
+      },
+      {
+        "title": "Add current interest signals",
+        "body": "Include people who viewed relevant products or collections recently, using the viewed product or site activity data you have."
+      },
+      {
+        "title": "Combine with engagement",
+        "body": "Add a condition such as opened or clicked in a recent period, so the segment contains people who actually read your email."
+      },
+      {
+        "title": "Exclude recent buyers",
+        "body": "Add a condition to exclude people who placed an order in the last few days or who already bought the featured product."
+      },
+      {
+        "title": "Preview the audience",
+        "body": "Check the member count and spot check a few profiles. If it is too small, widen the time windows. If it is huge, tighten the conditions."
+      },
+      {
+        "title": "Name it for reuse",
+        "body": "Give the segment a clear name with the season and year, so you can duplicate and adjust it for next time."
+      }
+    ],
+    "pitfalls": [
+      "Using one broad condition so the segment is just your whole list.",
+      "Forgetting that segments update over time as people qualify or drop out.",
+      "Not excluding people who just purchased the featured item.",
+      "Vague names that nobody can reuse."
+    ],
+    "checklist": [
+      "Segment matches the one sentence audience",
+      "Time windows are explicit",
+      "Recent buyers are excluded",
+      "Member count previewed and sensible",
+      "Name includes season and year"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "email-segmentation",
+      "engagement-segment",
+      "rfm-segmentation"
+    ]
+  },
+  {
+    "slug": "build-high-intent-browse-segment-klaviyo",
+    "category": "lists",
+    "task": "How to build a high-intent browse segment in Klaviyo",
+    "metaDescription": "Build a high-intent browse segment in Klaviyo: combine repeat product views, cart activity and no recent purchase to find ready-to-buy shoppers.",
+    "answer": "A high-intent browse segment holds people who have shown strong buying signals on your site but have not purchased. In Klaviyo you combine repeated viewed product events, added to cart or started checkout activity and a no recent order condition, then use the segment for campaigns or a tailored flow.",
+    "before": [
+      "Onsite tracking installed and active in Klaviyo",
+      "Viewed product and cart events visible in the activity feed",
+      "Profiles identified through forms or login",
+      "A plan for how the segment will be used"
+    ],
+    "steps": [
+      {
+        "title": "Confirm tracking works",
+        "body": "Visit your site as a test profile, view a few products and check the events appear on the profile timeline before building anything."
+      },
+      {
+        "title": "Define what high intent means",
+        "body": "Pick signals such as viewing the same product more than once or viewing several products in a collection within a few days."
+      },
+      {
+        "title": "Add the viewed product condition",
+        "body": "Create a segment with the viewed product metric, set to happened at least a chosen number of times in a short window."
+      },
+      {
+        "title": "Add stronger signals as alternatives",
+        "body": "Include people with an added to cart or started checkout event in the same window, since these show even stronger interest."
+      },
+      {
+        "title": "Exclude recent purchasers",
+        "body": "Add a condition for placed order zero times in the recent window, so you do not market to people who already bought."
+      },
+      {
+        "title": "Exclude people already in a live flow",
+        "body": "Where practical, exclude people in an active browse or cart flow, to avoid duplicate messaging."
+      },
+      {
+        "title": "Preview and decide the use",
+        "body": "Check the size and sample profiles, then use the segment for a targeted campaign or a flow that follows up on browsing."
+      }
+    ],
+    "pitfalls": [
+      "Setting the window so wide that casual browsers count as high intent.",
+      "Forgetting that only identified profiles can be emailed.",
+      "Not excluding buyers.",
+      "Using the segment alongside overlapping flows with no spacing."
+    ],
+    "checklist": [
+      "Test profile events appear in the feed",
+      "Intent signals are written out in plain terms",
+      "Recent buyers are excluded",
+      "Size and sample checked",
+      "Segment has a named purpose"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "browse-abandonment-flow",
+      "email-segmentation",
+      "klaviyo-metric"
+    ]
+  },
+  {
+    "slug": "set-up-purchase-count-conditional-split-klaviyo",
+    "category": "flows",
+    "task": "How to set up a conditional split by purchase count in Klaviyo",
+    "metaDescription": "Set up a Klaviyo conditional split by purchase count to send first-time, repeat and loyal buyers different paths in the same flow, with tests to check it.",
+    "answer": "A conditional split sends people down different paths based on a condition. To split by purchase count in Klaviyo, add a conditional split to a flow, use the profile property for number of orders, set one branch for first-time buyers and another for repeat buyers, and test each path with a dummy profile.",
+    "before": [
+      "A flow where the paths should differ, such as post-purchase or welcome",
+      "Order data syncing so the order count is accurate",
+      "A clear idea of what each group should see",
+      "A test profile for each branch"
+    ],
+    "steps": [
+      {
+        "title": "Decide the groups",
+        "body": "Choose the cutoffs, for example one order, two to three orders and four or more. Keep the number of branches small."
+      },
+      {
+        "title": "Add the split at the right point",
+        "body": "Place the conditional split after the trigger or after the first delay, so it checks the order count at a sensible moment."
+      },
+      {
+        "title": "Set the first condition",
+        "body": "Choose the order count property or placed order metric and set the first branch to people with exactly one order."
+      },
+      {
+        "title": "Add the next condition",
+        "body": "Use a second split on the no side to separate repeat buyers from loyal ones, or use a different rule for each."
+      },
+      {
+        "title": "Write different content per branch",
+        "body": "First-time buyers need reassurance and product help. Repeat buyers can see newer items or a loyalty mention. Do not copy one message three times."
+      },
+      {
+        "title": "Handle the timing of the count",
+        "body": "Remember the count may or may not include the order that triggered the flow. Test with real orders to see which side a new buyer lands on."
+      },
+      {
+        "title": "Test every branch",
+        "body": "Create or edit test profiles with different order counts, trigger the flow and confirm each lands in the intended path."
+      }
+    ],
+    "pitfalls": [
+      "Assuming the triggering order is or is not counted without testing.",
+      "Creating many branches with near identical content.",
+      "Leaving the else branch empty so some people get nothing.",
+      "Changing cutoffs later without checking live profiles in the flow."
+    ],
+    "checklist": [
+      "Each branch has distinct content",
+      "Every possible profile lands somewhere",
+      "Triggering order counting is understood",
+      "Test profiles cover every branch",
+      "Flow status is live"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "conditional-split",
+      "flow-filter",
+      "rfm-segmentation"
+    ]
+  },
+  {
+    "slug": "fix-klaviyo-profiles-not-syncing-from-shopify",
+    "category": "lists",
+    "task": "How to fix Klaviyo profiles not syncing from Shopify",
+    "metaDescription": "Fix Klaviyo profiles not syncing from your Shopify store: check the integration, consent settings, checkout events and sync history to find the break.",
+    "answer": "When new Shopify customers do not appear in Klaviyo, the cause is usually a broken or partial integration, missing consent settings or a tracking gap at checkout. Check the integration status, confirm what data the sync is allowed to send, test a real order, and re-sync if needed.",
+    "before": [
+      "Admin access to both Klaviyo and Shopify",
+      "A recent customer or order that should have synced",
+      "The date when profiles stopped appearing",
+      "Notes on any app or theme changes around that date"
+    ],
+    "steps": [
+      {
+        "title": "Define what is missing",
+        "body": "Decide whether profiles, orders or consent are missing. Each points to a different cause, so be specific before you change anything."
+      },
+      {
+        "title": "Check the integration status",
+        "body": "Open the integrations page in Klaviyo and look at the Shopify connection. Reconnect it if it shows an error or needs reauthorising."
+      },
+      {
+        "title": "Look at the activity feed",
+        "body": "Search for a missing customer by email. If events exist but no profile does, the profile may be suppressed or merged elsewhere."
+      },
+      {
+        "title": "Review consent settings",
+        "body": "Check how the integration handles marketing consent at checkout. Profiles can exist but not be subscribed, which looks like missing signups."
+      },
+      {
+        "title": "Test with a new order",
+        "body": "Place a small test order with a new email and see whether the profile and placed order event arrive. Note how long it takes."
+      },
+      {
+        "title": "Check for blocking changes",
+        "body": "Review recent theme edits, checkout customisations, privacy tools or app installs that could stop the tracking script or customer data passing through."
+      },
+      {
+        "title": "Re-sync and recheck",
+        "body": "If the connection is healthy, use the integration options to resync, wait for it to run, then repeat the search for the missing profile."
+      }
+    ],
+    "pitfalls": [
+      "Assuming missing subscribers means missing profiles, when only consent differs.",
+      "Reconnecting the integration without noting current settings first.",
+      "Ignoring theme or privacy app changes.",
+      "Testing with an email that already exists in Klaviyo."
+    ],
+    "checklist": [
+      "Integration shows connected",
+      "Test order creates a profile and order event",
+      "Consent behaviour is understood",
+      "Missing customers found or re-synced",
+      "Cause of the break noted"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "klaviyo-metric",
+      "event-trigger",
+      "email-list-growth"
+    ]
+  },
+  {
+    "slug": "fix-abandoned-cart-flow-emailing-buyers-klaviyo",
+    "category": "flows",
+    "task": "How to fix an abandoned cart flow that emails people who already bought",
+    "metaDescription": "Fix a Klaviyo abandoned cart flow that still emails people who already bought: check exit conditions, filters, timing and order event matching.",
+    "answer": "If your abandoned cart flow emails people who have already bought, the flow is missing an exit condition or its filter is wrong. In Klaviyo, add a flow filter or trigger split for placed order since starting the flow, check that order events match the same profile, and test the timing.",
+    "before": [
+      "Examples of people who bought and still received a cart email",
+      "Access to the flow settings and the activity feed",
+      "The order time against the cart email time",
+      "Knowledge of whether guest checkouts are involved"
+    ],
+    "steps": [
+      {
+        "title": "Collect real examples",
+        "body": "Find two or three affected profiles. Note when the cart event, the order and the email each happened, in order."
+      },
+      {
+        "title": "Check the flow filter",
+        "body": "Open the flow and look at the filter. It should exclude anyone who has placed an order since starting the flow."
+      },
+      {
+        "title": "Check the trigger filter",
+        "body": "Confirm the trigger filter does not conflict with the flow filter and is not so loose that it lets in people it should not."
+      },
+      {
+        "title": "Add conditional splits before each email",
+        "body": "Place a split before later emails that checks placed order since the flow started. Filters only check on entry in some setups, so repeat checks help."
+      },
+      {
+        "title": "Verify profile matching",
+        "body": "Check that the order and the cart events belong to the same profile. A different email at checkout can create two profiles, which the filter cannot connect."
+      },
+      {
+        "title": "Review delays",
+        "body": "If the first email goes out very quickly, a quick buyer may order seconds later. Lengthen the delay slightly if this is common."
+      },
+      {
+        "title": "Retest with a full path",
+        "body": "Start a test cart, place an order inside the delay and confirm the following email does not send."
+      }
+    ],
+    "pitfalls": [
+      "Relying on one filter at entry and no check before later emails.",
+      "Ignoring guest buyers using a different email.",
+      "A very short delay that outruns the order event.",
+      "Changing the flow and not testing the full path."
+    ],
+    "checklist": [
+      "Flow filter excludes recent orders",
+      "Splits check order before later emails",
+      "Affected profiles examined",
+      "Test order stops later emails",
+      "Delay reviewed"
+    ],
+    "service": "email-flows",
+    "terms": [
+      "abandoned-cart-flow",
+      "flow-filter",
+      "conditional-split"
+    ]
+  },
+  {
+    "slug": "fix-klaviyo-signup-form-not-showing-on-site",
+    "category": "lists",
+    "task": "How to fix a Klaviyo signup form not showing on your site",
+    "metaDescription": "Fix a Klaviyo signup form that is not showing on your site: check live status, targeting, onsite tracking, cached pages and a test in a clean browser.",
+    "answer": "A Klaviyo form that does not appear is usually set to draft, blocked by its targeting or timing rules, hidden because the visitor already saw it, or not loading because the onsite script is missing. Check each in turn and test in a private browser window.",
+    "before": [
+      "Access to the form and its settings",
+      "The page address where it should appear",
+      "A private or incognito browser window",
+      "Knowledge of any recent theme or app changes"
+    ],
+    "steps": [
+      {
+        "title": "Check the form status",
+        "body": "Open the form and confirm it is live, not a draft. Edits may also need publishing before they show up on the site."
+      },
+      {
+        "title": "Review the display rules",
+        "body": "Read the targeting settings for pages, devices, timing and scroll. A rule that is too narrow can mean it never meets its conditions."
+      },
+      {
+        "title": "Check the visitor rules",
+        "body": "Forms often hide for people who already subscribed, or who closed the form recently. Test with a fresh private window to avoid this."
+      },
+      {
+        "title": "Confirm onsite tracking loads",
+        "body": "Make sure the Klaviyo script is on the page. If it is missing, forms cannot render, and it often vanishes after a theme change."
+      },
+      {
+        "title": "Look for conflicts",
+        "body": "Check for other popups, cookie banners or page builders that could cover or block the form, and try on a different device."
+      },
+      {
+        "title": "Clear caches",
+        "body": "Clear any site cache or CDN cache so visitors get the latest page, then reload and wait for the timing rule to trigger."
+      },
+      {
+        "title": "Test submission end to end",
+        "body": "Submit the form with a new test email and confirm the profile lands on the right list with the expected consent."
+      }
+    ],
+    "pitfalls": [
+      "Testing in a browser where you already dismissed or submitted the form.",
+      "Assuming a saved form is a published form.",
+      "Not noticing the script was removed during a theme update.",
+      "Setting delay and scroll rules that conflict."
+    ],
+    "checklist": [
+      "Form is live",
+      "Display rules match the target page",
+      "Onsite script loads on the page",
+      "Private window test shows the form",
+      "Submission creates a profile on the list"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "signup-popup",
+      "email-list-growth",
+      "double-opt-in"
+    ]
+  },
+  {
+    "slug": "merge-duplicate-profiles-in-klaviyo",
+    "category": "lists",
+    "task": "How to merge duplicate profiles in Klaviyo",
+    "metaDescription": "Merge duplicate profiles in Klaviyo safely: find the duplicates, understand identifiers, choose the right profile to keep and avoid breaking history.",
+    "answer": "Duplicate profiles appear when one person shows up under different identifiers, such as two emails or an email and a phone number. In Klaviyo you find the duplicates, decide which identifier is correct, and let Klaviyo merge them through consistent identifiers or the merge option where it is available.",
+    "before": [
+      "Examples of duplicate profiles and where they came from",
+      "Knowledge of which identifier is the real one",
+      "A note of consent status on each profile",
+      "Awareness that merges may be hard to undo"
+    ],
+    "steps": [
+      {
+        "title": "Find the cause first",
+        "body": "Look at how the duplicates were created, such as guest checkout, a form that used another email or an integration passing a different ID."
+      },
+      {
+        "title": "Compare the profiles",
+        "body": "Open each profile and compare identifiers, order history, consent and properties. Write down anything unique to each."
+      },
+      {
+        "title": "Choose the profile to keep",
+        "body": "Keep the one with the correct, deliverable email and the most complete history. Treat anything else as the one that merges in."
+      },
+      {
+        "title": "Check consent before merging",
+        "body": "Make sure you understand each profile's consent status, since merging should never turn an unsubscribed person into a subscribed one."
+      },
+      {
+        "title": "Merge or align identifiers",
+        "body": "Use the merge option if your account offers it, or correct the identifiers at the source so the profiles join. Do one pair first."
+      },
+      {
+        "title": "Verify the result",
+        "body": "Open the merged profile and confirm orders, events and properties look right and consent is unchanged."
+      },
+      {
+        "title": "Prevent new duplicates",
+        "body": "Fix the source, for example by passing a consistent identifier from forms and integrations, and review how guest checkouts are captured."
+      }
+    ],
+    "pitfalls": [
+      "Merging without checking consent, which risks emailing unsubscribed people.",
+      "Treating the symptom and not the source of duplicates.",
+      "Merging a whole batch before testing one pair.",
+      "Assuming a merge can be reversed."
+    ],
+    "checklist": [
+      "Cause of duplicates identified",
+      "Kept profile has a valid email",
+      "Consent status confirmed after merge",
+      "History looks complete on one pair",
+      "Source of duplicates fixed"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "suppression-list",
+      "email-list-growth",
+      "klaviyo-metric"
+    ]
+  },
+  {
+    "slug": "export-and-review-campaign-revenue-klaviyo",
+    "category": "campaigns",
+    "task": "How to export and review campaign revenue in Klaviyo",
+    "metaDescription": "Export and review campaign revenue in Klaviyo: pick the date range, check the attribution window, read revenue per recipient and compare sends fairly.",
+    "answer": "To review campaign revenue in Klaviyo, open the campaign reports, set the date range and attribution view, export the results, and compare sends using revenue per recipient rather than only total revenue. Always read the numbers alongside the attribution window used.",
+    "before": [
+      "A date range for the review",
+      "A list of the campaigns you want to compare",
+      "An understanding of the attribution window on your account",
+      "A spreadsheet to hold the export"
+    ],
+    "steps": [
+      {
+        "title": "Choose the review period",
+        "body": "Pick a period long enough to cover several sends, such as a month or quarter, and keep it the same when you compare to another period."
+      },
+      {
+        "title": "Check the attribution settings",
+        "body": "Note the window used for attributing orders to opens or clicks. Different windows give different totals, so record which one you used."
+      },
+      {
+        "title": "Open the campaign report list",
+        "body": "Go to the campaign reporting area and filter by date and by send type if needed, so one off sends and tests do not clutter the view."
+      },
+      {
+        "title": "Export the data",
+        "body": "Use the export option to download the campaign table with recipients, clicks, orders and revenue for the period."
+      },
+      {
+        "title": "Add revenue per recipient",
+        "body": "In your spreadsheet, divide revenue by recipients for each campaign. This puts a large send and a small segment on equal footing."
+      },
+      {
+        "title": "Compare like with like",
+        "body": "Group campaigns by type, such as launch, promotion or content, and compare within groups. Different types have different norms."
+      },
+      {
+        "title": "Note what drove the result",
+        "body": "Record audience, offer, subject line and send time next to each row, then pick one thing to test in the next send."
+      }
+    ],
+    "pitfalls": [
+      "Comparing total revenue between sends of very different audience sizes.",
+      "Changing the attribution window between reviews.",
+      "Counting revenue that flows would have produced anyway as campaign revenue.",
+      "Drawing conclusions from a single send."
+    ],
+    "checklist": [
+      "Date range and attribution window recorded",
+      "Export saved with a clear name",
+      "Revenue per recipient calculated",
+      "Campaigns grouped by type",
+      "One test chosen for next time"
+    ],
+    "service": "klaviyo-email-marketing",
+    "terms": [
+      "revenue-per-recipient",
+      "attributed-revenue",
+      "click-through-rate"
+    ]
   }
 ];
 

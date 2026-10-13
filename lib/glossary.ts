@@ -1402,6 +1402,366 @@ export const GLOSSARY: Term[] = [
       "customer-lifetime-value",
       "winback-flow"
     ]
+  },
+  {
+    "slug": "reply-to-address",
+    "category": "deliverability",
+    "term": "Reply-to address",
+    "metaTitle": "What Is a Reply-To Address in Email Marketing?",
+    "metaDescription": "The reply-to address is where replies to your marketing email go. Learn how it differs from the from address and why a monitored inbox helps.",
+    "service": "email-deliverability",
+    "related": [
+      "from-name",
+      "sending-domain"
+    ],
+    "definition": "A reply-to address is the email address that receives a reply when a subscriber hits reply, and it can be different from the address the message was sent from.",
+    "body": [
+      "Most marketing email is sent from a no-reply style address on a sending subdomain, while the reply-to points at a mailbox a person actually reads. The from address is what the receiving server checks for authentication. The reply-to is only used when the reader responds.",
+      "Replies matter because they are a positive signal. A recipient who writes back is clearly engaged, and many mailbox providers treat conversation as a sign that the sender is wanted. A dead address that bounces replies throws that signal away and annoys customers with a question.",
+      "Keep the reply-to on a domain you control and monitor. Route it to a shared support inbox, and decide who answers delivery questions, order queries and the occasional angry message."
+    ],
+    "example": "A hypothetical tea shop sends from hello@mail.example.com but sets the reply-to to care@example.com. A customer replies asking to change a delivery address, and the support team answers the same day. The shop later notices that a few readers reply to each campaign with product questions, which it turns into content for the next send.",
+    "mistakes": [
+      "Using a no-reply address that bounces or is never checked",
+      "Pointing replies at a personal mailbox that one person forgets to watch",
+      "Setting a reply-to on a different, unrelated domain that looks odd to filters"
+    ]
+  },
+  {
+    "slug": "from-name",
+    "category": "strategy",
+    "term": "From name",
+    "metaTitle": "What Is a From Name in Email? How to Choose One",
+    "metaDescription": "The from name is the sender label shown in the inbox before the subject line. Learn how to pick one that builds recognition and trust.",
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "subject-line",
+      "reply-to-address"
+    ],
+    "definition": "The from name is the sender label displayed in a recipient's inbox next to the subject line, and it is often the first thing a person uses to decide whether to open.",
+    "body": [
+      "Inboxes show the from name before anything else, and on mobile it can take up most of the preview. A name people recognise is a quiet form of trust, while an unfamiliar one invites a spam report.",
+      "Brands usually pick between the company name, a person's name, or a mix such as a first name followed by the brand. The right choice depends on how the customer thinks of you. A founder-led shop may suit a personal name, while a larger retailer is better off with a steady brand name.",
+      "Whatever you choose, keep it stable. Changing it often makes it harder for subscribers to spot you, and flows and campaigns that look like they come from different senders feel disjointed."
+    ],
+    "example": "A hypothetical skateboard shop sends campaigns as 'Northside Skate' and its post-purchase flow as 'Sam at Northside Skate'. Customers find the mix confusing and one reports a message as unknown. The team settles on 'Sam at Northside Skate' everywhere and keeps it for a full quarter before judging any effect.",
+    "mistakes": [
+      "Switching the from name from one campaign to the next",
+      "Using a generic label like Info or Sales that tells the reader nothing",
+      "Making the name so long that it is cut off on a phone"
+    ]
+  },
+  {
+    "slug": "subject-line",
+    "category": "strategy",
+    "term": "Subject line",
+    "metaTitle": "What Is an Email Subject Line? Plain Guide",
+    "metaDescription": "A subject line is the short text that tells subscribers what an email is about. Learn what makes one clear, honest and worth testing.",
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "preheader-text",
+      "ab-testing"
+    ],
+    "definition": "A subject line is the short line of text shown in the inbox that tells the recipient what the email is about and gives them a reason to open it.",
+    "body": [
+      "It works together with the from name and the preheader. The three are read as one unit in the inbox, so a subject line that repeats the preheader wastes space, and one that contradicts the email body breeds distrust.",
+      "Clarity usually beats cleverness. A line that states the offer, the product or the news is easy to judge in a second. Curiosity can work, but a promise that the email does not keep teaches people to ignore you.",
+      "Length matters less than whether the key words appear early, since many apps cut off the end. Test one change at a time, and judge by clicks and revenue as well as opens, because opens are distorted by privacy features."
+    ],
+    "example": "A hypothetical stationery shop is launching a notebook in a new colour. It tests 'The new sage green notebook is here' against 'Something green just arrived'. The first is plain and the second is vague. The team keeps the clearer line for the launch and saves the playful style for a low-stakes newsletter.",
+    "mistakes": [
+      "Writing a misleading line that the email does not deliver on",
+      "Judging the winner of a test on open rate alone",
+      "Using all capitals or heavy punctuation that reads like spam"
+    ]
+  },
+  {
+    "slug": "call-to-action-button",
+    "category": "strategy",
+    "term": "Call to action button",
+    "metaTitle": "Call to Action Button in Email: What It Is",
+    "metaDescription": "A call to action button is the clickable element that tells readers what to do next. Learn how to make it clear, tappable and focused.",
+    "service": "email-design",
+    "related": [
+      "click-through-rate",
+      "responsive-email-design"
+    ],
+    "definition": "A call to action button is the clearly styled, clickable element in an email that tells the reader the single next step you want them to take.",
+    "body": [
+      "A button gives the eye a place to land. It should say what happens on click, such as 'Shop the range' or 'View your order', rather than a vague 'Click here'. The words should match the promise made in the subject line.",
+      "Most emails are opened on a phone, so the button needs a generous tap area and enough space around it that a thumb does not hit the wrong link. Sufficient colour contrast helps everyone, including people with low vision.",
+      "Many emails work best with one primary action repeated at sensible points. When several buttons of equal weight compete, readers often take none. Build the button with real markup rather than an image, so it still works when images are blocked."
+    ],
+    "example": "A hypothetical plant shop sends a care guide with three equal buttons: shop pots, shop soil and read the blog. The team rebuilds it with one bold 'Shop plant food' button and two plain text links below. The email now has a single obvious next step.",
+    "mistakes": [
+      "Making the button an image that disappears when images are blocked",
+      "Using vague labels like Submit or Click here",
+      "Placing several equally prominent buttons that compete for attention"
+    ]
+  },
+  {
+    "slug": "email-template",
+    "category": "strategy",
+    "term": "Email template",
+    "metaTitle": "What Is an Email Template? A Simple Explanation",
+    "metaDescription": "An email template is a reusable layout that keeps campaigns and flows consistent. Learn how to build a flexible one for your store.",
+    "service": "email-design",
+    "related": [
+      "dynamic-content",
+      "merge-tags"
+    ],
+    "definition": "An email template is a reusable layout with set styles, spacing and blocks, so that each new email keeps the same look without being built from scratch.",
+    "body": [
+      "A good template fixes the things that should not change, such as the logo, fonts, footer and link styles, and leaves room for what does. It speeds up production and keeps flows, campaigns and transactional messages looking like they come from the same brand.",
+      "Templates usually contain modular blocks, for example a hero, a product grid, a text section and a footer. Editors can stack and reorder them, so a one-off layout does not need custom code each time.",
+      "Review templates now and then. Old ones collect broken links, outdated legal text and styles that no longer render well in current email apps, so test a refreshed version before relying on it."
+    ],
+    "example": "A hypothetical candle brand has a template with a header, a hero block, a two-column product row and a footer holding its address and unsubscribe link. The designer adds a new reviews block once. Every future campaign can use it, and no one has to rebuild the footer again.",
+    "mistakes": [
+      "Building every email from a blank page and drifting off brand",
+      "Hard-coding text that should be editable, such as the year in the footer",
+      "Never testing the template after the platform or email apps change"
+    ]
+  },
+  {
+    "slug": "responsive-email-design",
+    "category": "strategy",
+    "term": "Responsive email design",
+    "metaTitle": "Responsive Email Design Explained for Stores",
+    "metaDescription": "Responsive email design makes one email adapt to phones, tablets and desktops. Learn the basics and the mistakes that break layouts.",
+    "service": "email-design",
+    "related": [
+      "dark-mode-email",
+      "email-template"
+    ],
+    "definition": "Responsive email design is a way of building an email so its layout, text size and images adjust to the screen it is opened on, from a small phone to a wide desktop window.",
+    "body": [
+      "Most ecommerce email is read on a phone, so the mobile view is the main view. Responsive builds typically use a single column that stacks on small screens, with larger text and buttons that are easy to tap.",
+      "Email apps support CSS unevenly, so a responsive layout is built defensively. Designers often use a fluid structure that still reads reasonably if media queries are ignored, rather than relying on one clever technique.",
+      "Test in real apps rather than only in a browser preview. Rendering differs between clients, and a layout that looks tidy in one can collapse in another."
+    ],
+    "example": "A hypothetical shoe store sends a four-column product grid that looks fine on desktop but shrinks to tiny images on a phone. The team changes it to two columns on desktop and one on mobile, makes the buttons full width, and checks the result in several email apps before sending.",
+    "mistakes": [
+      "Designing on desktop and only glancing at mobile at the end",
+      "Using tiny text or links that are hard to tap",
+      "Previewing in a single app and assuming every client will match"
+    ]
+  },
+  {
+    "slug": "alt-text-in-email",
+    "category": "strategy",
+    "term": "Alt text in email",
+    "metaTitle": "Alt Text in Email: What It Is and Why It Matters",
+    "metaDescription": "Alt text describes an email image when it does not load or is read by a screen reader. Learn how to write it clearly and briefly.",
+    "service": "email-design",
+    "related": [
+      "responsive-email-design",
+      "call-to-action-button"
+    ],
+    "definition": "Alt text in email is a short written description attached to an image, shown when the image is blocked or fails to load and read aloud by screen readers.",
+    "body": [
+      "Many email apps block images by default, and some readers have images off to save data. Without alt text they see an empty box, and a screen reader user hears nothing or a file name. Good alt text keeps the message understandable in both cases.",
+      "Describe what matters, in plain words. A product photo might say what the item is and its colour. A banner that contains the offer should repeat the offer in text. Decorative images, such as a divider line, should have empty alt text so they are skipped.",
+      "Alt text also helps when a key message is hidden inside a graphic. Where possible, keep important words as live text and use images to support them."
+    ],
+    "example": "A hypothetical bakery sends a banner image that reads 'Free delivery on orders over a set amount this weekend'. The original alt text is 'banner1.jpg'. The team rewrites it to repeat the offer, and now readers with images blocked still see what the email is about.",
+    "mistakes": [
+      "Leaving file names such as banner1.jpg as the alt text",
+      "Putting the whole offer inside an image with no text fallback",
+      "Writing long descriptions for purely decorative images"
+    ]
+  },
+  {
+    "slug": "email-frequency-cap",
+    "category": "strategy",
+    "term": "Email frequency cap",
+    "metaTitle": "Email Frequency Cap: Limiting How Often You Send",
+    "metaDescription": "An email frequency cap limits how many messages one person receives in a period. Learn why it protects engagement and sender reputation.",
+    "service": "klaviyo-email-marketing",
+    "related": [
+      "smart-sending",
+      "unsubscribe-rate"
+    ],
+    "definition": "An email frequency cap is a rule that limits how many marketing messages a single person can receive within a set period, regardless of how many campaigns and flows are scheduled.",
+    "body": [
+      "Campaigns and automated flows are planned by different people at different times, so one customer can end up receiving several emails in a day. A cap sits above all of them and stops the pile-up.",
+      "Without a cap, rising unsubscribes and complaints are a common result. With one, you have to decide which messages take priority, so transactional emails are usually exempt and a time-sensitive flow may outrank a general newsletter.",
+      "The right number depends on your audience and content. Start cautious, look at unsubscribes and revenue per recipient, and adjust. Different groups, such as recent buyers and dormant contacts, often deserve different limits."
+    ],
+    "example": "A hypothetical pet store has a welcome flow, a browse flow and a weekly newsletter. One new subscriber receives four emails in a single day. The team adds a cap and ranks the welcome flow first, so the newsletter is held back for that person until the series finishes.",
+    "mistakes": [
+      "Applying a cap to transactional emails such as order confirmations",
+      "Setting one limit for every audience regardless of engagement",
+      "Never reviewing the cap after the sending plan changes"
+    ]
+  },
+  {
+    "slug": "engaged-audience-window",
+    "category": "lists",
+    "term": "Engaged audience window",
+    "metaTitle": "Engaged Audience Window in Email Marketing",
+    "metaDescription": "An engaged audience window is the recent period used to decide who counts as active. Learn how to choose one for your sends and list.",
+    "service": "email-deliverability",
+    "related": [
+      "engagement-segment",
+      "sunset-policy"
+    ],
+    "definition": "An engaged audience window is the look-back period, such as the last few months, used to decide whether a contact counts as recently active and therefore safe to mail.",
+    "body": [
+      "Instead of asking whether someone ever opened an email, you ask whether they opened, clicked or bought inside the window. Recent behaviour is a far better guide to current interest than a single click years ago.",
+      "A shorter window gives a smaller, more responsive audience that protects sender reputation. A longer one reaches more people but includes more who have drifted away. The right length depends on how often your customers buy and how often you send.",
+      "Because open data can be inflated by privacy features, many teams define activity using clicks, site visits and purchases as well. Check the window against how long your products take to replace."
+    ],
+    "example": "A hypothetical coffee roaster sells bags that last about a month, so it uses a short window for its main segment. A furniture shop, whose customers buy rarely, uses a much longer window. Both apply the rule to every campaign so the sends go to people with recent signs of interest.",
+    "mistakes": [
+      "Using one window for businesses with very different buying cycles",
+      "Counting machine opens as proof of interest",
+      "Making the window so wide that it includes long-dormant contacts"
+    ]
+  },
+  {
+    "slug": "dmarc-policy",
+    "category": "deliverability",
+    "term": "DMARC policy",
+    "metaTitle": "DMARC Policy: None, Quarantine and Reject",
+    "metaDescription": "A DMARC policy tells receivers what to do with email that fails authentication. Learn the three settings and how to move between them.",
+    "service": "email-deliverability",
+    "related": [
+      "spf-dkim-dmarc",
+      "bimi"
+    ],
+    "definition": "A DMARC policy is the instruction in your DMARC record that tells receiving servers whether to deliver, quarantine or reject mail that claims your domain but fails authentication.",
+    "body": [
+      "There are three settings. None means take no action and just send reports. Quarantine asks receivers to treat failing mail with suspicion, usually by sending it to spam. Reject asks them to refuse it outright.",
+      "Most domains start on none, read the reports to find every legitimate sender, fix the ones that fail, and then tighten the policy in steps. Jumping straight to reject risks blocking real mail from a tool you forgot about.",
+      "A stricter policy protects your brand from spoofing and is required for some features, such as showing a logo beside your messages. It is not a one-off task, because new tools and senders appear over time."
+    ],
+    "example": "A hypothetical jewellery store publishes DMARC at none and finds in the reports that its review app sends as the domain without signing. It fixes that sender, waits, moves to quarantine, and later to reject once the reports show only legitimate, passing mail.",
+    "mistakes": [
+      "Leaving the policy on none indefinitely",
+      "Moving to reject before checking every legitimate sender",
+      "Ignoring the reports that DMARC sends"
+    ]
+  },
+  {
+    "slug": "mx-record",
+    "category": "deliverability",
+    "term": "MX record",
+    "metaTitle": "What Is an MX Record? Email Routing Explained",
+    "metaDescription": "An MX record is a DNS entry that says which servers receive email for a domain. Learn what it does and how it affects marketing email.",
+    "service": "email-deliverability",
+    "related": [
+      "sending-domain",
+      "dkim-selector"
+    ],
+    "definition": "An MX record is a DNS entry that names the mail servers responsible for receiving email sent to a domain, together with their order of priority.",
+    "body": [
+      "When someone emails you, the sending server looks up your MX records to find where to deliver the message. Several records can exist, each with a priority number, so a backup server can take over if the first is unavailable.",
+      "MX records are about receiving mail, not sending it. Your SPF and DKIM records handle sending authentication. Even so, a domain that cannot receive mail looks neglected, and bounces and replies to your campaigns depend on a working setup.",
+      "If you send from a subdomain, check whether it needs its own MX record so that bounces and replies are handled. Changing MX records by mistake can stop your team receiving email, so edit them with care."
+    ],
+    "example": "A hypothetical bookshop moves its staff mailboxes to a new provider and updates the MX records. It forgets that its sending subdomain also needs a record for bounce handling. After a test shows failed replies, the team adds the right entry and confirms delivery again.",
+    "mistakes": [
+      "Confusing MX records, which receive mail, with SPF, which authorises sending",
+      "Deleting old records before the new provider is confirmed working",
+      "Having no MX record on a domain you send from"
+    ]
+  },
+  {
+    "slug": "list-unsubscribe-header",
+    "category": "deliverability",
+    "term": "List-Unsubscribe header",
+    "metaTitle": "List-Unsubscribe Header: What It Is and Does",
+    "metaDescription": "The List-Unsubscribe header is hidden email code that adds an unsubscribe option in the inbox. Learn why mailbox providers want it.",
+    "service": "email-deliverability",
+    "related": [
+      "one-click-unsubscribe",
+      "spam-complaint-rate"
+    ],
+    "definition": "The List-Unsubscribe header is a line of hidden code in a marketing email that lets mailbox apps show their own unsubscribe link or button near the sender name.",
+    "body": [
+      "Instead of hunting for a footer link, the reader sees an option in the inbox interface. It can use a web link, a mailto address, or both. The one-click version lets a person leave with a single action and no extra page.",
+      "This matters because a frustrated reader who cannot find an unsubscribe link tends to hit the spam button instead. A visible, honoured option turns would-be complaints into quiet opt-outs, which are much less harmful to reputation.",
+      "Most email platforms add the header for you, but it is worth checking in a test message. Whatever the header does, the request must be honoured quickly and the contact suppressed."
+    ],
+    "example": "A hypothetical clothing store views the source of a test email and sees that the header is present. It sends the message to a Gmail test account and confirms that an unsubscribe option appears beside the sender name. It also checks that a test opt-out removes the address from later sends.",
+    "mistakes": [
+      "Assuming the header exists without checking a real message",
+      "Leaving a request unprocessed so the person keeps getting emails",
+      "Removing the footer link because the header is present"
+    ]
+  },
+  {
+    "slug": "blocklist",
+    "category": "deliverability",
+    "term": "Blocklist",
+    "metaTitle": "What Is an Email Blocklist? Causes and Fixes",
+    "metaDescription": "A blocklist is a database of IPs or domains flagged for spam that receivers use to reject mail. Learn how listing happens and what to do.",
+    "service": "email-deliverability",
+    "related": [
+      "spam-trap",
+      "sender-reputation"
+    ],
+    "definition": "A blocklist is a database of IP addresses or domains reported for sending unwanted or abusive email, which receiving servers consult to decide whether to reject or filter a message.",
+    "body": [
+      "Lists are run by different organisations with different rules. Some are minor and have little effect, while a listing on a major one can cause widespread rejections. Bounce messages usually name the list that triggered the refusal.",
+      "Common causes include hitting spam traps, high complaint rates, sending to old or purchased addresses, and a compromised account. Shared IPs can also be affected by other senders on the same address.",
+      "The remedy is to find the cause first. Pause the problem sending, clean the list, and fix the underlying issue, then follow the list's own delisting process. Asking for removal without fixing the cause usually leads to being listed again."
+    ],
+    "example": "A hypothetical homeware shop sees a burst of rejection bounces citing a blocklist. Investigation shows that an old competition list was imported and included recycled addresses. The team suppresses that import, sends only to recent buyers, and then requests delisting.",
+    "mistakes": [
+      "Requesting removal before fixing the cause",
+      "Ignoring the bounce text that names the list",
+      "Importing old lists without checking their age and source"
+    ]
+  },
+  {
+    "slug": "inbox-placement-test",
+    "category": "deliverability",
+    "term": "Inbox placement test",
+    "metaTitle": "Inbox Placement Test: How It Works and Limits",
+    "metaDescription": "An inbox placement test sends your email to test addresses to see whether it lands in inbox, spam or promotions. Learn how to read it.",
+    "service": "email-deliverability",
+    "related": [
+      "seed-list",
+      "google-postmaster-tools"
+    ],
+    "definition": "An inbox placement test sends a message to a panel of test mailboxes at different providers to see whether it lands in the inbox, a tabbed view, the spam folder or nowhere.",
+    "body": [
+      "Tools provide a set of addresses at providers such as Gmail, Outlook and Yahoo. You send your real campaign to them and the report shows where each copy ended up, often with a summary of authentication results.",
+      "It is a useful early warning. A drop in placement can show a problem before engagement metrics fall. It is only a sample, though, and test mailboxes have no history with you, so real subscribers may see different results.",
+      "Use it alongside other signals such as postmaster data, complaint rates and click trends. Treat it as one reading on a dial and not a final verdict on your deliverability."
+    ],
+    "example": "A hypothetical outdoor gear brand runs a placement test before a big seasonal send. The report shows the test copy going to spam at one provider while others reach the inbox. The team checks its authentication and a broken image link, fixes both, and retests before mailing the full list.",
+    "mistakes": [
+      "Treating a test result as proof of how every subscriber is treated",
+      "Testing only once and never watching for changes",
+      "Ignoring other signals such as complaints and click trends"
+    ]
+  },
+  {
+    "slug": "seed-list",
+    "category": "deliverability",
+    "term": "Seed list",
+    "metaTitle": "What Is a Seed List in Email Marketing?",
+    "metaDescription": "A seed list is a set of test mailboxes you add to a send to see where it lands. Learn how it is used and where it falls short.",
+    "service": "email-deliverability",
+    "related": [
+      "inbox-placement-test",
+      "email-deliverability"
+    ],
+    "definition": "A seed list is a group of test email addresses, held at different mailbox providers, that you include in a send so you can check where the message arrives.",
+    "body": [
+      "The addresses belong to you or to a testing service, so someone can open each mailbox and see whether the email reached the inbox, a promotions tab or spam. It is the raw material behind an inbox placement test.",
+      "Seed addresses are not real customers. They have no purchase history and do not engage, which can make them behave differently from your audience. Some providers also treat them with suspicion, so results are indicative rather than exact.",
+      "Keep your own small seed list covering the main providers your customers use, and refresh it when mailboxes go stale. Use it to catch obvious problems before a send, not to measure performance."
+    ],
+    "example": "A hypothetical tea company keeps a handful of its own test mailboxes at the big providers. Before each launch it adds them to the audience, checks where the email lands, and notes any difference. One day all copies land in spam at one provider, so the team holds the send and investigates.",
+    "mistakes": [
+      "Treating seed results as the same as real subscriber results",
+      "Keeping stale addresses that nobody checks any more",
+      "Mailing the seed list only after problems appear"
+    ]
   }
 ];
 

@@ -159,3 +159,7 @@ Added the email calendar family: 25 pages at `/email-calendar/{event}` plus a hu
 ## Buyer-intent pass (12 Oct 2026)
 
 Added the hiring-guides family: 12 pages at `/hiring-guides/{slug}` plus a hub, aimed at brands choosing an email or Klaviyo agency (how to choose, questions to ask, pricing models, red flags, first 90 days, agency vs freelancer, migration checklist, briefing, when to hire, measuring performance, what a good audit includes, contracts and reporting). Each has a direct answer, sections, a worked scenario, a checklist, mistakes and three FAQs with FAQPage schema, and each ends on the free audit. Pages say plainly that Inferno is an agency. Quality gate gained the hiring family (450 word minimum). Linked from the services hub, the agency-vs-in-house page, sitemap, llms.txt and llms-full.txt. Also applied the Ahrefs fixes (short meta descriptions, case study inbound links) and added `scripts/indexnow.mjs`.
+
+## Wave 6 (13 Oct 2026)
+
+Paced release of 60 pages, not the full 210 in the plan, because Search Console is not yet verified and indexation cannot be watched. Glossary 60 to 75, FAQ 50 to 73, how-to 25 to 40, integration guides 15 to 25. Gate passes on 296 pages, build passes, seo-check clean on 353 sitemap URLs. Remaining wave 6 targets (glossary to 110, FAQ to 120, how-to to 100, integrations to 30) move to the next wave. IndexNow ping skipped: INDEXNOW_KEY not set.
