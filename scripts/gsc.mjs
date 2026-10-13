@@ -67,7 +67,16 @@ async function token() {
 let auth;
 async function api(url, init = {}, soft = false) {
   auth ??= await token();
-  const res = await fetch(url, { ...init, headers: { Authorization: `Bearer ${auth.access}`, 'Content-Type': 'application/json', ...init.headers } });
+  let res;
+  for (let attempt = 1; ; attempt++) {
+    try {
+      res = await fetch(url, { ...init, headers: { Authorization: `Bearer ${auth.access}`, 'Content-Type': 'application/json', ...init.headers } });
+      break;
+    } catch (e) {
+      if (attempt >= 4) { if (soft) return { error: 'network' }; die(`Network error after ${attempt} tries: ${e.cause?.code || e.message}`); }
+      await new Promise((r) => setTimeout(r, 1500 * attempt));
+    }
+  }
   const text = await res.text();
   if (!res.ok) {
     if (soft) return { error: `${res.status}` };
