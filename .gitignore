@@ -18,3 +18,7 @@ skills-lock.json
 # Google service account keys
 gsc-key*.json
 *-service-account*.json
+
+# Google service account keys
+*-[0-9a-f]*.json
+idyllic-now-*.json
