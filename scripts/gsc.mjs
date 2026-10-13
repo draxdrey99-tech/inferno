@@ -5,7 +5,7 @@
  *   node scripts/gsc.mjs sites                         sites the key can see
  *   node scripts/gsc.mjs sitemap [url]                 submit a sitemap (default /sitemap.xml)
  *   node scripts/gsc.mjs sitemaps                      sitemap status and errors
- *   node scripts/gsc.mjs report [days] [dimension]     clicks and impressions (page|query|country|device), default 28 page
+ *   node scripts/gsc.mjs report [days] [dimension] [path]  clicks and impressions (page|query|country|device), default 28 page
  *   node scripts/gsc.mjs inspect <url|path> [...]      index status for URLs
  *   node scripts/gsc.mjs inspect --family klaviyo      inspect every sitemap URL under a path prefix
  *
@@ -65,11 +65,12 @@ async function token() {
 }
 
 let auth;
-async function api(url, init = {}) {
+async function api(url, init = {}, soft = false) {
   auth ??= await token();
   const res = await fetch(url, { ...init, headers: { Authorization: `Bearer ${auth.access}`, 'Content-Type': 'application/json', ...init.headers } });
   const text = await res.text();
   if (!res.ok) {
+    if (soft) return { error: `${res.status}` };
     if (res.status === 403) die(`403 from Google. Add ${auth.email} as an Owner of ${SITE} in Search Console, and enable the Search Console API in Google Cloud.\n${text}`);
     die(`${res.status} ${url}\n${text}`);
   }
@@ -102,12 +103,12 @@ if (cmd === 'sites') {
   const dim = args[1] || 'page';
   const r = await api(`https://searchconsole.googleapis.com/webmasters/v3/sites/${S}/searchAnalytics/query`, {
     method: 'POST',
-    body: JSON.stringify({ startDate: day(days + 2), endDate: day(2), dimensions: [dim], rowLimit: 100 }),
+    body: JSON.stringify({ startDate: day(days + 2), endDate: day(2), dimensions: dim.split(','), rowLimit: 100, ...(args[2] ? { dimensionFilterGroups: [{ filters: [{ dimension: 'page', operator: 'equals', expression: abs(args[2]) }] }] } : {}) }),
   });
   console.log(`Last ${days} days by ${dim} (data lags about 2 days)\n`);
   console.log('clicks  impr   ctr    pos   ' + dim);
   for (const row of r.rows || []) {
-    console.log(`${String(row.clicks).padStart(6)} ${String(row.impressions).padStart(6)} ${(row.ctr * 100).toFixed(1).padStart(5)}% ${row.position.toFixed(1).padStart(5)}  ${row.keys[0].replace(ORIGIN, '')}`);
+    console.log(`${String(row.clicks).padStart(6)} ${String(row.impressions).padStart(6)} ${(row.ctr * 100).toFixed(1).padStart(5)}% ${row.position.toFixed(1).padStart(5)}  ${row.keys.join('  ').replace(ORIGIN, '')}`);
   }
   if (!(r.rows || []).length) console.log('No data yet. A new property takes a few days to show anything.');
 } else if (cmd === 'inspect') {
@@ -125,7 +126,8 @@ if (cmd === 'sites') {
     const r = await api('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
       method: 'POST',
       body: JSON.stringify({ inspectionUrl: u, siteUrl: SITE }),
-    });
+    }, true);
+    if (r.error) { tally[`error ${r.error}`] = (tally[`error ${r.error}`] || 0) + 1; console.log(`${('error ' + r.error).padEnd(42)} ${'-'.padEnd(10)}  ${u.replace(ORIGIN, '')}`); continue; }
     const i = r.inspectionResult?.indexStatusResult || {};
     const state = i.coverageState || 'unknown';
     tally[state] = (tally[state] || 0) + 1;

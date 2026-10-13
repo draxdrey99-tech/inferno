@@ -76,7 +76,7 @@ export const GLOSSARY: Term[] = [
     slug: 'welcome-flow',
     category: 'flows',
     term: 'Welcome flow',
-    metaTitle: 'What Is a Welcome Flow? Email Sequence Explained',
+    metaTitle: 'Welcome Flow: What It Is and What to Send',
     metaDescription: 'A welcome flow is the automated email series sent when someone joins your list. Learn what it should include and how long it should be.',
     definition: 'A welcome flow is an automated series of emails sent to a new subscriber, introducing the brand and guiding them to a first purchase.',
     example: "A fashion label's new subscriber gets the welcome email at once, the brand story the next day, best sellers on day three and a reminder of the first-order code on day seven. Someone who buys on day two leaves the flow and enters post-purchase instead.",
@@ -257,7 +257,7 @@ export const GLOSSARY: Term[] = [
     "category": "metrics",
     "term": "Unsubscribe rate",
     "metaTitle": "What Is Unsubscribe Rate and What Is Normal?",
-    "metaDescription": "Unsubscribe rate is the share of recipients who opt out after an email. How to read it without panicking.",
+    "metaDescription": "Unsubscribe rate is the share of recipients who opt out after an email. How to read it, what is normal for ecommerce, and when to act.",
     "definition": "Unsubscribe rate is the percentage of recipients who opt out of your list after receiving an email.",
     example: "One Friday campaign draws far more opt-outs than usual. The team finds it went to everyone, including recent buyers of the featured product. A suppression rule for recent buyers solves it for the next sale.",
     "body": [
@@ -418,7 +418,7 @@ export const GLOSSARY: Term[] = [
     "category": "lists",
     "term": "Sunset policy",
     "metaTitle": "What Is an Email Sunset Policy?",
-    "metaDescription": "A sunset policy stops mailing people who never engage. Why it protects deliverability and how to set one up.",
+    "metaDescription": "A sunset policy stops mailing people who never engage. Why it protects deliverability and how to set one up in Klaviyo for a store.",
     "definition": "A sunset policy is a rule for removing or suppressing contacts who have not engaged with your emails for a set period.",
     example: "A tea shop sets a rule: after one hundred and eighty days with no click or purchase, a contact gets a three-email last-chance series. Those who do not respond are suppressed, and the shop's click rate improves on the next sends.",
     "body": [
@@ -648,7 +648,7 @@ export const GLOSSARY: Term[] = [
     "category": "strategy",
     "term": "Dark mode email",
     "metaTitle": "What Is Dark Mode in Email and How Do You Design for It?",
-    "metaDescription": "Dark mode changes how emails are displayed. How to design emails that still work when colours are inverted.",
+    "metaDescription": "Dark mode changes how emails are displayed. How to design emails with logos, images and colours that still work when inverted.",
     "definition": "Dark mode is a display setting that shows light content on dark backgrounds, and email clients may change an email's colours to match.",
     example: "A brand's black logo on a transparent background disappears when an email client inverts colours. It replaces the logo with a version that has a thin light outline, and tests every new email in dark mode before sending.",
     "body": [
@@ -815,7 +815,7 @@ export const GLOSSARY: Term[] = [
     "slug": "flow-filter",
     "category": "flows",
     "term": "Flow filter",
-    "metaTitle": "What Is a Flow Filter in Klaviyo?",
+    "metaTitle": "Klaviyo Flow Filters Explained, With Examples",
     "metaDescription": "A flow filter limits who can enter or stay in a flow. Learn how it differs from a trigger and common filters for ecommerce.",
     "definition": "A flow filter is a rule on a flow that decides which people are allowed to enter it or continue through it, such as excluding anyone who has already purchased.",
     "body": [
@@ -839,7 +839,7 @@ export const GLOSSARY: Term[] = [
     "slug": "cross-sell-email",
     "category": "flows",
     "term": "Cross-sell email",
-    "metaTitle": "What Is a Cross-Sell Email? Ecommerce Examples",
+    "metaTitle": "Cross-Sell Email Examples for Ecommerce Stores",
     "metaDescription": "A cross-sell email recommends products that complement what a customer just bought. Learn when to send it and how to keep it relevant.",
     "definition": "A cross-sell email recommends products that go well with something a customer has already bought, rather than repeating the same item.",
     "body": [
@@ -1357,7 +1357,7 @@ export const GLOSSARY: Term[] = [
     "slug": "merge-tags",
     "category": "strategy",
     "term": "Merge tags",
-    "metaTitle": "What Are Merge Tags in Email? Personalization Basics",
+    "metaTitle": "Klaviyo Merge Tags and Email Personalization Basics",
     "metaDescription": "Merge tags insert data such as a first name into an email. Learn how to use them well and avoid awkward blanks.",
     "definition": "Merge tags, also called personalization tags, are placeholders in an email that are replaced with stored data for each recipient, such as a first name or last product viewed.",
     "body": [
