@@ -231,6 +231,7 @@ export default async function BlogPost({
               <Link href="/work">See real client emails in the portfolio</Link>
               <Link href="/#proof">See the Klaviyo account screenshots</Link>
               <Link href="/services">All email marketing services</Link>
+              <Link href="/email-marketing-agency">Email marketing agency for ecommerce</Link>
             </nav>
 
             {post.tags?.length > 0 && (

@@ -53,6 +53,13 @@ export default async function FaqPage({ params }: Props) {
             or <Link className="text-link" href="/free-email-audit">book a free audit</Link>.
           </p>
         )}
+        {/agency|freelanc|hire|hiring|cost|pric|in-house/i.test(f.slug) && (
+          <p className="lede mt-8 max-w-3xl">
+            Comparing agencies? Read how to <Link className="text-link" href="/email-marketing-agency/best-ecommerce-email-marketing-agency">choose the best ecommerce email marketing agency</Link>,
+            or see the <Link className="text-link" href="/email-marketing-agency">email marketing agency page</Link> and the{' '}
+            <Link className="text-link" href="/hiring-guides/klaviyo-agency-pricing-models">pricing models guide</Link>.
+          </p>
+        )}
         {guidesForFaq(f.slug).length > 0 && (
           <>
             <h2 className="display-md mt-14">Guides that go deeper.</h2>
