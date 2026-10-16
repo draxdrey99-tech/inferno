@@ -578,7 +578,7 @@ export const USE_CASES: UseCase[] = [
   {
     slug: 'vegan-and-plant-based-food-brands',
     label: 'vegan and plant-based food brands',
-    metaTitle: 'Klaviyo Email Marketing for Vegan and Plant-Based Food Brands',
+    metaTitle: 'Klaviyo Email Marketing for Vegan & Plant-Based Brands',
     metaDescription:
       'Klaviyo flows and campaigns for vegan and plant-based food brands: taste-first welcome emails, recipe content, reorder timing and honest ingredient messaging.',
     h1: 'Klaviyo email marketing for vegan and plant-based food brands.',

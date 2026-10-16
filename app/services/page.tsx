@@ -6,7 +6,7 @@ import Faq from '@/components/Faq';
 import CtaBand from '@/components/CtaBand';
 import {USE_CASES} from '@/lib/use-cases';
 
-export const metadata=pageMeta({title:'Ecommerce Email Marketing Services',description:'Klaviyo management, email automation, campaign design, deliverability and retention strategy. One team for your ecommerce email channel.',path:'/services'});
+export const metadata=pageMeta({title:'Ecommerce Email Marketing Services: Klaviyo, Flows, Design',description:'Klaviyo management, email automation, campaign design, deliverability and retention strategy. One team for your ecommerce email channel.',path:'/services'});
 
 /**
  * Three honest positions on choosing between the five service pages,
@@ -80,6 +80,7 @@ export default function Services(){
     <Link href="/compare">Klaviyo comparisons</Link>
     <Link href="/email-calendar">Ecommerce email calendar</Link>
     <Link href="/tools">Free email tools</Link>
+    <Link href="/email-marketing-agency">Email marketing agency for ecommerce</Link>
     <Link href="/hiring-guides">How to hire an email agency</Link>
     <Link href="/flow-coverage-checklist">Flow coverage checklist</Link>
    </div>

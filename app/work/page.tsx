@@ -10,7 +10,7 @@ import { serviceForWork } from '@/lib/service-pages';
 import { SITE, WORK } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta({
-  title: 'Ecommerce Email Design Examples',
+  title: 'Ecommerce Email Design Examples: 9 Real Klaviyo Emails',
   description:
     'Nine real Klaviyo campaign and flow emails designed from scratch for ecommerce brands. Welcome flows, seasonal campaigns and product stories, shown in full.',
   path: '/work',

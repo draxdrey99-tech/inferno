@@ -5,6 +5,7 @@ import CtaBand from '@/components/CtaBand';
 import JsonLd from '@/components/JsonLd';
 import { FAQ_PAGES, faqSiblings, getFaq } from '@/lib/faq';
 import { GLOSSARY } from '@/lib/glossary';
+import { guidesForFaq } from '@/lib/crosslinks';
 import { getServicePage } from '@/lib/service-pages';
 import { breadcrumbLd, faqLd, pageMeta } from '@/lib/seo';
 
@@ -51,6 +52,14 @@ export default async function FaqPage({ params }: Props) {
             <Link className="text-link" href={`/services/${service.slug}`}>{service.navTitle.toLowerCase()} service</Link>{' '}
             or <Link className="text-link" href="/free-email-audit">book a free audit</Link>.
           </p>
+        )}
+        {guidesForFaq(f.slug).length > 0 && (
+          <>
+            <h2 className="display-md mt-14">Guides that go deeper.</h2>
+            <div className="related-links mt-6">
+              {guidesForFaq(f.slug).map((g) => <Link key={g.href} href={g.href}>{g.label}</Link>)}
+            </div>
+          </>
         )}
         <div className="related-links mt-8">
           {terms.map((t) => <Link key={t.slug} href={`/glossary/${t.slug}`}>{t.term}</Link>)}

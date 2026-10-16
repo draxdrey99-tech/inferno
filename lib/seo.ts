@@ -38,7 +38,7 @@ export function pageMeta({
   const url = `${SITE_URL}${path}`;
   const fullTitle = brand && !title.includes(SITE.name) ? `${title} | ${SITE.name}` : title;
   const displayTitle = fullTitle.length < 60 ? fullTitle : fullTitle.slice(0, 56).replace(/\s+\S*$/, '') + '…';
-  const displayDescription = description.length < 155 ? description : description.slice(0, 151).replace(/\s+\S*$/, '') + '…';
+  const displayDescription = description.length <= 160 ? description : description.slice(0, 156).replace(/\s+\S*$/, '') + '…';
   const ogImage = image
     ? image.startsWith('http')
       ? image
@@ -243,6 +243,8 @@ export function serviceLd(input: {
   name: string;
   description: string;
   path: string;
+  /** Place the service is offered to, e.g. 'San Francisco'. Defaults to worldwide. */
+  areaServed?: { name: string; type: 'Country' | 'City' };
 }) {
   const url = `${SITE_URL}${input.path}`;
   return {
@@ -253,7 +255,7 @@ export function serviceLd(input: {
     description: input.description,
     serviceType: input.name,
     provider: { '@id': `${SITE_URL}/#organization` },
-    areaServed: 'Worldwide',
+    areaServed: input.areaServed ? { '@type': input.areaServed.type, name: input.areaServed.name } : 'Worldwide',
     url,
     mainEntityOfPage: url,
     audience: {

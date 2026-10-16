@@ -22,6 +22,8 @@ const { FLOW_TEARDOWNS, flowSiblings } = await load('flow-teardowns.ts');
 const { COMPARISONS, comparisonSiblings } = await load('comparisons.ts');
 const { EVENTS, calendarSiblings, eventDates } = await load('calendar.ts');
 const { HIRING_GUIDES, hiringSiblings } = await load('hiring-guides.ts');
+const { AGENCY_PAGES, agencySiblings } = await load('agency.ts');
+const { LOCATIONS } = await load('agency-locations.ts');
 
 // Service slugs, read from source so this stays in sync with the site.
 const siteSrc = readFileSync(new URL('../lib/site.ts', import.meta.url), 'utf8');
@@ -44,6 +46,8 @@ const FAMILY = {
   compare: { minWords: 280, template: 110 },
   calendar: { minWords: 280, template: 110 },
   hiring: { minWords: 450, template: 110 },
+  agency: { minWords: 450, template: 110 },
+  local: { minWords: 380, template: 110 },
 };
 const MIN_UNIQUE_RATIO = 0.35;
 
@@ -183,6 +187,46 @@ check('hiring', HIRING_GUIDES, (g) => ({
   text: [g.answer, ...g.sections.flatMap((s) => [s.heading, ...s.body]), ...g.checklist, ...g.mistakes, g.scenario, ...g.faqs.map((f) => `${f.q} ${f.a}`)],
   title: g.metaTitle, desc: g.metaDescription, h1: g.title, lead: g.answer, service: g.service,
 }));
+check('agency', AGENCY_PAGES, (g) => ({
+  id: g.slug,
+  required: { answer: g.answer, sections: g.sections, checklist: g.checklist, suits: g.suits, notFor: g.notFor, faqs: g.faqs, metaDescription: g.metaDescription, service: g.service },
+  text: [g.answer, ...g.sections.flatMap((s) => [s.heading, ...s.body]), ...g.checklist, ...g.suits, ...g.notFor, ...g.faqs.map((f) => `${f.q} ${f.a}`)],
+  title: g.metaTitle, desc: g.metaDescription, h1: g.h1, lead: g.answer, service: g.service,
+}));
+check('local', LOCATIONS, (g) => ({
+  id: g.slug,
+  required: { answer: g.answer, sections: g.sections, faqs: g.faqs, nearby: g.nearby, metaDescription: g.metaDescription, service: g.service },
+  text: [g.answer, ...g.sections.flatMap((s) => [s.heading, ...s.body]), ...g.faqs.map((f) => `${f.q} ${f.a}`)],
+  title: g.metaTitle, desc: g.metaDescription, h1: g.h1, lead: g.answer, service: g.service,
+}));
+{
+  // Title and description budgets (Google truncates beyond these), place links and the no-office rule.
+  const locSlugs = new Set(LOCATIONS.map((l) => l.slug));
+  for (const [fam, items] of [['agency', AGENCY_PAGES], ['local', LOCATIONS]]) {
+    for (const it of items) {
+      if (it.metaTitle.length > 59) fail(fam, it.slug, `meta title is ${it.metaTitle.length} characters (max 59)`);
+      if (it.metaDescription.length > 155) fail(fam, it.slug, `meta description is ${it.metaDescription.length} characters (max 155)`);
+      for (const r of it.terms) if (!GLOSSARY.some((t) => t.slug === r)) fail(fam, it.slug, `term "${r}" does not exist`);
+    }
+  }
+  const slugs = new Set();
+  for (const it of [...AGENCY_PAGES, ...LOCATIONS]) {
+    if (slugs.has(it.slug)) fail('local', it.slug, 'slug collides with another agency or location page');
+    slugs.add(it.slug);
+  }
+  for (const l of LOCATIONS) {
+    for (const n of l.nearby) if (!locSlugs.has(n)) fail('local', l.slug, `nearby "${n}" does not exist`);
+    const text = [l.answer, ...l.sections.flatMap((s) => s.body), ...l.faqs.map((f) => f.a)].join(' ');
+    if (!/remote/i.test(text) || !/\b(no|not|without)\b[^.]*\boffice\b/i.test(text)) fail('local', l.slug, 'must say we are remote and have no office there');
+    if (/our (?:\w+ )?office in|(?:have|with|our) (?:a |an )?local team|our team in|based in /i.test(text)) fail('local', l.slug, 'implies a local presence');
+    const inbound = 1 + LOCATIONS.filter((o) => o.slug !== l.slug && o.nearby.includes(l.slug)).length;
+    if (inbound < 3) fail('local', l.slug, `only ${inbound} inbound internal links (min 3)`);
+  }
+  for (const it of AGENCY_PAGES) {
+    const inbound = 1 + AGENCY_PAGES.filter((o) => o.slug !== it.slug && agencySiblings(o.slug).some((s) => s.slug === it.slug)).length;
+    if (inbound < 3) fail('agency', it.slug, `only ${inbound} inbound internal links (min 3)`);
+  }
+}
 for (const [fam, items, sib] of [['integration', INTEGRATIONS, integrationSiblings], ['flow', FLOW_TEARDOWNS, flowSiblings], ['compare', COMPARISONS, comparisonSiblings], ['calendar', EVENTS, calendarSiblings], ['hiring', HIRING_GUIDES, hiringSiblings]]) {
   for (const it of items) {
     if (it.metaDescription.length > 160) fail(fam, it.slug, 'meta description over 160 characters');
@@ -214,10 +258,10 @@ for (const f of FAQ_PAGES) {
   if (inbound < 3) fail('faq', f.slug, `only ${inbound} inbound internal links (min 3)`);
 }
 
-const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length + EVENTS.length + HIRING_GUIDES.length;
+const total = GLOSSARY.length + FAQ_PAGES.length + USE_CASES.length + SUBJECT_LIBRARIES.length + HOWTOS.length + INTEGRATIONS.length + FLOW_TEARDOWNS.length + COMPARISONS.length + EVENTS.length + HIRING_GUIDES.length + AGENCY_PAGES.length + LOCATIONS.length;
 if (problems.length) {
   console.error(`\x1b[31m✗ Quality gate failed (${problems.length} problem${problems.length === 1 ? '' : 's'})\x1b[0m`);
   for (const p of problems) console.error('  - ' + p);
   process.exit(1);
 }
-console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison, ${EVENTS.length} calendar, ${HIRING_GUIDES.length} hiring)`);
+console.log(`\x1b[32m✓ Quality gate passed\x1b[0m: ${total} pages (${GLOSSARY.length} glossary, ${FAQ_PAGES.length} faq, ${USE_CASES.length} industry, ${SUBJECT_LIBRARIES.length} subject-line, ${HOWTOS.length} how-to, ${INTEGRATIONS.length} integration, ${FLOW_TEARDOWNS.length} flow, ${COMPARISONS.length} comparison, ${EVENTS.length} calendar, ${HIRING_GUIDES.length} hiring, ${AGENCY_PAGES.length} agency, ${LOCATIONS.length} local)`);

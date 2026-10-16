@@ -13,6 +13,8 @@ import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
 import { EVENTS } from '@/lib/calendar';
 import { HIRING_GUIDES } from '@/lib/hiring-guides';
+import { AGENCY_PAGES } from '@/lib/agency';
+import { LOCATIONS } from '@/lib/agency-locations';
 
 export const revalidate = 3600;
 
@@ -63,6 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...COMPARISONS.map((c) => ({ url: `${SITE_URL}/compare/${c.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/email-calendar`, lastModified: edited },
     ...EVENTS.map((e) => ({ url: `${SITE_URL}/email-calendar/${e.slug}`, lastModified: edited })),
+    { url: `${SITE_URL}/email-marketing-agency`, lastModified: edited },
+    ...AGENCY_PAGES.map((a) => ({ url: `${SITE_URL}/email-marketing-agency/${a.slug}`, lastModified: edited })),
+    ...LOCATIONS.map((l) => ({ url: `${SITE_URL}/email-marketing-agency/${l.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/hiring-guides`, lastModified: edited },
     ...HIRING_GUIDES.map((g) => ({ url: `${SITE_URL}/hiring-guides/${g.slug}`, lastModified: edited })),
     { url: `${SITE_URL}/tools`, lastModified: edited },

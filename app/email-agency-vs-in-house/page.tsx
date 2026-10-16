@@ -71,6 +71,7 @@ export default function VsPage() {
           <Link href="/hiring-guides/email-marketing-agency-vs-freelancer">Agency vs freelancer</Link>
           <Link href="/hiring-guides/when-to-hire-an-email-marketing-agency">When to hire an agency</Link>
           <Link href="/hiring-guides/klaviyo-agency-pricing-models">Pricing models</Link>
+          <Link href="/email-marketing-agency">Email marketing agency for ecommerce</Link>
         </div>
         <p className="lede mt-10">
           See <Link className="text-link" href="/services">what we do</Link> or{' '}

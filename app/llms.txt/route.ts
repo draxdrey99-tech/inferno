@@ -10,6 +10,8 @@ import { FLOW_TEARDOWNS } from '@/lib/flow-teardowns';
 import { COMPARISONS } from '@/lib/comparisons';
 import { EVENTS } from '@/lib/calendar';
 import { HIRING_GUIDES } from '@/lib/hiring-guides';
+import { AGENCY_PAGES } from '@/lib/agency';
+import { LOCATIONS } from '@/lib/agency-locations';
 import { SUBJECT_LIBRARIES } from '@/lib/subject-lines';
 import { AUDIT_CHECKS, PROOF, QUICK_ANSWER, SITE, SITE_URL, WORK } from '@/lib/site';
 
@@ -91,6 +93,12 @@ export async function GET() {
     '## Email calendar',
     '',
     ...EVENTS.map((e) => `- [${e.event}](${SITE_URL}/email-calendar/${e.slug}): ${e.answer}`),
+    '',
+    '## Email marketing agency',
+    '',
+    `- [Email marketing agency for ecommerce brands](${SITE_URL}/email-marketing-agency): Remote agency for Klaviyo flows, campaigns and deliverability.`,
+    ...AGENCY_PAGES.map((a) => `- [${a.h1}](${SITE_URL}/email-marketing-agency/${a.slug}): ${a.answer}`),
+    ...LOCATIONS.map((l) => `- [${l.h1}](${SITE_URL}/email-marketing-agency/${l.slug}): ${l.answer}`),
     '',
     '## Hiring guides',
     '',

@@ -143,7 +143,7 @@ export const HIRING_GUIDES: HiringGuide[] = [
   {
     slug: 'klaviyo-agency-pricing-models',
     title: 'Klaviyo agency pricing models explained',
-    metaTitle: 'Klaviyo Agency Pricing Models: Retainer, Project, Revenue Share',
+    metaTitle: 'Klaviyo Agency Pricing: Retainer, Project, Rev Share',
     metaDescription: 'How Klaviyo agencies price their work: monthly retainers, fixed projects and revenue share. What each model suits, where it goes wrong and what to ask.',
     answer: 'Klaviyo agencies usually charge by monthly retainer, by fixed project or by a share of attributed revenue. A retainer suits ongoing work, a project suits a defined build such as a flow set, and revenue share can align interests but needs a clear definition of what counts. Always ask what is included before comparing fees.',
     sections: [

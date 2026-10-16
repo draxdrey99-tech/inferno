@@ -329,7 +329,7 @@ export const INTEGRATIONS: Integration[] = [
     slug: 'smile-io',
     app: 'Smile.io',
     category: 'loyalty',
-    metaTitle: 'Klaviyo and Smile.io Integration Guide for Loyalty Programmes',
+    metaTitle: 'Klaviyo and Smile.io Integration: Loyalty Programmes',
     metaDescription: 'Connect Smile.io to Klaviyo: loyalty points and tier data that syncs, flows to build, setup order and how to keep reward emails useful, not noisy.',
     answer: 'Smile.io shares loyalty information with Klaviyo, such as points balances, reward activity and programme membership, as profile properties and events. You can then show balances in emails, announce earned rewards and build segments by loyalty status. The aim is useful reminders tied to real balances, not constant promotion.',
     events: [
@@ -441,7 +441,7 @@ export const INTEGRATIONS: Integration[] = [
     slug: 'typeform',
     app: 'Typeform',
     category: 'forms',
-    metaTitle: 'Klaviyo and Typeform Integration Guide for Quizzes and Forms',
+    metaTitle: 'Klaviyo and Typeform Integration: Quizzes and Forms',
     metaDescription: 'Use Typeform with Klaviyo to turn quiz and survey answers into profile data: what you can capture, flows to build, setup order and consent pitfalls.',
     answer: 'Typeform can pass quiz and survey answers into Klaviyo, usually through a connection or an automation tool, so each answer becomes profile data. That lets you personalise emails by what people told you, such as skin type or budget range. Keep questions few, record consent clearly and test that every answer lands where you expect.',
     events: [
@@ -478,7 +478,7 @@ export const INTEGRATIONS: Integration[] = [
     slug: 'shipstation',
     app: 'ShipStation',
     category: 'shipping',
-    metaTitle: 'Klaviyo and ShipStation Integration Guide for Shipping Emails',
+    metaTitle: 'Klaviyo and ShipStation Integration: Shipping Emails',
     metaDescription: 'How ShipStation shipping data can reach Klaviyo: tracking and delivery events, flows to build, setup order and how to keep shipping emails consistent.',
     answer: 'ShipStation handles labels and fulfilment, and its shipping and tracking details can reach Klaviyo through the connected store platform or a connector. With that data you can send branded shipping, delivery and post delivery messages. The main job is deciding which system sends the plain tracking notice, so customers get one clear message.',
     events: [
@@ -515,7 +515,7 @@ export const INTEGRATIONS: Integration[] = [
     slug: 'stamped-io',
     app: 'Stamped.io',
     category: 'reviews',
-    metaTitle: 'Klaviyo and Stamped.io Integration Guide for Reviews and Loyalty',
+    metaTitle: 'Klaviyo and Stamped.io Integration: Reviews and Loyalty',
     metaDescription: 'Connect Stamped.io to Klaviyo: review and loyalty data that syncs, flows to build, setup order and how to avoid overlapping review request emails.',
     answer: 'Stamped.io combines reviews with loyalty and referral features, and it can share that activity with Klaviyo. You can use reviews in emails, trigger thank yous, segment by reviewer status and, where used, reflect loyalty information. As with any review app, pick one sender for review requests and keep Klaviyo for the surrounding journey.',
     events: [
@@ -552,7 +552,7 @@ export const INTEGRATIONS: Integration[] = [
     slug: 'okendo',
     app: 'Okendo',
     category: 'reviews',
-    metaTitle: 'Klaviyo and Okendo Integration Guide for Reviews and Referrals',
+    metaTitle: 'Klaviyo and Okendo Integration: Reviews and Referrals',
     metaDescription: 'How Okendo works with Klaviyo: review, rating and referral data in your flows, a clear setup order and how to coordinate who sends review requests.',
     answer: 'Okendo is a reviews and customer marketing app that connects to Klaviyo so review and referral activity can feed your flows and segments. You can show ratings in emails, thank reviewers and separate them from non reviewers. Decide whether Okendo or Klaviyo sends review requests, and make the other stay quiet.',
     events: [

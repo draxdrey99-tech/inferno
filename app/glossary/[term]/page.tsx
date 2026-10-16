@@ -7,6 +7,7 @@ import { breadcrumbLd, pageMeta } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 import { GLOSSARY, getTerm, termSiblings } from '@/lib/glossary';
 import { FAQ_PAGES } from '@/lib/faq';
+import { guidesForTerm } from '@/lib/crosslinks';
 import { getServicePage } from '@/lib/service-pages';
 
 type Props = { params: Promise<{ term: string }> };
@@ -35,6 +36,7 @@ export default async function TermPage({ params }: Props) {
   const path = `/glossary/${t.slug}`;
   const service = getServicePage(t.service);
   const related = [...GLOSSARY.filter((g) => t.related.includes(g.slug)), ...termSiblings(t.slug)].filter((g, i, a) => a.findIndex((x) => x.slug === g.slug) === i);
+  const guides = guidesForTerm(t.slug);
   const faqs = FAQ_PAGES.filter((f) => f.terms.includes(t.slug)).slice(0, 3);
 
   return (
@@ -75,6 +77,14 @@ export default async function TermPage({ params }: Props) {
             <Link className="text-link" href={`/services/${service.slug}`}>{service.navTitle.toLowerCase()} service</Link>{' '}
             or <Link className="text-link" href="/free-email-audit">book a free audit</Link>.
           </p>
+        )}
+        {guides.length > 0 && (
+          <>
+            <h2 className="display-md mt-14">Guides that use this.</h2>
+            <div className="related-links mt-6">
+              {guides.map((g) => <Link key={g.href} href={g.href}>{g.label}</Link>)}
+            </div>
+          </>
         )}
         {related.length > 0 && (
           <div className="related-links mt-8">

@@ -127,6 +127,7 @@ export const FOOTER_NAV = [
   {
     title: 'What we do',
     links: [
+      { label: 'Email marketing agency', href: '/email-marketing-agency' },
       { label: 'Klaviyo email marketing', href: '/services/klaviyo-email-marketing' },
       { label: 'Email design', href: '/services/email-design' },
       { label: 'Email flows & automation', href: '/services/email-flows' },
@@ -139,6 +140,7 @@ export const FOOTER_NAV = [
     links: [
       { label: 'About', href: '/about' },
       { label: 'Work', href: '/work' },
+      { label: 'Where we work', href: '/email-marketing-agency/usa' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
     ],

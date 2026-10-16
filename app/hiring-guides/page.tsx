@@ -31,7 +31,7 @@ export default function HiringIndex() {
           ))}
         </ul>
         <p className="mt-10 max-w-3xl text-[0.95rem] text-bone/75">
-          Also see <Link className="text-link" href="/email-agency-vs-in-house">agency vs in-house</Link> and the <Link className="text-link" href="/work">work we have done</Link>.
+          Also see our <Link className="text-link" href="/email-marketing-agency">email marketing agency</Link> page, <Link className="text-link" href="/email-agency-vs-in-house">agency vs in-house</Link> and the <Link className="text-link" href="/work">work we have done</Link>.
         </p>
       </section>
       <CtaBand />

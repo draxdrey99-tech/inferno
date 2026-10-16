@@ -40,7 +40,7 @@ import {
 export const metadata: Metadata = pageMeta({
   title: 'Ecommerce Email Marketing Agency | Inferno Emails',
   description:
-    'Email marketing agency for ecommerce brands. We build Klaviyo flows, design campaigns in your brand and fix deliverability. Free audit, no obligation.',
+    'Klaviyo email marketing agency for ecommerce brands. Flows, campaign design and deliverability from one team. A free audit shows what to fix first.',
   path: '/',
 });
 
@@ -521,6 +521,9 @@ export default function HomePage() {
             </CalendlyLink>
             <Link href="/free-email-audit" className="btn-line ml-6">
               Full audit scope
+            </Link>
+            <Link href="/email-marketing-agency" className="btn-line ml-6">
+              Where we work
             </Link>
             <p className="mt-3 text-[0.8125rem] text-mute">
               30 minutes. No obligation. We quote after, and only if we can
